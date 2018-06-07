@@ -29,6 +29,7 @@ Contents:
    python3.rst
    windows.rst
    diversity.rst
+   old_versions.rst
 
 
 Indices and tables
