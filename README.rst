@@ -1,1 +1,1 @@
-Victor Stinner's notes: http://vstinner.readthedocs.io/
+Python Development Documentation by Victor Stinner: http://pythondev.readthedocs.io/

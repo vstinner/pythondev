@@ -1,5 +1,7 @@
-Victor Stinner's Notes
-======================
+Python Development Documentation
+================================
+
+by `Victor Stinner <http://vstinner.readthedocs.io/victor_stinner.html>`_.
 
 .. raw:: html
 
