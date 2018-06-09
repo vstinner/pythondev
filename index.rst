@@ -23,6 +23,7 @@ Contents:
    windows.rst
    diversity.rst
    old_versions.rst
+   datetime.rst
 
 
 Indices and tables
