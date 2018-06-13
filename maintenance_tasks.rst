@@ -35,3 +35,15 @@ Tasks
 * Update external dependencies
 * Update unicodedata on new Unicode release. Latest update (Unicode 11.0):
   https://bugs.python.org/issue33778. Maintainer: Benajamin Peterson.
+
+Administrators
+==============
+
+Some actions require administrators who are the only ones allowed to do
+actions.
+
+* Mailing lists: create a new mailing list. Maintainer: "postmaster".
+* Bug tracker: give "bug triage permission". Administrators: Ezio Melotti,
+  Ned Deily(?), R. David Murray.
+* GitHub cpython: add new core developers. Administrators: Brett Cannon,
+  Ned Deily, others(?).

@@ -24,6 +24,8 @@ Contents:
    diversity.rst
    old_versions.rst
    datetime.rst
+   mentoring.rst
+   core_devs.rst
 
 
 Indices and tables

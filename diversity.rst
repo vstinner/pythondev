@@ -4,7 +4,7 @@
 Diversity
 +++++++++
 
-See also :ref:`CPython community <cpython-community>`.
+See also :ref:`CPython community <community>`.
 
     *"You can't solve people problems with software."*
     -- `Baldur Bjarnason

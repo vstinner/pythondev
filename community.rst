@@ -1,10 +1,10 @@
-.. _cpython-community:
+.. _community:
 
 +++++++++++++++++
 CPython community
 +++++++++++++++++
 
-See also: :ref:`Diversity <diversity>`.
+See also: :ref:`Diversity <diversity>` and :ref:`Mentoring <mentoring>`.
 
     *Come for the Language, Stay for the Community*
     -- `Brett Cannon (and Naomi Ceder) <https://twitter.com/brettsky/status/764862972468408320>`_
