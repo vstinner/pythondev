@@ -14,6 +14,7 @@ Statistics
 
 * [python-committers] Statistics: growth of core dev number vs growth of the code size/complexity
   https://mail.python.org/pipermail/python-committers/2017-December/004983.html
+* https://mail.python.org/pipermail/python-committers/2018-June/005517.html
 
 October 2017:
 

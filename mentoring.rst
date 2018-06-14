@@ -6,6 +6,11 @@ CPython mentoring
 
 See also :ref:`Community <community>`.
 
+Working Hours
+=============
+
+* https://mail.python.org/pipermail/python-committers/2018-May/005396.html
+
 Stop fixing easy issues
 =======================
 
