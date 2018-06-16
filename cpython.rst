@@ -178,9 +178,10 @@ Documentation
 * Mirror: http://python.readthedocs.io/en/latest/ Still use the old Mercurial repository.
 * https://www.python.org/dev/peps/pep-0545/ i18n doc
 
+.. _vendored-libs:
 
-Embedded libraries
-==================
+Vendored external libraries
+===========================
 
 Update dependencies: https://github.com/python/cpython-source-deps/blob/master/README.rst
 

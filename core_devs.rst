@@ -2,6 +2,12 @@
 CPython Core Developers
 +++++++++++++++++++++++
 
+What is a CPython Core Developer?
+=================================
+
+Video of Mariatta Wijaya's talk: "What is a Python Core Developer?" (Pycon US
+2018): https://www.youtube.com/watch?v=hhj7eb6TrtI
+
 List of Core developers
 =======================
 
