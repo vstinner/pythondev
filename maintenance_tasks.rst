@@ -30,7 +30,7 @@ Tasks
   `meta bug tracker <http://psf.upfronthosting.co.za/roundup/meta/>`_ for bugs
   of bugs.python.org itself (not for Python bugs). Roundup is going to be
   deployed in a Docker container on OpenShift. Maintainers:
-  Ezio Melotti, Brett Cannon, Maciej Szulik.
+  Ezio Melotti, Maciej Szulik.
 * `Run pythontest.net <http://www.pythontest.net/>`_. Maintainers: ?
 * Run GitHub bots. Maintainers: Brett Cannon and Mariatta Wijaya.
 * Update `vendored external libraries <vendored-libs>`. Maintainers: ?
@@ -46,6 +46,6 @@ actions.
 * Mailing lists: create a new mailing list. Maintainer: "postmaster" (who is
   the current postmaster?).
 * Bug tracker: give "bug triage permission". Administrators: Ezio Melotti,
-  Ned Deily(?), R. David Murray.
+  Ned Deily(?), R. David Murray, Brett Cannon.
 * GitHub cpython: add new core developers. Administrators: Brett Cannon,
-  Ned Deily, others(?).
+  release managers (ex: Ned Deily).
