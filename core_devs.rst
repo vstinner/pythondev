@@ -8,6 +8,20 @@ What is a CPython Core Developer?
 Video of Mariatta Wijaya's talk: "What is a Python Core Developer?" (Pycon US
 2018): https://www.youtube.com/watch?v=hhj7eb6TrtI
 
+How to increase the number of core developers?
+==============================================
+
+`Guido van Rossum, June 2018
+<https://mail.python.org/pipermail/python-committers/2018-June/005519.html>`_
+about the low number of active core developers:
+
+    The best course of action seems to be to take measures to acquire new
+    committers (and contributors), not to try and reactivate old inactive
+    committers.
+
+* :ref:`Mentoring <mentoring>`
+* Write less code, spend more time on reviews and mentoring
+
 List of Core developers
 =======================
 

@@ -19,6 +19,10 @@ See also :ref:`CPython community <community>`.
     because of this. We will not be silenced."*
     -- `Mariatta Wijaya <https://twitter.com/mariatta/status/988008670205100033>`__ (April 2018)
 
+    *"Increasing the core's diversity is a very important goal to ensure the
+    future health of Python."*
+    -- `Guido van Rossum <https://mail.python.org/pipermail/python-committers/2018-May/005389.html>`__ (May 2018)
+
 First issue: become aware of diversity issues
 =============================================
 
