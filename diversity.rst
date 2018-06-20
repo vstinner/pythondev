@@ -145,6 +145,8 @@ Diversity Statement:
 
 * https://www.python.org/community/diversity/
 * http://wiki.python.org/moin/DiversityInPython
+* `Mentoring and diversity for Python <https://lwn.net/Articles/757715/>`_
+  (June, 2018)
 
 For example, don't say "hey *guys*!" or "fellas" but "hey **everyone**!", forks
 or "y'all".
