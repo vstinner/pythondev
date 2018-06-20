@@ -25,7 +25,7 @@ Tasks
   Read logs of each buildbot failure, check if the failure is known. If the
   failure is known, maybe mention the new failure in the existing bug.
   Otherwise, open a new bug. Then reply to the email with a link to the bug.
-  Maintainers: Victor Stinner, Pablo Salingo Salgado.
+  Maintainers: Victor Stinner, Pablo Galindo Salgado.
 * Run bugs.python.org: fix bugs, deploy new version. See the
   `meta bug tracker <http://psf.upfronthosting.co.za/roundup/meta/>`_ for bugs
   of bugs.python.org itself (not for Python bugs). Roundup is going to be
