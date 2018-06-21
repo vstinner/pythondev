@@ -68,6 +68,12 @@ Mentoring
 Work In Progress
 ================
 
+* `Getting along in the Python community <https://lwn.net/Articles/757714/>`_
+  by Guido van Rossum and Brett Cannon (May 2018):
+
+  When someone is having an emotional response to a post, they should wait to
+  respond. Guido: *"Sitting on your hands is often a good response"*.
+
 * Reserve easy issues to non-core developers: `[python-committers] Please stop
   fixing easy issues right now! Leave them as exercices to newcomes
   <https://mail.python.org/pipermail/python-committers/2017-June/004564.html>`_
