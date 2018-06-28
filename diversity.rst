@@ -98,6 +98,9 @@ Articles:
 Leaving LLVM because of the CoC
 ===============================
 
+* `Diversity and Discrimination in Open Source
+  <https://quillette.com/2018/06/26/diversity-and-discrimination-in-open-source/>`_
+  by Rafael Avila de Espindola
 * `[llvm-dev] I am leaving llvm
   <http://lists.llvm.org/pipermail/llvm-dev/2018-May/122922.html>`_ (May 2, 2018)
   by Rafael Avila
