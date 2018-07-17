@@ -22,8 +22,10 @@ Build a Windows VM
 
 * Windows 10 or newer is recommanded. Get a "multi-version" of Windows 10
   (no N, KN or VL variant) and use a "Pro - Retail" product key.
-* At least 40 GB of disk space is needed, 60 GB or more is recommended.
-
+* At least 60 GB of disk space is needed: Windows needs 15-20 GB,
+  Visual Studio needs 10 GB. Having at least 60 GB is recommended to be
+  able to compile multiple Python versions, install other tools, upgrade
+  Windows, etc.
 
 Python and Visual Studio version matrix
 =======================================
