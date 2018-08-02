@@ -26,6 +26,7 @@ Contents:
    datetime.rst
    mentoring.rst
    core_devs.rst
+   add_source_file.rst
 
 
 Indices and tables
