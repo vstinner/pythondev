@@ -28,3 +28,19 @@ Check that it works::
     #1  0x00007fb0c3a53006 in test_raise_signal (self=<module at remote 0x7fb0cb624758>,
 
 Ok, Python crashes generate coredump files and gdb is able to load them.
+
+Load python-gdb.py
+==================
+
+Load it manually::
+
+   (gdb) source /path/to/python-gdb.py
+
+Add directory containing Python source code to "safe path", to automatically
+load python-gdb.py when debugging Python. Add the following line to your
+``~/.gdbinit``::
+
+   add-auto-load-safe-path ~/prog/
+
+In my case, Python is in ``~/prog/python/master``, but I chose to allow to load
+any Python script from ``~/prog/``.
