@@ -263,38 +263,28 @@ and `cpython-source-deps <https://github.com/python/cpython-source-deps>`_.
 Supported architectures
 =======================
 
-* Intel x86 and x86_64 (aka AMD64)
-* PPC64
-* ARMv7
+Well supported architectures:
 
-Maybe some others?
+* Intel x86 (32-bit) and x86_64 (64-bit, aka AMD64)
+
+Best effort support architectures:
+
+* PPC64: should be well supported in practice
+* ARMv7: should be well supported in practice
+* s390x
 
 Supported platforms
 ===================
 
-PEP 11 lists removal of supported platforms:
+Well supported platforms
+------------------------
 
-* MS-DOS: 2014:
-  `bpo-22591: Drop support of MS-DOS (DJGPP compiler)
-  <https://bugs.python.org/issue22591>`_,
-  `commit b71c7dc9 <https://github.com/python/cpython/commit/b71c7dc9ddd6997be49ed6aaabf99a067e2c0388>`_
-* Python 3.4: VMS, OS/2, Windows 2000
+Well supported platforms on Python 3.7 and 2.7:
 
-  * VMS:
-    `bpo-16136: Removal of VMS support <https://bugs.python.org/issue16136>`_,
-    `main removal commit <https://github.com/python/cpython/commit/af01f668173d4061893148b54a0f01b91c7716c2>`_
-    (`remove VMSError doc commit
-    <https://github.com/python/cpython/commit/b2788fe854173b6b213010a7462c05594d703c06>`_)
-
-* Python 3.7: IRIX
-
-PEP 11 on Windows:
-
-    CPython's Windows support now follows [Microsoft product support
-    lifecycle]. A new feature release X.Y.0 will support all Windows releases
-    whose extended support phase is not yet expired. Subsequent bug fix
-    releases will support the same Windows releases as the original feature
-    release (even if the extended support phase has ended).
+* Linux
+* Windows Vista and newer for Python 3.7, Windows XP and newer for Python 2.7
+* FreeBSD 10 and newer
+* macOS Leopard (macOS 10.6, 2008) and newer
 
 Windows:
 
@@ -309,6 +299,13 @@ Windows:
   <https://hg.python.org/cpython/rev/57e2549cc9a6>`_ and `change2
   <https://hg.python.org/cpython/rev/f64d0b99d405>`_.
 * Python 2.7 supports Windows XP and newer
+* PEP 11 on Windows:
+
+    CPython's Windows support now follows [Microsoft product support
+    lifecycle]. A new feature release X.Y.0 will support all Windows releases
+    whose extended support phase is not yet expired. Subsequent bug fix
+    releases will support the same Windows releases as the original feature
+    release (even if the extended support phase has ended).
 
 FreeBSD:
 
@@ -323,13 +320,11 @@ macOS:
 * February 2018: Tiger (macOS 10.4, 2004) buildbots removed, which indirectly
   means that Tiger is no longer officially supported.
 
-Well supported platforms on Python 3.6 and 2.7:
-
-* Linux
-* Windows: Vista and newer for Python 3.6, XP and newer for Python 2.7
-* FreeBSD
-
 Tested by Travis CI and buildbots.
+
+
+Best effort and unofficial platforms
+------------------------------------
 
 Supported platform with best effort support:
 
@@ -351,3 +346,37 @@ Unofficial projects:
 * `PythonD <http://www.caddit.net/pythond/>`_:  PythonD is a 32-bit,
   multi-threaded, networking- and OpenGL-enabled Python interpreter for DOS and
   Windows.
+
+Removed platforms
+-----------------
+
+PEP 11 lists removal of supported platforms:
+
+* MS-DOS: 2014:
+  `bpo-22591: Drop support of MS-DOS (DJGPP compiler)
+  <https://bugs.python.org/issue22591>`_,
+  `commit b71c7dc9 <https://github.com/python/cpython/commit/b71c7dc9ddd6997be49ed6aaabf99a067e2c0388>`_
+* Python 3.4: VMS, OS/2, Windows 2000
+
+  * VMS:
+    `bpo-16136: Removal of VMS support <https://bugs.python.org/issue16136>`_,
+    `main removal commit <https://github.com/python/cpython/commit/af01f668173d4061893148b54a0f01b91c7716c2>`_
+    (`remove VMSError doc commit
+    <https://github.com/python/cpython/commit/b2788fe854173b6b213010a7462c05594d703c06>`_)
+
+* Python 3.7: IRIX
+
+I want CPython to support my platform!
+--------------------------------------
+
+In short, there are 2 conditions:
+
+* the full test suite have to pass (``./python -m test`` succeess)
+* a CPython core developer has to be responsible of the platform to fix issues
+  specific to this platform on :ref:`CIs <ci>`.
+
+If it's not possible, the best option is to maintain a fork of CPython (fork
+of the Git repository) to maintain patches to top of the master branch
+(and maybe also patches on other branches).
+
+More detail in the :pep:`11`.
