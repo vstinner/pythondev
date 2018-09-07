@@ -31,6 +31,9 @@ See also: :ref:`Diversity <diversity>` and :ref:`Mentoring <mentoring>`.
 Talks
 =====
 
+* `Setting expectations for open source participation
+  <https://snarky.ca/setting-expectations-for-open-source-participation/>`__
+  by Brett Cannon (September 2018)
 * `The give and take of open source
   <https://www.youtube.com/watch?v=y19s6vPpGXA>`_
   by Brett Cannon, JupyterCon, August 2017
