@@ -152,7 +152,7 @@ Diversity Statement:
   (June, 2018)
 
 For example, don't say "hey *guys*!" or "fellas" but "hey **everyone**!", forks
-or "y'all".
+or "y'all": see `heyguys.cc <https://heyguys.cc/>`_.
 
 Comment template:
 
