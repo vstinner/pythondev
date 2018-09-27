@@ -179,3 +179,4 @@ Links
 * `Diversity and inclusion: Stop talking and do your homework
   <https://opensource.com/article/17/9/diversity-and-inclusion-innovation>`_
   by Emma Irwin (Sep 2017)
+* https://github.com/opal/opal/issues/941
