@@ -77,3 +77,20 @@ The following benchmarks were removed from pyperformance:
   <https://hg.python.org/benchmarks/file/198c43ca2f5b/performance/pystone.py>`_
 * `tuple_gc_hell.py
   <https://hg.python.org/benchmarks/file/198c43ca2f5b/performance/tuple_gc_hell.py>`_
+
+
+Zero copy
+=========
+
+Python3::
+
+    offset = 0
+    view = memoryview(large_data)
+    while True:
+        chunk = view[offset:offset + 4096]
+        offset += file.write(chunk)
+
+This copy creates views on ``large_data`` without copying bytes, no bytes is
+copied in memory.
+
+

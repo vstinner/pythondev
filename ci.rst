@@ -4,8 +4,6 @@
 Python Continious Integration: Travis CI, AppVeyor, VSTS, Buildbots
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-See also :ref:`CPython <cpython>`.
-
 Buildbots links
 ===============
 

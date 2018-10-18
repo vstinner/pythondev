@@ -48,3 +48,13 @@ any Python script from ``~/prog/``.
 On Fedora, the script is provided as::
 
    /usr/lib/debug/usr/lib64/libpython3.6m.so.1.0-3.6.6-1.fc28.x86_64.debug-gdb.py
+
+
+pudb
+====
+
+Put a breakpoint:
+
+* hit 'm', search 'test_api' to open glance.tests.unit.test_api
+
+

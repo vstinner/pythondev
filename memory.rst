@@ -4,6 +4,33 @@
 Python Memory
 +++++++++++++
 
+pytracemalloc
+=============
+
+Usage:
+
+* Write a scenario to reproduce the memory leak. The ideal is a scenario taking
+  only a few minutes
+* Enable tracemalloc and replay the scenario
+* Take regulary tracemalloc snapshots
+* Compare snapshots
+* Enjoy!
+
+If your application only uses Python memory allocators, tracemalloc must show
+your the exact memory usage counting every single bytes.
+
+If a C extensions uses other memory allocators like ``malloc()``, tracemalloc
+is unable to trace these allocations.
+
+If the application allocates a lot of memory to process some data (memory peak)
+and then releases almost all memory, except a few small objects, the memory may
+become fragmented. For example, the application only uses 20 MB whereas the
+operating system see 24 or 30 MB.
+
+See `pytracemalloc <http://pytracemalloc.readthedocs.org/>`_: backport to
+Python 2.7 (need to patch and compile Python manually).
+
+
 TODO
 ====
 
@@ -14,8 +41,7 @@ TODO
 Benchmarks
 ==========
 
-Issue #13483:
-http://bugs.python.org/file26069/tuples.py
+Issue #13483: http://bugs.python.org/file26069/tuples.py
 
 
 Memory Fragmentation
