@@ -111,6 +111,13 @@ Leaving LLVM because of the CoC
   <https://lobste.rs/s/nf3xgg/i_am_leaving_llvm#c_ubyrb0>`_
 * http://nondot.org/sabre/2018-05-02-Rafael.html
 
+NodeJS
+======
+
+`Why I’m leaving the Node.js project
+<https://medium.com/@nebrius/why-im-leaving-the-node-js-project-bff946845a77>`_
+(August, 2017) by Bryan Hughes.
+
 Issues with speaker diversity in tech conference
 ================================================
 
