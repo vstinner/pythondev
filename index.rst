@@ -32,6 +32,11 @@ Contents:
    mentoring.rst
    core_devs.rst
    history.rst
+   portability.rst
+   cpython_impl_optim.rst
+   c_in_cpython.rst
+   bugs_found_by_python.rst
+   pep393_perf.rst
    misc.rst
 
 
