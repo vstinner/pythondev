@@ -180,7 +180,7 @@ Links
   * Wikipedia: `Unconscious bias training
     <https://en.wikipedia.org/wiki/Unconscious_bias_training>`_
   * `Companies are on the hook if their hiring algorithms are biased
-    <https://blog.github.com/2018-10-22-incident-update/>`_.
+    <https://qz.com/1427621/companies-are-on-the-hook-if-their-hiring-algorithms-are-biased/>`_.
     "After an audit of the algorithm, the resume screening company found that
     the algorithm found **two factors to be most indicative of job
     performance**: their name was **Jared**, and whether they **played high
