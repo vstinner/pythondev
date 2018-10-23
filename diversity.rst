@@ -179,6 +179,14 @@ Links
     <https://en.wikipedia.org/wiki/Implicit_stereotype>`_
   * Wikipedia: `Unconscious bias training
     <https://en.wikipedia.org/wiki/Unconscious_bias_training>`_
+  * `Companies are on the hook if their hiring algorithms are biased
+    <https://blog.github.com/2018-10-22-incident-update/>`_.
+    "After an audit of the algorithm, the resume screening company found that
+    the algorithm found **two factors to be most indicative of job
+    performance**: their name was **Jared**, and whether they **played high
+    school lacrosse**.  Girouard’s client did not use the tool." and “It’s a
+    really great representation of part of the problem with these systems, that
+    **your results are only as good as your training data**, (...)”
 
 * `The Zero Theory (first edition)
   <https://www.linkedin.com/pulse/zero-theory-first-edition-ha%C3%AFkel-gu%C3%A9mar/>`_
