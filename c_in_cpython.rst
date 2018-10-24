@@ -70,16 +70,16 @@ PyCompactUnicodeObject::
 Macros
 ======
 
- * Add assertions using "a,b" syntax. Ugly example::
+* Add assertions using "a,b" syntax. Ugly example::
 
-    #define PyUnicode_READY(op)                     \
-        (assert(PyUnicode_Check(op)),               \
-         (PyUnicode_IS_READY(op) ?                  \
-          0 : _PyUnicode_Ready((PyObject *)(op))))
+   #define PyUnicode_READY(op)                     \
+       (assert(PyUnicode_Check(op)),               \
+        (PyUnicode_IS_READY(op) ?                  \
+         0 : _PyUnicode_Ready((PyObject *)(op))))
 
- * Py_SAFE_DOWNCAST
- * Py_ARRAY_LENGTH(array): check at compile time if the argument is an array
- * do { ... } while (0), ex: Py_DECREF()
+* Py_SAFE_DOWNCAST
+* Py_ARRAY_LENGTH(array): check at compile time if the argument is an array
+* do { ... } while (0), ex: Py_DECREF()
 
 Examples::
 
@@ -89,22 +89,22 @@ Examples::
 Memory allocation
 =================
 
- * pymalloc
- * free list: unbound method, MemoryError instance, frame, list, set, tuple
- * overallocate
+* pymalloc
+* :ref:`free list <free-lists>`
+* overallocate
 
-   - list: 12.5%
-     new_allocated = (newsize >> 3) + (newsize < 9 ? 3 : 6);
-   - string formatting: 25%
-     newlen += newlen / 4;
-   - depend on the performance of realloc(): fast on Linux, slow on Windows
-     (older than Windows 7)
+  - list: 12.5%
+    new_allocated = (newsize >> 3) + (newsize < 9 ? 3 : 6);
+  - string formatting: 25%
+    newlen += newlen / 4;
+  - depend on the performance of realloc(): fast on Linux, slow on Windows
+    (older than Windows 7)
 
- * Unicode: PyUnicodeWriter, PyAccu
+* Unicode: PyUnicodeWriter, PyAccu
+* preallocated object: MemoryError instances
 
 dict
 ====
 
- * hash()
- * hash vulnerability
-
+* hash()
+* hash vulnerability

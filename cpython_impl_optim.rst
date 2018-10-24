@@ -15,6 +15,46 @@ IO
 * Efficient buffering: FileIO.read() and FileIO.readall()
 * HTTP and socket buffering
 
+
+.. _free-lists:
+
+Free lists
+==========
+
+When a Python object is destroyed, its type can decided to keep the memory
+alive to optimize the allocation of future objects. Bultin types using a
+free list: see ``clear_freelists()`` in ``Modules/gcmodule.c``.
+
+Python 3.8 types using a free list:
+
+* Common types:
+
+  * dict: PyDictObject
+  * float: PyFloatObject
+  * list: PyListObject
+  * set: PySetObject
+  * str: PyUnicodeObject
+  * tuple: PyTupleObject
+
+* Other types:
+
+  * async generator value: _PyAsyncGenWrappedValue
+  * builtin function: PyCFunctionObject
+  * contextvars.Context: PyContext
+  * frame: PyFrameObject
+  * method: PyMethodObject
+
+Python 2.7 types using a free list:
+
+* builtin function: PyCFunctionObject
+* float: PyFloatObject
+* frame: PyFrameObject
+* method: PyMethodObject
+* int (but not long): PyIntObject
+* tuple: PyTupleObject
+* unicode: PyUnicodeObject
+
+
 Others
 ======
 
