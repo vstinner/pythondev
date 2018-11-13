@@ -14,6 +14,7 @@ Contents:
    :maxdepth: 1
 
    ci.rst
+   debug_tools.rst
    community.rst
    files.rst
    platforms.rst
