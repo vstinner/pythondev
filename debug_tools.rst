@@ -4,6 +4,57 @@ Python Debug Tools
 
 Spoiler: Python 3.6 and newer provide a much better debugging experience!
 
+Take Away
+=========
+
+Command to enable debug tools:
+
+* Python 3.7 and newer: ``python3 -X dev``
+* Python 3.6 and newer: ``PYTHONMALLOC=debug python3 -Wd -X faulthandler``
+
+Tools:
+
+* faulthandler
+* PYTHONMALLOC=debug: builtin memory debugger
+* tracemalloc
+
+Get a traceback on a crash
+==========================
+
+Example of crash, ``crash.py``::
+
+    import ctypes
+
+    def bug():
+        ctypes.string_at(0)
+
+    bug()
+
+Output::
+
+    $ python3 crash.py
+    Segmentation fault (core dumped)
+
+... not very helpful :-( Enable faulthandler to get the Python traceback where
+the crash occurred. ``python3 -X dev`` (Python 3.7 and newer) enables
+automatically faulthandler.
+
+faulthandler provides a traceback on a crash::
+
+    $ python3 -X faulthandler crash.py
+    Fatal Python error: Segmentation fault
+
+    Current thread 0x00007f3bb3998700 (most recent call first):
+      File "/usr/lib64/python3.6/ctypes/__init__.py", line 487 in string_at
+      File "crash.py", line 4 in bug
+      File "crash.py", line 6 in <module>
+    Segmentation fault (core dumped)
+
+To debug a deadlock, ``faulthandler.dump_traceback_later()`` can be implemented
+to implement a "watchdog": dump the traceback where Python is stuck if Python
+main code is blocked for longer than N seconds, and exit Python.
+
+
 ResourceWarning
 ===============
 
