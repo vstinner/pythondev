@@ -39,6 +39,7 @@ Contents:
    bugs_found_by_python.rst
    pep393_perf.rst
    misc.rst
+   links.rst
 
 
 Indices and tables
