@@ -4,6 +4,8 @@ Python Debug Tools
 
 Spoiler: Python 3.6 and newer provide a much better debugging experience!
 
+See also :ref:`Debug a CPython crash <crash>`.
+
 Take Away
 =========
 
@@ -17,6 +19,8 @@ Tools:
 * faulthandler
 * PYTHONMALLOC=debug: builtin memory debugger
 * tracemalloc
+
+.. _faulthandler:
 
 Get a traceback on a crash
 ==========================

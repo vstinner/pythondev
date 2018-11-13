@@ -1,6 +1,10 @@
+.. _crash:
+
 +++++++++++++++++++++
 Debug a CPython crash
 +++++++++++++++++++++
+
+See also :ref:`faulthandler (debug tool) <faulthandler>`.
 
 Core dump
 =========
@@ -58,3 +62,9 @@ Put a breakpoint:
 * hit 'm', search 'test_api' to open glance.tests.unit.test_api
 
 
+See also
+========
+
+* `Crash reporting in desktop Python applications
+  <https://blogs.dropbox.com/tech/2018/11/crash-reporting-in-desktop-python-applications>`_
+  by Nikhil Marathe and Max Bélanger (November 2018)
