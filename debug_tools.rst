@@ -186,3 +186,10 @@ allocation traceback are the same, but usually they are different.
 Sadly, on Python 3.5 and older, the only way to get the Python builtin memory
 allocator is to recompile Python (ex: using ``./configure --with-pydebug``
 which changes the ABI...).
+
+
+gc.set_threshold(5)
+===================
+
+https://mail.python.org/pipermail/python-dev/2018-June/153857.html
+
