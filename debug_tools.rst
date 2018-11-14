@@ -193,3 +193,12 @@ gc.set_threshold(5)
 
 https://mail.python.org/pipermail/python-dev/2018-June/153857.html
 
+
+gdb: watch when reference count changes
+=======================================
+
+Use a memory breakpoint like::
+
+    watch ((PyObject*)MEMORY_ADDRESS)->ob_refcnt
+
+where ``MEMORY_ADDRESS`` is the address of a Python object.
