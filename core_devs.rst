@@ -25,6 +25,7 @@ about the low number of active core developers:
 List of Core developers
 =======================
 
+* https://discuss.python.org/groups/committers
 * https://github.com/orgs/python/teams/python-core/members
 * https://bugs.python.org/user?iscommitter=1&@action=search&@sort=username&@pagesize=300
 * https://devguide.python.org/developers/

@@ -1,8 +1,8 @@
 .. _community:
 
-+++++++++++++++++
-CPython community
-+++++++++++++++++
+++++++++++++++++
+Python community
+++++++++++++++++
 
 See also: :ref:`Diversity <diversity>` and :ref:`Mentoring <mentoring>`.
 
@@ -47,10 +47,7 @@ Talks
 Communication channels
 ======================
 
-* python-ideas mailing list
-* python-dev mailing list
-* python-committers mailing list
-* #python-dev IRC channel on Freenode
+See :ref:`Communication Channels <communication>`.
 
 Documentation
 =============

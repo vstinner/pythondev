@@ -16,6 +16,7 @@ Contents:
    ci.rst
    debug_tools.rst
    community.rst
+   communication.rst
    files.rst
    platforms.rst
    android.rst
