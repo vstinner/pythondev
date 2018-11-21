@@ -145,3 +145,26 @@ Documentation
 .. _vendored-libs:
 
 
+IRC bots
+========
+
+IRC bots on #python-dev:
+
+* ``github``: bot run by GitHub. Source code:
+  `github-services: lib/services/irc.rb
+  <https://github.com/github/github-services/blob/master/lib/services/irc.rb>`_.
+  GitHub services are `deprecated since April 2018
+  <https://developer.github.com/changes/2018-04-25-github-services-deprecation/>`_.
+* ``py-bb``: buildbot IRC bot, see `buildmaster-config
+  <https://github.com/python/buildmaster-config>`_ (buildbot configuration).
+* ``irker007``: Roundup bot.
+
+  * https://hg.python.org/tracker/python-dev/file/tip/detectors/irker.py
+  * http://www.catb.org/esr/irker/
+
+
+Roundup: bugs.python.org
+========================
+
+* https://hg.python.org/tracker/roundup/
+* https://hg.python.org/tracker/python-dev/
