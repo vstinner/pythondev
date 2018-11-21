@@ -76,6 +76,10 @@ Example with ``python3.7 -X importtime -c pass``:
    :alt: Screenshot on tuna rendering import time
    :align: right
 
+See also `How to speed up Python application startup time
+<https://dev.to/methane/how-to-speed-up-python-application-startup-time-nkf>`_
+(Jan, 2018) by INADA Naoki.
+
 
 .. _faulthandler:
 
