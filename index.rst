@@ -1,7 +1,7 @@
 Python Development Documentation
 ================================
 
-.. image:: python.png
+.. image:: images/python.png
    :alt: Python logo
    :align: right
    :target: http://www.python.org/
