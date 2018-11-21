@@ -43,6 +43,8 @@ Truncated example::
    (...)
    import time:      4325 |      22832 | site
 
+An alternative is to set ``PYTHONPROFILEIMPORTTIME=1`` environment variable.
+
 No surprise, ``site`` has the longest cumulative time. Disable ``site`` to
 speedup Python :-) Example::
 
