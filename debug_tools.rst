@@ -80,6 +80,10 @@ See also `How to speed up Python application startup time
 <https://dev.to/methane/how-to-speed-up-python-application-startup-time-nkf>`_
 (Jan, 2018) by INADA Naoki.
 
+See also `importtime-waterfall (GitHub project)
+<https://github.com/asottile/importtime-waterfall>`_: Gnerate waterfalls from
+``-X importtime`` tracing.
+
 
 .. _faulthandler:
 
