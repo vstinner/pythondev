@@ -12,6 +12,10 @@ To add a C file (``.c``) or an header file (``.h``), you have to:
 * Add it to ``PCbuild/pythoncore.vcxproj``
 * Add it to ``PCbuild/pythoncore.vcxproj.filters``
 
+For header files, see also ``Tools/msi/dev/dev.wixproj`` (read `Steve Dower's
+comment
+<https://github.com/python/cpython/pull/10624#issuecomment-441090519>`_).
+
 
 Add a new C extension
 =====================
