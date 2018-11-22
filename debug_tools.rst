@@ -267,3 +267,24 @@ Use a memory breakpoint like::
     watch ((PyObject*)MEMORY_ADDRESS)->ob_refcnt
 
 where ``MEMORY_ADDRESS`` is the address of a Python object.
+
+Debug functions
+===============
+
+You might want to call these functions in a running process from gdb:
+
+* _PyObject_Dump(obj)
+* _PyUnicode_Dump(obj): dump properties of the Unicode object, not it's content
+* PyErr_Occurred(): get the current exception, NULL if no exception has been raised
+* if py-bt command is broken, try to call:
+
+  * ``_Py_DumpTraceback(2, tstate)``
+  * ``_Py_DumpTracebackThreads(2, interp, tstate)`` where ``tstate`` can be ``NULL``
+  * Python 3.8: get ``tstate`` from ``_PyRuntime.gilstate.tstate_current`` and ``interp`` from ``_PyRuntime.gilstate.autoInterpreterState``
+  * ``2`` is the file descriptor 2: ``stderr``
+
+gdb
+===
+
+Put a breakpoint on the next exception: ``break PyErr_SetObject``. Then use
+``condition`` to only break at the expected exception.
