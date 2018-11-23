@@ -99,15 +99,18 @@ Compile CPython 2.7
 
 Python 2.7 is stuck forever on Visual Studio 2008 to not break the ABI, to keep
 the backward compatibility with all built extensions on the Python cheeseshop
-(PyPI).
+(PyPI).  Obtaining VS 2008 is not nearly as simple or straightforward as it
+used to be and Python 2.7 is rapidly approaching the end of its support period.
+If you don't absolutely have to, we recommend not bothering to set things up to
+build 2.7!
 
 
 Compile CPython 2.7 on Windows using Visual Studio 2008 and 2010
 ----------------------------------------------------------------
 
-While Visual Studio 2008 is enough to build a basic Python 2.7 binary without
-OpenSSL nor Tkinter, installing Visual Studio 2008 **and** Visual Studio 2010
-is recommended to get all dependencies including Tkinter.
+While Visual Studio 2008 alone is enough to build a full Python 2.7 binary with
+all standard extension modules, the standard method used to build 2.7 now
+requires installing both Visual Studio 2008 **and** Visual Studio 2010.
 
 Requirements:
 
@@ -119,33 +122,36 @@ Requirements:
 * Visual Studio 2008 Professional. Visual Studio 2008 Express works too, but
   doesn't provide a 64-bit compiler.
 * Visual Studio 2010 Professional. Maybe a lighter flavor works, I didn't try.
-* TortoiseSVN to get ``svn.exe`` in PATH to download Python dependencies:
-  don't forget to check the ``[x] command line tools`` checkbox in the
-  installer
 
-Compile Python in the command line:
+Compile 64-bit Debug Python in the command line::
 
-* Open a Visual Studio 2010 Prompt
-* In this prompt, run ``PCBuild\build.bat -e -d -p x64`` to build Python 2.7 in
-  debug mode for 64-bit, and install dependencies like OpenSSL, Tcl and Tk
-  sources.
+   PCBuild\build.bat -p x64 -d
 
 Compile Python in the IDE: open the ``PCbuild\pcbuild.sln`` solution in Visual
 Studio.
 
+See also: ``PCbuild\readme.txt``.
 
-Compile CPython 2.7 on Windows using Visual Studio 2008
--------------------------------------------------------
+
+Compile CPython 2.7 on Windows using only Visual Studio 2008
+------------------------------------------------------------
 
 Similar to the previous section, but don't install Visual Studio 2010: only
 install Visual Studio 2008.
 
-Without Visual Studio 2010, some features don't work, like Tkinter.
+Compile 64-bit Debug Python in the command line::
 
-* Project file: PC\VS9.0\pcbuild.sln
-* In this prompt, run ``VS\9.0\build.bat -e -d -p x64`` to build Python 2.7 in
-  debug mode for 64-bit, and install dependencies like OpenSSL sources if
-  needed
+   PC\VS9.0\build.bat -p x64 -d -e
+
+Compile Python in the IDE: open the ``PC\VS9.0\pcbuild.sln`` solution in Visual
+Studio.
+
+See also: ``PC\VS9.0\readme.txt``.
+
+Note that this configuration is not well tested.  Everything *should* work, but
+if it does not, please feel free to submit a patch!  Also, if you use both
+methods and notice significant differences between them, we'd like to hear
+about those as well.
 
 
 Windows Subsystem for Linux: WSL
