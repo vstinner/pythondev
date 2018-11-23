@@ -60,17 +60,17 @@ python.exe binaries delivered by python.org:
 Dependencies
 ============
 
-* Python master needs binary dependencies from
-  `github.com/python/cpython-bin-deps
-  <https://github.com/python/cpython-bin-deps>`_ and source dependencies
-  from `github.com/python/cpython-source-deps
-  <https://github.com/python/cpython-source-deps>`_ using Git
-* Python 2.7 needs dependencies from `svn.python.org/projects/external
-  <http://svn.python.org/projects/external/>`_ using Subversion.
+Python master needs binary dependencies from
+`github.com/python/cpython-bin-deps
+<https://github.com/python/cpython-bin-deps>`_ and source dependencies
+from `github.com/python/cpython-source-deps
+<https://github.com/python/cpython-source-deps>`_.
+``PCbuild\get_externals.bat``, which is called automatically by
+``PCbuild\build.bat``, will take care of fetching these for you if you have any
+of Git, Python, NuGet, or PowerShell available.
 
-In 2016, Perl was need to build OpenSSL. But it's no more required.
-
-See ``PCBuild/get_externals.bat``.
+See ``PCbuild\get_externals.bat`` to learn what to put where if you aren't
+using ``PCbuild\build.bat``.
 
 
 Compile the master branch
