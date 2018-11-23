@@ -12,7 +12,7 @@ People
 People who understands these things.
 
 * Steve Dower: employed by Microsoft, he is the maintainer of the Windows
-  installer for 2.7, 3.5, 3.6 and master branches
+  installer for 2.7, 3.6, 3.7 and master branches
 * Zachary Ware
 * Jeremy Kloth knows the ``PC\VS9.0\`` directory of Python 2.7!
 
