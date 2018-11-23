@@ -76,18 +76,22 @@ using ``PCbuild\build.bat``.
 Compile the master branch
 =========================
 
-To build the Python ssl extension:
+To build the Python interpreter and all extension modules, including the ssl
+extension:
 
 Requirements:
 
 * Visual Studio 2015 or newer (VS 2017 recommended)
 * CPython source code: get it using Git, or download a ZIP on GitHub.com
 
-Commands::
+Compile 64-bit Debug Python in the command line::
 
-    PCbuild\build -p x64 -d -e
+   PCBuild\build.bat -p x64 -d
 
-See also: ``PCbuild/readme.txt``.
+Compile Python in the IDE: open the ``PCbuild\pcbuild.sln`` solution in Visual
+Studio.
+
+See also: ``PCbuild\readme.txt``.
 
 
 Compile CPython 2.7
