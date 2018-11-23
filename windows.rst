@@ -6,6 +6,7 @@ Compile CPython on Windows
 
 http://bugs.python.org/issue30350
 
+
 People
 ======
 
@@ -26,6 +27,7 @@ Build a Windows VM
   Visual Studio needs 10 GB. Having at least 60 GB is recommended to be
   able to compile multiple Python versions, install other tools, upgrade
   Windows, etc.
+
 
 Python and Visual Studio version matrix
 =======================================
@@ -93,6 +95,7 @@ Python 2.7 is stuck forever on Visual Studio 2008 to not break the ABI, to keep
 the backward compatibility with all built extensions on the Python cheeseshop
 (PyPI).
 
+
 Compile CPython 2.7 on Windows using Visual Studio 2008 and 2010
 ----------------------------------------------------------------
 
@@ -123,6 +126,7 @@ Compile Python in the command line:
 
 Compile Python in the IDE: open the ``PCbuild\pcbuild.sln`` solution in Visual
 Studio.
+
 
 Compile CPython 2.7 on Windows using Visual Studio 2008
 -------------------------------------------------------
