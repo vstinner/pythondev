@@ -158,4 +158,5 @@ Windows Subsystem for Linux: WSL
 ================================
 
 Ubuntu running on Windows 10 using a thin layer to emulate the Linux kernel on
-top of the Windows kernel.
+top of the Windows kernel.  Building Python in this environment is just the
+same as building on any other UNIXy system.
