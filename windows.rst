@@ -32,7 +32,8 @@ Build a Windows VM
 Python and Visual Studio version matrix
 =======================================
 
-For Python 3.7, the minimum is VS 2017 Community, minimum installer options:
+For Python 3.7 and later, VS 2017 is recommended (Community Edition is plenty),
+minimum installer options:
 
 * Workload: only [x] "Desktop development with C++"
 * Language pack: [x] "English"
@@ -42,8 +43,9 @@ Python version       Visual Studio
 ===================  =======================
 Python 2.7           VS 2008 **and** VS 2010
 Python 3.4           VS 2010
-Python 3.5 and 3.6   VS 2015
-Python 3.7 (master)  VS 2015 or VS 2017
+Python 3.5 and 3.6   VS 2015 (or newer)
+Python 3.7           VS 2017
+Python 3.8 (master)  VS 2017
 ===================  =======================
 
 python.exe binaries delivered by python.org:
@@ -78,7 +80,7 @@ To build the Python ssl extension:
 
 Requirements:
 
-* Visual Studio 2015
+* Visual Studio 2015 or newer (VS 2017 recommended)
 * CPython source code: get it using Git, or download a ZIP on GitHub.com
 
 Commands::
