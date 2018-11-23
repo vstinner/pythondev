@@ -21,7 +21,7 @@ People who understands these things.
 Build a Windows VM
 ==================
 
-* Windows 10 or newer is recommanded. Get a "multi-version" of Windows 10
+* Windows 10 or newer is recommended. Get a "multi-version" of Windows 10
   (no N, KN or VL variant) and use a "Pro - Retail" product key.
 * At least 60 GB of disk space is needed: Windows needs 15-20 GB,
   Visual Studio needs 10 GB. Having at least 60 GB is recommended to be
@@ -108,7 +108,7 @@ Requirements:
 * MSDN account to get Visual Studio 2008. Maybe it's possible to build Python
   using the Express edition of VS 2008 and 2010, but in 2017, it became
   difficult to get VS 2008 and 2010 Express.
-* Windows 10 or newer is recommanded, even if Python 2.7 is supposed to support
+* Windows 10 or newer is recommended, even if Python 2.7 is supposed to support
   Windows XP!
 * Visual Studio 2008 Professional. Visual Studio 2008 Express works too, but
   doesn't provide a 64-bit compiler.
