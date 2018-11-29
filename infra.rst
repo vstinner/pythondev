@@ -100,6 +100,8 @@ cpython GitHub project
     mentioning anyone on your PRs.
 
 * https://github.com/python/core-workflow/tree/master/cherry_picker/
+* `Check Python CLA <https://check-python-cla.herokuapp.com/>`_ (service run
+  by Mariatta Wyjaya)
 
 Misc
 ====
