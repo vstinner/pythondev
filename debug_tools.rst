@@ -124,6 +124,8 @@ to implement a "watchdog": dump the traceback where Python is stuck if Python
 main code is blocked for longer than N seconds, and exit Python.
 
 
+.. _res-warn-tb:
+
 ResourceWarning
 ===============
 

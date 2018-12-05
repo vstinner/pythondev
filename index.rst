@@ -15,6 +15,7 @@ Contents:
 
    ci.rst
    debug_tools.rst
+   resource_warning.rst
    community.rst
    communication.rst
    files.rst

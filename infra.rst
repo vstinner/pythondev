@@ -129,7 +129,7 @@ Misc
   * `Custom builders
     <https://docs.python.org/devguide/buildbots.html#custom-builders>`_
   * `buildmaster-config
-    <https://github.com/python/buildmaster-config/tree/master/master>`_
+    <https://github.com/python/buildmaster-config/tree/master/master>`__
     (configuration)
   * `Fork of BuildBot running on buildbot.python.org
     <https://github.com/python/buildbot/>`_
@@ -158,7 +158,7 @@ IRC bots on #python-dev:
   GitHub services are `deprecated since April 2018
   <https://developer.github.com/changes/2018-04-25-github-services-deprecation/>`_.
 * ``py-bb``: buildbot IRC bot, see `buildmaster-config
-  <https://github.com/python/buildmaster-config>`_ (buildbot configuration).
+  <https://github.com/python/buildmaster-config>`__ (buildbot configuration).
 * ``irker007``: Roundup bot.
 
   * https://hg.python.org/tracker/python-dev/file/tip/detectors/irker.py
