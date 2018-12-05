@@ -5,7 +5,14 @@ ResourceWarning
 The multiprocessing tests leaked a lot of resources. Victor Stinner and others
 fixed dozens of bugs in these tests.
 
-See also: `Enable tracemalloc to get ResourceWarning traceback <res-warn-tb>`.
+See also: :ref:`Enable tracemalloc to get ResourceWarning traceback
+<res-warn-tb>`.
+
+Open issues:
+
+* 2018-12-05, **multiprocessing**: `test_multiprocessing_fork: test_del_pool()
+  leaks dangling threads and processes on AMD64 FreeBSD CURRENT Shared 3.x
+  <https://bugs.python.org/issue35413>`_
 
 Issues:
 
@@ -14,6 +21,8 @@ Issues:
 
 Merged bugfixes:
 
+* 2018-05-28, **test_multiprocessing**: `test_multiprocessing_fork: dangling
+  threads warning <https://bugs.python.org/issue33676>`_
 * 2018-05-16, **socketserver**: `socketserver: Add an opt-in option to get Python 3.6
   behavior on server_close() <https://bugs.python.org/issue33540>`_
 * 2017-08-18: `Make support.threading_cleanup() stricter
@@ -28,3 +37,5 @@ Merged bugfixes:
   processes <https://bugs.python.org/issue31019>`_
 * 2016-04-15, **multiprocessing**: `test_multiprocessing_spawn leaves processes
   running in background <https://bugs.python.org/issue26762>`_
+* 2017-08-18, **test_logging**: `test_logging: ResourceWarning: unclosed
+  socket <https://bugs.python.org/issue31235>`_
