@@ -54,6 +54,12 @@ On Fedora, the script is provided as::
    /usr/lib/debug/usr/lib64/libpython3.6m.so.1.0-3.6.6-1.fc28.x86_64.debug-gdb.py
 
 
+Windows
+=======
+
+https://bugs.python.org/issue35418#msg331195
+
+
 pudb
 ====
 
