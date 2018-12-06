@@ -55,12 +55,12 @@ Fixed:
 * 2015-11-18, **multiprocessing**: `test_multiprocessing_spawn ResourceWarning
   with -Werror <https://bugs.python.org/issue25654>`_
   (`commit
-  <https://github.com/python/cpython/commit/a6d865c128dd46a067358e94c29ca2d84205ae89>`_:
+  <https://github.com/python/cpython/commit/a6d865c128dd46a067358e94c29ca2d84205ae89>`__:
   use closefd=False)
 * 2011-08-18: `Warning -- multiprocessing.process._dangling was modified by
   test_multiprocessing <https://bugs.python.org/issue12774>`_
   (`commit
-  <https://github.com/python/cpython/commit/225cb8d077b9d34ec20480aad3cbd9018798546f>`_:
+  <https://github.com/python/cpython/commit/225cb8d077b9d34ec20480aad3cbd9018798546f>`__:
   test_multiprocessing.py calls the terminate() method of all classes).
 
 
