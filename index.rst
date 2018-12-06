@@ -15,7 +15,7 @@ Contents:
 
    ci.rst
    debug_tools.rst
-   resource_warning.rst
+   unstable_tests.rst
    community.rst
    communication.rst
    files.rst

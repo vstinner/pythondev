@@ -1,6 +1,6 @@
-+++++++++++++++
-ResourceWarning
-+++++++++++++++
+++++++++++++++
+Unstable tests
+++++++++++++++
 
 The multiprocessing tests leaked a lot of resources. Victor Stinner and others
 fixed dozens of bugs in these tests.
