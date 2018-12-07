@@ -109,6 +109,8 @@ caused by a very specific recent changes which can be found in the
 Revert on fail
 ==============
 
+* `Policy to revert commits on buildbot failure
+  <https://discuss.python.org/t/policy-to-revert-commits-on-buildbot-failure/404>`_
 * `[Python-Dev] Keeping an eye on Travis CI, AppVeyor and buildbots: revert on regression
   <https://mail.python.org/pipermail/python-dev/2018-May/153753.html>`_
   (May, 2018)
