@@ -34,6 +34,8 @@ Generated files
 * autoconf: Regenerate ``configure`` from ``configure.ac``
 * ``install-sh``: ``rm install-sh; automake --add-missing --copy``,
   https://bugs.python.org/issue34765
+* ``Lib/distutils/command/wininst-*.exe`` files are binaries of
+  the ``PC/bdist_wininst/`` program (in Python source code).
 
 
 Vendored external libraries
