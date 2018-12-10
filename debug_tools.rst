@@ -168,8 +168,11 @@ this example) has been created::
         func()
 
 
-Memory Debugger
-===============
+Debug memory errors
+===================
+
+PYTHONMALLOC=debug
+------------------
 
 Memory managment in C is complex and error-prone.
 
@@ -253,6 +256,13 @@ allocation traceback are the same, but usually they are different.
 Sadly, on Python 3.5 and older, the only way to get the Python builtin memory
 allocator is to recompile Python (ex: using ``./configure --with-pydebug``
 which changes the ABI...).
+
+Valgrind
+--------
+
+``PYTHONMALLOC=malloc valgrind python3 script.py`` can also be used to debug
+C extensions which use directly ``malloc()/free()``, and not
+``PyMem_Malloc()/PyMem_Free()``.
 
 
 gc.set_threshold(5)
