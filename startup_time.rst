@@ -98,6 +98,12 @@ Links:
   Generate waterfalls from ``-X importtime`` tracing.
 
 
+.pth files
+==========
+
+See `Deprecate and remove pth files <https://bugs.python.org/issue33944>`_
+created by Barry A. Warsaw at 2018-06-22.
+
 Links
 =====
 

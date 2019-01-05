@@ -39,7 +39,7 @@ Contents:
    cpython_impl_optim.rst
    c_in_cpython.rst
    bugs_found_by_python.rst
-   python_startup_time.rst
+   startup_time.rst
    pep393_perf.rst
    misc.rst
    links.rst
