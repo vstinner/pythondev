@@ -21,6 +21,11 @@ Kernel bugs
 Compiler bugs
 =============
 
+* ppc64le double to float cast + memcpy bug
+
+  * https://bugs.python.org/issue35752
+  * https://gcc.gnu.org/bugzilla/show_bug.cgi?id=88892
+
 * `Visual Studio: PGO on 64 bits
   <http://bugs.python.org/issue15993>`_
 * Visual Studio PGupdate duplicated functions:
