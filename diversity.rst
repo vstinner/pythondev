@@ -54,6 +54,17 @@ Mailing Lists
 
 Python had a diversity mailing list.
 
+Code and emotions
+-----------------
+
+* `Kate Gregory <https://twitter.com/gregcons>`_'s keynote at
+  `C++ on Sea <https://cpponsea.uk/>`_:
+  `Keynote: Oh The Humanity!
+  <https://cpponsea.uk/sessions/keynote-oh-the-humanity.html>`_,
+  `photos on Twitter
+  <https://twitter.com/pati_gallardo/status/1092355295622426624>`_
+
+
 Positive Action
 ===============
 
