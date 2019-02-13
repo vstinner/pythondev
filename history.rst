@@ -10,6 +10,8 @@ History of Python releases
 See also `Status of Python branches
 <https://docs.python.org/devguide/#status-of-python-branches>`_.
 
+* Python 3.7: June 2018
+* Python 3.6: December 2016
 * Python 3.5: September 2015
 * Python 3.4: March 2014
 * Python 3.3: September 2012
@@ -27,6 +29,9 @@ See also `Status of Python branches
 History of the Python language (syntax)
 =======================================
 
+* Python 3.8: ``x := 1`` assignment expression (PEP 572)
+* Python 3.7: ``async`` and ``await`` become keywords
+* Python 3.5: Add ``async`` and ``await`` (not really keywords yet)
 * *(Python 3.4: no change)*
 * Python 3.3:
 
