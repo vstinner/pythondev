@@ -45,7 +45,14 @@ actions.
 
 * Mailing lists: create a new mailing list. Maintainer: "postmaster" (who is
   the current postmaster?).
-* Bug tracker: give "bug triage permission". Administrators: Ezio Melotti,
-  Ned Deily(?), R. David Murray, Brett Cannon.
-* GitHub cpython: add new core developers. Administrators: Brett Cannon,
-  release managers (ex: Ned Deily).
+* Bug tracker: give "bug triage permission". Roundup Coordinators:
+
+  * Brett Cannon.
+  * Ezio Melotti,
+  * R. David Murray
+  * Victor Stinner
+
+* GitHub cpython: add new core developers. Administrators:
+
+  * Brett Cannon
+  * Release managers (ex: Ned Deily)

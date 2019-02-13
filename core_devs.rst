@@ -1,3 +1,5 @@
+.. _core-devs:
+
 +++++++++++++++++++++++
 CPython Core Developers
 +++++++++++++++++++++++
@@ -22,8 +24,8 @@ about the low number of active core developers:
 * :ref:`Mentoring <mentoring>`
 * Write less code, spend more time on reviews and mentoring
 
-List of Core developers
-=======================
+Lists of Core developers
+========================
 
 * https://discuss.python.org/groups/committers
 * https://github.com/orgs/python/teams/python-core/members
@@ -61,21 +63,6 @@ October 2017:
 * **848** contributors (including core devs)
 * **34** core developers active on GitHub (4% of all contributors)
 * 24% of PR are written by core devs
-
-New `core developers <https://devguide.python.org/developers/>`__ per year:
-
-* 2018 (current): at least 3
-* 2017: 4
-* 2016: 5
-* 2015: 2
-* 2014: 10
-* 2013: 4
-* 2012: 9
-* 2011: 12
-* 2010: 20
-* 2009: 11
-* 2008: 19
-* 2007: 15
 
 Process to become a core developer
 ==================================

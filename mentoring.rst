@@ -6,6 +6,12 @@ CPython mentoring
 
 See also :ref:`Community <community>`.
 
+Mentoring
+=========
+
+* https://www.python.org/dev/core-mentorship/
+* https://mail.python.org/mailman/listinfo/core-mentorship/
+
 Working Hours
 =============
 

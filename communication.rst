@@ -24,7 +24,7 @@ See also the `Python community <community>`_.
   (exist since 2018)
 * `python.zulipchat.com (Zulip) <https://python.zulipchat.com/>`_
   (exist since 2017)
-* Twitter, incomplete list of core devs:
+* Twitter, incomplete list of :ref:`core devs <core-devs>`:
 
   * `Barry Warsaw <https://twitter.com/pumpichank>`_
   * `Brett Cannon <https://twitter.com/brettsky>`_
@@ -35,8 +35,7 @@ See also the `Python community <community>`_.
   * `Yury Selivanov <https://twitter.com/1st1>`_
   * ... the full list is very long, and I'm too lazy to complete it :-)
 
-Right, there are two main events for CPython core developers which are
-only in the USA:
+There are two physical meetings for :ref:`CPython core developers <core-devs>`:
 
 * Language Summit during Pycon US (one day)
 * Sprint in September (one week)

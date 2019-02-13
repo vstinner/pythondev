@@ -4,8 +4,6 @@
 Python community
 ++++++++++++++++
 
-See also: :ref:`Diversity <diversity>` and :ref:`Mentoring <mentoring>`.
-
     *Come for the Language, Stay for the Community*
     -- `Brett Cannon (and Naomi Ceder) <https://twitter.com/brettsky/status/764862972468408320>`_
 
@@ -28,6 +26,14 @@ See also: :ref:`Diversity <diversity>` and :ref:`Mentoring <mentoring>`.
     ("Coders at Work: Reflections on the Craft of Programming". Book by Peter
     Seibel, 2009.)
 
+See also
+========
+
+* :ref:`Diversity <diversity>`
+* :ref:`Mentoring <mentoring>`
+* :ref:`Communication Channels <communication>`
+* :ref:`CPython Core Developers <core-devs>`
+
 Talks
 =====
 
@@ -44,11 +50,6 @@ Talks
   <https://www.youtube.com/watch?v=cCCiA-IlVco>`_
   by Naomi Ceder, EuroPython 2016
 
-Communication channels
-======================
-
-See :ref:`Communication Channels <communication>`.
-
 Documentation
 =============
 
@@ -58,12 +59,6 @@ Documentation
   * https://github.com/python/devguide/issues/120
 
 * http://cpython-core-tutorial.readthedocs.io/
-
-Mentoring
-=========
-
-* https://www.python.org/dev/core-mentorship/
-* https://mail.python.org/mailman/listinfo/core-mentorship/
 
 Work In Progress
 ================
@@ -125,5 +120,4 @@ Links
 =====
 
 * https://public.etherpad-mozilla.org/p/help-cpython-newcomers
-* `List of CPython core developers <https://devguide.python.org/developers/>`_
 * http://teachingopensource.org/

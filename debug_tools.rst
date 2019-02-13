@@ -4,8 +4,6 @@ Python Debug Tools
 
 Spoiler: Python 3.6 and newer provide a much better debugging experience!
 
-See also :ref:`Debug a CPython crash <crash>`.
-
 Take Away
 =========
 
@@ -18,7 +16,7 @@ Tools:
 
 * faulthandler
 * PYTHONMALLOC=debug: builtin memory debugger
-* tracemalloc
+* :ref:`tracemalloc <tracemalloc>`
 * :ref:`importtime <importtime>`
 
 importtime
@@ -66,6 +64,11 @@ to implement a "watchdog": dump the traceback where Python is stuck if Python
 main code is blocked for longer than N seconds, and exit Python.
 
 
+See also: `Crash reporting in desktop Python applications
+<https://blogs.dropbox.com/tech/2018/11/crash-reporting-in-desktop-python-applications>`_
+by Nikhil Marathe and Max Bélanger (November 2018).
+
+
 .. _res-warn-tb:
 
 ResourceWarning
@@ -97,7 +100,7 @@ and older) to display ``ResourceWarning``::
     filebug.py:3: ResourceWarning: unclosed file <_io.TextIOWrapper name='filebug.py' mode='r' encoding='UTF-8'>
       f = None
 
-On Python 3.6 and newer, enabling tracemalloc shows where the resource (file in
+On Python 3.6 and newer, enabling :ref:`tracemalloc` shows where the resource (file in
 this example) has been created::
 
     $ python3 -Wd -X tracemalloc=5 filebug.py
@@ -173,7 +176,7 @@ Output::
 Python dumps the current traceback where the bug has been allocated, but it can
 be "too late".
 
-On Python 3.6 and newer, enabling tracemalloc allows to find where the memory
+On Python 3.6 and newer, enabling :ref:`tracemalloc` allows to find where the memory
 block has been allocated which can help to investigate the bug (truncated
 output to highlight the difference)::
 
@@ -306,10 +309,35 @@ Put a breakpoint:
 
 * hit 'm', search 'test_api' to open glance.tests.unit.test_api
 
+.. _tracemalloc:
 
-See also
-========
+tracemalloc
+===========
 
-* `Crash reporting in desktop Python applications
-  <https://blogs.dropbox.com/tech/2018/11/crash-reporting-in-desktop-python-applications>`_
-  by Nikhil Marathe and Max Bélanger (November 2018)
+The `tracemalloc module
+<https://docs.python.org/dev/library/tracemalloc.html>`__ traces Python memory
+allocations. It can be used to find memory leaks, or just to have an accurate
+measure of the memory allocated by Python.
+
+Usage:
+
+* Write a scenario to reproduce the memory leak. The ideal is a scenario taking
+  only a few minutes
+* Enable tracemalloc and replay the scenario
+* Take regulary tracemalloc snapshots
+* Compare snapshots
+* Enjoy!
+
+If your application only uses Python memory allocators, tracemalloc must show
+your the exact memory usage counting every single bytes.
+
+If a C extensions uses other memory allocators like ``malloc()``, tracemalloc
+is unable to trace these allocations.
+
+If the application allocates a lot of memory to process some data (memory peak)
+and then releases almost all memory, except a few small objects, the memory may
+become fragmented. For example, the application only uses 20 MB whereas the
+operating system see 24 or 30 MB.
+
+See `pytracemalloc <http://pytracemalloc.readthedocs.org/>`_: backport to
+Python 2.7 (need to patch and compile Python manually).
