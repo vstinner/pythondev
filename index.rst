@@ -8,41 +8,64 @@ Python Development Documentation
 
 by `Victor Stinner <http://vstinner.readthedocs.io/victor_stinner.html>`_.
 
-Contents:
+Python:
 
 .. toctree::
    :maxdepth: 1
 
+   python3.rst
+   packaging.rst
+   datetime.rst
+   numbers.rst
+
+Development:
+
+.. toctree::
+   :maxdepth: 1
+
+   internals.rst
    ci.rst
    debug_tools.rst
    unstable_tests.rst
-   community.rst
-   communication.rst
    files.rst
    platforms.rst
    android.rst
    infra.rst
-   crash.rst
-   maintenance_tasks.rst
    memory.rst
-   numbers.rst
-   packaging.rst
-   perf.rst
-   python3.rst
    windows.rst
-   diversity.rst
-   datetime.rst
-   mentoring.rst
-   core_devs.rst
-   history.rst
    portability.rst
-   cpython_impl_optim.rst
    c_in_cpython.rst
    bugs_found_by_python.rst
+
+Performance:
+
+.. toctree::
+   :maxdepth: 1
+
+   perf.rst
+   cpython_impl_optim.rst
    startup_time.rst
    pep393_perf.rst
+
+Community:
+
+.. toctree::
+   :maxdepth: 1
+
+   community.rst
+   diversity.rst
+   communication.rst
+   mentoring.rst
+   core_devs.rst
+   maintenance_tasks.rst
+
+Misc:
+
+.. toctree::
+   :maxdepth: 1
+
+   history.rst
    misc.rst
-   internals.rst
 
 
 Indices and tables

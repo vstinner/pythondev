@@ -1,6 +1,6 @@
-++++++++++++++++++++++++++++++++++
-Documentation of CPython internals
-++++++++++++++++++++++++++++++++++
++++++++++++++++++++++++++++++++++++
+Documentations of CPython internals
++++++++++++++++++++++++++++++++++++
 
 * The official `Python Developer’s Guide
   <https://devguide.python.org/>`_
