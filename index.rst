@@ -42,7 +42,7 @@ Contents:
    startup_time.rst
    pep393_perf.rst
    misc.rst
-   links.rst
+   internals.rst
 
 
 Indices and tables
