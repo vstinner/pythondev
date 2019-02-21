@@ -21,3 +21,7 @@ Documentations of CPython internals
 * `Lifecycle of a Python Code - CPython's Execution Model
   <https://dev.to/btaskaya/lifecycle-of-a-python-code---cpythons-execution-model-85i>`_
   by Batuhan Osman Taşkaya (October 2018)
+* `A Python Interpreter Written in Python
+  <http://aosabook.org/en/500L/a-python-interpreter-written-in-python.html>`_
+  (2016) by Allison Kaptur, from `500 Lines or Less
+  <http://aosabook.org/en/index.html>`_ book.
