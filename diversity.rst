@@ -177,6 +177,19 @@ Comment template:
      In the future please use gender-neutral words such as "folks" and "y'all"
      instead of "guys". Thanks.
 
+Being a Woman on the Internet
+=============================
+
+Stories unrelated to Python, or not directly related to the Internet. Its more
+to have an idea of the general idea of harassement on the Internet.
+
+* `What It's Like to Be A Woman On the Internet
+  <https://medium.com/newco/what-its-like-to-be-a-woman-on-the-internet-55f7e6d5044c>`_
+  (January 2018) by Chloe Condon
+* `I Was The Victim Of A Deepfake Porn Plot Intended To Silence Me
+  <https://www.huffingtonpost.co.uk/entry/deepfake-porn_uk_5bf2c126e4b0f32bd58ba316>`_
+  (November 2018) by Rana Ayyub
+
 Links
 =====
 
