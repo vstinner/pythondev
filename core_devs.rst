@@ -82,3 +82,12 @@ Misc
 
 * [python-committers] Should I merge a PR that I approved if it was written by a different core developer?
   https://mail.python.org/pipermail/python-committers/2017-September/004854.html
+
+Steering Council
+================
+
+* https://github.com/python/steering-council
+* `PEP 13 -- Python Language Governance
+  <https://www.python.org/dev/peps/pep-0013/>`_
+* `PEP 8100 -- January 2019 steering council election
+  <https://www.python.org/dev/peps/pep-8100/>`_
