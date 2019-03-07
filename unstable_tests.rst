@@ -8,7 +8,8 @@ fixed dozens of bugs in these tests.
 See also: :ref:`Enable tracemalloc to get ResourceWarning traceback
 <res-warn-tb>`.
 
-Open issues:
+Open issues
+===========
 
 * 2018-12-05, **multiprocessing**: `test_multiprocessing_fork: test_del_pool()
   leaks dangling threads and processes on AMD64 FreeBSD CURRENT Shared 3.x
@@ -19,7 +20,8 @@ Open issues:
 * 2017-07-19, **multiprocessing**: `multiprocessing.queues.SimpleQueue leaks 2
   fds <https://bugs.python.org/issue30966>`_
 
-Fixed:
+Fixed issues
+============
 
 * 2018-05-28, **test_multiprocessing**: `test_multiprocessing_fork: dangling
   threads warning <https://bugs.python.org/issue33676>`_
@@ -66,8 +68,8 @@ Fixed:
   <https://github.com/python/cpython/commit/225cb8d077b9d34ec20480aad3cbd9018798546f>`__:
   test_multiprocessing.py calls the terminate() method of all classes).
 
-
-Rejected, Not a Bug, Out of Date:
+Rejected, Not a Bug, Out of Date
+================================
 
 * 2018-07-18: `test_multiprocessing_spawn: Dangling processes leaked on AMD64
   FreeBSD 10.x Shared 3.x <https://bugs.python.org/issue34150>`_
@@ -77,3 +79,11 @@ Rejected, Not a Bug, Out of Date:
   destructor <https://bugs.python.org/issue30171>`_
 * 2016-03-25: `Replace stdout and stderr with simple standard printers at
   Python exit <https://bugs.python.org/issue26642>`_
+
+Windows handles
+===============
+
+Abandonned attempt to hunt for leak of Windows handles:
+
+* https://github.com/python/cpython/pull/7827 from https://bugs.python.org/issue18174
+* https://github.com/python/cpython/pull/7966 from https://bugs.python.org/issue33966
