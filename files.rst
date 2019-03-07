@@ -36,6 +36,9 @@ Generated files
   https://bugs.python.org/issue34765
 * ``Lib/distutils/command/wininst-*.exe`` files are binaries of
   the ``PC/bdist_wininst/`` program (in Python source code).
+* The frozen ``__phello`` module comes from ``M___hello__`` constant in
+  ``Python/frozen.c``. The bytecode is generated
+  by ``Tools/freeze/freeze.py Tools/freeze/flag.py``.
 
 
 Vendored external libraries
