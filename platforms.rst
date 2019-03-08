@@ -138,11 +138,18 @@ Removed platforms
 
 PEP 11 lists removal of supported platforms:
 
-* MS-DOS: 2014:
+* `BSD/OS <https://en.wikipedia.org/wiki/BSD/OS>`_, 2017:
+
+  * https://bugs.python.org/issue31624
+  * https://github.com/python/cpython/commit/288d1daadaddf6ae35cf666138ba4b5d07449657
+
+* `MS-DOS <https://en.wikipedia.org/wiki/MS-DOS>`_: 2014:
   `bpo-22591: Drop support of MS-DOS (DJGPP compiler)
   <https://bugs.python.org/issue22591>`_,
   `commit b71c7dc9 <https://github.com/python/cpython/commit/b71c7dc9ddd6997be49ed6aaabf99a067e2c0388>`_
-* Python 3.4: VMS, OS/2, Windows 2000
+* Python 3.4: `VMS <https://en.wikipedia.org/wiki/OpenVMS>`_, `OS/2
+  <https://en.wikipedia.org/wiki/OS/2>`_, `Windows 2000
+  <https://en.wikipedia.org/wiki/Windows_2000>`_
 
   * VMS:
     `bpo-16136: Removal of VMS support <https://bugs.python.org/issue16136>`_,
@@ -150,7 +157,7 @@ PEP 11 lists removal of supported platforms:
     (`remove VMSError doc commit
     <https://github.com/python/cpython/commit/b2788fe854173b6b213010a7462c05594d703c06>`_)
 
-* Python 3.7: IRIX
+* Python 3.7: `IRIX <https://en.wikipedia.org/wiki/IRIX>`_
 
 
 I want CPython to support my platform!
