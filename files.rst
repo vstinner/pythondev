@@ -39,6 +39,10 @@ Generated files
 * The frozen ``__phello`` module comes from ``M___hello__`` constant in
   ``Python/frozen.c``. The bytecode is generated
   by ``Tools/freeze/freeze.py Tools/freeze/flag.py``.
+* ``Python/dtoa.c`` is based on http://www.netlib.org/fp/dtoa.c
+* Unicode: Update the Unicode version in the
+  ``Tools/unicode/makeunicodedata.py`` script, run it, and fix what fails
+  (`msg318935 <https://bugs.python.org/msg318935>`__).
 
 
 Vendored external libraries
