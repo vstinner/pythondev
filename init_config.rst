@@ -5,6 +5,13 @@ Python Initialization Configuration
 Current design document: `PEP 432 -- Restructuring the CPython startup sequence
 <https://www.python.org/dev/peps/pep-0432/>`_ written by Nick Coghlan in 2012.
 
+Python initialization
+=====================
+
+* Pre-initialization: encoding and memory allocators
+* Core initialization: bare minimum Python runtime
+* Main initialization: setup importlib, import site, etc.
+
 Priority and relationship between configuration parameters
 ==========================================================
 
