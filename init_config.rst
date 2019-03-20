@@ -61,6 +61,18 @@ Pre-initialize Python:
 * enable the UTF-8 mode if needed
 * set the LC_CTYPE locale
 
+If the encoding changes after reading the pre-configuration,
+``_PyPreConfig_ReadFromArgv()`` clears the configuration and reads again the
+pre-configuration. Two options can trigger this case:
+
+* (PEP 538) If the LC_CTYPE locale is coerced, the locale encoding becomes
+  UTF-8.
+* (PEP 540) ``-X utf8`` and ``PYTHONUTF8=1`` enable the UTF-8 mode, whereas
+  LC_CTYPE locale encoding can be different than UTF-8.
+
+If the memory allocators are changed, a new ``_PyPreConfig`` must be allocated
+with the new allocator and the old one should be freed with the old allocator.
+
 API:
 
 * ``_PyPreConfig`` structure
