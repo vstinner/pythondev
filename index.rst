@@ -36,6 +36,7 @@ Development:
    portability.rst
    c_in_cpython.rst
    bugs_found_by_python.rst
+   init_config.rst
 
 Performance:
 
