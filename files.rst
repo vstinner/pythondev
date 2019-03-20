@@ -43,6 +43,7 @@ Generated files
 * Unicode: Update the Unicode version in the
   ``Tools/unicode/makeunicodedata.py`` script, run it, and fix what fails
   (`msg318935 <https://bugs.python.org/msg318935>`__).
+* ``Lib/keyword.py``: https://bugs.python.org/issue36143
 
 
 Vendored external libraries
