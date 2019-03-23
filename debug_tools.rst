@@ -1,3 +1,5 @@
+.. _debug-tools:
+
 ++++++++++++++++++
 Python Debug Tools
 ++++++++++++++++++
@@ -341,3 +343,27 @@ operating system see 24 or 30 MB.
 
 See `pytracemalloc <http://pytracemalloc.readthedocs.org/>`_: backport to
 Python 2.7 (need to patch and compile Python manually).
+
+
+Debug crash in garbage collection (visit_decref)
+================================================
+
+It's really hard to investigate such crash. Usually a crash in the GC is only
+the symptom that something corrupted a Python object, and the crash can occur
+very late after the object has been corrupted.
+
+You might attempt:
+
+* Try python3 -X dev.
+* Try Python compiled in debug mode.
+* Try a more recent Python version. Maybe it's a bug in Python which is
+  already fixed?
+* List third party C extensions and look first at them. Usually, if
+  you are the only one to see a crash, it comes from your bug. Maybe a C
+  extension doesn't update reference counters correctly.
+* Change GC thresholds: ``gc.set_threshold(5)``. See
+  `[Python-Dev] Idea: reduce GC threshold in development mode (-X dev)
+  <https://mail.python.org/pipermail/python-dev/2018-June/153857.html>`_.
+* Disable completely the GC: ``gc.disable()``. It helped the reporter of
+  `bpo-2546 <https://bugs.python.org/issue2546>`_ to find his bug.
+

@@ -281,3 +281,19 @@ Environment variables
 * ``PYTHONVERBOSE``
 * ``PYTHONWARNINGS``
 * ``PYTHONWARNINGS``
+
+Python issues
+=============
+
+* https://bugs.python.org/issue22257
+* https://bugs.python.org/issue32030
+* https://bugs.python.org/issue32124
+* https://bugs.python.org/issue33932
+* https://bugs.python.org/issue34008
+* https://bugs.python.org/issue34170
+* https://bugs.python.org/issue34589
+* https://bugs.python.org/issue34639
+* https://bugs.python.org/issue36142
+* https://bugs.python.org/issue36202
+* https://bugs.python.org/issue36204
+* https://bugs.python.org/issue36301
