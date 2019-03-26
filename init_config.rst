@@ -24,6 +24,10 @@ General rules, highest priority to lowest:
 * Environment variables
 * Global configuration variables
 
+.. note::
+   XXX is there a problem between the priority of PYTHONHOME env var and
+   ``pybuilddir.txt`` configuration file?
+
 Other rules:
 
 * ``isolated`` sets ``use_environment`` to 0 and ``user_site_directory`` to 0
