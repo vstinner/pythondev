@@ -72,27 +72,15 @@ Pre-initialize Python:
 * enable the UTF-8 mode if needed
 * set the LC_CTYPE locale
 
-If the encoding changes after reading the pre-configuration,
-``_PyPreConfig_ReadFromArgv()`` clears the configuration and reads again the
-pre-configuration. Two options can trigger this case:
-
-* (PEP 538) If the LC_CTYPE locale is coerced, the locale encoding becomes
-  UTF-8.
-* (PEP 540) ``-X utf8`` and ``PYTHONUTF8=1`` enable the UTF-8 mode, whereas
-  LC_CTYPE locale encoding can be different than UTF-8.
-
 If the memory allocators are changed, a new ``_PyPreConfig`` must be allocated
 with the new allocator and the old one should be freed with the old allocator.
 
 API:
 
 * ``_PyPreConfig`` structure
-* ``_PyPreConfig_Read(_PyPreConfig*)``
-* ``_PyPreConfig_ReadFromArgv(_PyPreConfig*, const _PyArgv*)``
-* ``_PyPreConfig_Write(_PyPreConfig*)``: apply pre-configuration
-* ``_Py_PreInitialize()``: pre-initialize Python
-* ``_Py_PreInitializeFromPreConfig(_PyPreConfig *)``: pre-initialize Python
-  with a pre-configuration
+* ``_PyInitError _Py_PreInitialize(const _PyPreConfig *config)``
+* ``_PyInitError _Py_PreInitializeFromArgs( const _PyPreConfig *config, int argc, char **argv)`` (*config* can be NULL)
+* ``PyAPI_FUNC(_PyInitError) _Py_PreInitializeFromWideArgs( const _PyPreConfig *config, int argc, wchar_t **argv)`` (*config* can be NULL)
 
 _PyPreConfig fields:
 
@@ -104,6 +92,19 @@ _PyPreConfig fields:
 * ``legacy_windows_fs_encoding``
 * ``use_environment``
 * ``utf8_mode``
+
+If the encoding changes after reading the pre-configuration, the internal
+``_PyPreConfig_Read()`` function clears the configuration and reads again the
+pre-configuration. Two options can trigger this case:
+
+* (PEP 538) If the LC_CTYPE locale is coerced, the locale encoding becomes
+  UTF-8.
+* (PEP 540) ``-X utf8`` and ``PYTHONUTF8=1`` enable the UTF-8 mode, whereas
+  LC_CTYPE locale encoding can be different than UTF-8.
+
+The LC_CTYPE locale is no longer coerced by default and the UTF-8 Mode is now
+disabled by default in Python 3.8. They must be enabled explicitly (opt-in)
+using the new pre-initialization API.
 
 _PyCoreConfig (Python 3.8 internal API)
 ---------------------------------------
@@ -119,10 +120,9 @@ Initialize Python:
 API:
 
 * ``_PyCoreConfig`` structure
-* ``_PyCoreConfig_Read(_PyCoreConfig *, const _PyPreConfig*)``: read configuration
-* ``_PyCoreConfig_ReadFromArgv(_PyCoreConfig*, const _PyArgv*, const _PyPreConfig*)``: read configuration, parse command line arguments
-* ``_PyCoreConfig_Write(const _PyCoreConfig*)``: apply configuration
-* ``_Py_InitializeFromConfig(_PyCoreConfig)``: initialize Python with a configuration
+* ``_PyInitError _Py_InitializeFromConfig(const _PyCoreConfig *config)``
+* ``_PyInitError _Py_InitializeFromArgs(const _PyCoreConfig *config, int argc, char **argv)``
+* ``_PyInitError _Py_InitializeFromWideArgs(const _PyCoreConfig *config, int argc, wchar_t **argv)``
 
 _PyCoreConfig fields:
 
@@ -178,6 +178,7 @@ _PyCoreConfig private fields:
 
 * ``_check_hash_pycs_mode``
 * ``_frozen``
+* ``_init_main``
 * ``_install_importlib``
 
 Configuration files
@@ -290,6 +291,7 @@ Python issues
 =============
 
 * https://bugs.python.org/issue22257
+* https://bugs.python.org/issue31845
 * https://bugs.python.org/issue32030
 * https://bugs.python.org/issue32124
 * https://bugs.python.org/issue33932
