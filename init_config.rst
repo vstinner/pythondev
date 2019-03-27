@@ -301,3 +301,5 @@ Python issues
 * https://bugs.python.org/issue36202
 * https://bugs.python.org/issue36204
 * https://bugs.python.org/issue36301
+* https://bugs.python.org/issue36443
+* https://bugs.python.org/issue36444
