@@ -93,6 +93,23 @@ The ``_Py_ExitInitError(err)`` function handles an error: calls
 _PyPreConfig
 ------------
 
+Example using the pre-initialization to enable the UTF-8 Mode (and use the
+"legacy" Py_Initialize() function)::
+
+    _PyPreConfig preconfig = _PyPreConfig_INIT;
+    preconfig.utf8_mode = 1;
+
+    _PyInitError err = _Py_PreInitialize(&preconfig);
+    if (_Py_INIT_FAILED(err)) {
+        _Py_ExitInitError(err);
+    }
+
+    /* at this point, Python will only speak UTF-8 */
+
+    Py_Initialize();
+    /* ... use Python API here ... */
+    Py_Finalize();
+
 Pre-initialize Python:
 
 * set memory allocators
@@ -135,6 +152,19 @@ using the new pre-initialization API.
 
 _PyCoreConfig
 -------------
+
+Example of simple initialization to enable isolated mode::
+
+    _PyCoreConfig config = _PyCoreConfig_INIT;
+    config.isolated = 1;
+
+    _PyInitError err = _Py_InitializeFromConfig(&config);
+    if (_Py_INIT_FAILED(err)) {
+        _Py_ExitInitError(err);
+    }
+    /* ... use Python API here ... */
+    Py_Finalize();
+
 
 Initialize Python:
 
