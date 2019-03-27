@@ -42,14 +42,34 @@ Python Initialization C API
 Official documentation: `Initialization, Finalization, and Threads
 <https://docs.python.org/dev/c-api/init.html>`_.
 
-Old APIs
---------
+Python 3.7 API
+--------------
 
 * ``Py_Initialize()``, ``Py_InitializeEx()``: initialize Python
 * ``Py_Finalize()``, ``Py_FinalizeEx()``: finalize Python
 
-_PyInitError (Python 3.8 internal API)
---------------------------------------
+_PyWstrList
+-----------
+
+The structure has 2 fields:
+
+* ``length``
+* ``items``
+
+If length is non-zero, items must be non-NULL and all items (strings) must be
+non-NULL.
+
+Example to initialize a string from C static array::
+
+    static wchar_t* argv[2] = {
+        L"-c",
+        L"pass",
+    };
+    config.argv.length = Py_ARRAY_LENGTH(argv);
+    config.argv.items = argv;
+
+_PyInitError
+------------
 
 Return an error or a success:
 
@@ -63,8 +83,15 @@ Read result:
 
 * ``_Py_INIT_FAILED(err)``: Is the result an error or an exit?
 
-_PyPreConfig (Python 3.8 internal API)
---------------------------------------
+The ``_Py_ExitInitError(err)`` function handles an error: calls
+``exit(exitcode)`` or ``Py_FatalError(msg)``. Typical code to handle an error::
+
+    if (_Py_INIT_FAILED(err)) {
+        _Py_ExitInitError(err);
+    }
+
+_PyPreConfig
+------------
 
 Pre-initialize Python:
 
@@ -106,8 +133,8 @@ The LC_CTYPE locale is no longer coerced by default and the UTF-8 Mode is now
 disabled by default in Python 3.8. They must be enabled explicitly (opt-in)
 using the new pre-initialization API.
 
-_PyCoreConfig (Python 3.8 internal API)
----------------------------------------
+_PyCoreConfig
+-------------
 
 Initialize Python:
 
