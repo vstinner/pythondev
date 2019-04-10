@@ -10,7 +10,7 @@ Python platforms
 ========  =================================================  =========
 Platform  sys.platform                                       os.name
 ========  =================================================  =========
-AIX       ``aix3``, ``aix4``                                 ``posix``
+AIX       ``aix5``, ``aix6``, ``aix7``                       ``posix``
 Cygwin    ``cygwin``                                         ?
 FreeBSD   ``freebsd5``, ``freebsd6``, ...                    ``posix``
 Java      ``java`` (with a suffix?)                          ?
