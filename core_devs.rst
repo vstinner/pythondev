@@ -80,6 +80,8 @@ https://github.com/vstinner/misc/blob/master/cpython/pep-core_dev_process.rst
 Misc
 ====
 
+* PyTexas: `Keynote: My Path to Becoming a Python Core Developer
+  <https://www.youtube.com/watch?v=rOzUMQW4p0Y>`_ by Emily Morehouse-Valcarcel
 * [python-committers] Should I merge a PR that I approved if it was written by a different core developer?
   https://mail.python.org/pipermail/python-committers/2017-September/004854.html
 
