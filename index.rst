@@ -30,6 +30,7 @@ Development:
    files.rst
    platforms.rst
    android.rst
+   workflow.rst
    infra.rst
    memory.rst
    windows.rst

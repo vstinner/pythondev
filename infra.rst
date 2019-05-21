@@ -1,6 +1,10 @@
+.. _infra:
+
 ++++++++++++++++++++++
 CPython infrastructure
 ++++++++++++++++++++++
+
+See also `Python Development Workflow <workflow>`.
 
 Python infrastructure
 =====================
