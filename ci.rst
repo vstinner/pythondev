@@ -32,6 +32,13 @@ AppVeyor
   <https://github.com/python/cpython/blob/master/.github/appveyor.yml>`_
 * `AppVeyor status page <https://appveyor.statuspage.io/>`_
 
+Azure Pipelines PR
+==================
+
+* Restart a job: `close/reopen the PR
+  <https://mail.python.org/pipermail/python-dev/2019-April/156967.html>`_
+
+
 Buildbots notifications
 =======================
 
