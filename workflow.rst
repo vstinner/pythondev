@@ -16,5 +16,7 @@ miss-islington
 * Code: https://github.com/python/miss-islington
 * https://github.com/miss-islington
 
+Mariatta is the primary maintainer. The bot runs in Heroku.
+
 The bot runs `cherry-picker <https://pypi.org/project/cherry-picker/>`_
 to backport changes in CPython.
