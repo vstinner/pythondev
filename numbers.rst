@@ -130,6 +130,7 @@ Convert a Python object to an integer. Methods:
   Internal: ``obj->ob_type->tp_as_number->nb_index`` field.
 * or: error!
 * See also https://bugs.python.org/issue17576
+* See https://github.com/python/cpython/commit/6a44f6eef3d0958d88882347190b3e2d1222c2e9
 
 ``_PyLong_FromNbInt()``:
 
