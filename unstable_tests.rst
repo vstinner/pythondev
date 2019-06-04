@@ -87,3 +87,68 @@ Abandonned attempt to hunt for leak of Windows handles:
 
 * https://github.com/python/cpython/pull/7827 from https://bugs.python.org/issue18174
 * https://github.com/python/cpython/pull/7966 from https://bugs.python.org/issue33966
+
+Unlimited recursion
+===================
+
+Some specific unit tests rely on the exact C stack size and how Python detects
+stack overflow. These tests are fragile because each platform uses a different
+stack size and behaves differently on stack overflow. For example, the stack
+size can depend if Python is compiled using PGO or not (depend on functions
+inlining).
+
+``_Py_CheckRecursiveCall()`` is a portable but not reliable test: basic counter
+using ``sys.getrecursionlimit()``.
+
+MSVC allows to implement ``PyOS_CheckStack()`` (``USE_STACKCHECK`` macro is
+defined) using ``alloca()`` and catching ``STATUS_STACK_OVERFLOW`` error.
+If uses ``_resetstkoflw()`` to reset the stack overflow flag.
+
+Tests
+-----
+
+* test_pickle: test_bad_getattr()
+* test_marshal: test_recursion_limit()
+
+History
+-------
+
+* 2019-04-29: macOS no longer specify stack size. Previously, it was set
+  to 8 MiB (``-Wl,-stack_size,1000000``).
+
+  * https://github.com/python/cpython/commit/883dfc668f9730b00928730035b5dbd24b9da2a0
+  * https://bugs.python.org/issue34602
+
+* 2018-07-05: test_marshal: "Improve tests for the stack overflow in
+  marshal.loads()"
+
+  * https://bugs.python.org/issue33720
+  * https://github.com/python/cpython/commit/fc05e68d8fac70349b7ea17ec14e7e0cfa956121
+
+* 2018-06-04: test_marshal: "Reduces maximum marshal recursion depth on release
+  builds" on Windows
+
+  * https://github.com/python/cpython/commit/2a4a62ba4ae770bbc7b7fdec0760031c83fe1f7b
+  * https://bugs.python.org/issue33720
+
+* 2014-11-01: MAX_MARSHAL_STACK_DEPTH sets to 1000 instead of 1500 on Windows
+
+  * https://github.com/python/cpython/commit/f6c69e6cc9aac35564a2a2a7ecc43fa8db6da975
+  * https://bugs.python.org/issue22734
+
+* 2013-07-07: Visual Studio project (PCbuild) now uses 4.2 MiB stack, instead
+  of 2 MiB
+
+  * https://github.com/python/cpython/commit/24e33acf8c422f6b8f84387242ff7874012f7291
+  * https://bugs.python.org/issue17206
+
+* 2013-05-30: macOS sets the stack size to 8 MiB
+
+  * https://github.com/python/cpython/commit/335ab5b66f432ae3713840ed2403a11c368f5406
+  * https://bugs.python.org/issue18075
+
+* 2007-08-29: test_marshal: MAX_MARSHAL_STACK_DEPTH set to 1500 instead of 2000
+  on Windows for debug build
+
+  * https://github.com/python/cpython/commit/991bf5d8c8fdd94c3b9238d7111c0dfb41973804
+  * https://bugs.python.org/issue1050
