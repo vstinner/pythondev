@@ -29,7 +29,8 @@ See also `Status of Python branches
 History of the Python language (syntax)
 =======================================
 
-* Python 3.8: ``x := 1`` assignment expression (PEP 572)
+* Python 3.8: ``x := 1`` assignment expression (PEP 572) and ``/`` in function
+  for positional-only parameters (PEP 570)
 * Python 3.7: ``async`` and ``await`` become keywords
 * Python 3.5: Add ``async`` and ``await`` (not really keywords yet)
 * *(Python 3.4: no change)*
