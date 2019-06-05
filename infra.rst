@@ -113,8 +113,7 @@ Misc
 * http://bugs.python.org/ Bug tracker (modified instance of Roundup)
 
   * https://pypi.python.org/pypi/roundup
-  * Meta bug tracker: http://psf.upfronthosting.co.za/roundup/meta/
-    (bug in the bug tracker software)
+  * Report Tracker Problem: https://github.com/python/psf-infra-meta/issues
 
 * Mailing lists: https://mail.python.org/mailman/listinfo
 
