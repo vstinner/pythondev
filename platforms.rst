@@ -138,6 +138,12 @@ Removed platforms
 
 PEP 11 lists removal of supported platforms:
 
+* Platforms without threading support removed in Python 3.7
+
+  * https://bugs.python.org/issue31370
+  * https://mail.python.org/pipermail/python-dev/2017-September/149156.html
+  * https://github.com/python/cpython/commit/a6a4dc816d68df04a7d592e0b6af8c7ecc4d4344
+
 * `BSD/OS <https://en.wikipedia.org/wiki/BSD/OS>`_, 2017:
 
   * https://bugs.python.org/issue31624
