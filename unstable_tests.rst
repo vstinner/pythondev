@@ -152,3 +152,10 @@ History
 
   * https://github.com/python/cpython/commit/991bf5d8c8fdd94c3b9238d7111c0dfb41973804
   * https://bugs.python.org/issue1050
+
+Notes
+=====
+
+On FreeBSD, ``sudo sysctl -w 'kern.corefile =%N.%P.core'`` command can be used
+to include the pid in coredump filenames, since 2 processes can crash at the
+same time.
