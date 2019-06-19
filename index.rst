@@ -23,7 +23,6 @@ Development:
 .. toctree::
    :maxdepth: 1
 
-   internals.rst
    ci.rst
    debug_tools.rst
    unstable_tests.rst
