@@ -68,6 +68,16 @@ Misc:
    misc.rst
 
 
+See also
+========
+
+* `Victor Stinner's Notes <https://vstinner.readthedocs.io/>`_
+* `Tutorial to contribute to the CPython project's documentation!
+  <https://cpython-core-tutorial.readthedocs.io/>`_
+* `Victor Stinner's Blog 3
+  <http://vstinner.github.io/>`_
+
+
 Indices and tables
 ==================
 
