@@ -4,6 +4,23 @@
 Python Continious Integration: Travis CI, AppVeyor, VSTS, Buildbots
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
+The Night's Watch is Fixing the CIs in the Darkness for You
+===========================================================
+
+Buildbot Watch: The watchers of CPython's Continuous Integration
+
+.. image:: images/buildbot_watch.png
+   :alt: Buildbot Watch
+
+Members:
+
+* Pablo Galindo Salgado
+* Victor Stinner
+
+`The Night's Watch is Fixing the CIs in the Darkness for You
+<https://pyfound.blogspot.com/2019/06/pablo-galindo-salgado-nights-watch-is.html>`_
+by Pablo Galindo Salgado.
+
 Buildbots links
 ===============
 
