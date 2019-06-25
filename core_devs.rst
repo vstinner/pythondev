@@ -77,6 +77,7 @@ https://github.com/vstinner/misc/blob/master/cpython/pep-core_dev_process.rst
 * [python-committers] What is a CPython core developer?
   https://mail.python.org/pipermail/python-committers/2017-September/004865.html
 
+
 Misc
 ====
 
@@ -84,6 +85,7 @@ Misc
   <https://www.youtube.com/watch?v=rOzUMQW4p0Y>`_ by Emily Morehouse-Valcarcel
 * [python-committers] Should I merge a PR that I approved if it was written by a different core developer?
   https://mail.python.org/pipermail/python-committers/2017-September/004854.html
+
 
 Steering Council
 ================
@@ -93,3 +95,29 @@ Steering Council
   <https://www.python.org/dev/peps/pep-0013/>`_
 * `PEP 8100 -- January 2019 steering council election
   <https://www.python.org/dev/peps/pep-8100/>`_
+
+
+Inactive core devs
+==================
+
+Current discussion: `devguide issue: Simplify developer log
+  <https://github.com/python/devguide/issues/390>`__.
+
+Links:
+
+* 2019-02-21: `Official list of core developers
+  <https://discuss.python.org/t/official-list-of-core-developers/924>`_
+* 2019-02-11: `Remove Coordinator role of inactive coordinators on bugs.python.org
+  <https://discuss.python.org/t/remove-coordinator-role-of-inactive-coordinators-on-bugs-python-org/866>`_
+* 2018-11-02: `devguide PR: Complete the core dev list
+  <https://github.com/python/devguide/pull/434>`_
+* 2018-09-18: `Which list of core developers is authoritative?
+  <https://discuss.python.org/t/which-list-of-core-developers-is-authoritative/55>`_
+* 2018-06-20: `devguide issue: Simplify developer log
+  <https://github.com/python/devguide/issues/390>`__
+* 2018-06-15: `[python-committers] Missing In Action
+  <https://mail.python.org/pipermail/python-committers/2018-June/005588.html>`_
+* 2018-06-02: `[python-committers] number of active core devs [was: Comments on moving issues to GitHub]
+  <https://mail.python.org/pipermail/python-committers/2018-June/005517.html>`_
+* 2017-12-06: `[python-committers] Statistics: growth of core dev number vs growth of the code size/complexity
+  <https://mail.python.org/pipermail/python-committers/2017-December/004983.html>`_
