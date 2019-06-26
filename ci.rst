@@ -1,7 +1,7 @@
 .. _ci:
 
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-Python Continious Integration: Travis CI, AppVeyor, VSTS, Buildbots
+Python Continuous Integration: Travis CI, AppVeyor, VSTS, Buildbots
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 The Night's Watch is Fixing the CIs in the Darkness for You
