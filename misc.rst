@@ -2,6 +2,8 @@
 Misc notes
 ++++++++++
 
+* https://cpython-pulls.herokuapp.com/
+
 Py_Finalize and daemon threads
 ==============================
 
