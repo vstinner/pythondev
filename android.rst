@@ -252,3 +252,13 @@ Python 3.6:
   python-for-android <https://github.com/kivy/python-for-android/>`_)
 * `buildozer <https://github.com/kivy/buildozer>`_, Generic Python packager for
   Android and iOS.
+
+BeeWare VOC
+===========
+
+A transpiler that converts Python bytecode into Java bytecode.
+
+* http://beeware.org/voc
+* https://github.com/beeware/voc
+
+See also https://github.com/beeware/ouroboros/
