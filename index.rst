@@ -28,6 +28,7 @@ Development:
    unstable_tests.rst
    files.rst
    platforms.rst
+   downstream.rst
    android.rst
    workflow.rst
    infra.rst
