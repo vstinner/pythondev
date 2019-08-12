@@ -18,4 +18,10 @@ backport bugfixes and security fixes, etc.
   * `python3 <https://src.fedoraproject.org/rpms/python3/tree/master>`__
   * `python2 <https://src.fedoraproject.org/rpms/python2/tree/master>`__
 
+* Guix
+
+  * http://git.savannah.gnu.org/cgit/guix.git/tree/gnu/packages/patches/python-3-deterministic-build-info.patch
+  * http://git.savannah.gnu.org/cgit/guix.git/tree/gnu/packages/patches/python-3-fix-tests.patch
+  * http://git.savannah.gnu.org/cgit/guix.git/tree/gnu/packages/patches/python-3-search-paths.patch
+
 See also :ref:`Python on Android <android>`.
