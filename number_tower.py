@@ -26,7 +26,6 @@ TYPES = (
 
 for type_descr, num_type in TYPES:
     accepted = []
-    deprecated = []
     rejected = []
     for value_descr, value in VALUES:
         try:
@@ -34,12 +33,18 @@ for type_descr, num_type in TYPES:
         except TypeError:
             rejected.append(value_descr)
         accepted.append(value_descr)
-    text = "%s accepts %s" % (type_descr, ', '.join(accepted))
-    if deprecated:
-        text += "; deprecated: %s" % ', '.join(deprecated)
+    if accepted:
+        print("``%s`` accept:" % type_descr)
+        print()
+        for name in accepted:
+            print("* ``%s``" % name)
+        print()
     if rejected:
-        text += "; but rejects: %s" % ', '.join(rejected)
-    print(text)
+        print("``%s`` reject:" % type_descr)
+        print()
+        for name in rejected:
+            print("* ``%s``" % name)
+        print()
 print()
 
 for tower_name, tower_type in (

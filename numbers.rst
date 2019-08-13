@@ -2,8 +2,8 @@
 Python Numbers
 ++++++++++++++
 
-Types
-=====
+Number Types
+============
 
 * ``int``: integral number
 * ``float``: floating point number, usually IEEE 754 (64 bits, base 2)
@@ -17,7 +17,7 @@ Number Tower
 ============
 
 The `numbers module <https://docs.python.org/3/library/numbers.html>`_
-specified by the `PEP 3141 -- A Type Hierarchy for Numbers
+is specified by the `PEP 3141 -- A Type Hierarchy for Numbers
 <https://www.python.org/dev/peps/pep-3141/>`_.
 
 * numbers.Number: base class
@@ -27,29 +27,93 @@ specified by the `PEP 3141 -- A Type Hierarchy for Numbers
   attributes
 * numbers.Integral: subclass of Rational
 
+Subclasses:
+
+* numbers.Number: int, float, complex, decimal.Decimal, fractions.Fraction
+* numbers.Complex: int, float, complex, fractions.Fraction
+* numbers.Real: int, float, fractions.Fraction
+* numbers.Rational: int, fractions.Fraction
+* numbers.Integral: int
+
 int, float, complex methods and attributes:
 
-* num.conjugate
-* num.imag
-* num.real
+* ``conjugate()``
+* ``imag``
+* ``real``
 
 int and Fraction attributes:
 
-* num.denominator
-* num.numerator
+* ``denominator``
+* ``numerator``
 
 
 Conversions in Python
 =====================
 
-* ``int(obj)`` accepts int, float, decimal.Decimal, fractions.Fraction, bytes, str,
-  etc. Floats are rounded towards zero (ROUND_DOWN, ex: ``int(0.9) == 0`` and
-  ``int(-0.9) == 0``).
-* ``float(obj)`` accepts int, float, decimal.Decimal, fractions.Fraction, bytes, str,
-  etc.
+``int(obj)`` and ``float(obj)`` accept:
 
-int
-===
+* ``int``
+* ``float``
+* ``complex``
+* ``decimal.Decimal``
+* ``fractions.Fraction``
+* ``bytes``
+* ``str``
+
+``int(obj)`` rounds towards zero (ROUND_DOWN, ex: ``int(0.9) == 0`` and
+``int(-0.9) == 0``).
+
+But ``int(obj)`` and ``float(obj)`` reject:
+
+* ``complex``
+
+``complex(obj)`` accepts:
+
+* ``int``
+* ``float``
+* ``complex``
+* ``decimal.Decimal``
+* ``fractions.Fraction``
+* ``bytes``
+* ``str``
+
+But ``complex(obj)`` rejects:
+
+* ``bytes``
+
+``decimal.Decimal(obj)`` accepts:
+
+* ``int``
+* ``float``
+* ``complex``
+* ``decimal.Decimal``
+* ``fractions.Fraction``
+* ``bytes``
+* ``str``
+
+But ``decimal.Decimal(obj)`` rejects:
+
+* ``complex``
+* ``fractions.Fraction``
+* ``bytes``
+
+``fractions.Fraction(obj)`` accepts:
+
+* ``int``
+* ``float``
+* ``complex``
+* ``decimal.Decimal``
+* ``fractions.Fraction``
+* ``bytes``
+* ``str`` (ex: ``"1"`` and ``"1/2"``)
+
+But ``fractions.Fraction(obj)`` rejects:
+
+* ``complex``
+* ``bytes``
+
+int type
+========
 
 Examples::
 
@@ -66,15 +130,13 @@ Serialization as bytes::
     >>> int.from_bytes(b'{\x00\x00\x00', 'little')
     123
 
-int(obj) calls ``PyNumber_Long()``. For float, it uses
-
 Rounding:
 
 * ``int(float)`` calls ``float.__trunc__()``, so rounds towards zero
   (ROUND_DOWN)
 
-float
-=====
+float type
+==========
 
 Examples::
 
@@ -102,7 +164,7 @@ Formatting as hexadecimal (base 16)::
     >>> float.fromhex('0x1.199999999999ap+0')
     1.1
 
-Rouding:
+Rounding:
 
 * float.__trunc__(): Round towards zero (ROUND_DOWN)
 * float.__round__(): Round to nearest with ties going to nearest even integer
@@ -122,7 +184,7 @@ Fraction
 C API
 =====
 
-Convert a Python object to an integer. Methods:
+Convert a Python object to an integer. Type methods:
 
 * ``__int__()``: slot ``type->tp_as_number->nb_int``
 * ``__index__()``: slot ``type->tp_as_number->nb_index``
@@ -130,48 +192,59 @@ Convert a Python object to an integer. Methods:
 
 ``PyNumber_Long(obj)``:
 
-* Call ``obj.__trunc__()``
+* Call ``obj.__trunc__()`` (Round towards zero, ROUND_DOWN)
 * or: If ``obj`` type is bytes or str, parse the string in decimal (base 10)
 * or: error!
 
-``PyNumber_Index()``:
+``PyNumber_Index(x)`` calls the ``__index__()`` method: raises an exception if
+the type has no ``__index__()`` method or if method does not return exactly an
+int type (*).
 
-* Call ``obj.__index__()``: the result type must be exactly
-  the int type (but Python tolerates int suclasses)
+``_PyLong_FromNbInt(x)``:
+
+* Call ``type(x).__int__(x)``: the result type must be exactly the int type (*)
 * or: error!
 
-``_PyLong_FromNbInt()``:
+``_PyLong_FromNbIndexOrNbInt(x)``: ``__index__()`` or ``__int__()``:
 
-* Call ``obj.__int__()``: the result type must be exactly
-  the int type)
-
-``_PyLong_FromNbIndexOrNbInt(x)``:
-
-* return ``x`` if type(x) == int (``PyLong_CheckExact()``)
-* call ``type(x).__index__()`` is defined: the result type must be exactly
-  the int type
-* call ``_PyLong_FromNbInt()``: the result type must be exactly
-  the int type (but again Python tolerates int suclasses...)
+* return ``x`` if ``type(x) == int`` (``PyLong_CheckExact()``)
+* call ``type(x).__index__(x)`` is defined: the result type must be exactly
+  the int type (*)
+* call ``type(x).__int__(x)`` (call ``_PyLong_FromNbInt()``): the result type must
+  be exactly the int type (*)
 * error if it is not a int subclass, and the type don't define ``__index__()``
   nor ``__int__()`` method
+* New in Python 3.8
 
-PyLong_FromLong():
+``PyLong_AsLong()`` converts a Python ``int`` to a C ``long``:
 
 * call ``_PyLong_FromNbIndexOrNbInt()``
+* raise OverflowError if the result does not fit into a C long
+* Python 3.7 and older only calls ``__int__()``, not ``__index__()``.
 
-Special case: ``__int__()`` or ``__index__()`` return a int subclass. This
+``PyLong_AsUnsignedLongMask()`` converts a Python object to a C ``unsigned
+long``:
+
+* call ``_PyLong_FromNbIndexOrNbInt(x)`` and then
+  ``_PyLong_AsUnsignedLongMask()`` on the result
+* error if the object cannot be converted to an int by
+  ``_PyLong_FromNbIndexOrNbInt(x)``
+* **mask integer overflow**
+* Python 3.7 and older only calls ``__int__()``, not ``__index__()``.
+
+(*) Special case: ``__int__()`` or ``__index__()`` return a int subclass. This
 feature is deprecated since Python 3.3 (see `commit 6a44f6ee
 <https://github.com/python/cpython/commit/6a44f6eef3d0958d88882347190b3e2d1222c2e9>`_).
 This feature may be removed from Python 3.9: see `bpo-17576
 <https://bugs.python.org/issue17576>`_.
 
-PyArg_ParseTuple, Py_BuildValue
-===============================
+PyArg_ParseTuple and Py_BuildValue
+==================================
 
 Reference documentation: `Parsing arguments and building values
 <https://docs.python.org/dev/c-api/arg.html>`_.
 
-* PyArg_ParseTuple implementation: Python/getargs.c. Core function:
+* PyArg_ParseTuple is implemented in ``Python/getargs.c``, core function:
   ``convertsimple()``.
 * Py_BuildValue is implemented in ``Python/modsupport.c``, core function:
   ``do_mkvalue()``.
@@ -181,17 +254,20 @@ Reference documentation: `Parsing arguments and building values
     length argument (int or :c:type:`Py_ssize_t`) is controlled by defining the
     macro :c:macro:`PY_SSIZE_T_CLEAN` before including ``Python.h``.
 
-Examples:
+PyArg_ParseTuple formats:
 
-* ``PyArg_ParseTuple("i")``: convert a Python int to a C ``int``. It explicitly
-  rejects float using ``PyFloat_Check(arg)`` and uses ``PyLong_AsLong()``.
+* ``"i"`` (C ``int``): ``__index__()`` or ``__int__()``; call
+  ``PyLong_AsLong(obj)``, but explicitly rejects float using
+  ``PyFloat_Check(arg)``.
+* ``"l"`` (C ``long``):  ``__index__()`` or ``__int__()``; call ``PyLong_AsLong()``, but
+  explicitly rejects float using ``PyFloat_Check(arg)``
+* ``"n"`` (C ``ssize_t``): ``__index__()``; call
+  ``PyNumber_Index()`` and then ``PyLong_AsSsize_t()``. Exception on overflow.
+* ``"k"``: call ``PyLong_AsUnsignedLongMask()`` if it's an int or int subclass,
+  error otherwise. **Mask integer overflow**.
 
-getargs.c formats:
-
-* ``l``: ``PyLong_AsLong()`` which uses ``obj.__int__()``, error if float
-* ``n``: ``PyNumber_Index()``
-
-XXX behaviour of undefined formats as ``k`` on integer overflow?
+Note: In Python 3.7 and older, ``PyLong_AsLong()`` only calls ``__int__()``,
+not ``__index__()``.
 
 
 Script to update this page
