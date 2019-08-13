@@ -5,11 +5,12 @@ Python Numbers
 Types
 =====
 
-* int
-* float: IEEE 754 (64 bits, base 2)
-* complex: implemented as two floats
-* decimal.Decimal: base 10, arbitrary precision
-* fractions.Fraction: rational, numerator/denominator; automatically
+* ``int``: integral number
+* ``float``: floating point number, usually IEEE 754 (64 bits, base 2)
+* ``complex``: complex number, implemented as two floats
+* ``decimal.Decimal``: floating point number stored in base 10, arbitrary
+  precision
+* ``fractions.Fraction``: rational, numerator/denominator; automatically
   compute the greatest common divisor (GCD) to simplify the fraction
 
 Number Tower
@@ -37,6 +38,15 @@ int and Fraction attributes:
 * num.denominator
 * num.numerator
 
+
+Conversions in Python
+=====================
+
+* ``int(obj)`` accepts int, float, decimal.Decimal, fractions.Fraction, bytes, str,
+  etc. Floats are rounded towards zero (ROUND_DOWN, ex: ``int(0.9) == 0`` and
+  ``int(-0.9) == 0``).
+* ``float(obj)`` accepts int, float, decimal.Decimal, fractions.Fraction, bytes, str,
+  etc.
 
 int
 ===
@@ -114,28 +124,67 @@ C API
 
 Convert a Python object to an integer. Methods:
 
-* ``__int__()``
-* ``__index__()``
-* ``__trunc__()``
+* ``__int__()``: slot ``type->tp_as_number->nb_int``
+* ``__index__()``: slot ``type->tp_as_number->nb_index``
+* ``__trunc__()`` (no slot)
 
-``PyNumber_Long()``:
+``PyNumber_Long(obj)``:
 
 * Call ``obj.__trunc__()``
-* or: If obj is a Unicode or bytes string, decode from base 10
+* or: If ``obj`` type is bytes or str, parse the string in decimal (base 10)
 * or: error!
 
 ``PyNumber_Index()``:
 
-* Call ``obj.__index__()`` which must return a Python int (exact int type).
-  Internal: ``obj->ob_type->tp_as_number->nb_index`` field.
+* Call ``obj.__index__()``: the result type must be exactly
+  the int type (but Python tolerates int suclasses)
 * or: error!
-* See also https://bugs.python.org/issue17576
-* See https://github.com/python/cpython/commit/6a44f6eef3d0958d88882347190b3e2d1222c2e9
 
 ``_PyLong_FromNbInt()``:
 
-* Call ``obj.__int__()`` which must return a Python int (exact int type).
-  Interal: ``obj->ob_type->tp_as_number->nb_int`` field.
+* Call ``obj.__int__()``: the result type must be exactly
+  the int type)
+
+``_PyLong_FromNbIndexOrNbInt(x)``:
+
+* return ``x`` if type(x) == int (``PyLong_CheckExact()``)
+* call ``type(x).__index__()`` is defined: the result type must be exactly
+  the int type
+* call ``_PyLong_FromNbInt()``: the result type must be exactly
+  the int type (but again Python tolerates int suclasses...)
+* error if it is not a int subclass, and the type don't define ``__index__()``
+  nor ``__int__()`` method
+
+PyLong_FromLong():
+
+* call ``_PyLong_FromNbIndexOrNbInt()``
+
+Special case: ``__int__()`` or ``__index__()`` return a int subclass. This
+feature is deprecated since Python 3.3 (see `commit 6a44f6ee
+<https://github.com/python/cpython/commit/6a44f6eef3d0958d88882347190b3e2d1222c2e9>`_).
+This feature may be removed from Python 3.9: see `bpo-17576
+<https://bugs.python.org/issue17576>`_.
+
+PyArg_ParseTuple, Py_BuildValue
+===============================
+
+Reference documentation: `Parsing arguments and building values
+<https://docs.python.org/dev/c-api/arg.html>`_.
+
+* PyArg_ParseTuple implementation: Python/getargs.c. Core function:
+  ``convertsimple()``.
+* Py_BuildValue is implemented in ``Python/modsupport.c``, core function:
+  ``do_mkvalue()``.
+* Functions behave differently if ``PY_SSIZE_T_CLEAN`` is defined:
+
+    For all ``#`` variants of formats (``s#``, ``y#``, etc.), the type of the
+    length argument (int or :c:type:`Py_ssize_t`) is controlled by defining the
+    macro :c:macro:`PY_SSIZE_T_CLEAN` before including ``Python.h``.
+
+Examples:
+
+* ``PyArg_ParseTuple("i")``: convert a Python int to a C ``int``. It explicitly
+  rejects float using ``PyFloat_Check(arg)`` and uses ``PyLong_AsLong()``.
 
 getargs.c formats:
 
@@ -143,3 +192,11 @@ getargs.c formats:
 * ``n``: ``PyNumber_Index()``
 
 XXX behaviour of undefined formats as ``k`` on integer overflow?
+
+
+Script to update this page
+==========================
+
+number_tower.py:
+
+.. literalinclude:: number_tower.py
