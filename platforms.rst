@@ -10,7 +10,7 @@ Python platforms
 ========  =================================================  =========
 Platform  sys.platform                                       os.name
 ========  =================================================  =========
-AIX       ``aix5``, ``aix6``, ``aix7``                       ``posix``
+AIX       ``aix`` on Python3.8+, (**)                        ``posix``
 Cygwin    ``cygwin``                                         ?
 FreeBSD   ``freebsd5``, ``freebsd6``, ...                    ``posix``
 Java      ``java`` (with a suffix?)                          ?
@@ -27,12 +27,14 @@ configure script using:
 
 * ``uname -s`` command output converted to lowercase, with some special rules
   (ex: ``linux3`` is replaced with ``linux`` on Python 3)
-* ``uname -r`` command output (or ``uname -v`` on AIX, UnixWare or OpenUNIX)
+* ``uname -r`` command output (or ``uname -v`` UnixWare or OpenUNIX)
 * ``$host`` variable (``./configure --host=xxx`` parameter)
   when cross-compiling
 
 (*) ``sys.platform`` was also ``linux3`` on old versions of Python 2.6 and
 Python 2.7 with Linux kernel 3.x.
+(**) On AIX ``sys.platform`` included a release digit, ``aix3``, ...,
+``aix7`` on all versions of Python through version Python 3.7.
 
 
 Supported architectures
