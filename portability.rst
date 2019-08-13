@@ -84,9 +84,6 @@ Threads and signals
     doesn't work before the creation of the first thread on
     FreeBSD 6"
 
-* "Issue #18238: sigwaitinfo() can be interrupted on Linux (raises
-  InterruptedError), but not on AIX"
-
 * Signal orders
 * HP-UX11
 * depending on the OS, a signal sent to the pid is received by the mainthread
