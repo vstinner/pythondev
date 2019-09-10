@@ -366,4 +366,4 @@ You might attempt:
   <https://mail.python.org/pipermail/python-dev/2018-June/153857.html>`_.
 * Disable completely the GC: ``gc.disable()``. It helped the reporter of
   `bpo-2546 <https://bugs.python.org/issue2546>`_ to find his bug.
-
+* See also: https://bugs.python.org/issue36389

@@ -18,6 +18,9 @@ When creating a new directory, see also:
   comment
   <https://github.com/python/cpython/pull/10624#issuecomment-441090519>`_).
 * "make tags" and "make TAGS" in Makefile.pre.in
+* The Windows installer copies Lib/test/ and subdirectories:
+  see ``<InstallFiles Include="$(PySourcePath)Lib\test\**\*" ...>``
+  in ``Tools/msi/test/test.wixproj``.
 
 
 Add a new C extension
