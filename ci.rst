@@ -21,6 +21,31 @@ Members:
 <https://pyfound.blogspot.com/2019/06/pablo-galindo-salgado-nights-watch-is.html>`_
 by Pablo Galindo Salgado.
 
+Python Test Suite
+=================
+
+Python Test Suite can be found in `Lib/test/ directory
+<https://github.com/python/cpython/tree/master/Lib/test>`_.
+
+Python uses `libregrtest
+<https://github.com/python/cpython/tree/master/Lib/test/libregrtest>`_ test
+runner which is based on unittest with additional features:
+
+* ``-R 3:3`` command to check for reference and memory leaks
+  (don't detect PyMem_RawMalloc leaks, only detect PyMem_Malloc and
+  PyObject_Malloc leaks)
+* ``-u`` resources to enable extra tests. Examples:
+
+ * ``-u cpu`` enables tests which use more CPU
+ * ``-u largefile`` enables tests which use a lot of disk space
+
+* ``-m 4G`` enables tests which use a lot of memory and specify that we allow
+  Python tests to allocate up to 4 GiB.
+* ``-w`` to re-run failed tests in verbose mode
+* ``-m``, ``--fromfile``, ``--matchfile`` to select tests
+
+See devguide documentation: https://devguide.python.org/runtests/
+
 Buildbots links
 ===============
 
