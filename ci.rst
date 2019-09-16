@@ -145,8 +145,3 @@ Revert on fail
 * `[python-committers] Revert changes which break too many buildbots
   <https://mail.python.org/pipermail/python-committers/2017-June/004588.html>`_
   (June, 2017)
-
-VSTS
-====
-
-XXX
