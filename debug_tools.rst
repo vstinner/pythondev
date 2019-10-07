@@ -367,3 +367,12 @@ You might attempt:
 * Disable completely the GC: ``gc.disable()``. It helped the reporter of
   `bpo-2546 <https://bugs.python.org/issue2546>`_ to find his bug.
 * See also: https://bugs.python.org/issue36389
+
+Fixed bugs related to visit_decref():
+
+* 2019-10: `Ensure that objects entering the GC are valid
+  <https://bugs.python.org/issue38392>`_
+* 2019-03: `Add gc.enable_object_debugger(): detect corrupted Python objects in the GC
+  <https://bugs.python.org/issue36389>`_
+* 2018-06: `contextvars: hamt_alloc() must initialize h_root and h_count fields
+  <https://bugs.python.org/issue33803>`_
