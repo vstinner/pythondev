@@ -365,14 +365,45 @@ You might attempt:
   `[Python-Dev] Idea: reduce GC threshold in development mode (-X dev)
   <https://mail.python.org/pipermail/python-dev/2018-June/153857.html>`_.
 * Disable completely the GC: ``gc.disable()``. It helped the reporter of
-  `bpo-2546 <https://bugs.python.org/issue2546>`_ to find his bug.
-* See also: https://bugs.python.org/issue36389
+  `bpo-2546 <https://bugs.python.org/issue2546>`__ to find his bug.
 
-Fixed bugs related to visit_decref():
+Python issues related to visit_decref():
 
-* 2019-10: `Ensure that objects entering the GC are valid
+* 2019-10-07: `Python segfaults when configured with --with-pydebug --with-trace-refs
+  <https://bugs.python.org/issue38400>`_. ``_PyObject_IsFreed()`` regression,
+  it detected ``PyObject._ob_prev=NULL`` or ``PyObject._ob_next=NULL`` as a
+  bug (when Python is built using
+  ``./configure --with-pydebug --with-trace-refs``). For example, the
+  ``Py_None`` object is not tracked by ``sys.getobjects()`` circular list.
+* 2019-10-07: `Ensure that objects entering the GC are valid
   <https://bugs.python.org/issue38392>`_
-* 2019-03: `Add gc.enable_object_debugger(): detect corrupted Python objects in the GC
+* 2019-09-09: `visit_decref(): add an assertion to check that the object is not
+  freed
+  <https://bugs.python.org/issue38070>`_
+* 2019-09-05: `reference counter issue in signal module
+  <https://bugs.python.org/issue38037>`_. Missing ``Py_INCREF()`` in the
+  initialization of the ``_signal`` module.
+* 2019-03-21: `Add gc.enable_object_debugger(): detect corrupted Python objects in the GC
   <https://bugs.python.org/issue36389>`_
-* 2018-06: `contextvars: hamt_alloc() must initialize h_root and h_count fields
+* 2018-07-10: `int(s), float(s) and others may cause segmentation fault
+  <https://bugs.python.org/issue34087>`_
+* 2018-06-07: `contextvars: hamt_alloc() must initialize h_root and h_count fields
   <https://bugs.python.org/issue33803>`_
+* 2017-08-10: `Segfault in gcmodule.c:360 visit_decref (PyObject_IS_GC(op))
+  <https://bugs.python.org/issue31181>`_. Crash occurs in 3rd party project
+  pyETL: no reproducer has been provided.
+* 2016-07-17: `Segfault in gcmodule.c:360 visit_decref
+  <https://bugs.python.org/issue27542>`_. Related to pip, wheel and cffi.
+* 2014-02-06: `python: Modules/gcmodule.c:379: visit_decref: Assertion
+  '((gc)->gc.gc_refs >> (1)) != 0' failed
+  <https://bugs.python.org/issue20526>`_. Crash at Python exit related to
+  daemon threads spawned by asyncio. Also someone reported a bug in cx_Oracle,
+  likely a corrupted exception: crash in visit_decref() called by
+  BaseException_traverse().
+* 2013-02-19: `python-2.7.3-r3: crash in visit_decref()
+  <https://bugs.python.org/issue17234>`_
+* 2012-07-01: `SEGFAULT in visit_decref
+  <https://bugs.python.org/issue15236>`_
+* 2008-04-04: `Python-2.5.2: crash in visit_decref () at Modules/gcmodule.c:270
+  <https://bugs.python.org/issue2546>`__.
+  Bug in a C extension, ``char*`` string passed as a ``PyObject*``
