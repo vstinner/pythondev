@@ -375,6 +375,7 @@ Python issues related to visit_decref():
   bug (when Python is built using
   ``./configure --with-pydebug --with-trace-refs``). For example, the
   ``Py_None`` object is not tracked by ``sys.getobjects()`` circular list.
+  Parent object type: ``dict``.
 * 2019-10-07: `Ensure that objects entering the GC are valid
   <https://bugs.python.org/issue38392>`_
 * 2019-09-09: `visit_decref(): add an assertion to check that the object is not
@@ -382,28 +383,37 @@ Python issues related to visit_decref():
   <https://bugs.python.org/issue38070>`_
 * 2019-09-05: `reference counter issue in signal module
   <https://bugs.python.org/issue38037>`_. Missing ``Py_INCREF()`` in the
-  initialization of the ``_signal`` module.
+  initialization of the ``_signal`` module. Crash occurs while
+  ``_PyImport_Cleanup()`` is clearing the ``_signal`` module.
+  Parent object type: ``dict`` (``_signal`` module namespace).
 * 2019-03-21: `Add gc.enable_object_debugger(): detect corrupted Python objects in the GC
   <https://bugs.python.org/issue36389>`_
 * 2018-07-10: `int(s), float(s) and others may cause segmentation fault
-  <https://bugs.python.org/issue34087>`_
+  <https://bugs.python.org/issue34087>`_. Buffer overflow in an ``int`` object.
+  Parent object type: ``list``.
 * 2018-06-07: `contextvars: hamt_alloc() must initialize h_root and h_count fields
-  <https://bugs.python.org/issue33803>`_
+  <https://bugs.python.org/issue33803>`_. ``hamt_alloc()`` tracks an object in
+  the GC before it is fully initialized: ``hamt_tp_traverse()`` visits
+  ``h_root`` which is not initialized yet. Parent object type: ``hamt``.
 * 2017-08-10: `Segfault in gcmodule.c:360 visit_decref (PyObject_IS_GC(op))
   <https://bugs.python.org/issue31181>`_. Crash occurs in 3rd party project
   pyETL: no reproducer has been provided.
 * 2016-07-17: `Segfault in gcmodule.c:360 visit_decref
   <https://bugs.python.org/issue27542>`_. Related to pip, wheel and cffi.
+  Parent object type: ``dict``.
 * 2014-02-06: `python: Modules/gcmodule.c:379: visit_decref: Assertion
   '((gc)->gc.gc_refs >> (1)) != 0' failed
   <https://bugs.python.org/issue20526>`_. Crash at Python exit related to
   daemon threads spawned by asyncio. Also someone reported a bug in cx_Oracle,
   likely a corrupted exception: crash in visit_decref() called by
   BaseException_traverse().
+  Parent object type: ``traceback``, visited object type: ``Frame``.
 * 2013-02-19: `python-2.7.3-r3: crash in visit_decref()
-  <https://bugs.python.org/issue17234>`_
+  <https://bugs.python.org/issue17234>`_. Application using numpy, matplotlib,
+  expat, and cElementTree. Parent object type: ``tuple``.
 * 2012-07-01: `SEGFAULT in visit_decref
-  <https://bugs.python.org/issue15236>`_
+  <https://bugs.python.org/issue15236>`_. Reference counting issue.
+  Parent object type: ``tuple``.
 * 2008-04-04: `Python-2.5.2: crash in visit_decref () at Modules/gcmodule.c:270
   <https://bugs.python.org/issue2546>`__.
   Bug in a C extension, ``char*`` string passed as a ``PyObject*``
