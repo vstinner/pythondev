@@ -5,7 +5,7 @@ Python builds
 Release build
 =============
 
-Python is built using -O3.
+Python is built with ``-O3 -DNDEBUG`` compiler flags.
 
 LTO
 ---
