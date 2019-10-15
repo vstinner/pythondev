@@ -38,6 +38,7 @@ Development:
    c_in_cpython.rst
    bugs_found_by_python.rst
    finalization.rst
+   builds.rst
 
 Performance:
 
