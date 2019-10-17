@@ -17,6 +17,21 @@ Summary:
 Xavier's "Android support" document (Decembre 2017):
 https://github.com/xdegaye/cagibi/blob/master/doc/android_support.rst
 
+BeeWare VOC
+===========
+
+A transpiler that converts Python bytecode into Java bytecode.
+
+* http://beeware.org/voc
+* https://github.com/beeware/voc
+
+In 2019, BeeWare was awarded by the PSF a $50,000 grant to help improve Python
+on Android. Check out their blog and call for contractors here:
+https://beeware.org/news/buzz/beeware-project-awarded-a-psf-education-grant/.
+
+See also https://github.com/beeware/ouroboros/
+
+
 Android CI for Python
 =====================
 
@@ -252,13 +267,3 @@ Python 3.6:
   python-for-android <https://github.com/kivy/python-for-android/>`_)
 * `buildozer <https://github.com/kivy/buildozer>`_, Generic Python packager for
   Android and iOS.
-
-BeeWare VOC
-===========
-
-A transpiler that converts Python bytecode into Java bytecode.
-
-* http://beeware.org/voc
-* https://github.com/beeware/voc
-
-See also https://github.com/beeware/ouroboros/
