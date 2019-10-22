@@ -8,6 +8,101 @@ fixed dozens of bugs in these tests.
 See also: :ref:`Enable tracemalloc to get ResourceWarning traceback
 <res-warn-tb>`.
 
+Debug Dangling process
+======================
+
+For example, debug test_multiprocessing_spawn which logs::
+
+    Warning -- Dangling processes: {<SpawnProcess(QueueManager-1576, stopped)>}
+
+https://bugs.python.org/issue38447
+
+Get cases::
+
+    ./python -m test test_multiprocessing_spawn  --list-cases > cases
+
+Bisect::
+
+    ./python -m test.bisect_cmd -i cases -o bisect1 -n 5 -N 500 test_multiprocessing_spawn -R 3:3 --fail-env-changed
+
+
+Debug reap_children() warning
+=============================
+
+For example, test_concurrent_futures logs such warning::
+
+    0:27:13 load avg: 4.88 [416/419/1] test_concurrent_futures failed (env changed) (17 min 11 sec) -- running: test_capi (7 min 28 sec), test_gdb (8 min 49 sec), test_asyncio (23 min 23 sec)
+    beginning 6 repetitions
+    123456
+    .Warning -- reap_children() reaped child process 26487
+    .....
+    Warning -- multiprocessing.process._dangling was modified by test_concurrent_futures
+      Before: set()
+      After:  {<weakref at 0x7fdc08f44e30; to 'SpawnProcess' at 0x7fdc0a467c30>}
+
+https://bugs.python.org/issue38448
+
+Run the test in a loop until it fails? ::
+
+    ./python -m test test_concurrent_futures --fail-env-changed -F
+
+If it's not enough, spawn more jobs in parallel, example with 10 processes::
+
+    ./python -m test test_concurrent_futures --fail-env-changed -F -j10
+
+If it's not enough, use the previous commands, but also inject some workload.
+For example, run a different terminal::
+
+    ./python -m test -u all -r -F -j4
+
+Hack reap_children() to detect more issues, sleep 100 ms before calling waitpid(WNOHANG)::
+
+    diff --git a/Lib/test/support/__init__.py b/Lib/test/support/__init__.py
+    index 0f294c5b0f..d938ae6b16 100644
+    --- a/Lib/test/support/__init__.py
+    +++ b/Lib/test/support/__init__.py
+    @@ -2320,6 +2320,8 @@ def reap_children():
+         if not (hasattr(os, 'waitpid') and hasattr(os, 'WNOHANG')):
+             return
+
+    +    time.sleep(0.1)
+    +
+         # Reap all our dead child processes so we don't leave zombies around.
+         # These hog resources and might be causing some of the buildbots to die.
+         while True:
+
+
+Untested function which might help, count the number of child processes of a
+process on Linux::
+
+    def get_child_processes(ppid):
+        """
+        Get directly child processes of parent process identifier 'pid'.
+        """
+        proc_dir = '/proc'
+        try:
+            names = os.listdir(proc_dir)
+        except FileNotFoundError:
+            return None
+
+        children = []
+        for name in names:
+            if not name.isdigit():
+                continue
+            pid = int(name)
+            filename = os.path.join(proc_dir, str(pid), 'status')
+            fp = open(filename, encoding="utf-8")
+            proc_ppid = None
+            with fp:
+                for line in fp:
+                    if line.startswith('PPid:'):
+                        proc_ppid = int(line[5:].strip())
+                        break
+            if proc_ppid == ppid:
+                children.append(pid)
+        return children
+
+
 Open issues
 ===========
 
