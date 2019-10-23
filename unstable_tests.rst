@@ -8,8 +8,39 @@ fixed dozens of bugs in these tests.
 See also: :ref:`Enable tracemalloc to get ResourceWarning traceback
 <res-warn-tb>`.
 
+Debug race conditions
+=====================
+
+Debug test relying on time.sleep() or asyncio.sleep()
+-----------------------------------------------------
+
+For example, `test_asyncio: test_run_coroutine_threadsafe_with_timeout() has a
+race condition <https://bugs.python.org/issue38564>`_ issue is caused by
+``await asyncio.sleep(0.05)`` used in a test.
+
+To reproduce the race condition, just use the smallest possible sleep of 1
+nanosecond::
+
+    diff --git a/Lib/test/test_asyncio/test_tasks.py b/Lib/test/test_asyncio/test_tasks.py
+    index dde84b84b1..c94113712a 100644
+    --- a/Lib/test/test_asyncio/test_tasks.py
+    +++ b/Lib/test/test_asyncio/test_tasks.py
+    @@ -3160,7 +3160,7 @@ class RunCoroutineThreadsafeTests(test_utils.TestCase):
+
+         async def add(self, a, b, fail=False, cancel=False):
+             """Wait 0.05 second and return a + b."""
+    -        await asyncio.sleep(0.05)
+    +        await asyncio.sleep(1e-9)
+             if fail:
+                 raise RuntimeError("Fail!")
+             if cancel:
+
+And run the test in a loop until it fails::
+
+    ./python -m test test_asyncio -m test_run_coroutine_threadsafe_with_timeout -v -F
+
 Debug Dangling process
-======================
+----------------------
 
 For example, debug test_multiprocessing_spawn which logs::
 
@@ -27,7 +58,7 @@ Bisect::
 
 
 Debug reap_children() warning
-=============================
+-----------------------------
 
 For example, test_concurrent_futures logs such warning::
 
@@ -103,8 +134,11 @@ process on Linux::
         return children
 
 
+Python issues
+=============
+
 Open issues
-===========
+-----------
 
 * 2018-12-05, **multiprocessing**: `test_multiprocessing_fork: test_del_pool()
   leaks dangling threads and processes on AMD64 FreeBSD CURRENT Shared 3.x
@@ -116,7 +150,7 @@ Open issues
   fds <https://bugs.python.org/issue30966>`_
 
 Fixed issues
-============
+------------
 
 * 2018-05-28, **test_multiprocessing**: `test_multiprocessing_fork: dangling
   threads warning <https://bugs.python.org/issue33676>`_
@@ -164,7 +198,7 @@ Fixed issues
   test_multiprocessing.py calls the terminate() method of all classes).
 
 Rejected, Not a Bug, Out of Date
-================================
+--------------------------------
 
 * 2018-07-18: `test_multiprocessing_spawn: Dangling processes leaked on AMD64
   FreeBSD 10.x Shared 3.x <https://bugs.python.org/issue34150>`_
@@ -176,7 +210,7 @@ Rejected, Not a Bug, Out of Date
   Python exit <https://bugs.python.org/issue26642>`_
 
 Windows handles
-===============
+---------------
 
 Abandonned attempt to hunt for leak of Windows handles:
 
