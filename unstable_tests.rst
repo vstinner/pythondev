@@ -140,18 +140,22 @@ Python issues
 Open issues
 -----------
 
-* 2018-12-05, **multiprocessing**: `test_multiprocessing_fork: test_del_pool()
-  leaks dangling threads and processes on AMD64 FreeBSD CURRENT Shared 3.x
-  <https://bugs.python.org/issue35413>`_
-* 2018-07-03, **asyncio**: `asyncio: BaseEventLoop.close() shutdowns the
-  executor without waiting causing leak of dangling threads
-  <https://bugs.python.org/issue34037>`_
+Search for ``test_asyncio``, ``multiprocessing`` tests.
+
+* 2019-06-11: `test__xxsubinterpreters fails randomly
+  <https://bugs.python.org/issue37224>`_
 * 2017-07-19, **multiprocessing**: `multiprocessing.queues.SimpleQueue leaks 2
   fds <https://bugs.python.org/issue30966>`_
 
 Fixed issues
 ------------
 
+* 2018-12-05, **multiprocessing**: `test_multiprocessing_fork: test_del_pool()
+  leaks dangling threads and processes on AMD64 FreeBSD CURRENT Shared 3.x
+  <https://bugs.python.org/issue35413>`_
+* 2018-07-03, **asyncio**: `asyncio: BaseEventLoop.close() shutdowns the
+  executor without waiting causing leak of dangling threads
+  <https://bugs.python.org/issue34037>`_
 * 2018-05-28, **test_multiprocessing**: `test_multiprocessing_fork: dangling
   threads warning <https://bugs.python.org/issue33676>`_
   (`commit
