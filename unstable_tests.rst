@@ -8,6 +8,44 @@ fixed dozens of bugs in these tests.
 See also: :ref:`Enable tracemalloc to get ResourceWarning traceback
 <res-warn-tb>`.
 
+How to write reliable tests
+===========================
+
+Don't use sleep as synchronization
+----------------------------------
+
+Don't use a sleep as a synchronization primitive between two threads or two
+processes. It will later, soon or later.
+
+* Threads: use threading.Event
+* Processes: use a pipe (os.pipe()), write a byte when read, read to wait
+
+Don't limit the maximum duration
+--------------------------------
+
+Don't make a test fail if it takes longer than a specified number of seconds.
+Example::
+
+    t1 = time.monotonic()
+    func()
+    t2 = time.monotonic()
+    self.assertLess(t2 - t1, 60.0)  # cannot happen
+
+Python has buildbot workers which are very slow where "cannot happen" does
+happen. In most cases, the maximum duration is not a bug in Python and
+so the test must not fail.
+
+For example, test_time had a test to ensure that time.sleep(0.5) takes less
+than 0.7 seconds. The test started to fail on slow buildbots where it took 0.8
+seconds: maximum extended to 1 second. The test has been modified later
+to no longer check the maximum duration.
+
+* https://bugs.python.org/issue19999#msg206344
+
+Another example, a sleep of 100 ms took 2 seconds on "AMD64 OpenIndiana 3.x"
+buildbot: https://bugs.python.org/issue20336
+
+
 Debug race conditions
 =====================
 
