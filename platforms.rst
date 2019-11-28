@@ -33,6 +33,7 @@ configure script using:
 
 (*) ``sys.platform`` was also ``linux3`` on old versions of Python 2.6 and
 Python 2.7 with Linux kernel 3.x.
+
 (**) On AIX ``sys.platform`` included a release digit, ``aix3``, ...,
 ``aix7`` on all versions of Python through version Python 3.7.
 
