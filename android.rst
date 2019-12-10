@@ -9,13 +9,14 @@ Summary:
 * Python 2.7 and 3.5 can be used on Android using CrystaX NDK. It uses
   patches on Python.
 * Python 3.6 (from python.org) mostly work on Android API 24 without further
-  patches, but need recipes to be build and these recipes are not standardized
+  patches, but need recipes to be built and these recipes are not standardized
   yet.
 * The goal is to get a full Android API 24 support for Python 3.7 using a
   standard build recipe; Android buildbot using qemu.
 
-Xavier's "Android support" document (Decembre 2017):
-https://github.com/xdegaye/cagibi/blob/master/doc/android_support.rst
+In 2019, BeeWare was awarded by the PSF a $50,000 grant to help improve cPython
+on Android. Check out their blog and call for contractors here:
+https://beeware.org/news/buzz/beeware-project-awarded-a-psf-education-grant/.
 
 BeeWare VOC
 ===========
@@ -24,10 +25,6 @@ A transpiler that converts Python bytecode into Java bytecode.
 
 * http://beeware.org/voc
 * https://github.com/beeware/voc
-
-In 2019, BeeWare was awarded by the PSF a $50,000 grant to help improve Python
-on Android. Check out their blog and call for contractors here:
-https://beeware.org/news/buzz/beeware-project-awarded-a-psf-education-grant/.
 
 See also https://github.com/beeware/ouroboros/
 
@@ -40,8 +37,11 @@ Android CI for Python
 * https://bugs.python.org/issue30386
 * https://github.com/python/cpython/pull/1629
 
-pmpp's plan: "Test on VMs with Android 4.4 (arm/i386) and Android 7 or 8 (all
-platforms)".
+Test CI: 
+  - Test on headless qemu VMs with Android 4.4 (arm/i386) and Android 7 or 8 (all
+platforms)" : very slow
+  - physically usb attached devices : need hosting.
+  - network attached devices : need rooted devices to restart adb in network mode.
 
 
 People
@@ -60,10 +60,10 @@ Android?
 Android is not the common "Linux" system, only the Linux kernel is shared,
 everything else is different:
 
-* Kernel: Linux
+* Kernel: Linux 
 * libc: Bionic
 * SDK: "NDK"
-* Different filesystem:
+* Different filesystem layout and device mapper:
 
   * /system/bin/sh
   * /system/lib/libc.so
@@ -74,7 +74,7 @@ Bionic
 ======
 
 * https://en.wikipedia.org/wiki/Bionic_(software)
-* Broken locales
+* Broken locales in libc but not in libstdc++
 * No shmem -- see https://github.com/pelya/android-shmem
 
 C++ stdlib has a working localeconv()!? Example::
@@ -106,15 +106,18 @@ Android versions
 ----------------
 
 https://en.wikipedia.org/wiki/Android_version_history :
+https://developer.android.com/about/dashboards
 
-========================  =======  ============
-Android version           Release  API versions
-========================  =======  ============
-Android 7 (Nougat)        2016-08  24-25
-Android 6 (Marshmallow)   2015-10  23
-Android 5 (Lollipop)      2014-11  21-22
-Android 4.4 (Kitkat)      2013-10  19-20
-========================  =======  ============
+========================  =======  ============ ================
+Android version           Release  API versions  market coverage
+========================  =======  ============ ================
+Android 7 (Nougat)        2016-08  24-25        57.9 %
+Android 6 (Marshmallow)   2015-10  23           74.8 %
+Android 5 (Lollipop)      2014-11  21-22        86.3 %
+Android 4.4 (Kitkat)      2013-10  19-20        96.2 %
+========================  =======  ============ ================
+
+
 
 Supported API
 -------------
@@ -123,6 +126,7 @@ Supported API
   (but may have a partial support of API 19+)
 * Unity supports API 16+
 * Kivy supports API 19+
+* Termux layer support python3.6+ and API 21+
 
 Cheap devices only support old versions of Android. Cheap devices allow
 developers to work on Android without having to buy expensive devices just for
@@ -277,8 +281,55 @@ Cross-compilation
 * Xavier's abandonned PR:
   `bpo-28833: Fix cross-compilation of third-party extension modules
   <https://github.com/python/cpython/pull/17420>`_
+  
+Problem to solve for adb shell / ssh shell / Termux use (with repl):
+
+None left, except that most people may never use python app started in those ways.
+
+So it raises the question : Could that be bad for Python future ?
+
+  https://www.youtube.com/watch?v=22EI9uQE_ZM
+  
+  https://www.pythonpodcast.com/python-potential-black-swans-episode-221/
+
+
+
+Problem to solve for in apk use ( standard android application , main is java based but embed libpython via Java native interface and a thread):
+
+- libpython3.x.so must be unversionned and be located in <apkroot>/lib
+- for cross-compiling and linking against libpython3.x.so,  its soname must be set 
+or set(IMPORTED_NO_SONAME ON) must be used in cmake, not ndk-build, linking would be broken.
+ 
+ possible fix, apply patchelf after compilation: https://github.com/pmp-p/pydk/blob/3e87331d62fb80549b61cff561d192a594efec70/sources.aosp/python3.aosp.sh#L409
+ 
+ 
+Python stdlib C modules are by default cross compiled dynamic but they can't be garanteed to load because:
+--
+
+ - their filenames don't start by "lib".
+ - their soname is not set.
+ - their default location is not <apkroot>/lib/ ( only location allowed for most android api )  but is instead  <prefix>/lib/python3.x/lib-dynload/
+ - on earlier python they were not linked to libpython (fixed since 3.7).
+
+  LD_LIBRARY_PATH / LD_PRELOAD are not allowed from java user space.
+
+see https://android.googlesource.com/platform/bionic/+/master/android-changes-for-ndk-developers.md
+  
+  
+Third party C modules have the same problem :
+--
+  
+possible fix, apply patchelf after compilation, change filenames (avoiding collisions!), set correct soname, move files in same folder for android sdk builder (gradle) to pick libpython.so.
+
+ note that cross compiling third party with setuptools/pip may need to set _PYTHON_SYSCONFIGDATA_NAME which is an internal.
+
 
 Cross-compilation is used to target:
 
-* Android on ARM
+* Android on ARM and ARM64
+* Android x86 and amd64.
+* Android mips, but deprecated on newer toolchains.
 * Intel 32-bit for Ubuntu multiarch: compilation done from x86-64 (64 bit) to x86 (32 bit)
+* can be used for WASM (emscripten), and could be used for WASI (clang) targets.
+
+
