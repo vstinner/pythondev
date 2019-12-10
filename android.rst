@@ -267,3 +267,18 @@ Python 3.6:
   python-for-android <https://github.com/kivy/python-for-android/>`_)
 * `buildozer <https://github.com/kivy/buildozer>`_, Generic Python packager for
   Android and iOS.
+
+
+Cross-compilation
+=================
+
+* Documentation:
+  `yan12125's comment on issue28833 <https://bugs.python.org/msg282141>`_
+* Xavier's abandonned PR:
+  `bpo-28833: Fix cross-compilation of third-party extension modules
+  <https://github.com/python/cpython/pull/17420>`_
+
+Cross-compilation is used to target:
+
+* Android on ARM
+* Intel 32-bit for Ubuntu multiarch: compilation done from x86-64 (64 bit) to x86 (32 bit)
