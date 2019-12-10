@@ -211,6 +211,11 @@ Valgrind
 C extensions which use directly ``malloc()/free()``, and not
 ``PyMem_Malloc()/PyMem_Free()``.
 
+Use suppression file which can be found in Misc/valgrind.suppr
+
+`Link Misc/valgrind-python.supp of the master (development) branch
+<https://github.com/python/cpython/blob/master/Misc/valgrind-python.supp>`_.
+
 
 gc.set_threshold(5)
 ===================
