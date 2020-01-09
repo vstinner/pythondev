@@ -35,10 +35,11 @@ See also https://github.com/beeware/ouroboros/
 Android CI for Python
 =====================
 
+* `Xavier's abifa <https://gitlab.com/xdegaye/abifa>`_
 * https://mail.python.org/pipermail/python-dev/2017-December/151171.html
 * Guido wants a PEP?
 * https://bugs.python.org/issue30386
-* https://github.com/python/cpython/pull/1629
+* https://github.com/python/cpython/pull/1629 (closed)
 
 pmpp's plan: "Test on VMs with Android 4.4 (arm/i386) and Android 7 or 8 (all
 platforms)".
@@ -62,11 +63,13 @@ everything else is different:
 
 * Kernel: Linux
 * libc: Bionic
-* SDK: "NDK"
+* Android SDK
+* NDK: toolchain used for cross-compilation, compiler, tools, headers
+  and libraries
 * Different filesystem:
 
-  * /system/bin/sh
-  * /system/lib/libc.so
+  * /system/bin/sh: Shell
+  * /system/lib/libc.so: Bionic libc
 
 The Android API version combines Linux kernel and bionic versions.
 
