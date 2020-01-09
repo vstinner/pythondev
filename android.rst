@@ -9,7 +9,7 @@ Summary:
 * Python 2.7 and 3.5 can be used on Android using CrystaX NDK. It uses
   patches on Python.
 * Python 3.6 (from python.org) mostly work on Android API 24 without further
-  patches, but need recipes to be build and these recipes are not standardized
+  patches, but need recipes to be built and these recipes are not standardized
   yet.
 * The goal is to get a full Android API 24 support for Python 3.7 using a
   standard build recipe; Android buildbot using qemu.
@@ -66,7 +66,7 @@ everything else is different:
 * Android SDK
 * NDK: toolchain used for cross-compilation, compiler, tools, headers
   and libraries
-* Different filesystem:
+* Different filesystem layout and device mapper:
 
   * /system/bin/sh: Shell
   * /system/lib/libc.so: Bionic libc
@@ -77,7 +77,7 @@ Bionic
 ======
 
 * https://en.wikipedia.org/wiki/Bionic_(software)
-* Broken locales
+* Broken locales in libc (but not in libstdc++)
 * No shmem -- see https://github.com/pelya/android-shmem
 
 C++ stdlib has a working localeconv()!? Example::
@@ -119,6 +119,8 @@ Android 5 (Lollipop)      2014-11  21-22
 Android 4.4 (Kitkat)      2013-10  19-20
 ========================  =======  ============
 
+See also https://developer.android.com/about/dashboards
+
 Supported API
 -------------
 
@@ -126,6 +128,7 @@ Supported API
   (but may have a partial support of API 19+)
 * Unity supports API 16+
 * Kivy supports API 19+
+* Termux layer support python3.6+ and API 21+
 
 Cheap devices only support old versions of Android. Cheap devices allow
 developers to work on Android without having to buy expensive devices just for
@@ -211,6 +214,21 @@ Software (Android):
 * Lineage (ex-cyanogen)
 * Android TV
 
+
+APK package
+===========
+
+Problem to solve for in apk use (standard android application, main is java
+based but embed libpython via Java native interface and a thread):
+
+* libpython3.x.so must be unversionned and be located in <apkroot>/lib
+* for cross-compiling and linking against libpython3.x.so,  its soname must be
+  set or set(IMPORTED_NO_SONAME ON) must be used in cmake, not ndk-build,
+  linking would be broken.
+
+Possible fix, apply patchelf after compilation:
+https://github.com/pmp-p/pydk/blob/3e87331d62fb80549b61cff561d192a594efec70/sources.aosp/python3.aosp.sh#L409
+
 TTY on Android?
 ===============
 
@@ -283,5 +301,35 @@ Cross-compilation
 
 Cross-compilation is used to target:
 
-* Android on ARM
-* Intel 32-bit for Ubuntu multiarch: compilation done from x86-64 (64 bit) to x86 (32 bit)
+* Android on ARM and ARM64
+* Android x86 and amd64.
+* Android mips, but deprecated on newer toolchains.
+* Intel 32-bit for Ubuntu multiarch: compilation done from x86-64 (64 bit)
+  to x86 (32 bit)
+* can be used for WASM (emscripten), and could be used for WASI (clang) targets.
+
+Python stdlib C extensions are by default cross compiled as dynamic libraries,
+but they can't be garanteed to load because:
+
+* their filenames don't start by "lib".
+* their SONAME is not set.
+* their default location is not <apkroot>/lib/ (only location allowed for most
+  Android api)  but is instead <prefix>/lib/python3.x/lib-dynload/
+* on earlier python they were not linked to libpython (fixed since 3.7).
+* LD_LIBRARY_PATH / LD_PRELOAD are not allowed from java user space.
+* See: https://android.googlesource.com/platform/bionic/+/master/android-changes-for-ndk-developers.md
+
+Third party C extensions have the same problem. Possible fix: apply patchelf
+after compilation, change filenames (avoiding collisions!), set correct soname,
+move files in same folder for android sdk builder (gradle) to pick
+libpython.so.
+
+Cross-compiling third party C extension with setuptools/pip may need to set
+_PYTHON_SYSCONFIGDATA_NAME environment variable.
+
+
+See also
+========
+
+* `Python Everywhere? <https://www.youtube.com/watch?v=22EI9uQE_ZM>`_ talk
+  by Russell Keith-magee about **embedding Python** at PyCon Thailand 2019
