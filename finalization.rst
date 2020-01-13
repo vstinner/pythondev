@@ -71,3 +71,16 @@ Python issues
   introduced corrupted a Python frame of an asyncio daemon thread which leaded
   to a crash: `bpo-20526 <https://bugs.python.org/issue20526>`__. I had to
   revert the ``_PyThreadState_DeleteExcept(tstate)`` change.
+
+Cython
+======
+
+`__dealloc__()
+<https://cython.readthedocs.io/en/latest/src/userguide/special_methods.html#finalization-method-dealloc>`_:
+
+    By the time your ``__dealloc__()`` method is called, the object may already
+    have been partially destroyed and may not be in a valid state as far as
+    Python is concerned, so you should avoid invoking any Python operations
+    which might touch the object. In particular, don’t call any other methods
+    of the object or do anything which might cause the object to be
+    resurrected. It’s best if you stick to just deallocating C data.
