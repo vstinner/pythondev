@@ -6,6 +6,21 @@ At exit, Python calls ``Py_Finalize()`` which is responsible to stop
 Python and cleanly all states, variables, modules. etc. This code is
 very fragile.
 
+Issues with clearing memory at exit
+===================================
+
+Since Python 3.6, a big refactoring started in CPython to clear more and more
+variables and states at Python exit: in ``Py_FinalizeEx()``, but also in Python
+``main()`` (for variables which cannot be cleared in ``Py_FinalizeEx()``.
+
+Sadly, it caused some nasty issues:
+
+* `The os module should unset() environment variable at exit
+  <https://bugs.python.org/issue39395>`_
+* `Make struct module PEP-384 compatible
+  <https://bugs.python.org/issue38076#msg351608>`_
+
+
 Prevent deadlock in io.BufferedWriter
 =====================================
 
