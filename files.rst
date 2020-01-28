@@ -22,6 +22,10 @@ When creating a new directory, see also:
   see ``<InstallFiles Include="$(PySourcePath)Lib\test\**\*" ...>``
   in ``Tools/msi/test/test.wixproj``.
 
+New test subdirectories should be added to ``LIBSUBDIRS`` of
+``Makefile.pre.in`` (`example
+<https://github.com/python/cpython/commit/2528a6c3d0660c03ae43d796628462ccf8e58190>`__).
+
 
 Add a new C extension
 =====================
