@@ -69,3 +69,7 @@ Developer mode::
 
 See also ``PYTHONASYNCIODEBUG=1`` for asyncio.
 
+pyupgrade
+=========
+
+https://github.com/asottile/pyupgrade
