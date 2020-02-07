@@ -27,6 +27,7 @@ Development:
    debug_tools.rst
    unstable_tests.rst
    files.rst
+   capi.rst
    cmdline.rst
    platforms.rst
    downstream.rst
