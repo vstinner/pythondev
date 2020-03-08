@@ -99,3 +99,19 @@ Cython
     which might touch the object. In particular, don’t call any other methods
     of the object or do anything which might cause the object to be
     resurrected. It’s best if you stick to just deallocating C data.
+
+
+Daemon threads
+==============
+
+* Exit daemon threads when they attempt to acquire the GIL, after Py_Finalize()
+  has been called:
+
+  * https://github.com/python/cpython/commit/eb4e2ae2b8486e8ee4249218b95d94a9f0cc513e
+  * https://bugs.python.org/issue39877
+
+* `change <https://hg.python.org/cpython/rev/c2a13acd5e2b>`_ of `bpo-19466
+  <https://bugs.python.org/issue19466>`_ caused `bpo-20526
+  <https://bugs.python.org/issue20526>`_ regression
+
+

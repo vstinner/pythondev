@@ -4,14 +4,6 @@ Misc notes
 
 * https://cpython-pulls.herokuapp.com/
 
-Py_Finalize and daemon threads
-==============================
-
-* `change <https://hg.python.org/cpython/rev/c2a13acd5e2b>`_ of `bpo-19466
-  <https://bugs.python.org/issue19466>`_ caused `bpo-20526
-  <https://bugs.python.org/issue20526>`_ regression
-
-
 datetime strptime
 =================
 
