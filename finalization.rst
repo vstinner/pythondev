@@ -104,11 +104,11 @@ Cython
 Daemon threads
 ==============
 
-* Exit daemon threads when they attempt to acquire the GIL, after Py_Finalize()
-  has been called:
+* In Python 3.8, daemon threads now exit immediately when they attempt to
+  acquire the GIL, after Py_Finalize() has been called:
 
-  * https://github.com/python/cpython/commit/eb4e2ae2b8486e8ee4249218b95d94a9f0cc513e
-  * https://bugs.python.org/issue39877
+  * https://bugs.python.org/issue36475 with https://github.com/python/cpython/commit/f781d202a2382731b43bade845a58d28a02e9ea1
+  * https://bugs.python.org/issue39877 with https://github.com/python/cpython/commit/eb4e2ae2b8486e8ee4249218b95d94a9f0cc513e
 
 * `change <https://hg.python.org/cpython/rev/c2a13acd5e2b>`_ of `bpo-19466
   <https://bugs.python.org/issue19466>`_ caused `bpo-20526
