@@ -27,7 +27,6 @@ Development:
    debug_tools.rst
    unstable_tests.rst
    files.rst
-   capi.rst
    cmdline.rst
    platforms.rst
    downstream.rst
@@ -41,6 +40,7 @@ Development:
    bugs_found_by_python.rst
    finalization.rst
    builds.rst
+   subinterpreters.rst
 
 Performance:
 
