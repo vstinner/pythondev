@@ -142,34 +142,15 @@ Hack reap_children() to detect more issues, sleep 100 ms before calling waitpid(
 
 
 Untested function which might help, count the number of child processes of a
-process on Linux::
+process on Linux: `Add support.get_child_processes()
+<https://github.com/python/cpython/pull/17640>`_.
 
-    def get_child_processes(ppid):
-        """
-        Get directly child processes of parent process identifier 'pid'.
-        """
-        proc_dir = '/proc'
-        try:
-            names = os.listdir(proc_dir)
-        except FileNotFoundError:
-            return None
+Coredump in multiprocessing
+---------------------------
 
-        children = []
-        for name in names:
-            if not name.isdigit():
-                continue
-            pid = int(name)
-            filename = os.path.join(proc_dir, str(pid), 'status')
-            fp = open(filename, encoding="utf-8")
-            proc_ppid = None
-            with fp:
-                for line in fp:
-                    if line.startswith('PPid:'):
-                        proc_ppid = int(line[5:].strip())
-                        break
-            if proc_ppid == ppid:
-                children.append(pid)
-        return children
+FreeBSD buildbot workers were useful to detect crashes at Python exit, bugs
+related to dangling threads. It helps to add a random sleep at Python exit, in
+``Modules/main.c``.
 
 
 Python issues
