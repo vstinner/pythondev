@@ -11,10 +11,8 @@ Python packaging
 * `Python Packaging User Guide <https://packaging.python.org/>`_
   (`URL on readthedocs.io
   <http://python-packaging-user-guide.readthedocs.org/>`_)
-* `Install pip
-  <http://www.pip-installer.org/en/latest/installing.html>`_
 * `pip documentation
-  <http://www.pip-installer.org/>`_
+  <https://pip.pypa.io/>`_
 * `Python Wheels
   <http://pythonwheels.com/>`_
 * https://hynek.me/articles/conditional-python-dependencies/
