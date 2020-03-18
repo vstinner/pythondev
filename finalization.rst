@@ -106,6 +106,9 @@ Cython
 Daemon threads
 ==============
 
+* Subinterpreters cannot spawn daemon threads anymore, since Python 3.9:
+  https://bugs.python.org/issue37266
+
 * In Python 3.8, daemon threads now exit immediately when they attempt to
   acquire the GIL, after Py_Finalize() has been called:
 
