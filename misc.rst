@@ -65,3 +65,9 @@ pyupgrade
 =========
 
 https://github.com/asottile/pyupgrade
+
+AST changes
+===========
+
+* `Removing ast.Param in Python 3.9 <https://bugs.python.org/issue39969>`__
+  broke `chameleon <https://github.com/malthe/chameleon/issues/303>`__
