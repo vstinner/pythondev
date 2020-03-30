@@ -121,3 +121,5 @@ Links
 
 * https://public.etherpad-mozilla.org/p/help-cpython-newcomers
 * http://teachingopensource.org/
+* https://geekfeminism.wikia.org/wiki/Missing_stair
+* https://en.wikipedia.org/wiki/Missing_stair
