@@ -101,7 +101,7 @@ Inactive core devs
 ==================
 
 Current discussion: `devguide issue: Simplify developer log
-  <https://github.com/python/devguide/issues/390>`__.
+<https://github.com/python/devguide/issues/390>`__.
 
 Links:
 
