@@ -87,6 +87,17 @@ Add a new command line option
   * ``Doc/using/cmdline.rst``
   * ``Misc/python.man``
 
+Example of ``Python/initconfig.c`` usage::
+
+    -B     : don't write .pyc files on import; also PYTHONDONTWRITEBYTECODE=x\n\
+
+Example of ``Doc/using/cmdline.rst`` entry::
+
+    .. cmdoption:: -d
+
+       Turn on parser debugging output (for expert only, depending on compilation
+       options).  See also :envvar:`PYTHONDEBUG`.
+
 * Add an unit test. ``Lib/test/test_cmd_line.py``, ``Lib/test/test_embed.py``
   (``InitConfigTests``) or another test depending on how the value is exposed
   in Python.
@@ -101,9 +112,16 @@ Add an environment variable
     the environment variable.
   * Update ``usage_xxx`` to document the new env var
 
+Example::
+
+    _Py_get_env_flag(use_env, &config->parser_debug, "PYTHONDEBUG");
+
 * ``Doc/using/cmdline.rst``: Document the new env var
 * ``Misc/python.man``: Document the new env var
 * ``Programs/_testembed.c``: Update ``test_init_from_config()``
   and ``set_most_env_vars()`` to set the env var,
   ``PyConfig`` must have the priority.
 * ``Lib/test/test_embed.py``: Update ``InitConfigTests``.
+
+Note: environment variable with a name starting with ``PYTHON`` are ignored
+when using ``-E`` or ``-I`` command line options.
