@@ -14,3 +14,4 @@ Steps to add a field to PyConfig
   * Use SET_ITEM_INT(field) in ``config_as_dict()``
 
 * Lib/test/test_embed.py: Update unit tests. Maybe add a new test.
+* Doc/c-api/init_config.rst: Document the new field.
