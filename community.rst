@@ -116,10 +116,16 @@ Ideas
 * Missing in action: drop core dev for inactive developers?
 
 
+Issues when dealing with people
+===============================
+
+* https://geekfeminism.wikia.org/wiki/Missing_stair
+* https://en.wikipedia.org/wiki/Missing_stair
+* https://en.wikipedia.org/wiki/Gaslighting
+
+
 Links
 =====
 
 * https://public.etherpad-mozilla.org/p/help-cpython-newcomers
 * http://teachingopensource.org/
-* https://geekfeminism.wikia.org/wiki/Missing_stair
-* https://en.wikipedia.org/wiki/Missing_stair
