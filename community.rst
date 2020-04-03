@@ -119,6 +119,7 @@ Ideas
 Issues when dealing with people
 ===============================
 
+* https://geekfeminism.wikia.org/wiki/Five_Geek_Social_Fallacies
 * https://geekfeminism.wikia.org/wiki/Ostracism_is_evil
 * https://geekfeminism.wikia.org/wiki/Missing_stair
 * https://en.wikipedia.org/wiki/Missing_stair
