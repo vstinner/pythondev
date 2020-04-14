@@ -74,8 +74,9 @@ Signal handler
 trip_signal() of signalmodule.c
 -------------------------------
 
-Python 3.9 always uses the main interpreter (``_PyRuntime.interpreters.main``),
-it no longer tries to get the current Python thread state.
+Python 3.9 now always uses the main interpreter (``_PyRuntime.interpreters.main``),
+it no longer tries to get the current Python thread state:
+`bpo-40082 <https://bugs.python.org/issue40082>`_.
 
 ``_PyEval_SignalReceived(interp)`` sets ``signals_pending`` and
 ``eval_breaker`` to 1.
@@ -84,6 +85,16 @@ Call ``_PyEval_AddPendingCall(interp, ...)`` if writing into the wakeup fd
 fails.
 
 Python 3.9 made ``eval_breaker`` and pending calls per interpreter.
+
+On Windows, ``SIGINT`` (CTRL+C) signal handler is called from a different
+thread at each call. `MSDN signal documentation
+<https://docs.microsoft.com/en-us/previous-versions/xdkz3x12(v%3Dvs.140)>`__:
+
+    When a CTRL+C interrupt occurs, Win32 operating systems generate a new
+    thread to specifically handle that interrupt.
+
+    This can cause a single-thread application, such as one in UNIX, to become
+    multithreaded and cause unexpected behavior.
 
 faulthandler
 ------------
