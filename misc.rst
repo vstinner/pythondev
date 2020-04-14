@@ -71,3 +71,11 @@ AST changes
 
 * `Removing ast.Param in Python 3.9 <https://bugs.python.org/issue39969>`__
   broke `chameleon <https://github.com/malthe/chameleon/issues/303>`__
+
+Things to do in Python 3.10
+===========================
+
+* Remove again collections.Mapping
+* Remove again "U" mode of open()
+* Make "from __future__ import annoations" the default
+  https://bugs.python.org/issue38605

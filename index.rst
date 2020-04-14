@@ -42,6 +42,7 @@ Development:
    subinterpreters.rst
    pyconfig.rst
    c_api.rst
+   pystate.rst
 
 Performance:
 
