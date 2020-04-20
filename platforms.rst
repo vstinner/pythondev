@@ -62,6 +62,12 @@ Well supported platforms on Python 3.7 and 2.7:
 * FreeBSD 10 and newer
 * macOS Leopard (macOS 10.6, 2008) and newer
 
+It took 9 years to `fix all compiler warnings on Windows 64-bit
+<https://bugs.python.org/issue9566#msg337328>`_! Usually, the fix was to use a
+larger type to avoid a downcast. For example replace ``int`` with
+``Py_ssize_t``.
+
+
 Linux
 -----
 
