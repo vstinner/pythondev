@@ -22,6 +22,10 @@ See also `Status of Python branches
 * Python 3.0: December 2008
 * Python 2.6: October 2008
 * Python 2.5: September 2006
+* Python 2.4: March 2005
+* Python 2.3: July 2003
+* Python 2.2: December 2001
+* Python 2.1: April 2001
 * Python 2.0: October 2000
 * Python 1.5: April 1999
 
