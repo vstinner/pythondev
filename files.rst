@@ -27,6 +27,14 @@ New test subdirectories should be added to ``LIBSUBDIRS`` of
 <https://github.com/python/cpython/commit/2528a6c3d0660c03ae43d796628462ccf8e58190>`__).
 
 
+Add a new subdirectory
+======================
+
+If the subdirectory contains C code (``.c`` files), it may be interesting
+to add it to ``SUBDIRS`` in ``configure.ac``, so ``make tags`` will also parse
+these files to build the index used by some text editors.
+
+
 Add a new C extension
 =====================
 
