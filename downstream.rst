@@ -24,4 +24,11 @@ backport bugfixes and security fixes, etc.
   * http://git.savannah.gnu.org/cgit/guix.git/tree/gnu/packages/patches/python-3-fix-tests.patch
   * http://git.savannah.gnu.org/cgit/guix.git/tree/gnu/packages/patches/python-3-search-paths.patch
 
+* FreeBSD
+
+  * https://svnweb.freebsd.org/ports/head/lang/python38/files/
+  * https://svnweb.freebsd.org/ports/head/lang/python37/files/
+  * https://svnweb.freebsd.org/ports/head/lang/python36/files/
+  * https://svnweb.freebsd.org/ports/head/lang/python27/files/
+
 See also :ref:`Python on Android <android>`.
