@@ -81,6 +81,8 @@ Add a new command line option
 
 * ``Python/getopt.c``: Update ``SHORT_OPTS`` or ``_PyOS_LongOption``
 * ``Python/initconfig.c``: Modify config_parse_cmdline()
+* ``Lib/subprocess.py``: Update ``_args_from_interpreter_flags()``
+  and ``_optim_args_from_interpreter_flags()`` if needed.
 * Document the new env option
 
   * ``Python/initconfig.c``: Update one of the ``usage_xxx`` variables
