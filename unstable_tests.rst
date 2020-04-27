@@ -153,43 +153,33 @@ related to dangling threads. It helps to add a random sleep at Python exit, in
 ``Modules/main.c``.
 
 
-Python issues
-=============
+Multiprocessing issues
+======================
 
-Open issues
------------
+Open
+----
 
-Search for ``test_asyncio``, ``multiprocessing`` tests.
+* 2018-07-20: `multiprocessing.Pool and ThreadPool leak resources after being
+  deleted <https://bugs.python.org/issue34172>`_
+* 2017-07-19: `Missing multiprocessing.queues.SimpleQueue.close() method
+  <https://bugs.python.org/issue30966>`_ (OPEN).
 
-* 2019-06-11: `test__xxsubinterpreters fails randomly
-  <https://bugs.python.org/issue37224>`_
-* 2017-07-19, **multiprocessing**: `multiprocessing.queues.SimpleQueue leaks 2
-  fds <https://bugs.python.org/issue30966>`_
-
-Fixed issues
-------------
+Fixed, rejected, out of date
+----------------------------
 
 * 2018-12-05, **multiprocessing**: `test_multiprocessing_fork: test_del_pool()
   leaks dangling threads and processes on AMD64 FreeBSD CURRENT Shared 3.x
   <https://bugs.python.org/issue35413>`_
-* 2018-07-03, **asyncio**: `asyncio: BaseEventLoop.close() shutdowns the
-  executor without waiting causing leak of dangling threads
-  <https://bugs.python.org/issue34037>`_
+* 2018-07-18: `test_multiprocessing_spawn: Dangling processes leaked on AMD64
+  FreeBSD 10.x Shared 3.x <https://bugs.python.org/issue34150>`_
+* 2018-07-03: `asyncio: BaseEventLoop.close() shutdowns the executor without
+  waiting causing leak of dangling threads
+  <https://bugs.python.org/issue34037>`_ (FIXED in Python 3.9).
 * 2018-05-28, **test_multiprocessing**: `test_multiprocessing_fork: dangling
   threads warning <https://bugs.python.org/issue33676>`_
   (`commit
   <https://github.com/python/cpython/commit/b7278736b3ae158a7738057e3045bc767ced019e>`__:
   call Pool.join)
-* 2018-05-16, **socketserver**: `socketserver: Add an opt-in option to get Python 3.6
-  behavior on server_close() <https://bugs.python.org/issue33540>`_
-* 2017-08-18, **support**: `Make support.threading_cleanup() stricter
-  <https://bugs.python.org/issue31234>`_ (**big issue with many fixes**)
-* 2017-08-18, **test_logging**: `test_logging: ResourceWarning: unclosed
-  socket <https://bugs.python.org/issue31235>`_
-* 2017-08-18, **socketserver**: `socketserver.ThreadingMixIn leaks running threads after
-  server_close() <https://bugs.python.org/issue31233>`_
-* 2017-08-09, **socketserver**: `socketserver.ForkingMixIn.server_close() leaks zombie
-  processes <https://bugs.python.org/issue31151>`_
 * 2017-07-28: `test_multiprocessing_spawn and test_multiprocessing_forkserver
   leak dangling processes <https://bugs.python.org/issue31069>`_
   (`commit
@@ -205,6 +195,10 @@ Fixed issues
   <https://github.com/python/cpython/commit/3b69d911c57ef591ac0c0f47a66dbcad8337f33a>`__)
 * 2017-06-08, **multiprocessing**: `Add close() to multiprocessing.Process
   <https://bugs.python.org/issue30596>`_
+* 2017-05-03: `Emit a ResourceWarning in concurrent.futures executor destructors
+  <https://bugs.python.org/issue30244>`_ (OUT OF DATE).
+* 2017-04-26: `Emit ResourceWarning in multiprocessing Queue destructor
+  <https://bugs.python.org/issue30171>`_ (REJECTED).
 * 2016-04-15, **multiprocessing**: `test_multiprocessing_spawn leaves processes
   running in background <https://bugs.python.org/issue26762>`_. **Add more
   checks** to _test_multiprocessing to **detect dangling processes and
@@ -220,15 +214,34 @@ Fixed issues
   <https://github.com/python/cpython/commit/225cb8d077b9d34ec20480aad3cbd9018798546f>`__:
   test_multiprocessing.py calls the terminate() method of all classes).
 
+Python issues
+=============
+
+Open issues
+-----------
+
+Search for ``test_asyncio``, ``multiprocessing`` tests.
+
+* 2019-06-11: `test__xxsubinterpreters fails randomly
+  <https://bugs.python.org/issue37224>`_
+
+Fixed issues
+------------
+
+* 2018-05-16, **socketserver**: `socketserver: Add an opt-in option to get Python 3.6
+  behavior on server_close() <https://bugs.python.org/issue33540>`_
+* 2017-08-18, **support**: `Make support.threading_cleanup() stricter
+  <https://bugs.python.org/issue31234>`_ (**big issue with many fixes**)
+* 2017-08-18, **test_logging**: `test_logging: ResourceWarning: unclosed
+  socket <https://bugs.python.org/issue31235>`_
+* 2017-08-18, **socketserver**: `socketserver.ThreadingMixIn leaks running threads after
+  server_close() <https://bugs.python.org/issue31233>`_
+* 2017-08-09, **socketserver**: `socketserver.ForkingMixIn.server_close() leaks zombie
+  processes <https://bugs.python.org/issue31151>`_
+
 Rejected, Not a Bug, Out of Date
 --------------------------------
 
-* 2018-07-18: `test_multiprocessing_spawn: Dangling processes leaked on AMD64
-  FreeBSD 10.x Shared 3.x <https://bugs.python.org/issue34150>`_
-* 2017-05-03: `Emit a ResourceWarning in concurrent.futures executor
-  destructors <https://bugs.python.org/issue30244>`_
-* 2017-04-26: `Emit ResourceWarning in multiprocessing Queue
-  destructor <https://bugs.python.org/issue30171>`_
 * 2016-03-25: `Replace stdout and stderr with simple standard printers at
   Python exit <https://bugs.python.org/issue26642>`_
 
