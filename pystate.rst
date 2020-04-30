@@ -23,18 +23,18 @@ History:
 
 * Python 3.7: ``PyThreadState_GET()`` reads ``_PyThreadState_Current`` (atomic
   variable).
-* Python 3.8: ``_PyThreadState_Current`` moves as
+* Python 3.8: ``_PyThreadState_Current`` becomes
   ``_PyRuntime.gilstate.tstate_current``
 
 
 Get the current interpreter (interp)
 ====================================
 
-* ``PyInterpreterState_Get()``: limited C API. new in Python 3.8.
+* ``PyInterpreterState_Get()``: limited C API. new in Python 3.9.
   Known as ``_PyInterpreterState_Get()`` in Python 3.8.
   Implemented as ``_PyThreadState_GET()->interp``.
 * ``_PyInterpreterState_GET()``: internal C API, added to Python 3.8.
-  Known as ``_PyInterpreterState_GET_UNSAFE()`` in Python 3.8.
+  Previously called ``_PyInterpreterState_GET_UNSAFE()`` in Python 3.8.
 * ``_PyGILState_GetInterpreterStateUnsafe()``: read
   ``_PyRuntime.gilstate.autoInterpreterState``, new in Python 3.6.
 
