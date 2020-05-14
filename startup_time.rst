@@ -6,6 +6,8 @@ CPython startup is "slow": takes between 8 ms and 100 ms depending on the
 Python version, the operating system, how many .pth files are installed, if
 Python runs into a virtual environment, etc.
 
+See: https://github.com/bdrung/startup-time
+
 
 Raw benchmark
 =============
