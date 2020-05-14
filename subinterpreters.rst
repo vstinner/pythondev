@@ -23,6 +23,27 @@ Current workarounds:
 * Disable many caches like frame free list
 * etc.
 
+Heap allocated types
+====================
+
+Modules/_randommodule.c::
+
+    PyObject *Random_Type = PyType_FromSpec(&Random_Type_spec);
+
+Example::
+
+    $ ./python
+    Python 3.9.0a6+ (heads/frame_getback:6bde4d96c7, Apr 29 2020, 03:02:24)
+    >>> import _random as mod1
+    >>> import sys; del sys.modules['_random']
+    >>> import _random as mod2
+    >>> mod2.Random is mod1.Random
+    False
+    >>> mod1.Random.x=1
+    >>> mod2.Random.x
+    AttributeError: type object '_random.Random' has no attribute 'x'
+
+
 Multiphase initialization (PEP 489)
 ===================================
 
@@ -30,6 +51,7 @@ See _abc module.
 
 * PyInit__abc() calls PyModuleDef_Init
 * PyModuleDef has slots, at least Py_mod_exec.
+
 
 Get module
 ==========
