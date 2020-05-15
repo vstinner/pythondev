@@ -115,6 +115,7 @@ Misc
   * https://pypi.python.org/pypi/roundup
   * Report Tracker Problem: https://github.com/python/psf-infra-meta/issues
   * Source code: https://bitbucket.org/python/tracker-cpython/ (fork of Roundup)
+  * Special link: `edit Components <https://bugs.python.org/component>`_
 
 * Mailing lists: https://mail.python.org/mailman/listinfo
 
@@ -172,5 +173,6 @@ IRC bots on #python-dev:
 Roundup: bugs.python.org
 ========================
 
+* https://github.com/python/bugs.python.org/
 * https://hg.python.org/tracker/roundup/
 * https://hg.python.org/tracker/python-dev/
