@@ -115,7 +115,10 @@ Misc
   * https://pypi.python.org/pypi/roundup
   * Report Tracker Problem: https://github.com/python/psf-infra-meta/issues
   * Source code: https://bitbucket.org/python/tracker-cpython/ (fork of Roundup)
-  * Special link: `edit Components <https://bugs.python.org/component>`_
+  * Special links:
+
+    * `edit Components <https://bugs.python.org/component>`_
+    * `edit Versions <https://bugs.python.org/version>`_
 
 * Mailing lists: https://mail.python.org/mailman/listinfo
 
