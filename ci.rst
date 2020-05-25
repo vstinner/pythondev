@@ -66,15 +66,11 @@ Travis CI
 * https://docs.travis-ci.com/user/running-build-in-debug-mode/
 * `Travis CI Status <https://www.traviscistatus.com/>`_
 
-AppVeyor
-========
+GitHub Actions
+==============
 
-* `AppVeyor: CPython build history
-  <https://ci.appveyor.com/project/python/cpython/history>`_
-* `CPython: AppVeyor configuration (.github/appveyor.yml)
-  <https://github.com/python/cpython/blob/master/.github/appveyor.yml>`_
-* `AppVeyor status page <https://appveyor.statuspage.io/>`_
-
+* `Configuration lives in .github/workflows/ directory
+  <https://github.com/python/cpython/tree/master/.github/workflows>`_
 
 Azure Pipelines PR
 ==================
@@ -170,3 +166,17 @@ Revert on fail
 * `[python-committers] Revert changes which break too many buildbots
   <https://mail.python.org/pipermail/python-committers/2017-June/004588.html>`_
   (June, 2017)
+
+
+OLD: AppVeyor
+=============
+
+It is no longer used by Python.
+
+* `AppVeyor: CPython build history
+  <https://ci.appveyor.com/project/python/cpython/history>`_
+* `CPython: AppVeyor configuration (.github/appveyor.yml)
+  <https://github.com/python/cpython/blob/master/.github/appveyor.yml>`_
+* `AppVeyor status page <https://appveyor.statuspage.io/>`_
+
+
