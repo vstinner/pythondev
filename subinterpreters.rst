@@ -8,6 +8,49 @@ See also :ref:`Python Finalization <finalization>`.
 * https://bugs.python.org/issue36476
 * https://bugs.python.org/issue36724
 
+TODO list for per-interpreter GIL
+=================================
+
+`Meta issue: per-interpreter GIL <https://bugs.python.org/issue40512>`_.
+
+`Search for Subinterpreters issues at bugs.python.org
+<https://bugs.python.org/issue?%40search_text=&ignore=file%3Acontent&title=&%40columns=title&id=&%40columns=id&stage=&creation=&creator=&activity=&%40columns=activity&%40sort=activity&actor=&nosy=&type=&components=35&versions=&dependencies=&assignee=&keywords=&priority=&status=1&%40columns=status&resolution=&nosy_count=&message_count=&%40group=&%40pagesize=50&%40startwith=0&%40sortdir=on&%40queryname=&%40old-queryname=&%40action=search>`_.
+
+* Unicode
+
+  * _PyUnicode_FromId()
+  * Unicode interned strings
+  * Unicode latin1 singletons
+
+* parser_init(): _PyArg_Parser
+* Disble lzma, bz2
+* Workaround: __bases__
+* Free lists
+
+  * float
+  * slice
+  * frame
+  * list
+  * dict
+
+* Type method cache
+* Heap types
+* pymalloc
+* Workarounds
+
+  * bpo-40533: Make PyObject.ob_refcnt atomic in subinterpreters
+  * _dictkeysobject.dk_refcnt made _Atomic
+  * Disable GC
+
+* tstate: get/set TSS
+* Per-interpreter GIL
+
+Enhancements:
+
+* Debug: ensure that an object is not accessed by two interpreters
+* _xxsubinterpreters.run_string(): release the GIL
+* subprocess: close_fds=False, posix_spawn() is safe in subinterpreters
+
 Limitations
 ===========
 
