@@ -43,6 +43,7 @@ Development:
    pyconfig.rst
    c_api.rst
    pystate.rst
+   fork.rst
 
 Performance:
 
