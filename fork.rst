@@ -103,6 +103,24 @@ multiprocessing default start method changed from fork to spawn in Python 3.8:
 see `bpo-33725 <https://bugs.python.org/issue33725>`_.
 
 
+getaddrinfo() and gethostbyname() locks
+=======================================
+
+The C library provides getaddrinfo() and gethostbyname() functions which are
+not thread-safe on some platforms. Python uses an internal lock on platforms
+where these functions are known to not be thread-safe.
+
+There are numerous articles about bugs caused by threads or caused by the lock
+added to make the function thread-safe. For example, Python didn't reinitialize
+the getaddrinfo() lock at fork in the child process (the lock has been
+removed).
+
+A thread-safe gethostbyname_r() function was added to avoid this issue.
+
+The `bpo-25920 <https://bugs.python.org/issue25920>`_ removed the getaddrinfo()
+lock.
+
+
 ssl.RAND_bytes()
 ================
 
