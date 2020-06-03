@@ -5,8 +5,15 @@ Python Subinterpreters
 See also :ref:`Python Finalization <finalization>`.
 
 * https://github.com/ericsnowcurrently/multi-core-python/
-* https://bugs.python.org/issue36476
-* https://bugs.python.org/issue36724
+* `bpo-36476: Runtime finalization assumes all other threads have exited
+  <https://bugs.python.org/issue36476>`_
+* `bpo-36724: Clear _PyRuntime at exit
+  <https://bugs.python.org/issue36724>`_
+* `bpo-1635741: Py_Finalize() doesn't clear all Python objects at exit
+  <https://bugs.python.org/issue1635741>`_ created in 2007
+* `LWN: Subinterpreters for Python <https://lwn.net/Articles/820424/>`_
+  (May 13, 2020) By Jake Edge
+
 
 TODO list for per-interpreter GIL
 =================================
