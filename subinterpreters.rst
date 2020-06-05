@@ -33,7 +33,7 @@ Issues:
   * list: DONE
   * async gen: DONE
   * context: DONE
-  * dict
+  * dict: https://github.com/python/cpython/pull/20645
 
 * _PyUnicode_FromId(): https://bugs.python.org/issue39465
 * Unicode interned strings: https://github.com/python/cpython/pull/20085
@@ -46,20 +46,24 @@ Issues:
 
 * Type method cache
 * Heap types
+
+  * https://bugs.python.org/issue40077
+  * https://bugs.python.org/issue40601
+
 * pymalloc
 * Workarounds
 
-  * bpo-40533: Make PyObject.ob_refcnt atomic in subinterpreters
+  * bpo-40533: Make PyObject.ob_refcnt atomic in subinterpreters: https://github.com/python/cpython/pull/19958
   * _dictkeysobject.dk_refcnt made _Atomic
-  * Disable GC
+  * Disable GC: https://github.com/python/cpython/commit/d8135e913ab7c694db247c86d0a84c450c32d86e
 
-* tstate: get/set TSS
-* Per-interpreter GIL
+* tstate: get/set TSS: https://bugs.python.org/issue40522
+* Per-interpreter GIL: https://bugs.python.org/issue40512
 
 Enhancements:
 
-* Debug: ensure that an object is not accessed by two interpreters
-* _xxsubinterpreters.run_string(): release the GIL
+* Debug: ensure that an object is not accessed by two interpreters: https://bugs.python.org/issue33607
+* _xxsubinterpreters.run_string(): release the GIL: https://github.com/python/cpython/commit/fb2c7c4afbab0514352ab0246b0c0cc85d1bba53
 * subprocess: close_fds=False, posix_spawn() is safe in subinterpreters
 
 Limitations
