@@ -7,8 +7,6 @@ See also :ref:`Python Finalization <finalization>`.
 * https://github.com/ericsnowcurrently/multi-core-python/
 * `bpo-36476: Runtime finalization assumes all other threads have exited
   <https://bugs.python.org/issue36476>`_
-* `bpo-36724: Clear _PyRuntime at exit
-  <https://bugs.python.org/issue36724>`_
 * `bpo-1635741: Py_Finalize() doesn't clear all Python objects at exit
   <https://bugs.python.org/issue1635741>`_ created in 2007
 * `LWN: Subinterpreters for Python <https://lwn.net/Articles/820424/>`_
@@ -18,16 +16,11 @@ See also :ref:`Python Finalization <finalization>`.
 TODO list for per-interpreter GIL
 =================================
 
-`Meta issue: per-interpreter GIL <https://bugs.python.org/issue40512>`_.
-
 `Search for Subinterpreters issues at bugs.python.org
 <https://bugs.python.org/issue?%40search_text=&ignore=file%3Acontent&title=&%40columns=title&id=&%40columns=id&stage=&creation=&creator=&activity=&%40columns=activity&%40sort=activity&actor=&nosy=&type=&components=35&versions=&dependencies=&assignee=&keywords=&priority=&status=1&%40columns=status&resolution=&nosy_count=&message_count=&%40group=&%40pagesize=50&%40startwith=0&%40sortdir=on&%40queryname=&%40old-queryname=&%40action=search>`_.
 
-* Unicode
-
-  * _PyUnicode_FromId()
-  * Unicode interned strings
-  * Unicode latin1 singletons
+`Meta issue: per-interpreter GIL <https://bugs.python.org/issue40512>`_.
+Issues:
 
 * parser_init(): _PyArg_Parser
 * Disble lzma, bz2
@@ -42,6 +35,8 @@ TODO list for per-interpreter GIL
   * context: DONE
   * dict
 
+* _PyUnicode_FromId(): https://bugs.python.org/issue39465
+* Unicode interned strings: https://github.com/python/cpython/pull/20085
 * Singletons
 
   * None, True, False, Ellipsis: https://bugs.python.org/issue39511
