@@ -24,6 +24,10 @@ Issues:
 
 * parser_init(): _PyArg_Parser
 * Disble lzma, bz2
+
+  * lzma: https://github.com/python/cpython/pull/19382
+  * bz2: https://github.com/python/cpython/commit/5d38517aa1836542a5417b724c093bcb245f0f47 (this fix is not enough)
+
 * Workaround: __bases__
 * Free lists
 
