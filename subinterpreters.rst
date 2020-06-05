@@ -34,10 +34,12 @@ TODO list for per-interpreter GIL
 * Workaround: __bases__
 * Free lists
 
-  * float
-  * slice
-  * frame
-  * list
+  * float: DONE
+  * slice: DONE
+  * frame: DONE
+  * list: DONE
+  * async gen: DONE
+  * context
   * dict
 
 * Type method cache
