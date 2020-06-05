@@ -39,8 +39,15 @@ TODO list for per-interpreter GIL
   * frame: DONE
   * list: DONE
   * async gen: DONE
-  * context
+  * context: DONE
   * dict
+
+* Singletons
+
+  * None, True, False, Ellipsis: https://bugs.python.org/issue39511
+  * bytes: empty string and single character singletons
+  * str: empty string and single latin1 character singletons
+  * empty frozenset singleton
 
 * Type method cache
 * Heap types
