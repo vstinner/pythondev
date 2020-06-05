@@ -12,6 +12,12 @@ See also :ref:`Python Finalization <finalization>`.
 * `LWN: Subinterpreters for Python <https://lwn.net/Articles/820424/>`_
   (May 13, 2020) By Jake Edge
 
+Milestones
+==========
+
+* May 2020: `PoC: Subinterpreters 4x faster than sequential execution or
+  threads on CPU-bound workaround
+  <https://mail.python.org/archives/list/python-dev@python.org/thread/S5GZZCEREZLA2PEMTVFBCDM52H4JSENR/#RIK75U3ROEHWZL4VENQSQECB4F4GDELV>`_
 
 TODO list for per-interpreter GIL
 =================================
