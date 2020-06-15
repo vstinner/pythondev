@@ -44,6 +44,7 @@ Development:
    c_api.rst
    pystate.rst
    fork.rst
+   test_next_python.rst
 
 Performance:
 

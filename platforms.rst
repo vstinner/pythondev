@@ -189,3 +189,32 @@ of the Git repository) to maintain patches to top of the master branch
 (and maybe also patches on other branches).
 
 More detail in the :pep:`11`.
+
+C compilers
+===========
+
+Python has a good support for:
+
+* GCC
+* clang
+* Visual Studio MSC
+
+Best effort:
+
+* XLC on AIX 7
+
+Compiler flags:
+
+* Debug build uses -Og
+* Release build uses -O3
+* clang with LTO
+* clang with LTO+PGO
+* GCC with LTO
+* GCC with LTO+PGO
+
+See :ref:`Python Continuous Integration <ci>` to see exactly which C compilers
+and which compiler and linker flags are actually tested.
+
+See `PEP 7 <https://www.python.org/dev/peps/pep-0007/>`_ for the minimum C
+standard version. In short, it's a subset of C99 with static line functions and
+``<stdint.h>``.
