@@ -4,6 +4,8 @@
 History of Python
 +++++++++++++++++
 
+Guido van Rossum started to write Python in December 1989.
+
 History of Python releases
 ==========================
 
