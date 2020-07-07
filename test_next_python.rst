@@ -65,3 +65,12 @@ INADA-san's script to download sdist packages from the JSON file:
 Note that this script doesn't download packages without sdist (e.g.  only
 universal wheel). It is because INADA-san has searched Python/C API. The pain
 of the removal can be reduced by fixing most of top 4000 packages.
+
+
+Docker images
+=============
+
+Barry Warsaw maintains `CI Images for Python
+<https://gitlab.com/python-devs/ci-images/-/tree/master>`_. Example:
+`.gitlab-ci.yml of flufl.lock
+<https://gitlab.com/warsaw/flufl.lock/-/blob/master/.gitlab-ci.yml>`_.
