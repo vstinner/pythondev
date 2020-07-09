@@ -34,6 +34,11 @@ Builtin container types:
 Singletons:
 
 * None, Ellipsis (``...``), False (``bool(0)``), True (``bool(1)``)
+* Small integers: [-5; 256]
+* Empty bytes and Unicode strings: ``b''`` and ``''``
+* Latin-1 single letter, examples: ``'\0'``, ``'a'``, ``'\xe9'``
+* Empty tuple
+* Empty frozenset: frozenset() (removed from Python 3.10)
 
 
 Python developer mode
