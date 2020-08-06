@@ -232,6 +232,17 @@ Use a memory breakpoint like::
 
 where ``MEMORY_ADDRESS`` is the address of a Python object.
 
+gdb: analyze a coredump
+=======================
+
+Current Python thread state, like ``PyThreadState_GET()``::
+
+    p ((PyThreadState*)_PyRuntime.gilstate.tstate_current)
+
+Current error, like ``PyErr_Occurred()``::
+
+    p ((PyThreadState*)_PyRuntime.gilstate.tstate_current)->curexc_type
+
 Debug functions
 ===============
 
