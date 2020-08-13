@@ -35,7 +35,7 @@ Issues:
   * bz2: https://github.com/python/cpython/commit/5d38517aa1836542a5417b724c093bcb245f0f47 (this fix is not enough)
 
 * Workaround: __bases__
-* Free lists
+* `Free lists <https://bugs.python.org/issue40521>`__:
 
   * float: DONE
   * slice: DONE
@@ -43,16 +43,16 @@ Issues:
   * list: DONE
   * async gen: DONE
   * context: DONE
-  * dict: https://github.com/python/cpython/pull/20645
+  * dict: DONE
 
 * _PyUnicode_FromId(): https://bugs.python.org/issue39465
 * Unicode interned strings: https://github.com/python/cpython/pull/20085
 * Singletons
 
   * None, True, False, Ellipsis: https://bugs.python.org/issue39511
-  * bytes: empty string and single character singletons
-  * str: empty string and single latin1 character singletons
-  * empty frozenset singleton
+  * bytes: empty string and single character singletons: DONE
+  * str: empty string and single latin1 character singletons: DONE
+  * empty frozenset singleton: DONE (removed)
 
 * Type method cache
 * Heap types
