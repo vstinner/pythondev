@@ -91,6 +91,30 @@ Current workarounds:
 * Disable many caches like frame free list
 * etc.
 
+Convert static type to heap type
+================================
+
+Example: Modules/_abcmodule.c.
+
+Decrement the type reference counter in the dealloc function. Something like::
+
+    static void
+    my_dealloc(my_data *self)
+    {
+        (...)
+        PyTypeObject *tp = Py_TYPE(self);
+        tp->tp_free(self);
+        Py_DECREF(tp);
+    }
+
+Add a module state to a module
+==============================
+
+Example: Modules/_abcmodule.c.
+
+Add traverse, clear and free functions to the module to better collaborate with
+the garbage collector. Otherwise, the GC fails to break reference cycles.
+
 Heap allocated types
 ====================
 
