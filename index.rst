@@ -25,6 +25,7 @@ Development:
 
    ci.rst
    debug_tools.rst
+   gdb.rst
    unstable_tests.rst
    files.rst
    platforms.rst

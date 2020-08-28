@@ -6,6 +6,8 @@ Python Debug Tools
 
 Spoiler: Python 3.6 and newer provide a much better debugging experience!
 
+See also :ref:`Debug CPython with gdb <gdb>`.
+
 Take Away
 =========
 
@@ -223,26 +225,6 @@ gc.set_threshold(5)
 https://mail.python.org/pipermail/python-dev/2018-June/153857.html
 
 
-gdb: watch when reference count changes
-=======================================
-
-Use a memory breakpoint like::
-
-    watch ((PyObject*)MEMORY_ADDRESS)->ob_refcnt
-
-where ``MEMORY_ADDRESS`` is the address of a Python object.
-
-gdb: analyze a coredump
-=======================
-
-Current Python thread state, like ``PyThreadState_GET()``::
-
-    p ((PyThreadState*)_PyRuntime.gilstate.tstate_current)
-
-Current error, like ``PyErr_Occurred()``::
-
-    p ((PyThreadState*)_PyRuntime.gilstate.tstate_current)->curexc_type
-
 Debug functions
 ===============
 
@@ -257,13 +239,6 @@ You might want to call these functions in a running process from gdb:
   * ``_Py_DumpTracebackThreads(2, interp, tstate)`` where ``tstate`` can be ``NULL``
   * Python 3.8: get ``tstate`` from ``_PyRuntime.gilstate.tstate_current`` and ``interp`` from ``_PyRuntime.gilstate.autoInterpreterState``
   * ``2`` is the file descriptor 2: ``stderr``
-
-gdb
-===
-
-Put a breakpoint on the next exception: ``break PyErr_SetObject``. Then use
-``condition`` to only break at the expected exception.
-
 
 Core dump
 =========
@@ -291,27 +266,6 @@ Check that it works::
     #1  0x00007fb0c3a53006 in test_raise_signal (self=<module at remote 0x7fb0cb624758>,
 
 Ok, Python crashes generate coredump files and gdb is able to load them.
-
-
-Load python-gdb.py
-==================
-
-Load it manually::
-
-   (gdb) source /path/to/python-gdb.py
-
-Add directory containing Python source code to "safe path", to automatically
-load python-gdb.py when debugging Python. Add the following line to your
-``~/.gdbinit``::
-
-   add-auto-load-safe-path ~/prog/
-
-In my case, Python is in ``~/prog/python/master``, but I chose to allow to load
-any Python script from ``~/prog/``.
-
-On Fedora, the script is provided as::
-
-   /usr/lib/debug/usr/lib64/libpython3.6m.so.1.0-3.6.6-1.fc28.x86_64.debug-gdb.py
 
 
 Windows
