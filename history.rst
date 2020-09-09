@@ -114,6 +114,18 @@ To propose a change, a contributor had to open an issue in the bug tracker
 
 Misc/NEWS was basically always in conflict, especially on merges.
 
+Changes were first fixed in the oldest supported branch, and then
+forward-ported to newer branches. For example, fixed in 2.6, and ported to
+2.7, 3.0 and 3.1.
+
+When Subversion was used, a Subversion "property" (in practice, a text file
+tracked by Subversion) listed the revision number of all "merged" changes.  For
+example, when a change made in the 2.6 branch was merged into the 2.7 branch,
+it was added to this list. It was likely that this property file was in
+conflict. Sadly, it was a text file made of a single line with thousands of
+revision numbers. Text editors are not convenient to edit such file. It was
+barely possible to fix a conflict in this property.
+
 A new tool to review (comment) patches was linked to Roundup: Rietveld.
 It was possible to generate a patch from a fork the Mercurial repository,
 and then get a review page. Rietveld supported multiple revisions of the same
