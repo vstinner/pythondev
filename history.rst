@@ -39,7 +39,15 @@ History of the Python language (syntax)
 * Python 3.8: ``x := 1`` assignment expression (PEP 572) and ``/`` in function
   for positional-only parameters (PEP 570)
 * Python 3.7: ``async`` and ``await`` become keywords
-* Python 3.5: Add ``async`` and ``await`` (not really keywords yet)
+* Python 3.6: f-strings (`PEP 498 "Literal String Interpolation"
+  <https://www.python.org/dev/peps/pep-0498/>`_)
+* Python 3.5:
+
+  * Add ``async`` and ``await`` (not really keywords yet)
+  * The ``@`` operator (`PEP 465 "A dedicated infix operator for matrix multiplication"
+    <https://www.python.org/dev/peps/pep-0465/>`_)
+  * `PEP 448 "Additional Unpacking Generalization" <https://www.python.org/dev/peps/pep-0448/>`_
+
 * *(Python 3.4: no change)*
 * Python 3.3:
 
@@ -72,6 +80,7 @@ History of the Python language (syntax)
     <http://legacy.python.org/dev/peps/pep-3110/>`_
   * Removed syntax: ``a <> b``, ```a```, ``123l``, ``123L``, ``u'unicode'``,
     ``U'unicode'`` and ``def func(a, (b, c)): pass``
+  * `PEP 3132 "Extended Iterable Unpacking" <https://www.python.org/dev/peps/pep-3132/>`_
 
 * Python 2.6:
 
@@ -142,7 +151,7 @@ Python 3000
 CVS, Subversion, Mercurial
 ==========================
 
-* CVE: Python source code was hosted on Sourceforge
+* CVS: Initially hosted on cvs.python.org, it migrated to Sourceforge
 * Subversion: https://svn.python.org/projects/python/
 * Mercurial: https://hg.python.org/cpython/
 
