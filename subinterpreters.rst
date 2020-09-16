@@ -94,6 +94,9 @@ Current workarounds:
 Convert static type to heap type
 ================================
 
+See: `Convert static types to heap types: use PyType_FromSpec()
+<https://bugs.python.org/issue40077>`_.
+
 Example: Modules/_abcmodule.c.
 
 Decrement the type reference counter in the dealloc function. Something like::
