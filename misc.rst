@@ -80,12 +80,8 @@ AST changes
 Things to do in Python 3.10
 ===========================
 
-* Convert Py_TYPE() to a static inline function:
-  https://bugs.python.org/issue39573
-* Modify C functions using Py_UNICODE to raise a DeprecationWarning:
-  https://bugs.python.org/issue36346
 * Remove again collections.Mapping
 * Remove again "U" mode of open()
-* Make "from __future__ import annoations" the default
+* Make "from __future__ import annotations" the default
   https://bugs.python.org/issue38605
 * Hide static types from the limited C API: https://bugs.python.org/issue40601
