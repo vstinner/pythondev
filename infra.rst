@@ -6,6 +6,11 @@ CPython infrastructure
 
 See also `Python Development Workflow <workflow>`.
 
+* `Current organization owners
+  <https://devguide.python.org/devcycle/?highlight=github%20administrators#current-owners>`_
+* `Current repository administrators
+  <https://devguide.python.org/devcycle/?highlight=github%20administrators#current-administrators>`_
+
 Python infrastructure
 =====================
 
