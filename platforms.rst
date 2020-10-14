@@ -174,6 +174,10 @@ PEP 11 lists removal of supported platforms:
 
 * Python 3.7: `IRIX <https://en.wikipedia.org/wiki/IRIX>`_
 
+  * `Remove dynload_dl
+    <https://github.com/python/cpython/commit/0cafcd3c56c9475913d8d4fd0223c297dbb70ac6>`_
+    (2020)
+
 
 I want CPython to support my platform!
 ======================================
