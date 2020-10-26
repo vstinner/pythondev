@@ -38,6 +38,8 @@ Debug build
 
 * ``./configure --with-pydebug``
 * Python built using ``-Og`` if available, or ``-O0`` otherwise.
+* Define the ``Py_DEBUG`` macro which enables many runtime checks to ease
+  debug.
 
 
 Special builds
