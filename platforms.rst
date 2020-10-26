@@ -4,40 +4,6 @@ Supported platforms and architectures
 
 See also :ref:`Python on Android <android>`.
 
-Python platforms
-================
-
-========  =================================================  =========
-Platform  sys.platform                                       os.name
-========  =================================================  =========
-AIX       ``aix`` on Python3.8+, (**)                        ``posix``
-Cygwin    ``cygwin``                                         ?
-FreeBSD   ``freebsd5``, ``freebsd6``, ...                    ``posix``
-Java      ``java`` (with a suffix?)                          ?
-Linux     ``linux`` on Python 3, ``linux2`` on Python 2 (*)  ``posix``
-macOS     ``darwin``                                         ``posix``
-NetBSD    ``netbsd`` (with a suffix?)                        ``posix``
-OpenBSD   ``openbsd5``                                       ``posix``
-Solaris   ``sunos5``                                         ``posix``
-Windows   ``win32``                                          ``nt``
-========  =================================================  =========
-
-``sys.platform`` comes from the ``MACHDEP`` variable which is built by the
-configure script using:
-
-* ``uname -s`` command output converted to lowercase, with some special rules
-  (ex: ``linux3`` is replaced with ``linux`` on Python 3)
-* ``uname -r`` command output (or ``uname -v`` UnixWare or OpenUNIX)
-* ``$host`` variable (``./configure --host=xxx`` parameter)
-  when cross-compiling
-
-(*) ``sys.platform`` was also ``linux3`` on old versions of Python 2.6 and
-Python 2.7 with Linux kernel 3.x.
-
-(**) On AIX ``sys.platform`` included a release digit, ``aix3``, ...,
-``aix7`` on all versions of Python through version Python 3.7.
-
-
 Supported architectures
 =======================
 
@@ -47,7 +13,8 @@ Well supported architectures:
 
 Best effort support architectures:
 
-* PPC64: should be well supported in practice
+* ppc64le: should be well supported in practice
+* AArch64
 * ARMv7: should be well supported in practice
 * s390x
 
@@ -66,7 +33,6 @@ It took 9 years to `fix all compiler warnings on Windows 64-bit
 <https://bugs.python.org/issue9566#msg337328>`_! Usually, the fix was to use a
 larger type to avoid a downcast. For example replace ``int`` with
 ``Py_ssize_t``.
-
 
 Linux
 -----
@@ -126,7 +92,8 @@ Supported platform with best effort support:
 * OpenBSD
 * NetBSD
 * Solaris, OpenIndiana
-* AIX
+* AIX 6 and newer (see `bpo-42087 <https://bugs.python.org/issue42087>`_
+  for AIX 5)
 
 Platforms not supported officially:
 
@@ -222,3 +189,37 @@ and which compiler and linker flags are actually tested.
 See `PEP 7 <https://www.python.org/dev/peps/pep-0007/>`_ for the minimum C
 standard version. In short, it's a subset of C99 with static line functions and
 ``<stdint.h>``.
+
+
+Python platforms
+================
+
+========  =================================================  =========
+Platform  sys.platform                                       os.name
+========  =================================================  =========
+AIX       ``aix`` on Python3.8+, (**)                        ``posix``
+Cygwin    ``cygwin``                                         ?
+FreeBSD   ``freebsd5``, ``freebsd6``, ...                    ``posix``
+Java      ``java`` (with a suffix?)                          ?
+Linux     ``linux`` on Python 3, ``linux2`` on Python 2 (*)  ``posix``
+macOS     ``darwin``                                         ``posix``
+NetBSD    ``netbsd`` (with a suffix?)                        ``posix``
+OpenBSD   ``openbsd5``                                       ``posix``
+Solaris   ``sunos5``                                         ``posix``
+Windows   ``win32``                                          ``nt``
+========  =================================================  =========
+
+``sys.platform`` comes from the ``MACHDEP`` variable which is built by the
+configure script using:
+
+* ``uname -s`` command output converted to lowercase, with some special rules
+  (ex: ``linux3`` is replaced with ``linux`` on Python 3)
+* ``uname -r`` command output (or ``uname -v`` UnixWare or OpenUNIX)
+* ``$host`` variable (``./configure --host=xxx`` parameter)
+  when cross-compiling
+
+(*) ``sys.platform`` was also ``linux3`` on old versions of Python 2.6 and
+Python 2.7 with Linux kernel 3.x.
+
+(**) On AIX ``sys.platform`` included a release digit, ``aix3``, ...,
+``aix7`` on all versions of Python through version Python 3.7.
