@@ -1,6 +1,10 @@
+.. _python-builds:
+
 +++++++++++++
 Python builds
 +++++++++++++
+
+See also :ref:`C compilers <c-compilers>`.
 
 Release build
 =============

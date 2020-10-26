@@ -161,6 +161,9 @@ of the Git repository) to maintain patches to top of the master branch
 
 More detail in the :pep:`11`.
 
+
+.. _c-compilers:
+
 C compilers
 ===========
 
@@ -185,6 +188,8 @@ Compiler flags:
 
 See :ref:`Python Continuous Integration <ci>` to see exactly which C compilers
 and which compiler and linker flags are actually tested.
+
+See also :ref:`Python builds <python-builds>`.
 
 See `PEP 7 <https://www.python.org/dev/peps/pep-0007/>`_ for the minimum C
 standard version. In short, it's a subset of C99 with static line functions and
