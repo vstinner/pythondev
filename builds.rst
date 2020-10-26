@@ -25,7 +25,7 @@ PGO
 * Run the test suite: ``make run_profile_task`` uses ``PROFILE_TASK`` variable
   of Makefile. configure uses ``./python -m test --pgo`` by default.
   List of test used with ``--pgo``: see `libregrtest/pgo.py
-  <https://github.com/python/cpython/blob/master/Lib/test/libregrtest/pgo.py>`.
+  <https://github.com/python/cpython/blob/master/Lib/test/libregrtest/pgo.py>`_.
 * Rebuild Python with ``gcc -fprofile-use``
 
 PGO + LTO
