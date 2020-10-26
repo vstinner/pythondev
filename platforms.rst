@@ -91,15 +91,15 @@ Supported platform with best effort support:
 * Android API 24
 * OpenBSD
 * NetBSD
-* Solaris, OpenIndiana
 * AIX 6 and newer (see `bpo-42087 <https://bugs.python.org/issue42087>`_
   for AIX 5)
 
 Platforms not supported officially:
 
 * Cygwin
-* MinGW
 * HP-UX
+* MinGW
+* Solaris, OpenIndiana
 
 Unofficial projects:
 
@@ -191,16 +191,16 @@ standard version. In short, it's a subset of C99 with static line functions and
 ``<stdint.h>``.
 
 
-Python platforms
-================
+sys.platform versus os.name
+===========================
+
+Example of ``sys.platform`` and ``os.name`` values:
 
 ========  =================================================  =========
 Platform  sys.platform                                       os.name
 ========  =================================================  =========
 AIX       ``aix`` on Python3.8+, (**)                        ``posix``
-Cygwin    ``cygwin``                                         ?
 FreeBSD   ``freebsd5``, ``freebsd6``, ...                    ``posix``
-Java      ``java`` (with a suffix?)                          ?
 Linux     ``linux`` on Python 3, ``linux2`` on Python 2 (*)  ``posix``
 macOS     ``darwin``                                         ``posix``
 NetBSD    ``netbsd`` (with a suffix?)                        ``posix``
