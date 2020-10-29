@@ -97,7 +97,12 @@ Supported platform with best effort support:
 Platforms not supported officially:
 
 * Cygwin
-* HP-UX
+* `HP-UX <https://en.wikipedia.org/wiki/HP-UX>`_
+
+  * HP-UX 11i v3 was first released in 2007. Latest HP-UX release: May 2020.
+  * test_gdb fix in 2020: commit b2dca49ca3769cb60713f5c2b43e5d5bbdc1f9c7
+  * os.chroot fix in 2020: commit a9edf44a2de9b23a1690b36cdfeed7b41ab763bd
+
 * MinGW
 * Solaris, OpenIndiana
 
@@ -139,9 +144,9 @@ PEP 11 lists removal of supported platforms:
     (`remove VMSError doc commit
     <https://github.com/python/cpython/commit/b2788fe854173b6b213010a7462c05594d703c06>`_)
 
-* Python 3.7: `IRIX <https://en.wikipedia.org/wiki/IRIX>`_
+* `IRIX <https://en.wikipedia.org/wiki/IRIX>`_ ("The last major version of IRIX is IRIX 6.5, which was released in May 1998")
 
-  * `Remove dynload_dl
+  * Python 3.7: `Remove dynload_dl
     <https://github.com/python/cpython/commit/0cafcd3c56c9475913d8d4fd0223c297dbb70ac6>`_
     (2020)
 
