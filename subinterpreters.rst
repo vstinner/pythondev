@@ -12,6 +12,45 @@ See also :ref:`Python Finalization <finalization>`.
 * `LWN: Subinterpreters for Python <https://lwn.net/Articles/820424/>`_
   (May 13, 2020) By Jake Edge
 
+DONE
+====
+
+* Fix crashes with daemon threads: https://vstinner.github.io/gil-bugfixes-daemon-threads-python39.html
+* Per-interpreter free lists (bpo-40521):
+
+  * float
+  * slice
+  * frame
+  * list
+  * asynchronous generator
+  * context
+  * dict
+  * tuple
+  * MemoryError
+
+* Per-interpreter singletons (bpo-40521):
+
+  * small integer ([-5; 256] range) (bpo-38858)
+  * empty bytes string singleton
+  * empty Unicode string singleton
+  * empty tuple singleton
+  * single byte character (``b'\x00'`` to ``b'\xFF'``)
+  * single Unicode character (U+0000-U+00FF range)
+  * Note: the empty frozenset singleton has been removed.
+
+* Per-interpreter slice cache (bpo-40521).
+* Per-interpreter pending calls (bpo-39984).
+* Per-interpreter states:
+
+  * warnings (bpo-36737 and bpo-40521)
+  * gc (bpo-36854)
+  * parser (bpo-36876)
+
+* At 2020-10-06, 76 extensions on a total of 118 use the new multi-phase
+  initialization API: **64% (76/118)**. The remaining 42 extensions using the
+  old API should be updated (bpo-1635741).
+
+
 Milestones
 ==========
 
@@ -34,26 +73,10 @@ Issues:
   * lzma: https://github.com/python/cpython/pull/19382
   * bz2: https://github.com/python/cpython/commit/5d38517aa1836542a5417b724c093bcb245f0f47 (this fix is not enough)
 
-* Workaround: __bases__
 * `Free lists <https://bugs.python.org/issue40521>`__:
-
-  * float: DONE
-  * slice: DONE
-  * frame: DONE
-  * list: DONE
-  * async gen: DONE
-  * context: DONE
-  * dict: DONE
-
 * _PyUnicode_FromId(): https://bugs.python.org/issue39465
 * Unicode interned strings: https://github.com/python/cpython/pull/20085
-* Singletons
-
-  * None, True, False, Ellipsis: https://bugs.python.org/issue39511
-  * bytes: empty string and single character singletons: DONE
-  * str: empty string and single latin1 character singletons: DONE
-  * empty frozenset singleton: DONE (removed)
-
+* None, True, False, Ellipsis singletons: https://bugs.python.org/issue39511
 * Type method cache
 * Heap types
 
