@@ -65,17 +65,28 @@ TODO list for per-interpreter GIL
 <https://bugs.python.org/issue?%40search_text=&ignore=file%3Acontent&title=&%40columns=title&id=&%40columns=id&stage=&creation=&creator=&activity=&%40columns=activity&%40sort=activity&actor=&nosy=&type=&components=35&versions=&dependencies=&assignee=&keywords=&priority=&status=1&%40columns=status&resolution=&nosy_count=&message_count=&%40group=&%40pagesize=50&%40startwith=0&%40sortdir=on&%40queryname=&%40old-queryname=&%40action=search>`_.
 
 `Meta issue: per-interpreter GIL <https://bugs.python.org/issue40512>`_.
+
+Effects of the EXPERIMENTAL_ISOLATED_SUBINTERPRETERS macro:
+
+* Good things!
+
+  * Per-interpreter GIL!!!
+  * Use a TSS to get the current Python thread state ('tstate')
+  * _xxsubinterpreters.run_string() releases the GIL to run a subinterprer
+
+* Bad things :-( (mostly workarounds waiting for a real fix)
+
+  * Disable the method cache
+  * Disabled interned strings
+  * Disable interned name in typeobject.c
+  * Disable pymalloc in preconfig.c: force malloc (or malloc_debug) allocator.
+  * Don't run GC collections in subinterpreters (see gc_collect_main).
+
 Issues:
 
 * parser_init(): _PyArg_Parser
-* Disble lzma, bz2
-
-  * lzma: https://github.com/python/cpython/pull/19382
-  * bz2: https://github.com/python/cpython/commit/5d38517aa1836542a5417b724c093bcb245f0f47 (this fix is not enough)
-
-* `Free lists <https://bugs.python.org/issue40521>`__:
 * _PyUnicode_FromId(): https://bugs.python.org/issue39465
-* Unicode interned strings: https://github.com/python/cpython/pull/20085
+* Unicode interned strings (bpo-40521): https://github.com/python/cpython/pull/20085
 * None, True, False, Ellipsis singletons: https://bugs.python.org/issue39511
 * Type method cache
 * Heap types
@@ -83,15 +94,8 @@ Issues:
   * https://bugs.python.org/issue40077
   * https://bugs.python.org/issue40601
 
-* pymalloc
-* Workarounds
-
-  * bpo-40533: Make PyObject.ob_refcnt atomic in subinterpreters: https://github.com/python/cpython/pull/19958
-  * _dictkeysobject.dk_refcnt made _Atomic
-  * Disable GC: https://github.com/python/cpython/commit/d8135e913ab7c694db247c86d0a84c450c32d86e
-
+* bpo-40533: Temporary workaround: make PyObject.ob_refcnt atomic in subinterpreters: https://github.com/python/cpython/pull/19958
 * tstate: get/set TSS: https://bugs.python.org/issue40522
-* Per-interpreter GIL: https://bugs.python.org/issue40512
 
 Enhancements:
 
