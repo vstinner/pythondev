@@ -65,6 +65,33 @@ Milestones
   threads on CPU-bound workaround
   <https://mail.python.org/archives/list/python-dev@python.org/thread/S5GZZCEREZLA2PEMTVFBCDM52H4JSENR/#RIK75U3ROEHWZL4VENQSQECB4F4GDELV>`_
 
+Open Questions
+==============
+
+Thread local variable for tstate and interp?
+--------------------------------------------
+
+If multiple interpreters can run in parallel, ``_PyThreadState_GET()`` and
+``_PyInterpreterState_GET()`` must be able to get the Python thread state and
+intepreter of the current thread in an efficient way.
+
+pthread_getspecific() is a function call: may slow down Python. GCC and clang
+have a ``__thread`` extension for thread local variable: use ``FS`` register on
+x86-64.
+
+Allocate an unique index per interperter
+----------------------------------------
+
+_PyUnicode_FromId(): https://bugs.python.org/issue39465 fix adds an array per
+interpreter. The first _PyUnicode_FromId() call assigns an unique identifier
+(unique for the whole process, shared by all intepreters) to the identifier and
+the value is stored in the array.
+
+The question is how to get and set the index in an efficient way.
+
+An alternative is to use the identifier memory address as a key and use
+an hash table to store identifier values.
+
 TODO list for per-interpreter GIL
 =================================
 
