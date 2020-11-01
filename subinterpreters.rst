@@ -12,21 +12,26 @@ See also :ref:`Python Finalization <finalization>`.
 * `LWN: Subinterpreters for Python <https://lwn.net/Articles/820424/>`_
   (May 13, 2020) By Jake Edge
 
-DONE
-====
+DONE!
+=====
 
-* Fix crashes with daemon threads: https://vstinner.github.io/gil-bugfixes-daemon-threads-python39.html
+* Multiphase: **64% (76/118)**. At 2020-10-06, 76 extensions on a total of 118
+  use the new multi-phase initialization API. There are 42 remaining extensions
+  using the old API (bpo-1635741).
+* Heap types: **35% (69/200)**. At 2020-11-01, 69 types are defined as heap
+  types on a total of 200 types. There are 131 remaining static types
+  (bpo-40077).
 * Per-interpreter free lists (bpo-40521):
 
-  * float
-  * slice
-  * frame
-  * list
+  * MemoryError
   * asynchronous generator
   * context
   * dict
+  * float
+  * frame
+  * list
+  * slice
   * tuple
-  * MemoryError
 
 * Per-interpreter singletons (bpo-40521):
 
@@ -46,10 +51,12 @@ DONE
   * gc (bpo-36854)
   * parser (bpo-36876)
 
-* At 2020-10-06, 76 extensions on a total of 118 use the new multi-phase
-  initialization API: **64% (76/118)**. The remaining 42 extensions using the
-  old API should be updated (bpo-1635741).
+* Fix crashes with daemon threads: https://vstinner.github.io/gil-bugfixes-daemon-threads-python39.html
+* Fix bugs related to heap types:
 
+  * Fix the traverse function of heap types for GC collection
+    (bpo-40217, bpo-40149)
+  * Fix pickling heap types implemented in C with protocols 0 and 1 (bpo-41052)
 
 Milestones
 ==========
