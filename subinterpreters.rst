@@ -47,9 +47,10 @@ DONE!
 * Per-interpreter pending calls (bpo-39984).
 * Per-interpreter states:
 
-  * warnings (bpo-36737 and bpo-40521)
+  * ast (bpo-41796)
   * gc (bpo-36854)
   * parser (bpo-36876)
+  * warnings (bpo-36737 and bpo-40521)
 
 * Fix crashes with daemon threads: https://vstinner.github.io/gil-bugfixes-daemon-threads-python39.html
 * Fix bugs related to heap types:
