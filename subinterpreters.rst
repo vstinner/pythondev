@@ -156,8 +156,14 @@ Current workarounds:
 Convert static type to heap type
 ================================
 
+See `PEP 630 -- Isolating Extension Modules
+<https://www.python.org/dev/peps/pep-0630/>`_.
+
 See: `Convert static types to heap types: use PyType_FromSpec()
 <https://bugs.python.org/issue40077>`_.
+
+See `Add _PyType_GetModuleByDef <https://bugs.python.org/issue42100>`_ by Petr
+Viktorin.
 
 Example: Modules/_abcmodule.c.
 
