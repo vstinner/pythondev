@@ -119,6 +119,8 @@ Effects of the EXPERIMENTAL_ISOLATED_SUBINTERPRETERS macro:
 
 Issues:
 
+* `Make the PyGILState API compatible with subinterpreters
+  <https://bugs.python.org/issue15751>`_
 * parser_init(): _PyArg_Parser
 * _PyUnicode_FromId(): https://bugs.python.org/issue39465
 * Unicode interned strings (bpo-40521): https://github.com/python/cpython/pull/20085
