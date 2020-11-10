@@ -1,6 +1,10 @@
+.. _pyconfig:
+
 +++++++++++++++++++++++
 Add a field to PyConfig
 +++++++++++++++++++++++
+
+See also :ref:`Embed Python in an application <embed>`.
 
 Documentation
 =============

@@ -42,6 +42,7 @@ Development:
    builds.rst
    subinterpreters.rst
    pyconfig.rst
+   embed.rst
    c_api.rst
    pystate.rst
    fork.rst
