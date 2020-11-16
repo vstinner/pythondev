@@ -91,8 +91,7 @@ Supported platform with best effort support:
 * Android API 24
 * OpenBSD
 * NetBSD
-* AIX 6 and newer (see `bpo-42087 <https://bugs.python.org/issue42087>`_
-  for AIX 5)
+* AIX 6.1 and newer
 
 Platforms not supported officially:
 
@@ -149,6 +148,9 @@ PEP 11 lists removal of supported platforms:
   * Python 3.7: `Remove dynload_dl
     <https://github.com/python/cpython/commit/0cafcd3c56c9475913d8d4fd0223c297dbb70ac6>`_
     (2020)
+
+* `AIX 5.3 and below
+  <https://github.com/python/cpython/commit/c79667ff7921444911e8a5dfa5fba89294915590>`_
 
 
 I want CPython to support my platform!
