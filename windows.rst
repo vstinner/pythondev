@@ -13,7 +13,7 @@ People
 People who understands these things.
 
 * Steve Dower: employed by Microsoft, he is the maintainer of the Windows
-  installer for 2.7, 3.6, 3.7 and master branches
+  installer for 3.6, 3.7, 3.8, 3.9 and master branches
 * Zachary Ware
 * Jeremy Kloth knows the ``PC\VS9.0\`` directory of Python 2.7!
 
@@ -38,23 +38,28 @@ minimum installer options:
 * Workload: only [x] "Desktop development with C++"
 * Language pack: [x] "English"
 
-===================  =======================
-Python version       Visual Studio
-===================  =======================
-Python 2.7           VS 2008 **and** VS 2010
-Python 3.4           VS 2010
-Python 3.5 and 3.6   VS 2015 (or newer)
-Python 3.7           VS 2017
-Python 3.8 (master)  VS 2017
-===================  =======================
+====================  =======================
+Python version        Visual Studio
+====================  =======================
+Python 2.7            VS 2008 **and** VS 2010
+Python 3.4            VS 2010
+Python 3.5 and 3.6    VS 2015 (or newer)
+Python 3.7            VS 2017
+Python 3.8            VS 2017
+Python 3.9            VS 2017
+Python 3.10 (master)  VS 2017
+====================  =======================
 
 python.exe binaries delivered by python.org:
 
-* Python 2.7.x (64-bit): [MSC v.1500 64 bit (AMD64)] on win32 -- VS 2008
-* Python 3.4.x (64-bit): [MSC v.1600 64 bit (AMD64)] on win32 -- VS 2010
-* Python 3.5.x (64-bit): [MSC v.1900 64 bit (AMD64)] on win32 -- VS 2015
-* Python 3.6.x (64-bit): [MSC v.1900 64 bit (AMD64)] on win32 -- VS 2015
-* Python 3.7.x (64-bit): [MSC v.1914 64 bit (AMD64)] on win32 -- VS 2017
+* Python 2.7.x (64-bit):  [MSC v.1500 64 bit (AMD64)] on win32 -- VS 2008
+* Python 3.4.x (64-bit):  [MSC v.1600 64 bit (AMD64)] on win32 -- VS 2010
+* Python 3.5.x (64-bit):  [MSC v.1900 64 bit (AMD64)] on win32 -- VS 2015
+* Python 3.6.x (64-bit):  [MSC v.1900 64 bit (AMD64)] on win32 -- VS 2015
+* Python 3.7.x (64-bit):  [MSC v.1914 64 bit (AMD64)] on win32 -- VS 2017
+* Python 3.8.x (64-bit):  [MSC v.1914 64 bit (AMD64)] on win32 -- VS 2017
+* Python 3.9.x (64-bit):  [MSC v.1914 64 bit (AMD64)] on win32 -- VS 2017
+* Python 3.10.x (64-bit): [MSC v.1914 64 bit (AMD64)] on win32 -- VS 2017
 
 
 Dependencies
@@ -81,7 +86,7 @@ extension:
 
 Requirements:
 
-* Visual Studio 2015 or newer (VS 2017 recommended)
+* Visual Studio 2017 or newer
 * CPython source code: get it using Git, or download a ZIP on GitHub.com
 
 Compile 64-bit Debug Python in the command line::
