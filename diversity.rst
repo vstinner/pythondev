@@ -40,6 +40,10 @@ Python Code of Conduct Bans
   `Re: Resignation from Stefan Krah
   <https://mail.python.org/archives/list/python-committers@python.org/message/BSFWGLR45PKP6CK3LW2ZHVPYFCXWNFBI/>`_
   (Thomas Wouters, on behalf of the Steering Council)
+* July 2020: [python-committers]
+  `Notification of a three-month ban from Python core development
+  <https://mail.python.org/archives/list/python-committers@python.org/thread/2HC5XPURMQL6VRCXPMLQUL7OXBGU6OMS/>`_
+  (Python Steering Council)
 * March 2017: [python-committers]
   `I have blocked Wes Turner from the Python org on GitHub
   <https://mail.python.org/archives/list/python-committers@python.org/thread/LIJITA5XTIYTESDSTAR47TJB4EHMFFBY/#EK5PNQSXC4J2RAEHDV6AAOVK4MJHRL6C>`_
