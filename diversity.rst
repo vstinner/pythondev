@@ -70,19 +70,13 @@ Python Code of Conduct Incidents
   Python devguide: `List terms which should be avoided
   <https://github.com/python/devguide/issues/605>`_.
 
-* June 27, 2020: Guido van Rossum merged `Keara Berlin's PR
-  <https://github.com/python/peps/pull/1470>`_ which removes a reference to
-  `Strunk & White Standard English
-  <https://en.wikipedia.org/wiki/The_Elements_of_Style>`_: commit
-  `PEP 8: Change requirement to adhere to Standard English
-  <https://github.com/python/peps/commit/0c6427dcec1e98ca0bd46a876a7219ee4a9347f4#diff-db417657713fab81e79cb425b07ca55ecb11fc01fc52627e2756d450e8ac6f04>`_.
-  A long discussion starts about the commit.
+* June 27, 2020: PEP 8 and the Strunk & White Standard English
 
   * July 3, 2020, Joannah Nanjekye (core dev) `unsubscribed from python-dev
     <https://twitter.com/Captain_Joannah/status/1278866402850545664>`_ because
     of the python-dev "negativity". Christian Heimes `considered doing the same
     <https://twitter.com/ChristianHeimes/status/1279039846200348672>`_.
-  * June 30, 2020: `Recent PEP-8 change
+  * June 30, 2020: [python-dev] `Recent PEP-8 change
     <https://mail.python.org/archives/list/python-dev@python.org/thread/PJPZBLXM3ERJP66O5IEZYLRSBDN66HI5/>`_
     (108 messages).
   * June 30, 2020: [python-dev]
@@ -96,6 +90,12 @@ Python Code of Conduct Incidents
     clear, understandable comments instead of Strunk & White Standard English
     comments
     <https://mail.python.org/archives/list/python-dev@python.org/thread/66T2R6G3YMX25LYVBHVLGGCREP2AYA7R/>`_ (50 comments)
+  * June 27, 2020: Guido van Rossum merged `Keara Berlin's PR
+    <https://github.com/python/peps/pull/1470>`_ which removes a reference to
+    `Strunk & White Standard English
+    <https://en.wikipedia.org/wiki/The_Elements_of_Style>`_: commit `PEP 8:
+    Change requirement to adhere to Standard English
+    <https://github.com/python/peps/commit/0c6427dcec1e98ca0bd46a876a7219ee4a9347f4#diff-db417657713fab81e79cb425b07ca55ecb11fc01fc52627e2756d450e8ac6f04>`_.
   * June 26, 2020: [python-ideas] `Amend PEP-8 to require clear, understandable
     comments instead of Strunk & White Standard English comments
     <https://mail.python.org/archives/list/python-ideas@python.org/thread/AE2M7KOIQR37K3XSQW7FSV5KO4LMYHWX/#AE2M7KOIQR37K3XSQW7FSV5KO4LMYHWX>`_
