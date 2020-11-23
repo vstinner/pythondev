@@ -104,6 +104,17 @@ Python Code of Conduct Incidents
 * September 2018: Python avoids master/slave terms:
   `bpo-34605 <https://bugs.python.org/issue34605>`_.
 
+* January 2017: "How to respond to trolling" thread
+
+  * February 2017: `Things that won't change in Python
+    <https://lwn.net/Articles/713048/>`_ (Jake Edge, LWN)
+  * January 10, 2017: [python-ideas] `How to respond to trolling
+    <https://mail.python.org/archives/list/python-ideas@python.org/thread/EY7VA64P5HGRI6HLXHJS7SCB5M42RZZJ/#AGITPNGOUCD3URZR522ZHPCTCL24M5SI>`_
+    (Guido van Rossum).
+  * January 9, 2017: `Python Reviewed
+    <https://mail.python.org/archives/list/python-ideas@python.org/thread/VHTANY42EPQTMWVVPIBKUSEMDP4QV7WR/#FBTNXIZUKJFAHJKQLRIKPNFFQD22KSRE>`_
+    (Simon Lovell)
+
 
 Discuss Diversity
 =================
