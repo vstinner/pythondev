@@ -33,6 +33,48 @@ diversity?
 
 **Unconscious Bias** can be a first hint.
 
+Python CoC incidents
+====================
+
+Bans
+----
+
+* October 2020: [python-committers]
+  `Re: Resignation from Stefan Krah
+  <https://mail.python.org/archives/list/python-committers@python.org/message/BSFWGLR45PKP6CK3LW2ZHVPYFCXWNFBI/>`_
+  (Thomas Wouters, on behalf of the Steering Council)
+* March 2017: [python-committers]
+  `I have blocked Wes Turner from the Python org on GitHub
+  <https://mail.python.org/archives/list/python-committers@python.org/thread/LIJITA5XTIYTESDSTAR47TJB4EHMFFBY/#EK5PNQSXC4J2RAEHDV6AAOVK4MJHRL6C>`_
+* November 2013: [python-committers] `Anatoly has been warned about his
+  behaviour potentially leading to his loss of tracker privileges
+  <https://mail.python.org/archives/list/python-committers@python.org/thread/7CYLDZXLVDRQHYZ7K3LEKL5VINDIBC4U/#YSXYXGQX6D46R23W7IVADSU2RAJZOJ3Y>`_
+  (Brett Cannon)
+
+  * November 2013: [python-committers] `Anatoly Techtonik's contribution (again)
+    <https://mail.python.org/archives/list/python-committers@python.org/message/WTO4NGNBJ6FGNLCBYQMPEEZ4XU4SBRTY/>`_
+    (Antoine Pitrou)
+  * November 2013: [python-dev] `PEP process entry point and ill fated initiatives
+    <https://mail.python.org/archives/list/python-dev@python.org/thread/TWPDJ4GZHJTWS7SEFR7ARQUGL25SMYEW/>`_
+    (Anatoly Techtonik)
+  * November 2012: [python-committers] `Anatoly Techtonik's contribution
+    <https://mail.python.org/archives/list/python-committers@python.org/thread/B4SNDCT3TE6RSNWMEVC45WCYBJMF3W5L/#HAV25W2NQ7T3ADHHIS7AC3WTRL3CDOCQ>`_.
+    Public discussion to decide if he should be banned or not.
+
+Misc
+----
+
+* July 2020, Joannah Nanjekye (core dev) unsubscribed from python-dev because
+  of the "negativity":
+  https://twitter.com/Captain_Joannah/status/1278866402850545664 There was
+  an on-going frame discussion related the commit message of a specific
+  `PEP 8 change
+  <https://github.com/python/peps/commit/0c6427dcec1e98ca0bd46a876a7219ee4a9347f4#diff-db417657713fab81e79cb425b07ca55ecb11fc01fc52627e2756d450e8ac6f04>`_.
+  Christian Heimes also `considered to unsubscribe
+  <https://twitter.com/ChristianHeimes/status/1279039846200348672>`_.
+
+
+
 Discuss Diversity
 =================
 
