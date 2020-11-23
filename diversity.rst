@@ -101,6 +101,23 @@ Python Code of Conduct Incidents
     <https://mail.python.org/archives/list/python-ideas@python.org/thread/AE2M7KOIQR37K3XSQW7FSV5KO4LMYHWX/#AE2M7KOIQR37K3XSQW7FSV5KO4LMYHWX>`_
     (Keara Berlin) (27 emails)
 
+* July 2018: Assignment expression flame (PEP 572): more than 650 emails for a
+  single PEP.
+
+  * July 12, 2018: [python-committers]
+    `Transfer of power
+    <https://mail.python.org/archives/list/python-committers@python.org/thread/GQONAGWBBFRHVRUPU7RNBM75MHKGUFJN/#TJELTTESSBTXTOSAB4E7J7GBIKJLOC74>`_
+    (Guido van Rossum)
+  * July 11, 2018: [Python-Dev] `Accepting PEP 572, Assignment Expressions
+    <https://mail.python.org/pipermail/python-dev/2018-July/154601.html>`_
+    (Guido van Rossum)
+  * June 20, 2018: [LWN] `PEP 572 and decision-making in Python
+    <https://lwn.net/Articles/757713/>`_ (Jake Edge): summary of a discussion
+    leaded by Guido van Rossum during the Python Language Summit (May 2020).
+  * May 2018: [python-committers] `A different way to focus discussions
+    <https://mail.python.org/archives/list/python-committers@python.org/thread/STXGDERGEIAS3S6QU5KOU4OE6ZBOX7AD/>`_
+    (Guido van Rossum)
+
 * September 2018: Python avoids master/slave terms:
   `bpo-34605 <https://bugs.python.org/issue34605>`_.
 
