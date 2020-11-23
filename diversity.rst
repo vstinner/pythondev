@@ -33,11 +33,8 @@ diversity?
 
 **Unconscious Bias** can be a first hint.
 
-Python CoC incidents
-====================
-
-Bans
-----
+Python Code of Conduct Bans
+===========================
 
 * October 2020: [python-committers]
   `Re: Resignation from Stefan Krah
@@ -61,18 +58,47 @@ Bans
     <https://mail.python.org/archives/list/python-committers@python.org/thread/B4SNDCT3TE6RSNWMEVC45WCYBJMF3W5L/#HAV25W2NQ7T3ADHHIS7AC3WTRL3CDOCQ>`_.
     Public discussion to decide if he should be banned or not.
 
-Misc
-----
+Python Code of Conduct Incidents
+================================
 
-* July 2020, Joannah Nanjekye (core dev) unsubscribed from python-dev because
-  of the "negativity":
-  https://twitter.com/Captain_Joannah/status/1278866402850545664 There was
-  an on-going frame discussion related the commit message of a specific
-  `PEP 8 change
+* August 2020: Python avoids whitelist/blacklist terms:
+  `bpo-41521 <https://bugs.python.org/issue41521>`_.
+  Python devguide: `List terms which should be avoided
+  <https://github.com/python/devguide/issues/605>`_.
+
+* June 27, 2020: Guido van Rossum merged `Keara Berlin's PR
+  <https://github.com/python/peps/pull/1470>`_ which removes a reference to
+  `Strunk & White Standard English
+  <https://en.wikipedia.org/wiki/The_Elements_of_Style>`_: commit
+  `PEP 8: Change requirement to adhere to Standard English
   <https://github.com/python/peps/commit/0c6427dcec1e98ca0bd46a876a7219ee4a9347f4#diff-db417657713fab81e79cb425b07ca55ecb11fc01fc52627e2756d450e8ac6f04>`_.
-  Christian Heimes also `considered to unsubscribe
-  <https://twitter.com/ChristianHeimes/status/1279039846200348672>`_.
+  A long discussion starts about the commit.
 
+  * July 3, 2020, Joannah Nanjekye (core dev) `unsubscribed from python-dev
+    <https://twitter.com/Captain_Joannah/status/1278866402850545664>`_ because
+    of the python-dev "negativity". Christian Heimes `considered doing the same
+    <https://twitter.com/ChristianHeimes/status/1279039846200348672>`_.
+  * June 30, 2020: `Recent PEP-8 change
+    <https://mail.python.org/archives/list/python-dev@python.org/thread/PJPZBLXM3ERJP66O5IEZYLRSBDN66HI5/>`_
+    (108 messages).
+  * June 30, 2020: [python-dev]
+    `Please refrain from posting on the PEP 8 threads for 24 hours
+    <https://mail.python.org/archives/list/python-dev@python.org/thread/B2CFXHM2ND3KOYGLTBOYK4H2VMGRZT7J/>`_
+    (Brett Cannon)
+  * June 29, 2020: [python-dev][python-ideas] `Lists placed into Emergency Moderation status
+    <https://mail.python.org/archives/list/python-dev@python.org/thread/M2DBECHTZCHUKYO4KHPAAZJTDARJB6T4/>`_
+    (Ernest W. Durbin III).
+  * June 28, 2020: [python-dev] `Re: [Python-ideas] Re: Amend PEP-8 to require
+    clear, understandable comments instead of Strunk & White Standard English
+    comments
+    <https://mail.python.org/archives/list/python-dev@python.org/thread/66T2R6G3YMX25LYVBHVLGGCREP2AYA7R/>`_ (50 comments)
+  * June 26, 2020: [python-ideas] `Amend PEP-8 to require clear, understandable
+    comments instead of Strunk & White Standard English comments
+    <https://mail.python.org/archives/list/python-ideas@python.org/thread/AE2M7KOIQR37K3XSQW7FSV5KO4LMYHWX/#AE2M7KOIQR37K3XSQW7FSV5KO4LMYHWX>`_
+    (Keara Berlin) (27 emails)
+
+* September 2018: Python avoids master/slave terms:
+  `bpo-34605 <https://bugs.python.org/issue34605>`_.
 
 
 Discuss Diversity
