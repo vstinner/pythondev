@@ -152,6 +152,14 @@ PEP 11 lists removal of supported platforms:
 * `AIX 5.3 and below
   <https://github.com/python/cpython/commit/c79667ff7921444911e8a5dfa5fba89294915590>`_
 
+* Mac OS 9:
+
+  * MacOS 9 dropped in Python 2.4 (see PEP 11)
+  * `bpo-35346: Drop Mac OS 9 support from platform
+    <https://github.com/python/cpython/commit/b0e0877629e3df4bc3042fd424e96f197b2e9fa4>`_
+  * `bpo-35471: Remove the macpath module (GH-11129)
+    <https://github.com/python/cpython/commit/d7538dd5e3e04a8db22e1470cb2ed696bf3be160>`_
+
 
 I want CPython to support my platform!
 ======================================
