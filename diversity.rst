@@ -277,6 +277,17 @@ Comment template:
      In the future please use gender-neutral words such as "folks" and "y'all"
      instead of "guys". Thanks.
 
+`Nmap 4.50 Release Notes <https://insecure.org/stf/Nmap-4.50-Release.html>`_
+(December 2007): Political correctness
+
+    To cultivate a professional image, we long ago capitalized all references
+    to God in error message text and also reworded all instances of “fucked up”
+    to “borked”. We have now also changed this warning message: “TCP/IP
+    fingerprinting (for OS scan) requires root privileges. Sorry, dude.” A
+    woman reported that it was “highly offensive and sexist”, that “times have
+    changed and many women now use your software”, and “a sexist remark like
+    the one above should have no place in software.”
+
 Being a Woman on the Internet
 =============================
 
