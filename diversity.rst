@@ -48,6 +48,14 @@ Python Code of Conduct Bans
   `Notification of a three-month ban from Python core development
   <https://mail.python.org/archives/list/python-committers@python.org/thread/2HC5XPURMQL6VRCXPMLQUL7OXBGU6OMS/>`_
   (Python Steering Council)
+* September 2018: `Jacco van Dorp is banned from python-ideas
+  <https://mail.python.org/pipermail/python-ideas/2018-September/053602.html>`_.
+* September 2018: `Koos Zevenhoven is banned from python-ideas for 2 months
+  <https://mail.python.org/pipermail/python-ideas/2018-September/053447.html>`_.
+  The ban happend in the [python-ideas]
+  `Retire or reword the "Beautiful is better than ugly" Zen clause
+  <https://mail.python.org/archives/list/python-ideas@python.org/thread/IRG2P565U2UXGQGDHF5C4HZ5QG2LZPL5/#624NTMCQQGSO64WUK3HSDO4QJJZB3D5U>`_
+  thread (related to the master/slave change).
 * March 2017: [python-committers]
   `I have blocked Wes Turner from the Python org on GitHub
   <https://mail.python.org/archives/list/python-committers@python.org/thread/LIJITA5XTIYTESDSTAR47TJB4EHMFFBY/#EK5PNQSXC4J2RAEHDV6AAOVK4MJHRL6C>`_
@@ -124,6 +132,13 @@ Python Code of Conduct Incidents
 
 * September 2018: Python avoids master/slave terms:
   `bpo-34605 <https://bugs.python.org/issue34605>`_.
+
+  * This change opened [python-ideas]
+    `Retire or reword the "Beautiful is better than ugly" Zen clause
+    <https://mail.python.org/archives/list/python-ideas@python.org/thread/IRG2P565U2UXGQGDHF5C4HZ5QG2LZPL5/#624NTMCQQGSO64WUK3HSDO4QJJZB3D5U>`_
+    thread.
+  * Two persons were banned from python-ideas because of messages they wrote
+    in this thread.
 
 * January 2017: "How to respond to trolling" thread
 
