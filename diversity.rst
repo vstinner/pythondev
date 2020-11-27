@@ -4,7 +4,8 @@
 Diversity
 +++++++++
 
-See also :ref:`CPython community <community>`.
+See also :ref:`CPython community <community>`
+and :ref:`Core developers who stopped contributing to Python <removed-commit-bit>`.
 
     *"You can't solve people problems with software."*
     -- `Baldur Bjarnason

@@ -97,6 +97,62 @@ Steering Council
   <https://www.python.org/dev/peps/pep-8100/>`_
 
 
+.. _removed-commit-bit:
+
+Core developers who stopped contributing to Python
+==================================================
+
+Most core developers who stopped contributing did not announce it publicly,
+or even did not tell anyone. They just disappear. Only a few made a public
+announcement.
+
+* January 2018: `Xavier de Gaye
+  <https://mail.python.org/archives/list/python-committers@python.org/thread/NKCJC7TX5BJDQOCZX6JZEZR3LWQUZ2SP/>`_
+  who maintained pdb and the Android support.
+
+    I have decided for personal reasons to stop contributing to CPython as a
+    core developer, that does not mean I will stop contributing to CPython. So
+    please remove me from the list of core developers and revoke all my access
+    rights. Thank you.
+
+    Xavier.
+
+* January, 2016: `Andrew MacIntyre
+  <https://mail.python.org/archives/list/python-committers@python.org/thread/H2GFRDSWCRF7U5OS63VUS4YPAHWTXP4I/>`_.
+  Extract of his email:
+
+    As a practical matter I have not actively participated in Python
+    development in some years and as a consequence I don't think I have any
+    valid keys still on record.  Nor do I now have any operational OS/2
+    systems to support the Python port to that platform that was my primary
+    interest and contribution.
+
+    (...)
+
+    While the announcement today of the planned move of the Python
+    repository to GitHub has no bearing whatsoever on my decision, I would
+    note that GitHub's requirement that a person only have one account - to
+    be used for both personal activity and any activity on behalf of an
+    employer - is of sufficient concern to me that had I decided to continue
+    as a committer I would be **seeking legal advice** concerning my position.
+    I say this as to date I have been able to satisfy my employer's
+    requirements for clear separation of my personal activities, including
+    my participation in Python development, from my activities as an
+    employee.  This has been possible by exclusively using only provably
+    personal resources, including accounts and internet access, for personal
+    activities.  Such clear separation becomes much more difficult when
+    resources such as accounts are shared between personal and employee
+    roles, especially when being seen to do the right thing is as important
+    as actually doing the right thing.
+
+* April, 2015: `Skip Montanaro <https://bugs.python.org/msg241740>`_:
+
+    Alas, my commit bit long ago fell into disuse. I haven't checked anything
+    in since long before the days of Mercurial and the current workflow. I
+    would almost certainly mess something up. In fact, to avoid confusion in
+    the future, removal of my commit bit might not be a bad idea.
+
+
 Inactive core devs
 ==================
 
