@@ -32,6 +32,9 @@ short priviledged group (ex: "core reviewers" or "core developers"), are not
 aware of diversity issue. If there is no issue, who should anyone care of
 diversity?
 
+Why incidents are not reported or only reported privately:
+https://discuss.python.org/t/discussion-about-recent-coc-events/5778/15
+
 **Unconscious Bias** can be a first hint.
 
 Python Code of Conduct Bans
