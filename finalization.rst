@@ -115,7 +115,7 @@ Reorder Python finalization
   <https://bugs.python.org/issue36854>`__
 
   * 2019-11-20: Clear the current thread later in the Python finalization
-    (`ommit <https://github.com/python/cpython/commit/9da7430675ceaeae5abeb9c9f7cd552b71b3a93a>`__).
+    (`commit <https://github.com/python/cpython/commit/9da7430675ceaeae5abeb9c9f7cd552b71b3a93a>`__).
 
     The ``PyInterpreterState_Delete()`` function is now responsible to call
     ``PyThreadState_Swap(NULL)``.
@@ -124,6 +124,12 @@ Reorder Python finalization
     ``autoTSSKey`` thread local storage and it only clears it once the thread
     state is fully cleared. It allows to still get the current thread from TSS
     in ``tstate_delete_common()``.
+
+* `bpo-38858: new_interpreter() should reuse more Py_InitializeFromConfig() code
+  <https://bugs.python.org/issue38858>`__
+
+  * 2019-11-20: Call ``_PyExc_Fini()`` and ``_PyGC_Fini()`` later in the finalization
+    (`commit <https://github.com/python/cpython/commit/7eee5beaf87be898a679278c480e8dd0df76d351>`__).
 
 
 Release objects at exit
