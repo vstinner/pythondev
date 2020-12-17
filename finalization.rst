@@ -111,6 +111,28 @@ Reorder Python finalization
     call objects destructors. So "unclosed file" resource warnings are now
     emitted for daemon threads in a more reliable way.
 
+* bpo-39511
+
+  * 2020-02-01: PyThreadState_Clear() calls on_delete
+    (`commit <https://github.com/python/cpython/commit/4d96b4635aeff1b8ad41d41422ce808ce0b971c8>`__).
+
+    ``PyThreadState.on_delete`` is a callback used to notify Python when a
+    thread completes. ``_thread._set_sentinel()`` function creates a lock which
+    is released when the thread completes. It sets on_delete callback to the
+    internal ``release_sentinel()`` function. This lock is known as
+    ``Threading._tstate_lock`` in the threading module.
+
+    The ``release_sentinel()`` function uses the Python C API. The problem is
+    that on_delete is called late in the Python finalization, when the C API is
+    no longer fully working.
+
+    The ``PyThreadState_Clear()`` function now calls the
+    ``PyThreadState.on_delete callback``. Previously, that happened in
+    ``PyThreadState_Delete()``.
+
+    The ``release_sentinel()`` function is now called when the C API is still
+    fully working.
+
 * `bpo-36854: Make GC module state per-interpreter
   <https://bugs.python.org/issue36854>`__
 
