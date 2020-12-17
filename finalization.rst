@@ -23,6 +23,48 @@ Sadly, it caused some nasty issues:
   <https://bugs.python.org/issue38076#msg351608>`_
 
 
+Weird GC behavior during Python finalization
+============================================
+
+When an extension module is converted to the multiphase initialization API (PEP
+489), sometimes tests using subinterpreters start to leak.
+
+* `bpo-36854: Make GC module state per-interpreter
+  <https://bugs.python.org/issue36854>`_: test_atexit started to leak.
+
+  * Fix refleak in PyInit__testcapi()
+  * WORKAROUND: clear manually the interpreter codecs attributes (search path,
+    search cache, error registry)
+  * https://github.com/python/cpython/commit/310e2d25170a88ef03f6fd31efcc899fe062da2c
+
+* `bpo-40050: Port _weakref to multiphase init
+  <https://bugs.python.org/issue40050>`_: test_importlib started to leak.
+
+  * FIX/WORKAROUND: remove unused _weakref (and _thread) import in
+    ``importlib._bootstrap_external``.
+  * https://github.com/python/cpython/commit/83d46e0622d2efdf5f3bf8bf8904d0dcb55fc322
+
+* `bpo-40149: Convert _abc module to use PyType_FromSpec()
+  <https://bugs.python.org/issue40149>`_: test_threading leaks.
+
+  * WORKAROUND 1 (not merged): add a second ``_PyGC_CollectNoFail()`` call in
+    ``finalize_interp_clear()``.
+  * FIX 1: Implement traverse in _abc._abc_data
+    (`commit <https://github.com/python/cpython/commit/9cc3ebd7e04cb645ac7b2f372eaafa7464e16b9c>`__)
+  * WORKAROUND 2 (not merged): add ``Py_VISIT(Py_TYPE(self));`` in ``abc_data_traverse()``.
+  * Regression caused by `bpo-35810: Object Initialization does not incref
+    Heap-allocated Types <https://bugs.python.org/issue35810>`_?
+  * `bpo-40217: The garbage collector doesn't take in account that objects of
+    heap allocated types hold a strong reference to their type
+    <https://bugs.python.org/issue40217>`_
+  * FIX 2 (bpo-40217): inject a magic function to visit the heap type in traverse functions
+    (`commit <https://github.com/python/cpython/commit/0169d3003be3d072751dd14a5c84748ab63a249f>`__)
+  * FIX 3 (bpo-40217): Revert FIX 2 and traverse functions must explicitly
+    visit their type
+    (`commit <https://github.com/python/cpython/commit/1cf15af9a6f28750f37b08c028ada31d38e818dd>`__).
+    ``abc_data_traverse()`` now calls ``Py_VISIT(Py_TYPE(self))``.
+
+
 Prevent deadlock in io.BufferedWriter
 =====================================
 
