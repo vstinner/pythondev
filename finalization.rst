@@ -29,22 +29,31 @@ Weird GC behavior during Python finalization
 When an extension module is converted to the multiphase initialization API (PEP
 489), sometimes tests using subinterpreters start to leak.
 
-* `bpo-36854: Make GC module state per-interpreter
-  <https://bugs.python.org/issue36854>`_: test_atexit started to leak.
+* 2020-11-03: `bpo-41796: Make _ast module state per interpreter
+  <https://bugs.python.org/issue41796>`_: test_ast leaks.
 
-  * FIX: Fix refleak in PyInit__testcapi()
-  * WORKAROUND: clear manually the interpreter codecs attributes (search path,
-    search cache, error registry)
-  * `commit <https://github.com/python/cpython/commit/310e2d25170a88ef03f6fd31efcc899fe062da2c>`__
+  * FIX: Call _PyAST_Fini() earlier
+    (`commit <https://github.com/python/cpython/commit/fd957c124c44441d9c5eaf61f7af8cf266bafcb1>`__).
 
-* `bpo-40050: Port _weakref to multiphase init
+    Python types contain a reference to themselves in in their
+    ``PyTypeObject.tp_mro`` member. ``_PyAST_Fini()`` must called before the
+    last GC collection to destroy AST types.
+
+    ``_PyInterpreterState_Clear()`` now calls ``_PyAST_Fini()``. It now also
+    calls ``_PyWarnings_Fini()`` on subinterpeters, not only on the main
+    interpreter.
+
+    Add an assertion in AST ``init_types()`` to ensure that the ``_ast`` module
+    is no longer used after ``_PyAST_Fini()`` has been called.
+
+* 2020-03-24: `bpo-40050: Port _weakref to multiphase init
   <https://bugs.python.org/issue40050>`_: test_importlib started to leak.
 
   * FIX/WORKAROUND: remove unused _weakref (and _thread) import in
     ``importlib._bootstrap_external``
     (`commit <https://github.com/python/cpython/commit/83d46e0622d2efdf5f3bf8bf8904d0dcb55fc322>`__)
 
-* `bpo-40149: Convert _abc module to use PyType_FromSpec()
+* 2020-04-02: `bpo-40149: Convert _abc module to use PyType_FromSpec()
   <https://bugs.python.org/issue40149>`_: test_threading leaks.
 
   * WORKAROUND 1 (not merged): add a second ``_PyGC_CollectNoFail()`` call in
@@ -64,11 +73,13 @@ When an extension module is converted to the multiphase initialization API (PEP
     (`commit <https://github.com/python/cpython/commit/1cf15af9a6f28750f37b08c028ada31d38e818dd>`__).
     ``abc_data_traverse()`` now calls ``Py_VISIT(Py_TYPE(self))``.
 
-* `bpo-41796: Make _ast module state per interpreter
-  <https://bugs.python.org/issue41796>`_: test_ast leaks.
+* 2019-11-22: `bpo-36854: Make GC module state per-interpreter
+  <https://bugs.python.org/issue36854>`_: test_atexit started to leak.
 
-  * FIX: Call _PyAST_Fini() earlier
-    (`commit <https://github.com/python/cpython/commit/fd957c124c44441d9c5eaf61f7af8cf266bafcb1>`__).
+  * FIX: Fix refleak in PyInit__testcapi()
+  * WORKAROUND: clear manually the interpreter codecs attributes (search path,
+    search cache, error registry)
+  * `commit <https://github.com/python/cpython/commit/310e2d25170a88ef03f6fd31efcc899fe062da2c>`__
 
 
 Reorder Python finalization
