@@ -32,17 +32,17 @@ When an extension module is converted to the multiphase initialization API (PEP
 * `bpo-36854: Make GC module state per-interpreter
   <https://bugs.python.org/issue36854>`_: test_atexit started to leak.
 
-  * Fix refleak in PyInit__testcapi()
+  * FIX: Fix refleak in PyInit__testcapi()
   * WORKAROUND: clear manually the interpreter codecs attributes (search path,
     search cache, error registry)
-  * https://github.com/python/cpython/commit/310e2d25170a88ef03f6fd31efcc899fe062da2c
+  * `commit <https://github.com/python/cpython/commit/310e2d25170a88ef03f6fd31efcc899fe062da2c>`__
 
 * `bpo-40050: Port _weakref to multiphase init
   <https://bugs.python.org/issue40050>`_: test_importlib started to leak.
 
   * FIX/WORKAROUND: remove unused _weakref (and _thread) import in
-    ``importlib._bootstrap_external``.
-  * https://github.com/python/cpython/commit/83d46e0622d2efdf5f3bf8bf8904d0dcb55fc322
+    ``importlib._bootstrap_external``
+    (`commit <https://github.com/python/cpython/commit/83d46e0622d2efdf5f3bf8bf8904d0dcb55fc322>`__)
 
 * `bpo-40149: Convert _abc module to use PyType_FromSpec()
   <https://bugs.python.org/issue40149>`_: test_threading leaks.
@@ -63,6 +63,76 @@ When an extension module is converted to the multiphase initialization API (PEP
     visit their type
     (`commit <https://github.com/python/cpython/commit/1cf15af9a6f28750f37b08c028ada31d38e818dd>`__).
     ``abc_data_traverse()`` now calls ``Py_VISIT(Py_TYPE(self))``.
+
+* `bpo-41796: Make _ast module state per interpreter
+  <https://bugs.python.org/issue41796>`_: test_ast leaks.
+
+  * FIX: Call _PyAST_Fini() earlier
+    (`commit <https://github.com/python/cpython/commit/fd957c124c44441d9c5eaf61f7af8cf266bafcb1>`__).
+
+
+Reorder Python finalization
+===========================
+
+* `bpo-41796: Make _ast module state per interpreter
+  <https://bugs.python.org/issue41796>`__
+
+  * 2020-11-03: Call ``_PyAST_Fini()`` earlier
+    (`commit <https://github.com/python/cpython/commit/fd957c124c44441d9c5eaf61f7af8cf266bafcb1>`__).
+
+    ``_PyInterpreterState_Clear()`` now calls ``_PyAST_Fini()``.
+
+* `bpo-42208: Using logging or warnings during Python finalization does crash Python
+  <https://bugs.python.org/issue42208>`_
+
+  * 2020-10-30: Call GC collect earlier in ``PyInterpreterState_Clear()``
+    (`commit <https://github.com/python/cpython/commit/eba5bf2f5672bf4861c626937597b85ac0c242b9>`__).
+
+    The last GC collection is now done before clearing ``builtins`` and ``sys``
+    dictionaries. Add also assertions to ensure that ``gc.collect()`` is no
+    longer called after ``_PyGC_Fini()``.
+
+* `bpo-40887: Free lists are still used after being finalized (cleared)
+  <https://bugs.python.org/issue40887>`__
+
+  * 2020-06-08: Fix ``finalize_interp_clear()`` for free lists
+    (`commit <https://github.com/python/cpython/commit/7907f8cbc6923240edb0b5b63adafb871c4c8875>`__).
+
+    Reorganize code to ensure that free lists are cleared in the right order.
+    Call ``_PyWarnings_Fini()`` before ``_PyList_Fini()``.
+
+* `bpo-19466: Clear state of threads earlier in Python shutdown
+  <https://bugs.python.org/issue19466>`_
+
+  * 2020-03-09: ``Py_Finalize()`` clears daemon threads earlier
+    (`commit <https://github.com/python/cpython/commit/9ad58acbe8b90b4d0f2d2e139e38bb5aa32b7fb6>`__).
+
+    Clear the frames of daemon threads earlier during the Python shutdown to
+    call objects destructors. So "unclosed file" resource warnings are now
+    emitted for daemon threads in a more reliable way.
+
+* `bpo-36854: Make GC module state per-interpreter
+  <https://bugs.python.org/issue36854>`__
+
+  * 2019-11-20: Clear the current thread later in the Python finalization
+    (`ommit <https://github.com/python/cpython/commit/9da7430675ceaeae5abeb9c9f7cd552b71b3a93a>`__).
+
+    The ``PyInterpreterState_Delete()`` function is now responsible to call
+    ``PyThreadState_Swap(NULL)``.
+
+    The ``tstate_delete_common()`` function is now responsible to clear the
+    ``autoTSSKey`` thread local storage and it only clears it once the thread
+    state is fully cleared. It allows to still get the current thread from TSS
+    in ``tstate_delete_common()``.
+
+
+Release objects at exit
+=======================
+
+Main issue: bpo-1635741.
+
+* bpo-1635741: Release Unicode interned strings at exit
+  (`commit <https://github.com/python/cpython/commit/666ecfb0957a2fa0df5e2bd03804195de74bdfbf>`__).
 
 
 Prevent deadlock in io.BufferedWriter
