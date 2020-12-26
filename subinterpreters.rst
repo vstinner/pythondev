@@ -45,6 +45,9 @@ DONE!
 
 * Per-interpreter slice cache (bpo-40521).
 * Per-interpreter pending calls (bpo-39984).
+* Per-interpreter type attribute lookup cache (bpo-42745).
+* Per-interpreter interned strings (bpo-40521).
+* Per-interpreter identifiers: ``_PyUnicode_FromId()`` (bpo-39465)
 * Per-interpreter states:
 
   * ast (bpo-41796)
@@ -111,9 +114,6 @@ Effects of the EXPERIMENTAL_ISOLATED_SUBINTERPRETERS macro:
 
 * Bad things :-( (mostly workarounds waiting for a real fix)
 
-  * Disable the method cache
-  * Disabled interned strings
-  * Disable interned name in typeobject.c
   * Disable pymalloc in preconfig.c: force malloc (or malloc_debug) allocator.
   * Don't run GC collections in subinterpreters (see gc_collect_main).
 
@@ -122,10 +122,7 @@ Issues:
 * `Make the PyGILState API compatible with subinterpreters
   <https://bugs.python.org/issue15751>`_
 * parser_init(): _PyArg_Parser
-* _PyUnicode_FromId(): https://bugs.python.org/issue39465
-* Unicode interned strings (bpo-40521): https://github.com/python/cpython/pull/20085
 * None, True, False, Ellipsis singletons: https://bugs.python.org/issue39511
-* Type method cache
 * Heap types
 
   * https://bugs.python.org/issue40077
