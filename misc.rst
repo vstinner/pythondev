@@ -85,3 +85,66 @@ Things to do in Python 3.10
 * Make "from __future__ import annotations" the default
   https://bugs.python.org/issue38605
 * Hide static types from the limited C API: https://bugs.python.org/issue40601
+
+Debug ref leak: play with GC
+============================
+
+gc.get_referrers().
+
+Common referrers of a type:
+
+* globals(): current namespace
+* module.__dict__
+* type.__dict__
+* type methods: C function with a reference to the type instance
+* type.__mro__
+
+Example with ``_multibytecodec.MultibyteCodec`` type::
+
+    import _codecs_jp
+    codec = _codecs_jp.getcodec('cp932')
+    t = type(codec)
+
+    >>> import gc
+    >>> refs=gc.get_referrers(t)
+    >>> refs[0]
+    {'__name__': '__main__', '__doc__': None, ...
+    >>> sorted(refs[0].keys())
+    ['__builtins__', ..., '_codecs_jp', 'codec', 'encodings', 'gc', 'refs', 't']
+
+    # "t" variable sounds like the current namespace
+    >>> refs[0] is globals()
+    True
+
+    >>> refs[1]
+    <module '_multibytecodec' from '/home/vstinner/python/master/build/lib.linux-x86_64-3.10-pydebug/_multibytecodec.cpython-310d-x86_64-linux-gnu.so'>
+    >>> import _multibytecodec
+    >>> refs[1] is _multibytecodec
+    True
+
+    >>> refs[2]
+    <method 'encode' of '_multibytecodec.MultibyteCodec' objects>
+    >>> refs[2] is t.encode
+    True
+
+    >>> refs[3]
+    <method 'decode' of '_multibytecodec.MultibyteCodec' objects>
+    >>> refs[3] is t.decode
+    True
+
+    >>> refs[4]
+    (<class '_multibytecodec.MultibyteCodec'>, <class 'object'>)
+    >>> refs[4] is t.__mro__
+    True
+
+    >>> refs[5]
+    <slot wrapper '__getattribute__' of '_multibytecodec.MultibyteCodec' objects>
+    >>> refs[5] is t.__getattribute__
+    True
+
+There are 6 objects which have a reference to ``t```:
+
+* ``globals()`` namespace
+* ``_multibytecodec``: in the module state (see the C implementation)
+* ``t.encode``, ``t.decode`` and ``t.__getattribute__`` methods
+* ``t.__mro__`` tuple
