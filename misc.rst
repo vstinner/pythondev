@@ -80,10 +80,7 @@ AST changes
 Things to do in Python 3.10
 ===========================
 
-* Remove again collections.Mapping
 * Remove again "U" mode of open()
-* Make "from __future__ import annotations" the default
-  https://bugs.python.org/issue38605
 * Hide static types from the limited C API: https://bugs.python.org/issue40601
 
 Debug ref leak: play with GC
