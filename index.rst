@@ -47,6 +47,7 @@ Development:
    pystate.rst
    fork.rst
    test_next_python.rst
+   popular_extensions.rst
 
 Performance:
 
