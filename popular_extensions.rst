@@ -12,6 +12,7 @@ The first important candidate is Cython, many projects use it:
 
 * Cython
 * lxml
+* numpy (Cython + C API)
 * pandas
 * pyzmq (for Jupyter)
 * scipy
@@ -24,5 +25,4 @@ Use directly the C API:
 * Mercurial
 * Pillow
 * cffi
-* numpy
 * psycopg2
