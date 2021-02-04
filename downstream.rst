@@ -13,6 +13,8 @@ backport bugfixes and security fixes, etc.
 
 * Fedora
 
+  * `python3.10 <https://src.fedoraproject.org/rpms/python3.10/tree/master>`__
+    (2021-02-04: 4 patches; Python 3.10.0a5)
   * `python38 <https://src.fedoraproject.org/rpms/python38/tree/master>`__
     (2019-08-12: 7 patches; Python 3.8.0b3)
   * `python3 <https://src.fedoraproject.org/rpms/python3/tree/master>`__
@@ -30,5 +32,9 @@ backport bugfixes and security fixes, etc.
   * https://svnweb.freebsd.org/ports/head/lang/python37/files/
   * https://svnweb.freebsd.org/ports/head/lang/python36/files/
   * https://svnweb.freebsd.org/ports/head/lang/python27/files/
+
+* Gentoo
+
+  * Python 2.7.18: https://gitweb.gentoo.org/fork/cpython.git/log/?h=gentoo-2.7.18-r2
 
 See also :ref:`Python on Android <android>`.
