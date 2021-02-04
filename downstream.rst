@@ -36,5 +36,6 @@ backport bugfixes and security fixes, etc.
 * Gentoo
 
   * Python 2.7.18: https://gitweb.gentoo.org/fork/cpython.git/log/?h=gentoo-2.7.18-r6
+  * All branches: https://gitweb.gentoo.org/fork/cpython.git/refs/?h=gentoo-2.7.18
 
 See also :ref:`Python on Android <android>`.
