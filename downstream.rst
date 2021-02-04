@@ -13,12 +13,12 @@ backport bugfixes and security fixes, etc.
 
 * Fedora
 
-  * `python3.10 <https://src.fedoraproject.org/rpms/python3.10/tree/master>`__
+  * `python3.10 <https://src.fedoraproject.org/rpms/python3.10/tree/rawhide>`__
     (2021-02-04: 4 patches; Python 3.10.0a5)
-  * `python38 <https://src.fedoraproject.org/rpms/python38/tree/master>`__
-    (2019-08-12: 7 patches; Python 3.8.0b3)
-  * `python3 <https://src.fedoraproject.org/rpms/python3/tree/master>`__
-  * `python2 <https://src.fedoraproject.org/rpms/python2/tree/master>`__
+  * `python3.8 <https://src.fedoraproject.org/rpms/python3.8/tree/rawhide>`__
+    (2021-02-04: 8 patches; Python 3.8.7)
+  * `python2.7 <https://src.fedoraproject.org/rpms/python2.7/tree/rawhide>`__
+    (2021-02-04: 53 patches; Python 2.7.18)
 
 * Guix
 
