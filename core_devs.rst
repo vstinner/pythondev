@@ -53,6 +53,8 @@ Statistics on *new* CPython core developer per year using `devguide
 * 2016: 5
 * 2017: 4
 * 2018: 6
+* 2019: 7
+* 2020: 5
 
 Links:
 
