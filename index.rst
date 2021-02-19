@@ -48,6 +48,7 @@ Development:
    fork.rst
    test_next_python.rst
    popular_extensions.rst
+   assembly.rst
 
 Performance:
 
