@@ -27,7 +27,7 @@ Well supported platforms on Python 3.7 and 2.7:
 * Linux
 * Windows Vista and newer for Python 3.7, Windows XP and newer for Python 2.7
 * FreeBSD 10 and newer
-* macOS Leopard (macOS 10.6, 2008) and newer
+* macOS Snow Leopard (macOS 10.6, 2008) and newer
 
 It took 9 years to `fix all compiler warnings on Windows 64-bit
 <https://bugs.python.org/issue9566#msg337328>`_! Usually, the fix was to use a
@@ -74,7 +74,7 @@ FreeBSD
 macOS
 -----
 
-* 2018-05-28: macOS Leopard (macOS 10.6, 2008) is `currently
+* 2018-05-28: macOS Snow Leopard (macOS 10.6, 2008) is `currently
   <https://mail.python.org/pipermail/python-dev/2018-May/153725.html>`_ the
   minimum officially supported macOS version.
 * February 2018: Tiger (macOS 10.4, 2004) buildbots removed, which indirectly
