@@ -8,6 +8,7 @@ code.
 Kernel bugs
 ===========
 
+* `FreeBSD copy_file_range bug <https://bugs.python.org/issue43233>`_
 * `Crash with mmap and sparse files on Mac OS X
   <http://bugs.python.org/issue11277>`_
 * test_os on Linux 2.6.?35?
