@@ -40,6 +40,10 @@ https://discuss.python.org/t/discussion-about-recent-coc-events/5778/15
 Python Code of Conduct Bans
 ===========================
 
+* March 2021: [python-dev] `Steering Council reply regarding conduct
+  <https://mail.python.org/archives/list/python-dev@python.org/thread/HTPQ2F7L3W634V6V2BS2AHUBA4LEIVPP/>`_.
+  Steven D’Aprano is warned because of an email he sent about renaming the
+  Git "master" branch to "main".
 * October 2020: [python-committers]
   `Re: Resignation from Stefan Krah
   <https://mail.python.org/archives/list/python-committers@python.org/message/BSFWGLR45PKP6CK3LW2ZHVPYFCXWNFBI/>`_
