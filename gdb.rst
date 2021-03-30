@@ -4,6 +4,11 @@
 Debug CPython with gdb
 ++++++++++++++++++++++
 
+:ref:`Python built in debug mode <pydebug>` is ABI compatible with :ref:`Python
+built in release mode <release-build>` since Python 3.8:
+`Debug build uses the same ABI as release build
+<https://docs.python.org/dev/whatsnew/3.8.html#debug-build-uses-the-same-abi-as-release-build>`_.
+
 Current Python thread state
 ===========================
 

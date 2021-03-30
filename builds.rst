@@ -6,10 +6,13 @@ Python builds
 
 See also :ref:`C compilers <c-compilers>`.
 
+.. _release-build:
+
 Release build
 =============
 
-Python is built with ``-O3 -DNDEBUG`` compiler flags.
+In release mode, Python is built with ``-O3 -DNDEBUG`` compiler flags; defining
+``NDEBUG`` macro removes assertions.
 
 LTO
 ---
