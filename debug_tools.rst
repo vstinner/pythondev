@@ -13,13 +13,19 @@ Take Away
 
 Command to enable debug tools:
 
-* Python 3.7 and newer: ``python3 -X dev``
+* Python 3.7 and newer:
+
+  * ``python3 -X dev ...``
+  * or: set ``PYTHONDEVMODE=1`` environment variable
+
 * Python 3.6 and newer: ``PYTHONMALLOC=debug python3 -Wd -X faulthandler``
 
 Tools:
 
-* faulthandler
-* PYTHONMALLOC=debug: builtin memory debugger
+* `Python Development Mode
+  <https://docs.python.org/dev/library/devmode.html>`_
+* `faulthandler <https://docs.python.org/dev/library/faulthandler.html>`_
+* ``PYTHONMALLOC=debug`` env var: builtin memory debugger
 * :ref:`tracemalloc <tracemalloc>`
 * :ref:`importtime <importtime>`
 * Use :ref:`Python built in Debug Mode <pydebug>`
