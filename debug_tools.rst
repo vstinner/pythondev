@@ -232,16 +232,27 @@ You might want to call these functions in a running process from gdb:
 
 * _PyObject_Dump(obj)
 * _PyUnicode_Dump(obj): dump properties of the Unicode object, not it's content
-* PyErr_Occurred(): get the current exception, NULL if no exception has been raised
-* if py-bt command is broken, try to call:
+* ``PyErr_Occurred()``, ``_PyErr_Occurred(tstate)`` or ``tstate->curexc_type``:
+  get the current exception type, NULL if no exception was raised.
+* if the gdb ``py-bt`` command is broken, try to call:
 
   * ``_Py_DumpTraceback(2, tstate)``
-  * ``_Py_DumpTracebackThreads(2, interp, tstate)`` where ``tstate`` can be ``NULL``
-  * Python 3.8: get ``tstate`` from ``_PyRuntime.gilstate.tstate_current`` and ``interp`` from ``_PyRuntime.gilstate.autoInterpreterState``
+  * ``_Py_DumpTracebackThreads(2, interp, tstate)`` where ``tstate``
+    can be ``NULL``
+  * Python 3.8: get ``tstate`` from ``_PyRuntime.gilstate.tstate_current`` and
+    ``interp`` from ``_PyRuntime.gilstate.autoInterpreterState``
   * ``2`` is the file descriptor 2: ``stderr``
 
-Core dump
-=========
+* Check object consistency:
+
+  * ``_PyDict_CheckConsistency()``
+  * ``_PyUnicode_CheckConsistency()``
+  * ``_PyObject_CheckConsistency()``
+  * ``_PyType_CheckConsistency()``
+  * ``_PyWideStringList_CheckConsistency()``
+
+Create a core dump file
+=======================
 
 Write core dumps on the current directory::
 

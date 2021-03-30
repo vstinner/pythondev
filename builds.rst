@@ -41,6 +41,59 @@ Debug build
 * Define the ``Py_DEBUG`` macro which enables many runtime checks to ease
   debug.
 
+Effects of the Debug Mode:
+
+* Build Python with assertions (don't set ``NDEBUG`` macro):
+
+  * ``assert(...);``
+  * ``_PyObject_ASSERT(...);``
+  * etc.
+
+* Install `debug hooks on memory allocators
+  <https://docs.python.org/dev/c-api/memory.html#c.PyMem_SetupDebugHooks>`_ to
+  detect buffer overflow and other memory errors.
+* Add runtime checks, code surroundeded by ``#ifdef Py_DEBUG`` and ``#endif``.
+* Unicode and int objects are created with their memory filled with a pattern
+  to help detecting uninitialized bytes.
+* Many functions ensure that are not called with an exception raised, since
+  they can clear or replace the current exception:
+  ``assert(!_PyErr_Occurred(tstate));``.
+
+Checks in the GC:
+
+* The GC ``visit_decref()`` function checks if an object was freed using
+  ``_PyObject_IsFreed()``. This function is used internally during a GC
+  collection on all Python objects tracked by the GC to break reference
+  cycles.
+* ``PyObject_GC_Track()`` checks if the object was freed using
+  ``_PyObject_IsFreed()``.
+* GC ``gc_decref()`` function checks if the GC reference count is valid.
+
+Check if Python is built in debug mode
+======================================
+
+Py_DEBUG adds ``sys.gettotalrefcount()`` function::
+
+    $ python3 -c "import sys; print('Debug build?', hasattr(sys, 'gettotalrefcount'))"
+    Debug build? False
+    $ python3-debug -c "import sys; print('Debug build?', hasattr(sys, 'gettotalrefcount'))"
+    Debug build? True
+
+or: Check ``sysconfig.get_config_var('Py_DEBUG')`` value::
+
+    $ python3 -c "import sysconfig; print('Debug build?', bool(sysconfig.get_config_var('Py_DEBUG')))"
+    Debug build? False
+    $ python3-debug -c "import sysconfig; print('Debug build?', bool(sysconfig.get_config_var('Py_DEBUG')))"
+    Debug build? True
+
+
+Extra debug
+===========
+
+* ``Objects/dictobject.c``: define DEBUG_PYDICT macro to add
+  ``_PyDict_CheckConsistency()`` checks to debug corrupted dictionaries.
+* ``Objects/obmalloc.c``: define PYMEM_DEBUG_SERIALNO to store a serial number
+  in allocated memory blocks.
 
 Special builds
 ==============
