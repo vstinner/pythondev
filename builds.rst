@@ -33,9 +33,13 @@ PGO + LTO
 
 Use PGO and add LTO flags.
 
+.. _pydebug:
+
 Debug build
 ===========
 
+* Fedora: ``dnf install python3-debug`` to get the ``python3-debug`` program:
+  run it instead of running ``python3``.
 * ``./configure --with-pydebug``
 * Python built using ``-Og`` if available, or ``-O0`` otherwise.
 * Define the ``Py_DEBUG`` macro which enables many runtime checks to ease
