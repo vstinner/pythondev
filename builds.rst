@@ -45,6 +45,8 @@ Debug build
 * Define the ``Py_DEBUG`` macro which enables many runtime checks to ease
   debug.
 
+Python built in debug mode is very effecient to detect bugs in C extensions.
+
 Effects of the Debug Mode:
 
 * Build Python with assertions (don't set ``NDEBUG`` macro):
