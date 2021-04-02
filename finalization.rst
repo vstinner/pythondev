@@ -85,6 +85,12 @@ When an extension module is converted to the multiphase initialization API (PEP
 Reorder Python finalization
 ===========================
 
+* `bpo-43687: use unicode_state empty string before unicode_init.
+  without define WITH_DOC_STRINGS <https://bugs.python.org/issue43687>`_
+
+  * 2021-04-02: `Py_Initialize() creates singletons earlier
+    <https://github.com/python/cpython/commit/442ad74fc2928b095760eb89aba93c28eab17f9b>`_
+
 * `bpo-41796: Make _ast module state per interpreter
   <https://bugs.python.org/issue41796>`__
 
