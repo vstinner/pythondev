@@ -12,6 +12,7 @@ History of Python releases
 See also `Status of Python branches
 <https://docs.python.org/devguide/#status-of-python-branches>`_.
 
+* Python 3.9: October 2020
 * Python 3.8: October 2019
 * Python 3.7: June 2018
 * Python 3.6: December 2016
