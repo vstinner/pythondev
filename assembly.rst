@@ -1,3 +1,5 @@
+.. _assembly:
+
 +++++++++++++++++++++++++++++++++++
 Analysis of CPython binary assembly
 +++++++++++++++++++++++++++++++++++
@@ -6,7 +8,7 @@ Usually, you should not care how the C compiler optimizes Python. Analyzing the
 assembly code helps to check if the C compiler is able to optimize Python as
 you might expect.
 
-See also: `Assembly Intel x86
+See also :ref:`Python builds <python-builds>` and `Assembly Intel x86
 <https://vstinner.readthedocs.io/assembly_x86.html>`_.
 
 Inline libpython function calls and LTO

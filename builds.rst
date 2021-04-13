@@ -4,7 +4,8 @@
 Python builds
 +++++++++++++
 
-See also :ref:`C compilers <c-compilers>`.
+See also :ref:`Analysis of CPython binary assembly <assembly>` and :ref:`C
+compilers <c-compilers>`.
 
 .. _release-build:
 
