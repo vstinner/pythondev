@@ -246,3 +246,25 @@ Find a module::
 From a module::
 
     void *state = PyModule_GetState(module);
+
+
+Links
+=====
+
+* wee-slack: Python pluggin for WeeChat, it uses subinterpreter.
+  Issue with ssl.SSLWantReadError in subinterpreter:
+  https://github.com/wee-slack/wee-slack/issues/812
+* Trouble when reloading extension modules:
+  https://bugs.python.org/issue34309
+* Free extension DLLs' handles during the Py_Finalize():
+  https://bugs.python.org/issue401713#msg34524
+
+
+Revert changes
+==============
+
+* PyType_HasFeature():
+  https://github.com/python/cpython/commit/b26a0db8ea2de3a8a8e4b40e69fc8642c7d7cb68
+* Py_TYPE() and Py_SIZE():
+  https://github.com/python/cpython/commit/0e2ac21dd4960574e89561243763eabba685296a
+* See also: https://bugs.python.org/issue40137
