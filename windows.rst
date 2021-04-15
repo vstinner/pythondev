@@ -15,7 +15,22 @@ People who understands these things.
 * Steve Dower: employed by Microsoft, he is the maintainer of the Windows
   installer for 3.6, 3.7, 3.8, 3.9 and master branches
 * Zachary Ware
-* Jeremy Kloth knows the ``PC\VS9.0\`` directory of Python 2.7!
+* Jeremy Kloth
+
+
+Build Python on Windows
+=======================
+
+Command::
+
+    PCbuild\build.bat -e -d -p x64
+
+Options:
+
+* ``-e``: download external dependencies (OpenSSL, Tkinter, ...)
+* ``-d``: build in debug mode (Py_DEBUG, enable assertions, ...)
+* ``-p x64``: build in 64-bit mode
+
 
 
 Build a Windows VM
@@ -37,6 +52,15 @@ minimum installer options:
 
 * Workload: only [x] "Desktop development with C++"
 * Language pack: [x] "English"
+
+VS 2019 installer option:
+
+* Desktop: [x] Desktop development with C++
+* Invidial components:
+
+  * [x] MSVC v142 VS 2019 C++ x64/x86 build ...
+  * [x] Windows 10 SDK
+  * [x] Just-In Time debugger
 
 ====================  =======================
 Python version        Visual Studio
