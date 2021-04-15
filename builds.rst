@@ -22,6 +22,11 @@ Use ``gcc -flto``
 
 Maybe also: ``-fuse-linker-plugin -ffat-lto-objects -flto-partition=none``.
 
+Check if Python was built with LTO::
+
+    $ python3 -c "import sysconfig; print('lto' in (sysconfig.get_config_var('PY_CFLAGS') + sysconfig.get_config_var('PY_CFLAGS_NODIST')))"
+    True
+
 PGO
 ---
 
@@ -31,6 +36,11 @@ PGO
   List of test used with ``--pgo``: see `libregrtest/pgo.py
   <https://github.com/python/cpython/blob/master/Lib/test/libregrtest/pgo.py>`_.
 * Rebuild Python with ``gcc -fprofile-use``
+
+Check if Python was built with PGO::
+
+    $ python3 -c "import sysconfig; print('-fprofile-use' in (sysconfig.get_config_var('PY_CFLAGS') + sysconfig.get_config_var('PY_CFLAGS_NODIST')))"
+    True
 
 PGO + LTO
 ---------
