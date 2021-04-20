@@ -10,6 +10,12 @@ What is a CPython Core Developer?
 Video of Mariatta Wijaya's talk: "What is a Python Core Developer?" (Pycon US
 2018): https://www.youtube.com/watch?v=hhj7eb6TrtI
 
+No one has exclusive control over any part of the code base
+===========================================================
+
+Email of the Steering Council (2010):
+https://mail.python.org/archives/list/python-committers@python.org/message/DCKAPZVXEQHP7OPS3GLEVNDXMXX5QAE6/
+
 How to increase the number of core developers?
 ==============================================
 
