@@ -42,6 +42,9 @@ macro to a function call introduced a performance slowndown on macOS beause
 clang was unable to inline the PyTuple_Check() function call. The change
 was reverted to restore performance on macOS.
 
+In Python 3.10, LTO is used on macOS but on macOS 10.15 and newer
+(`bpo-42235 <https://bugs.python.org/issue42235>`_).
+
 Security compiler flags
 =======================
 
