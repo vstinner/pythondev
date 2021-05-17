@@ -119,7 +119,10 @@ Misc
 
   * https://pypi.python.org/pypi/roundup
   * Report Tracker Problem: https://github.com/python/psf-infra-meta/issues
-  * Source code: https://github.com/psf/bpo-tracker-cpython (fork of Roundup)
+  * Source code: https://github.com/psf/bpo-tracker (fork of Roundup)
+  * CPython instance: https://github.com/psf/bpo-tracker-cpython
+    (bpo-tracker is like a class, and bpo-tracker-cpython is like an instance
+    of this class)
   * Special links:
 
     * `edit Components <https://bugs.python.org/component>`_
