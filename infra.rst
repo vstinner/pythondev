@@ -111,6 +111,9 @@ cpython GitHub project
 * https://github.com/python/core-workflow/tree/master/cherry_picker/
 * `Check Python CLA <https://check-python-cla.herokuapp.com/>`_ (service run
   by Mariatta Wyjaya)
+* IRC notifications: http://n.tkte.ch/ --
+  see: https://discuss.python.org/t/replacement-for-irc-github-service/805
+
 
 Misc
 ====
