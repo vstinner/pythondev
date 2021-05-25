@@ -132,6 +132,8 @@ Misc
       `pillar/base/bugs.sls in psf-salt
       <https://github.com/python/psf-salt/commit/3cb5b90376c49ba2e296362384df10ee687c8a00>`_
 
+  * Weekly summary by email: https://github.com/psf/bpo-tracker-cpython/blob/master/scripts/roundup-summary
+
 * Mailing lists: https://mail.python.org/mailman/listinfo
 
   - python-dev
