@@ -127,6 +127,10 @@ Misc
 
     * `edit Components <https://bugs.python.org/component>`_
     * `edit Versions <https://bugs.python.org/version>`_
+    * `Test issue <https://bugs.python.org/issue2771>`
+    * Bot for IRC notification, ``irker`` bot:
+      `pillar/base/bugs.sls in psf-salt
+      <https://github.com/python/psf-salt/commit/3cb5b90376c49ba2e296362384df10ee687c8a00>`_
 
 * Mailing lists: https://mail.python.org/mailman/listinfo
 
