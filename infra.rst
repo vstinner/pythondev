@@ -4,7 +4,7 @@
 CPython infrastructure
 ++++++++++++++++++++++
 
-See also `Python Development Workflow <workflow>`.
+See also :ref:`Python Development Workflow <workflow>`.
 
 * `Current organization owners
   <https://devguide.python.org/devcycle/?highlight=github%20administrators#current-owners>`_
@@ -130,7 +130,7 @@ Misc
 
     * `edit Components <https://bugs.python.org/component>`_
     * `edit Versions <https://bugs.python.org/version>`_
-    * `Test issue <https://bugs.python.org/issue2771>`
+    * `Test issue <https://bugs.python.org/issue2771>`_
     * Bot for IRC notification, ``irker`` bot:
       `pillar/base/bugs.sls in psf-salt
       <https://github.com/python/psf-salt/commit/3cb5b90376c49ba2e296362384df10ee687c8a00>`_
