@@ -3,7 +3,7 @@ Fork in Python
 ++++++++++++++
 
 The `os.fork() <https://docs.python.org/dev/library/os.html#os.fork>`_ function
-causes many implementation issues. It is supposed on most platforms, but
+causes many implementation issues. It is supported on most platforms, but
 Windows and VxWorks.
 
 posix_spawn() (fork+exec)
