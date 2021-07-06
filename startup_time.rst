@@ -77,7 +77,7 @@ speedup Python :-) Example::
    import time:       273 |        329 |   abc
    import time:       298 |        626 | io
 
-`tune <https://github.com/nschloe/tuna>`_ is a Python profile viewer which
+`tuna <https://github.com/nschloe/tuna>`_ is a Python profile viewer which
 accepts importtime logs as input, see `Nico Schlömer's comment on bpo-31415
 <https://bugs.python.org/issue31415#msg320841>`_. Extract::
 
