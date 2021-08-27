@@ -43,6 +43,7 @@ Python Code of Conduct Bans
 * August 2021: `A ban from Core Developer spaces.
   <https://mail.python.org/archives/list/python-dev@python.org/thread/5QHGDMU4CJ6KGS5G4CHSXTZF5AZDIVLB/>`_
   (For the whole SC, Thomas Wouters): Marco Sulla was banned for 1 year.
+  Marco was given a previous 3 month suspension on discuss.python.org.
 * March 2021: [python-dev] `Steering Council reply regarding conduct
   <https://mail.python.org/archives/list/python-dev@python.org/thread/HTPQ2F7L3W634V6V2BS2AHUBA4LEIVPP/>`_.
   Steven D’Aprano is warned because of an email he sent about renaming the
