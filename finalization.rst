@@ -4,6 +4,8 @@
 Python Finalization
 +++++++++++++++++++
 
+See also :ref:`GC bugs`.
+
 At exit, Python calls ``Py_Finalize()`` which is responsible to stop
 Python and cleanly all states, variables, modules. etc. This code is
 very fragile.

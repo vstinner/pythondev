@@ -49,6 +49,7 @@ Development:
    test_next_python.rst
    popular_extensions.rst
    assembly.rst
+   garbage_collector.rst
 
 Performance:
 
