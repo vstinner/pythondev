@@ -78,6 +78,8 @@ See also the :ref:`Python finalization <finalization>`.
 * `bpo-38006 <https://bugs.python.org/issue38006>`_: issue with weak references
   and types which don't implement tp_traverse.
 
+  * GC fix for weak references:
+    `commit <https://github.com/python/cpython/commit/bcda460baf25062ab68622b3f043f52b9db4d21d>`__
   * Remove a closuse in weakref.WeakValueDictionary:
     `commit <https://github.com/python/cpython/commit/a2af05a0d3f0da06b8d432f52efa3ecf29038532>`__
   * PyFunctionType.tp_clear:
@@ -85,8 +87,6 @@ See also the :ref:`Python finalization <finalization>`.
     <https://github.com/python/cpython/commit/ccaea525885e41c5f1e566bb68698847faaa82ca>`__
     temporarily, and then `added again
     <https://github.com/python/cpython/commit/b3612070b746f799901443b65725008bc035872b>`__
-  * GC collect works around the bug with weak references:
-    `commit <https://github.com/python/cpython/commit/bcda460baf25062ab68622b3f043f52b9db4d21d>`__
   * cffi type missing a tp_traverse function:
     `bug report <https://foss.heptapod.net/pypy/cffi/-/issues/416>`_
     (still open at 2021-09-24)
