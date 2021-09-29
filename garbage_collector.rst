@@ -11,10 +11,16 @@ The garbage collector does not track objects if their type don't have the
 ``Py_TPFLAGS_HAVE_GC`` flag.
 
 If a type has the ``Py_TPFLAGS_HAVE_GC`` flag, when an object is allocated, a
-`PyGC_Head` structure is allocated at the beginning of the memory block, but
+``PyGC_Head`` structure is allocated at the beginning of the memory block, but
 ``PyObject*`` points just after this structure. The ``_Py_AS_GC(obj)`` macro
-gets a ``PyGC_Head*`` pointer from a ``PyObject**`` pointer using pointer
+gets a ``PyGC_Head*`` pointer from a ``PyObject*`` pointer using pointer
 arithmetic: ``((PyGC_Head *)(obj) - 1)``.
+
+See also the ``PyObject_IS_GC()`` function which uses the
+``PyTypeObject.tp_is_gc`` slot. An object has the ``PyGC_Head`` header if
+``PyObject_IS_GC()`` returns true. For a type, the ``tp_is_gc`` slot function
+checks if the type is a heap type (has the ``Py_TPFLAGS_HEAPTYPE`` flag):
+static types don't have the ``PyGC_Head`` header.
 
 Implement the GC protocol in a type
 ===================================
@@ -38,7 +44,7 @@ CPython uses 3 garbage collector generations. Default thresholds
 * Generation 2 (oldest objects): 10
 
 The main function of the GC is ``gc_collect_main()`` in ``Modules/gcmodule.c``:
-it collects objects of a generation. The function relies on the `PyGC_Head`
+it collects objects of a generation. The function relies on the ``PyGC_Head``
 structure. Simplified algoritm:
 
 * Merge younger generations with one we are currently collecting.
@@ -47,7 +53,7 @@ structure. Simplified algoritm:
   * Copy object reference count into PyGC_Head.
   * Traverse objects using visit_decref(); ignore objects which are not part of
     the currently collected GC collection.
-  * Move objects with a reference count (PyGC_Head) of 0 to a "unreachable"
+  * Move objects with a reference count (PyGC_Head) of 0 to an "unreachable"
     list.
 
 * Move reachable objects to next generation.
