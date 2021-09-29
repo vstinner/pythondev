@@ -40,6 +40,23 @@ Implement the GC protocol in a type
   how the object was created) and the deallocator should call
   ``PyObject_GC_UnTrack(self)``.
 
+Example of dealloc function::
+
+    static void
+    abc_data_dealloc(_abc_data *self)
+    {
+        PyTypeObject *tp = Py_TYPE(self);
+        // ... release resources ...
+        tp->tp_free(self);
+    #if PY_VERSION_HEX >= 0x03080000
+        Py_DECREF(tp);
+    #endif
+    }
+
+On Python 3.7 and older, ``Py_DECREF(tp);`` is not needed: it changed in Python
+3.8, see `bpo-35810 <https://bugs.python.org/issue35810>`_.
+
+
 gc.collect()
 ============
 
