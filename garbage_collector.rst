@@ -32,6 +32,10 @@ Implement the GC protocol in a type
   dealloc function must call ``Py_DECREF(Py_TYPE(self))``. Otherwise, the GC is
   unable to collect the type once the last instance is deleted (and the type
   was already deleted).
+* If ``PyObject_New()`` is used to allocate an object, replace it with
+  ``PyObject_GC_New()``.
+* If the dealloc function calls ``PyObject_Free()``: replace it
+  with ``type->tp_free(self)``.
 
 gc.collect()
 ============
