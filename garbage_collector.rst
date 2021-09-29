@@ -36,6 +36,9 @@ Implement the GC protocol in a type
   ``PyObject_GC_New()``.
 * If the dealloc function calls ``PyObject_Free()``: replace it
   with ``type->tp_free(self)``.
+* The constructor should call ``PyObject_GC_Track(self)`` (or not, it depends
+  how the object was created) and the deallocator should call
+  ``PyObject_GC_UnTrack(self)``.
 
 gc.collect()
 ============
