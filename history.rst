@@ -31,6 +31,9 @@ See also `Status of Python branches
 * Python 2.1: April 2001
 * Python 2.0: October 2000
 * Python 1.5: April 1999
+* Python 0.9.1: `February 20, 1991
+  <https://www.tuhs.org/Usenet/alt.sources/1991-February/001749.html>`_
+  (date commonly used at the birth of the Python project)
 
 
 
