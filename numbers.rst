@@ -201,7 +201,7 @@ int type (*).
 ``_PyLong_FromNbIndexOrNbInt(x)``: ``__index__()`` or ``__int__()``:
 
 * return ``x`` if ``type(x) == int`` (``PyLong_CheckExact()``)
-* call ``type(x).__index__(x)`` is defined: the result type must be exactly
+* call ``type(x).__index__(x)`` if defined: the result type must be exactly
   the int type (*)
 * call ``type(x).__int__(x)`` (call ``_PyLong_FromNbInt()``): the result type must
   be exactly the int type (*)
