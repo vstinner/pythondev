@@ -32,15 +32,16 @@ for type_descr, num_type in TYPES:
             num_type(value)
         except TypeError:
             rejected.append(value_descr)
-        accepted.append(value_descr)
+        else:
+            accepted.append(value_descr)
     if accepted:
-        print("``%s`` accept:" % type_descr)
+        print("``%s(obj)`` accept:" % type_descr)
         print()
         for name in accepted:
             print("* ``%s``" % name)
         print()
     if rejected:
-        print("``%s`` reject:" % type_descr)
+        print("``%s(obj)`` reject:" % type_descr)
         print()
         for name in rejected:
             print("* ``%s``" % name)

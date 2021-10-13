@@ -54,7 +54,6 @@ Conversions in Python
 
 * ``int``
 * ``float``
-* ``complex``
 * ``decimal.Decimal``
 * ``fractions.Fraction``
 * ``bytes``
@@ -74,7 +73,6 @@ But ``int(obj)`` and ``float(obj)`` reject:
 * ``complex``
 * ``decimal.Decimal``
 * ``fractions.Fraction``
-* ``bytes``
 * ``str``
 
 But ``complex(obj)`` rejects:
@@ -85,10 +83,7 @@ But ``complex(obj)`` rejects:
 
 * ``int``
 * ``float``
-* ``complex``
 * ``decimal.Decimal``
-* ``fractions.Fraction``
-* ``bytes``
 * ``str``
 
 But ``decimal.Decimal(obj)`` rejects:
@@ -101,11 +96,9 @@ But ``decimal.Decimal(obj)`` rejects:
 
 * ``int``
 * ``float``
-* ``complex``
 * ``decimal.Decimal``
 * ``fractions.Fraction``
-* ``bytes``
-* ``str`` (ex: ``"1"`` and ``"1/2"``)
+* ``str`` (ex: ``"1"`` or ``"1/2"``)
 
 But ``fractions.Fraction(obj)`` rejects:
 
