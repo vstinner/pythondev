@@ -24,7 +24,7 @@ Tools:
 
 * `Python Development Mode
   <https://docs.python.org/dev/library/devmode.html>`_
-* `faulthandler <https://docs.python.org/dev/library/faulthandler.html>`_
+* `faulthandler <https://docs.python.org/dev/library/faulthandler.html>`__
 * ``PYTHONMALLOC=debug`` env var: builtin memory debugger
 * :ref:`tracemalloc <tracemalloc>`
 * :ref:`importtime <importtime>`
