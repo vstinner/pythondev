@@ -50,6 +50,7 @@ Development:
    popular_extensions.rst
    assembly.rst
    garbage_collector.rst
+   stdlib.rst
 
 Performance:
 
