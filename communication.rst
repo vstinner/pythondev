@@ -16,10 +16,11 @@ See also the `Python community <community>`_.
 
 * IRC:
 
-  * ``#python`` on FreeNode
-  * ``#python-dev`` on FreeNode: only for development *of* Python,
+  * ``#python`` on Libera Chat
+  * ``#python-dev`` on Libera Chat: only for development *of* Python,
     mostly to discuss bugs and pull requests
 
+* Discord
 * `discuss.python.org (Discourse) <http://discuss.python.org/>`_
   (exist since 2018)
 * `python.zulipchat.com (Zulip) <https://python.zulipchat.com/>`_

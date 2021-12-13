@@ -84,7 +84,7 @@ Azure Pipelines PR
 Buildbots notifications
 =======================
 
-* IRC: #python-dev on Freenode
+* IRC: #python-dev-notifs on Libera Chat
 * Email: `buildbot-status mailing list
   <https://mail.python.org/mm3/mailman3/lists/buildbot-status.python.org/>`_
 
