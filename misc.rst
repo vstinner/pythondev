@@ -145,3 +145,9 @@ There are 6 objects which have a reference to ``t```:
 * ``_multibytecodec``: in the module state (see the C implementation)
 * ``t.encode``, ``t.decode`` and ``t.__getattribute__`` methods
 * ``t.__mro__`` tuple
+
+Bug only reproduced on Windows
+==============================
+
+* flake8: https://bugs.python.org/issue44184
+* subinterpreter crash: https://bugs.python.org/issue46070
