@@ -56,16 +56,6 @@ CPython buildbots:
   <https://github.com/python/buildmaster-config/>`_: Buildbot configuration
 * `Devguide: buildbots <https://devguide.python.org/buildbots/>`_
 
-Travis CI
-=========
-
-* `Travis CI: Build History
-  <https://travis-ci.org/python/cpython/builds>`_
-* `CPython: Travis CI configuration (.travis.yml)
-  <https://github.com/python/cpython/blob/master/.travis.yml>`_
-* https://docs.travis-ci.com/user/running-build-in-debug-mode/
-* `Travis CI Status <https://www.traviscistatus.com/>`_
-
 GitHub Actions
 ==============
 
@@ -178,5 +168,18 @@ It is no longer used by Python.
 * `CPython: AppVeyor configuration (.github/appveyor.yml)
   <https://github.com/python/cpython/blob/master/.github/appveyor.yml>`_
 * `AppVeyor status page <https://appveyor.statuspage.io/>`_
+
+OLD: Travis CI
+==============
+
+Travis CI was removed from Python in December 2021
+(`commit <https://github.com/python/cpython/commit/2cf7d02b99ce8cebd26d330aa8aac2ee369d4600>`_).
+
+* `Travis CI: Build History
+  <https://travis-ci.org/python/cpython/builds>`_
+* `CPython: Travis CI configuration (.travis.yml)
+  <https://github.com/python/cpython/blob/master/.travis.yml>`_
+* https://docs.travis-ci.com/user/running-build-in-debug-mode/
+* `Travis CI Status <https://www.traviscistatus.com/>`_
 
 
