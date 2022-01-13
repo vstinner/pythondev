@@ -4,7 +4,7 @@
 Python Development Workflow
 +++++++++++++++++++++++++++
 
-See also `CPython infrastructure <infra>`.
+See also :ref:`CPython infrastructure <infra>`.
 
 GitHub bots
 ===========

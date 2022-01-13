@@ -127,3 +127,12 @@ See also the :ref:`Python finalization <finalization>`.
   ``PyObject_Init()`` now calls ``Py_INCREF(Py_TYPE(op))`` if the object type
   is a heap type. Traverse functions must now visit the type and dealloc
   functions must now call ``Py_DECREF()`` on the type.
+
+Reference cycles
+================
+
+* C function (PyCFunctionObject): C function <=> module
+
+  * PyCFunctionObject.m_module -> module
+  * module -> module.__dict__
+  * module.__dict__ => PyCFunctionObject
