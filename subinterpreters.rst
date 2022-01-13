@@ -268,3 +268,22 @@ Revert changes
 * Py_TYPE() and Py_SIZE():
   https://github.com/python/cpython/commit/0e2ac21dd4960574e89561243763eabba685296a
 * See also: https://bugs.python.org/issue40137
+
+
+Projects using subinterpreters
+==============================
+
+Users are mostly discovered by bug reports:
+
+* mod_wsgi
+
+  * https://github.com/GrahamDumpleton/mod_wsgi/issues/730
+
+* weechat-matrix and wee-slack:
+
+  * https://github.com/poljar/weechat-matrix/issues/248
+  * https://github.com/wee-slack/wee-slack/issues/812
+
+* Kodi
+
+  * https://bugzilla.redhat.com/show_bug.cgi?id=2034962
