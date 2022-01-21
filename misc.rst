@@ -151,3 +151,7 @@ Bug only reproduced on Windows
 
 * flake8: https://bugs.python.org/issue44184
 * subinterpreter crash: https://bugs.python.org/issue46070
+* https://bugs.python.org/issue42846
+
+  * _WindowsConsoleIO
+  * sys.stdout uses the cp932 encoding which is a CJK multibyte codec
