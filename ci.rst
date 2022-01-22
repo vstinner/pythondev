@@ -46,8 +46,20 @@ runner which is based on unittest with additional features:
 
 See devguide documentation: https://devguide.python.org/runtests/
 
-Buildbots links
-===============
+Revert on fail
+==============
+
+* `Policy to revert commits on buildbot failure
+  <https://discuss.python.org/t/policy-to-revert-commits-on-buildbot-failure/404>`_
+* `[Python-Dev] Keeping an eye on Travis CI, AppVeyor and buildbots: revert on regression
+  <https://mail.python.org/pipermail/python-dev/2018-May/153753.html>`_
+  (May, 2018)
+* `[python-committers] Revert changes which break too many buildbots
+  <https://mail.python.org/pipermail/python-committers/2017-June/004588.html>`_
+  (June, 2017)
+
+Buildbots
+=========
 
 CPython buildbots:
 
@@ -77,6 +89,59 @@ Buildbots notifications
 * IRC: #python-dev-notifs on Libera Chat
 * Email: `buildbot-status mailing list
   <https://mail.python.org/mm3/mailman3/lists/buildbot-status.python.org/>`_
+
+Address Sanitizer (ASAN)
+========================
+
+* Buildbots sets the ``ASAN_OPTIONS`` env var set to:
+  ``detect_leaks=0:allocator_may_return_null=1:handle_segv=0``,
+  see the `master/custom/factories.py config
+  <https://github.com/python/buildmaster-config/blob/main/master/custom/factories.py>`__.
+* https://github.com/google/sanitizers/wiki/SanitizerCommonFlags
+* https://github.com/google/sanitizers/wiki/AddressSanitizerFlags
+* Skipped tests:
+
+  * test___all__
+  * test_capi
+  * test_concurrent_futures
+  * test_crypt
+  * test_ctypes
+  * test_decimal
+  * test_faulthandler
+  * test_hashlib
+  * test_idle
+  * test_interpreters
+  * test_multiprocessing_fork
+  * test_multiprocessing_forkserver
+  * test_multiprocessing_spawn
+  * test_peg_generator
+  * test_tix
+  * test_tk
+  * test_tools
+  * test_ttk_guionly
+  * test_ttk_textonly
+
+* C macros:
+
+  * _Py_NO_SANITIZE_THREAD
+  * _Py_NO_SANITIZE_MEMORY
+  * _Py_NO_SANITIZE_ADDRESS
+
+* test_decimal and test_io detects ASAN using::
+
+    MEMORY_SANITIZER = (
+        '-fsanitize=memory' in _cflags or
+        '--with-memory-sanitizer' in _config_args
+    )
+
+    ADDRESS_SANITIZER = (
+        '-fsanitize=address' in _cflags
+    )
+
+* `bpo-45200 <https://bugs.python.org/issue45200>`_:
+  Address Sanitizer: libasan dead lock in pthread_create() (test_multiprocessing_fork.test_get() hangs)
+* `bpo-42985 <https://bugs.python.org/issue42985>`_:
+  AMD64 Arch Linux Asan 3.x fails: command timed out: 1200 seconds without output
 
 Articles
 ========
@@ -145,18 +210,6 @@ Hopefully, it's now more common that a buildbot failure is obvious and
 caused by a very specific recent changes which can be found in the
 [Changes] tab.
 
-Revert on fail
-==============
-
-* `Policy to revert commits on buildbot failure
-  <https://discuss.python.org/t/policy-to-revert-commits-on-buildbot-failure/404>`_
-* `[Python-Dev] Keeping an eye on Travis CI, AppVeyor and buildbots: revert on regression
-  <https://mail.python.org/pipermail/python-dev/2018-May/153753.html>`_
-  (May, 2018)
-* `[python-committers] Revert changes which break too many buildbots
-  <https://mail.python.org/pipermail/python-committers/2017-June/004588.html>`_
-  (June, 2017)
-
 
 OLD: AppVeyor
 =============
@@ -181,5 +234,3 @@ Travis CI was removed from Python in December 2021
   <https://github.com/python/cpython/blob/master/.travis.yml>`_
 * https://docs.travis-ci.com/user/running-build-in-debug-mode/
 * `Travis CI Status <https://www.traviscistatus.com/>`_
-
-

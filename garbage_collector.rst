@@ -133,6 +133,10 @@ Reference cycles
 
 * C function (PyCFunctionObject): C function <=> module
 
-  * PyCFunctionObject.m_module -> module
-  * module -> module.__dict__
+  * PyCFunctionObject.m_module => module
+  * module => module.__dict__
   * module.__dict__ => PyCFunctionObject
+
+* PyTypeObject
+
+  * type->tp_mro => type: the MRO tuple contains the type
