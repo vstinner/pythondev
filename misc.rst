@@ -155,3 +155,66 @@ Bug only reproduced on Windows
 
   * _WindowsConsoleIO
   * sys.stdout uses the cp932 encoding which is a CJK multibyte codec
+
+Vectorcall
+==========
+
+* To implement a vectorcall function:
+
+  * ``nargs = PyVectorcall_NARGS(nargs)`` gives you the number of positional
+    arguments.
+  * Positional arguments for function ``myfunc``::
+
+    if (!_PyArg_CheckPositional("myfunc", nargs, 0, 0)) {
+        return NULL;
+    }
+
+  * Keyword arguments::
+
+    Py_ssize_t nkwargs = 0;
+    if (kwnames != NULL) {
+        nkwargs = PyTuple_GET_SIZE(kwnames);
+    }
+
+  * No keyword arguments for function ``myfunc``::
+
+    if (!_PyArg_NoKwnames("myfunc", kwnames)) {
+        return NULL;
+    }
+
+* ``PY_VECTORCALL_ARGUMENTS_OFFSET`` constant is added to ``nargs`` when
+  calling a method. In this case, ``self`` is ``args[-1]``.
+
+* Optimize calling an object: ``result = obj()``
+
+  * Add ``vectorcallfunc vectorcall`` to the ``PyCFunctionObject`` structure
+  * Add ``offsetof(PyCFunctionObject, vectorcall)`` to the type
+  * Add ``Py_TPFLAGS_HAVE_VECTORCALL`` to the type ``tp_flags``
+
+* Optimize the type creation: ``obj = MyType()``
+
+  * Add ``.tp_vectorcall = (vectorcallfunc)enumerate_vectorcall`` to the type
+  * Keep ``.tp_new = enum_new`` in the type
+
+* `PEP 590 -- Vectorcall: a fast calling protocol for CPython
+  <https://www.python.org/dev/peps/pep-0590/>`_
+* ``METH_FASTCALL`` calling convention
+
+  * `FASTCALL microbenchmarks
+    <https://vstinner.github.io/fastcall-issues.html>`_
+    (Feb 25, 2017)
+  * `FASTCALL microbenchmarks
+    <https://vstinner.github.io/fastcall-microbenchmarks.html>`_
+    (Feb 24, 2017)
+  * `The start of the FASTCALL project
+    <https://vstinner.github.io/start-fastcall-project.html>`_
+    (Feb 16, 2017)
+
+* Get ``vectorcall`` of a callable object: ``PyVectorcall_Function()``.
+  Return ``NULL`` if the type has no ``Py_TPFLAGS_HAVE_VECTORCALL`` flag.
+* Call a function in C:
+
+  * ``PyObject_Vectorcall()``
+  * ``PyObject_VectorcallDict()``
+  * ``_PyObject_FastCall()``
+  * ``PyObject_VectorcallMethod()``
