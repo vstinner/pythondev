@@ -86,6 +86,55 @@ python.org
 * https://github.com/python/pythondotorg/ Source code of python.org
 * wiki.python.org runs MoinMoin
 
+Source Code
+===========
+
+* Git
+
+  * 2015-2016: https://www.python.org/dev/peps/pep-0512/
+  * https://www.python.org/dev/peps/pep-0512/
+
+* Mercurial
+
+  * 2009: https://www.python.org/dev/peps/pep-0385/
+  * https://hg.python.org/cpython/
+
+* Subversion
+
+  * 2005-10-27: `[Python-Dev] Conversion to Subversion is complete
+    <https://mail.python.org/pipermail/python-dev/2005-October/057690.html>`_
+  * https://svn.python.org/
+
+* CVS
+
+  * SourceForge
+
+Python Bug Tracker
+==================
+
+* WIP: GitHub
+
+  * 2018-2022
+  * https://www.python.org/dev/peps/pep-0588/
+  * https://www.python.org/dev/peps/pep-0581/
+
+* Roundup
+
+  * Migration from SourceForge to Roundup in 2007
+  * `Status of new issue tracker <https://mail.python.org/archives/list/python-dev@python.org/thread/6P4HUPKUU45FGG64LHSWCQBKPZRC2ND4/>`_ (29 Oct 2006) by Brett Cannon
+  * `Re: [Python-Dev] PEP 581: Using GitHub Issues for CPython
+    <https://mail.python.org/archives/list/python-dev@python.org/message/7B4KAXNWJUYC4SYL53CSQ35LLXPL3X5Y/>`_
+    (8 Mar 2019) by Barry Warsaw
+  * tracker-discuss mailing list
+  * Weekly "Summary of Tracker Issues" sent to python-dev since May 13, 2007.
+    First email: `Summary of Tracker Issues
+    <https://mail.python.org/archives/list/python-dev@python.org/thread/ZAAW7AOB6UYROEU3ACB5XT4TB7F24X27/#HRHFCQ5XB35O4G7MCLD7JRVXFWD3L2NE>`_:
+    "ACTIVITY SUMMARY (05/06/07 - 05/13/07)" (May 2007).
+
+* SourceForge
+
+  * Redirection URLs like: ``http://python.org/sf/1615275``
+
 Package Index (PyPI)
 ====================
 
@@ -122,10 +171,7 @@ Misc
 
   * https://pypi.python.org/pypi/roundup
   * Report Tracker Problem: https://github.com/python/psf-infra-meta/issues
-  * Source code: https://github.com/psf/bpo-tracker (fork of Roundup)
   * CPython instance: https://github.com/psf/bpo-tracker-cpython
-    (bpo-tracker is like a class, and bpo-tracker-cpython is like an instance
-    of this class)
   * Special links:
 
     * `edit Components <https://bugs.python.org/component>`_
