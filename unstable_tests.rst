@@ -262,7 +262,7 @@ stack size and behaves differently on stack overflow. For example, the stack
 size can depend if Python is compiled using PGO or not (depend on functions
 inlining).
 
-``@infinite_recursion`` decorate of ``test.support`` reduces the risk of stack
+The ``support.infinite_recursion()`` context manager reduces the risk of stack
 overflow. Example of tests using it:
 
 * test_ast
