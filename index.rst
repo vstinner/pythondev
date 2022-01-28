@@ -51,6 +51,7 @@ Development:
    assembly.rst
    garbage_collector.rst
    stdlib.rst
+   wasm.rst
 
 Performance:
 
