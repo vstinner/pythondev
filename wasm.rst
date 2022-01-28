@@ -47,3 +47,5 @@ Compile Python to WebAssembly (WASM)
 
   * https://repl.ethanhs.me/
   * https://github.com/ethanhs/python-wasm
+
+* https://caniuse.com/wasm
