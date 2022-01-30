@@ -33,7 +33,8 @@ Compile Python to WebAssembly (WASM)
 
 * WASM limitations
 
-  * No threads
+  * threads are currently not supported in browsers, but are supported
+    in Node.JS using ``--experimental-wasm-threads`` command line option.
   * No subprocess
   * No socket (yet)
 
