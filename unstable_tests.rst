@@ -266,7 +266,9 @@ The ``support.infinite_recursion()`` context manager reduces the risk of stack
 overflow. Example of tests using it:
 
 * test_ast
+* test_exceptions
 * test_isinstance
+* test_json
 * test_pickle
 * test_traceback
 
