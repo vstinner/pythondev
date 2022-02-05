@@ -7,7 +7,8 @@ sys.stdlib_module_names
 
 `sys.stdlib_module_names
 <https://docs.python.org/dev/library/sys.html#sys.stdlib_module_names>`_ was
-added to Python 3.10.
+added to Python 3.10. For Python 2.6 to 3.9, the 3rd party `stdlib-list
+<https://pypi.org/project/stdlib-list/>`_ module can be used.
 
 ``len(sys.stdlib_module_names)``:
 
