@@ -15,12 +15,12 @@ Removed modules
 * Python 3.10
 
   * ``formatter``: deprecated in Python 3.4
-  * ``parser``: deprecated in Python 3.9, removed related to PEP 617
+  * ``parser``: deprecated in Python 3.9, removal related to PEP 617
     (PEG parser)
 
 * Python 3.9
 
-  * ``dummy_threading``, ``_dummy_thread``: deprecated in Python 3.7.
+  * ``dummy_threading``, ``_dummy_thread``: deprecated in Python 3.7;
     Python 3.7 requires threads to build: `bpo-31370
     <https://bugs.python.org/issue31370>`_.
 
