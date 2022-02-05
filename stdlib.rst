@@ -2,6 +2,20 @@
 Python standard library
 +++++++++++++++++++++++
 
+sys.stdlib_module_names
+=======================
+
+`sys.stdlib_module_names
+<https://docs.python.org/dev/library/sys.html#sys.stdlib_module_names>`_ was
+added to Python 3.10.
+
+``len(sys.stdlib_module_names)``:
+
+* Python 3.11: 304 modules (add ``_tokenize`` and ``_typing``,
+  remove ``binhex``)
+* Python 3.10: 303 modules
+
+
 Removed modules
 ===============
 
