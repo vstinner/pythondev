@@ -5,13 +5,6 @@ Python standard library
 Removed modules
 ===============
 
-* Python 3.11
-
-  * ``asyncore``
-  * ``asynchat``
-  * ``binhex``
-  * ``smtpd``
-
 * Python 3.10
 
   * ``formatter``
