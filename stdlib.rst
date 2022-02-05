@@ -76,66 +76,96 @@ Python 3.6 removed 6 modules:
   inconsistently available across platforms, and unmaintained.
 
 Python 3.0
-----------
+==========
 
-Python 3.0 removed 58 modules, related to `PEP 3108
-<https://www.python.org/dev/peps/pep-3108/#modules-to-remove>`_:
+Python 3.0 removed 74 stdlib modules, related to `PEP 3108
+<https://www.python.org/dev/peps/pep-3108/#modules-to-remove>`_.
+
+Moreover, many Python 2.7 modules `have been renamed by PEP 3108
+<https://www.python.org/dev/peps/pep-3108/#modules-to-rename>`_.
+
+Removed Mac modules (24):
 
 * ``aepack``
 * ``aetools``
 * ``aetypes``
-* ``al``
-* ``autogil``
-* ``bastion``
-* ``bsddb``
-* ``carbon``
-* ``cd``
-* ``colorpicker``
-* ``commands``
-* ``compiler``
-* ``dbhash``
-* ``dircache``
-* ``dl``
-* ``dummy_thread``
-* ``easydialogs``
-* ``fl``
+* ``buildtools``
+* ``Carbon``
+* ``cfmfile``
+* ``ColorPicker``
+* ``EasyDialogs``
+* ``findertools``
 * ``fm``
-* ``fpectl``
-* ``fpformat``
-* ``framework``
-* ``future_builtins``
+* ``FrameWork``
 * ``gensuitemodule``
-* ``gl``
-* ``hotshot``
-* ``htmllib``
 * ``ic``
-* ``imageop``
-* ``imgfile``
-* ``imputil``
-* ``jpeg``
+* ``icopen``
 * ``mac``
-* ``macos``
+* ``macerrors``
+* ``MacOS``
 * ``macosa``
 * ``macostools``
-* ``md5``
-* ``mhlib``
+* ``macresource``
+* ``MiniAEFrame``
+* ``Nav``
+* ``PixMapWrapper``
+* ``videoreader``
+
+Removed IRIX modules (7):
+
+* ``al``
+* ``DEVICE``
+* ``flp``
+* ``gl``: Functions from the Silicon Graphics Graphics Library.
+* ``imgfile``: Support for SGI imglib files
+* ``jpeg``: Read and write JPEG files
+* ``sgi``: random SGI-specific things
+
+Removed modules, replaced by the ``email`` package (5):
+
 * ``mimetools``
-* ``mimewriter``
+* ``MimeWriter``
 * ``mimify``
-* ``miniaeframe``
 * ``multifile``
-* ``mutex``
-* ``new``
-* ``popen2``
-* ``posixfile``
-* ``restricted``
-* ``rexec``
 * ``rfc822``
-* ``sgi``
-* ``sgmllib``
-* ``sha``
-* ``someos``
-* ``statvfs``
-* ``sun``
-* ``sunaudio``
-* ``user``
+
+Other removed modules (38):
+
+* ``audiodev``: Classes for manipulating audio devices (currently only for Sun and SGI)
+* ``Bastion``: Providing restricted access to objects
+* ``bsddb``
+* ``Canvas`` (tk)
+* ``cd``: CD Audio Library
+* ``commands``: Utility functions for running external commands
+* ``compiler``: analyze Python source code and generating Python bytecode
+* ``dircache``: read directory listing with cache
+* ``dl``: ``dl.open()``
+* ``exceptions``: Standard exception classes
+* ``FixTk``: Delay import _tkinter until we have set TCL_LIBRARY, imported by `Tkinter``
+* ``fl``: interface to Mark Overmars' FORMS Library
+* ``fpformat``: General floating point formatting functions
+* ``future_builtins``: Python 3 builtins
+* ``ihooks``: Import hook support
+* ``imageop``: Manipulate raw image data, replaced with PIL/Pillow
+* ``imputil``: Import utilities
+* ``linuxaudiodev``: Linux audio device (``/dev/dsp``) for python, replaced by ``ossaudiodev``.
+* ``markupbase``: Renamed to ``_markupbase``, used by ``html.parser``
+* ``md5``: Replaced by ``hashlib``
+* ``mhlib``: Manipulate MH mailboxes from Python
+* ``mutex``: Lock and queue for mutual exclusion
+* ``new``: Interface to the creation of runtime implementation objects
+* ``os2emxpath``: Common operations on OS/2 pathnames
+* ``popen2``: Subprocesses with accessible I/O streams
+* ``posixfile``: File-like objects with locking support
+* ``rexec``: Restricted execution framework
+* ``sets``: Unordered collections of unique elements, replaced by ``set()`` built-in type
+* ``sgmllib``: Simple SGML parser
+* ``sha``: Replaced by ``hashlib``
+* ``sre``: Replaced by ``re``
+* ``statvfs``: Replaced by ``os.statvfs()``
+* ``stringold``: Collection of string operations
+* ``strop``: Common string manipulations, optimized for speed (C extension)
+* ``sunaudiodev`` (SunOS): Access to Sun audio hardware
+* ``toaiff``: Convert "arbitrary" sound files to AIFF (Apple and SGI's audio format)
+* ``user``: Hook to allow user-specified customization code to run
+* ``xmllib``: Parser for XML, using the derived class as static DTD.
