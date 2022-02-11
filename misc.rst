@@ -188,7 +188,7 @@ Vectorcall
 * Optimize calling an object: ``result = obj()``
 
   * Add ``vectorcallfunc vectorcall`` to the ``PyCFunctionObject`` structure
-  * Add ``offsetof(PyCFunctionObject, vectorcall)`` to the type
+  * Add ``tp_vectorcall_offset  = offsetof(PyCFunctionObject, vectorcall)`` to the type
   * Add ``Py_TPFLAGS_HAVE_VECTORCALL`` to the type ``tp_flags``
 
 * Optimize the type creation: ``obj = MyType()``
