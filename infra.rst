@@ -85,6 +85,9 @@ python.org
 
 * https://github.com/python/pythondotorg/ Source code of python.org
 * wiki.python.org runs MoinMoin
+* https://peps.python.org/ source: https://github.com/python/peps
+
+  * Deploy job: https://github.com/python/peps/actions
 
 Source Code
 ===========
