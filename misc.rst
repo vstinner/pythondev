@@ -165,22 +165,22 @@ Vectorcall
     arguments.
   * Positional arguments for function ``myfunc``::
 
-    if (!_PyArg_CheckPositional("myfunc", nargs, 0, 0)) {
-        return NULL;
-    }
+        if (!_PyArg_CheckPositional("myfunc", nargs, 0, 0)) {
+            return NULL;
+        }
 
   * Keyword arguments::
 
-    Py_ssize_t nkwargs = 0;
-    if (kwnames != NULL) {
-        nkwargs = PyTuple_GET_SIZE(kwnames);
-    }
+        Py_ssize_t nkwargs = 0;
+        if (kwnames != NULL) {
+            nkwargs = PyTuple_GET_SIZE(kwnames);
+        }
 
   * No keyword arguments for function ``myfunc``::
 
-    if (!_PyArg_NoKwnames("myfunc", kwnames)) {
-        return NULL;
-    }
+        if (!_PyArg_NoKwnames("myfunc", kwnames)) {
+            return NULL;
+        }
 
 * ``PY_VECTORCALL_ARGUMENTS_OFFSET`` constant is added to ``nargs`` when
   calling a method. In this case, ``self`` is ``args[-1]``.
@@ -201,10 +201,10 @@ Vectorcall
 * ``METH_FASTCALL`` calling convention
 
   * `FASTCALL microbenchmarks
-    <https://vstinner.github.io/fastcall-issues.html>`_
+    <https://vstinner.github.io/fastcall-issues.html>`__
     (Feb 25, 2017)
   * `FASTCALL microbenchmarks
-    <https://vstinner.github.io/fastcall-microbenchmarks.html>`_
+    <https://vstinner.github.io/fastcall-microbenchmarks.html>`__
     (Feb 24, 2017)
   * `The start of the FASTCALL project
     <https://vstinner.github.io/start-fastcall-project.html>`_
