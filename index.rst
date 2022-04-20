@@ -1,12 +1,14 @@
-Python Development Documentation
-================================
+Python Development (Victor's notes)
+===================================
 
 .. image:: images/python.png
    :alt: Python logo
    :align: right
    :target: http://www.python.org/
 
-by `Victor Stinner <http://vstinner.readthedocs.io/victor_stinner.html>`_.
+This documentation is not an official Python documentation, but a collection of
+personal notes by `Victor Stinner
+<http://vstinner.readthedocs.io/victor_stinner.html>`_.
 
 Python:
 
