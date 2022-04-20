@@ -66,6 +66,8 @@ CPython buildbots:
 * `Builders <http://buildbot.python.org/all/#/builders>`_
 * `buildmaster-config (GitHub)
   <https://github.com/python/buildmaster-config/>`_: Buildbot configuration
+* `Fork of BuildBot running on buildbot.python.org
+  <https://github.com/python/buildbot/>`_ (outdated?)
 * `Devguide: buildbots <https://devguide.python.org/buildbots/>`_
 
 GitHub Actions

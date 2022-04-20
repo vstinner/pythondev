@@ -73,7 +73,6 @@ Community:
    communication.rst
    mentoring.rst
    core_devs.rst
-   maintenance_tasks.rst
 
 Misc:
 
