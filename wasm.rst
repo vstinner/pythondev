@@ -87,8 +87,6 @@ Python WASM detailed status
 Disabled C extensions
 ---------------------
 
-Disabled C extensions depends on build flavor (browser, node, wasi).
-
 C extensions disabled on Browser, Node and WASI targets:
 
 * ``_ctypes``, ``_ctypes_test``
