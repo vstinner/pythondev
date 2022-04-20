@@ -4,6 +4,9 @@ Compile Python to WebAssembly (WASM)
 
 Python documentation: `Tools/wasm/README.md <https://github.com/python/cpython/blob/main/Tools/wasm/README.md>`_.
 
+April 2022: There is a work-in-progress to support WASM targets in Python 3.11
+which is still at the alpha stage (release scheduled in October 2022).
+
 Targets
 =======
 
@@ -42,7 +45,7 @@ Status
 Python on WASM
 --------------
 
-Browser, Node and Pyodide targets:
+Values on Browser, Node and Pyodide targets:
 
 * ``sys.platform`` is ``'emscripten'``
 * ``os.name`` is ``'posix'``
@@ -51,6 +54,8 @@ Browser, Node and Pyodide targets:
 * ``platform.version()``: ``'#1'``
 * Example of ``platform.platform()``: ``'Emscripten-1.0-wasm32-32bit'``
 * Example ``os.uname()``: ``posix.uname_result(sysname='Emscripten', nodename='emscripten', release='1.0', version='#1', machine='wasm32')``
+
+Values for WASI are not known yet (WASI is not supported yet).
 
 Build
 -----
