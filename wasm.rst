@@ -12,24 +12,22 @@ Targets
 
 Status in April 2022 (from Christian Heimes' slides at Pycon DE):
 
-========================  ===============  =================  =========================
-Features                  Browser          Node               Pyodide
-========================  ===============  =================  =========================
-subprocess (fork, exec)   no               no                 no
-threads                   no               YES                WIP
-file system               no (only MEMFS)  YES (Node raw FS)  YES (IDB, Node, ...)
-shared extension modules  WIP              WIP                YES
-PyPI packages             no               no                 YES
-sockets                   ?                ?                  ?
-urllib, asyncio           no               no                 WebAPI fetch / WebSocket
-signals                   no               WIP                YES
-========================  ===============  =================  =========================
+========================  ==================  ==================  =========================
+Features                  CPython Emscripten  CPython Emscripten  Pyodide
+                          browser             node
+========================  ==================  ==================  =========================
+subprocess (fork, exec)   no                  no                  no
+threads                   no                  YES                 WIP
+file system               no (only MEMFS)     YES (Node raw FS)   YES (IDB, Node, ...)
+shared extension modules  WIP                 WIP                 YES
+PyPI packages             no                  no                  YES
+sockets                   ?                   ?                   ?
+urllib, asyncio           no                  no                  WebAPI fetch / WebSocket
+signals                   no                  WIP                 YES
+========================  ==================  ==================  =========================
 
-Node supports threads using ``--experimental-wasm-threads`` command line option.
-
-
-CPython with WASM
-=================
+CPython on WebAssembly
+======================
 
 Status
 ------
@@ -38,24 +36,26 @@ Status
 * April 2022: Christian Heime's talk at Pycon DE:
   `Python 3.11 in the web browser - A journey
   <https://speakerdeck.com/tiran/python-3-dot-11-in-the-web-browser-a-journey-pycon-de-2022-keynote>`_
-* April 2022: WASM binary is ~4.5 MB compressed with staic, reduced stdlib.
+* April 2022: WASM binary is ~4.5 MB compressed with static, reduced stdlib.
   4.6 MB wasm (compressed 1.5 MB), 2.7 MB stdlib bytecode, some JS.
-* January 2022, browser target: almost 10 MB (6.5 MB WASM, 2.9 MB stdlib, some JS)
 
-Python on WASM
---------------
-
-Values on Browser, Node and Pyodide targets:
+Python on wasm32-emscripten
+---------------------------
 
 * ``sys.platform`` is ``'emscripten'``
 * ``os.name`` is ``'posix'``
-* ``platform.machine()`` is ``'wasm32'`` or ``'wasm64'``
-* ``platform.release()``: ``'1.0'``
-* ``platform.version()``: ``'#1'``
+* ``platform.machine()`` is ``'wasm32'``
 * Example of ``platform.platform()``: ``'Emscripten-1.0-wasm32-32bit'``
 * Example ``os.uname()``: ``posix.uname_result(sysname='Emscripten', nodename='emscripten', release='1.0', version='#1', machine='wasm32')``
 
-Values for WASI are not known yet (WASI is not supported yet).
+Python on wasm32-wasi
+---------------------
+
+* ``sys.platform`` is ``'wasi'``
+* ``os.name`` is ``'posix'``
+* ``platform.machine()`` is ``'wasm32'``
+* Example of ``platform.platform()``: ``'wasi-0.0.0-wasm32-32bit'``
+* Example ``os.uname()``: ``posix.uname_result(sysname='wasi', nodename='(none)', release='0.0.0', version='0.0.0', machine='wasm32')``
 
 Build
 -----
@@ -78,7 +78,6 @@ Christian Heimes' REPL:
 
 * April 2022: Python 3.11 alpha 6
 * https://cheimes.fedorapeople.org/python-wasm/
-* Networking, subprocesses, and threading are not available
 
 Ethan Smith's REPL
 
@@ -92,7 +91,7 @@ Python WASM detailed status
 Disabled C extensions
 ---------------------
 
-C extensions disabled on Browser, Node and WASI targets:
+C extensions disabled on Emscripten/browser, Emscripten/node and WASI targets:
 
 * ``_ctypes``, ``_ctypes_test``
 * ``_curses``, ``_curses_panel``
@@ -106,60 +105,18 @@ C extensions disabled on Browser, Node and WASI targets:
 * ``pwd``, ``spwd``
 * ``syslog``
 
-C extensions disabled on Browser and Node targets:
+C extensions disabled on Emscripten/browser, Emscripten/node targets:
 
 * ``_multiprocessing``
 * ``_posixshmem``
 * ``_posixsubprocess``
 
-C extensions disabled on the Browser target:
+C extensions disabled on the Emscripten/browser target:
 
 * ``fcntl``
 * ``readline``
 * ``resource``
 * ``termios``
-
-Tests skipped in a browser
---------------------------
-
-Result of `pmp-p's Python build
-<https://pmp-p.github.io/python-wasm-plus/python311.html?org.python3.11.0>`_ on
-Firefox 99::
-
-    == Tests result: SUCCESS ==
-
-    283 tests OK.
-
-    95 tests skipped:
-        test__xxsubinterpreters test_asdl_parser test_asyncgen
-        test_asynchat test_asyncio test_asyncore test_check_c_globals
-        test_clinic test_cmd_line test_concurrent_futures
-        test_contextlib_async test_curses test_dbm_gnu test_dbm_ndbm
-        test_devpoll test_doctest test_docxmlrpc test_embed test_epoll
-        test_faulthandler test_fcntl test_file_eintr test_fork1
-        test_ftplib test_gdb test_grp test_httplib test_httpservers
-        test_idle test_imaplib test_interpreters test_ioctl test_kqueue
-        test_launcher test_lzma test_mmap test_msilib
-        test_multiprocessing_fork test_multiprocessing_forkserver
-        test_multiprocessing_main_handling test_multiprocessing_spawn
-        test_nis test_openpty test_ossaudiodev test_pdb test_pipes
-        test_poll test_poplib test_pty test_pwd test_readline
-        test_regrtest test_repl test_resource test_select test_selectors
-        test_smtplib test_smtpnet test_socket test_socketserver test_spwd
-        test_ssl test_startfile test_subprocess test_sys_settrace
-        test_syslog test_tcl test_telnetlib test_thread
-        test_threadedtempfile test_threading test_threading_local test_tix
-        test_tk test_tools test_ttk_guionly test_ttk_textonly test_turtle
-        test_urllib2 test_urllib2_localnet test_urllib2net test_urllibnet
-        test_venv test_wait3 test_wait4 test_webbrowser test_winconsoleio
-        test_winreg test_winsound test_wsgiref test_xmlrpc test_xmlrpc_net
-        test_zipfile64 test_zipimport_support test_zoneinfo
-
-    1 test run no tests:
-        test_dtrace
-
-    Total duration: 2 hour 8 min
-    Tests result: SUCCESS
 
 Pyodide
 =======
