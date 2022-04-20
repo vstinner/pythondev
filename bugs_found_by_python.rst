@@ -18,6 +18,7 @@ Kernel bugs
 * FreeBSD: `when close(fd) on a fifo fails with EINTR, the file descriptor is
   not really closed
   <https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=203162>`_
+* FreeBSD: bug in ZFS: https://github.com/python/cpython/issues/59953
 
 Compiler bugs
 =============
