@@ -9,18 +9,18 @@ Targets
 
 Status in April 2022 (from Christian Heimes' slides at Pycon DE):
 
-========================  ==============  =================  =========================
-Features                  Browser         Node               Pyodide
-========================  ==============  =================  =========================
-subprocess (fork, exec)   X               X                  X
-threads                   X               yes                WIP
-file system               X (only MEMFS)  yes (Node raw FS)  yes (IDB, Node, ...)
-shared extension modules  WIP             WIP                yes
-PyPI packages             X               X                  yes
-sockets                   ?               ?                  ?
-urllib, asyncio           X               X                  WebAPI fetch / WebSocket
-signals                   X               WIP                yes
-========================  ==============  =================  =========================
+========================  ===============  =================  =========================
+Features                  Browser          Node               Pyodide
+========================  ===============  =================  =========================
+subprocess (fork, exec)   no               no                 no
+threads                   no               YES                WIP
+file system               no (only MEMFS)  YES (Node raw FS)  YES (IDB, Node, ...)
+shared extension modules  WIP              WIP                YES
+PyPI packages             no               no                 YES
+sockets                   ?                ?                  ?
+urllib, asyncio           no               no                 WebAPI fetch / WebSocket
+signals                   no               WIP                YES
+========================  ===============  =================  =========================
 
 Node supports threads using ``--experimental-wasm-threads`` command line option.
 
