@@ -87,26 +87,34 @@ Python WASM detailed status
 Disabled C extensions
 ---------------------
 
-* _ctypes
-* _curses
-* _curses_panel
-* _dbm
-* _gdbm
-* _multiprocessing
-* _posixshmem
-* _posixsubprocess
-* _scproxy
-* _tkinter
-* _xxsubinterpreters
-* fcntl
-* grp
-* nis
-* ossaudiodev
-* resource
-* readline
-* spwd
-* syslog
-* termios
+Disabled C extensions depends on build flavor (browser, node, wasi).
+
+C extensions disabled on Browser, Node and WASI targets:
+
+* ``_ctypes``, ``_ctypes_test``
+* ``_curses``, ``_curses_panel``
+* ``_dbm``, ``_gdbm``
+* ``_scproxy``
+* ``_tkinter``
+* ``_xxsubinterpreters``
+* ``grp``
+* ``nis``
+* ``ossaudiodev``
+* ``pwd``, ``spwd``
+* ``syslog``
+
+C extensions disabled on Browser and Node targets:
+
+* ``_multiprocessing``
+* ``_posixshmem``
+* ``_posixsubprocess``
+
+C extensions disabled on the Browser target:
+
+* ``fcntl``
+* ``readline``
+* ``resource``
+* ``termios``
 
 Tests skipped in a browser
 --------------------------
