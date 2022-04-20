@@ -16,6 +16,8 @@ Python on WASM
 
 * ``sys.platform`` is ``emscripten``
 * ``os.name`` is ``'posix'``
+* ``platform.machine()`` is ``'wasm32'`` or ``'wasm64'``
+* Example ``os.uname()``: ``posix.uname_result(sysname='Emscripten', nodename='emscripten', release='1.0', version='#1', machine='wasm32')``
 
 Build
 -----

@@ -112,6 +112,20 @@ Source Code
 
   * SourceForge
 
+Code Review
+===========
+
+* GitHub
+* `Rietveld <https://github.com/rietveld-codereview/rietveld>`_
+
+  * Based on patch files
+  * bugs.python.org had a tool to create a review from a Mercurial
+    repository
+  * Support multiple "versions" of a patch
+  * People who comment cannot unsubscribe: new comments are sent by emails
+  * User database disconnected from bugs.python.org database
+  * The server was not reliable and failed often
+
 Python Bug Tracker
 ==================
 
@@ -208,7 +222,10 @@ Misc
   * `Fork of BuildBot running on buildbot.python.org
     <https://github.com/python/buildbot/>`_
 
-* GitHub CLA bot: XXX
+* GitHub CLA bot:
+
+  * https://github.com/ambv/cla-bot is forked from https://github.com/edgedb/cla-bot
+  * https://discuss.python.org/t/https-github-com-python-is-now-using-a-new-cla-bot/14961
 
 Documentation
 =============
