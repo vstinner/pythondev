@@ -56,6 +56,29 @@ Example of dealloc function::
 On Python 3.7 and older, ``Py_DECREF(tp);`` is not needed: it changed in Python
 3.8, see `bpo-35810 <https://bugs.python.org/issue35810>`_.
 
+``PyType_GenericAlloc()`` allocates memory and immediately tracks the newly
+created object, even if its memory is uninitialized: its traverse function must
+support uninitialized objects. Python 3.11 adds a private function
+``_PyType_AllocNoTrack()`` which allocates memory without tracking an object,
+so the caller can only track the object (``PyObject_GC_Track(self)``) once it's
+fully initialized, to simplify the traverse function.
+
+``&PyBaseObject_Type`` (without ``Py_TPFLAGS_HAVE_GC``):
+
+* ``tp_alloc = PyType_GenericAlloc()``
+* ``tp_free = PyObject_Del()``
+
+``&PyType_Type`` (with ``Py_TPFLAGS_HAVE_GC``):
+
+* ``tp_alloc = PyType_GenericAlloc()`` (inherited from ``&PyBaseObject_Type``)
+* ``tp_free = PyObject_GC_Del()``
+
+``&PyDict_Type`` (with ``Py_TPFLAGS_HAVE_GC``):
+
+* ``tp_alloc = _PyType_AllocNoTrack()``:
+  function creating dicts call ``_PyObject_GC_TRACK()``
+* ``tp_free = PyObject_GC_Del()``
+
 
 gc.collect()
 ============
