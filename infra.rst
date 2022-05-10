@@ -164,3 +164,9 @@ IRC bots on Libera Chat #python-dev:
 
   * https://hg.python.org/tracker/python-dev/file/tip/detectors/irker.py
   * http://www.catb.org/esr/irker/
+
+
+Misc
+====
+
+* https://github.com/python/release-tools/ : Scripts for making (C)Python releases
