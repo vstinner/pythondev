@@ -68,6 +68,15 @@ Note that this script doesn't download packages without sdist (e.g.  only
 universal wheel). It is because INADA-san has searched Python/C API. The pain
 of the removal can be reduced by fixing most of top 4000 packages.
 
+HPy project
+-----------
+
+`top4000-pypi-packages
+<https://github.com/hpyproject/top4000-pypi-packages/>`_: Dump of Python/C API
+usage in the top 4000 Python packages. Created in June 2021.
+
+You can use GitHub search in this repository to search for a code pattern.
+
 
 Searching deprecated API usage
 ==============================
