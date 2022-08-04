@@ -142,3 +142,6 @@ Misc
 ====
 
 * https://caniuse.com/wasm
+* `CPython WebAssembly nightly tests & unofficial builds
+  <https://github.com/tiran/cpython-wasm-test>`_
+  by Christian Heimes
