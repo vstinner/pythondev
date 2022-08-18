@@ -38,4 +38,9 @@ backport bugfixes and security fixes, etc.
   * Python 2.7.18: https://gitweb.gentoo.org/fork/cpython.git/log/?h=gentoo-2.7.18-r6
   * All branches: https://gitweb.gentoo.org/fork/cpython.git/refs/?h=gentoo-2.7.18
 
+* ArchLinux
+
+  * No patch at 2022-08-18
+  * https://github.com/archlinux/svntogit-packages/tree/packages/python/trunk
+
 See also :ref:`Python on Android <android>`.
