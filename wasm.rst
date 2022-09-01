@@ -138,6 +138,12 @@ WASI
 * sandboxed, small runtime (wasmtime 18 MB Rust binary)
 * https://github.com/bytecodealliance/wasmtime-py
 
+pygame and WASM
+===============
+
+* https://pygame-web.github.io/
+* Examples: https://pmp-p.itch.io/
+
 Misc
 ====
 
