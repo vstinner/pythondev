@@ -6,6 +6,8 @@ History of Python
 
 Guido van Rossum started to write Python in December 1989.
 
+See also :ref:`Python Development Workflow <workflow>`.
+
 History of Python releases
 ==========================
 
@@ -113,59 +115,9 @@ Old Python Versions
   A series of articles on the history of the Python programming language and
   its community.
 
-Development before GitHub
-=========================
-
-Buildbot was only running after changes were pushed upstream. It was common that
-a change broke the Windows support, and so core devs pushed an "attempt to fix
-Windows" commit, and then a second one, etc.
-
-To propose a change, a contributor had to open an issue in the bug tracker
-(Roundup at bugs.python.org), and attach a patch file. A core developer had to
-
-* Download the patch locally
-* Apply the patch file
-* Fix conflicts: when the day was older than 1 day, conflicts were very likely
-
-Misc/NEWS was basically always in conflict, especially on merges.
-
-Changes were first fixed in the oldest supported branch, and then
-forward-ported to newer branches. For example, fixed in 2.6, and ported to
-2.7, 3.0 and 3.1.
-
-When Subversion was used, a Subversion "property" (in practice, a text file
-tracked by Subversion) listed the revision number of all "merged" changes.  For
-example, when a change made in the 2.6 branch was merged into the 2.7 branch,
-it was added to this list. It was likely that this property file was in
-conflict. Sadly, it was a text file made of a single line with thousands of
-revision numbers. Text editors are not convenient to edit such file. It was
-barely possible to fix a conflict in this property.
-
-A new tool to review (comment) patches was linked to Roundup: Rietveld.
-It was possible to generate a patch from a fork the Mercurial repository,
-and then get a review page. Rietveld supported multiple revisions of the same
-change. Drawback: the tool was not well integrated with Roundup. For example,
-there was no way to unsubscribe from a review.
-
 Python 3000
 ===========
 
 * https://mail.python.org/pipermail/python-3000/
 * https://www.python.org/dev/peps/pep-3000/
 * https://www.python.org/dev/peps/pep-3100/
-
-CVS, Subversion, Mercurial
-==========================
-
-* CVS: Initially hosted on cvs.python.org, it migrated to Sourceforge
-* Subversion: https://svn.python.org/projects/python/
-* Mercurial: https://hg.python.org/cpython/
-
-  * Map Subversion revision to Mercurial commit: Misc/svnmap.txt file
-    in the Python code base.
-
-* Lookup service. Examples:
-
-  * Subversion revision 68121: https://hg.python.org/lookup/r68121
-    redirects to http://svn.python.org/view?view=revision&revision=68121 but
-    sadly this service is down (tested in September 2020)

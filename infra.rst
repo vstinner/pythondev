@@ -94,36 +94,6 @@ Package Index (PyPI)
 * https://pypi.python.org/ "Python Cheeseshop", the old Python Package Index
 * Python CDN: http://infra.psf.io/services/cdn/
 
-python GitHub organization
-==========================
-
-* https://github.com/python/
-* `Current organization owners
-  <https://devguide.python.org/devcycle/?highlight=github%20administrators#current-owners>`_
-* `Current repository administrators
-  <https://devguide.python.org/devcycle/?highlight=github%20administrators#current-administrators>`_
-
-cpython GitHub project
-======================
-
-* https://github.com/python/cpython/
-* GitHub cpython administrators:
-
-  * Brett Cannon
-  * Release managers (ex: Ned Deily)
-
-* GitHub uses mention-bot: https://github.com/facebook/mention-bot
-
-  * https://github.com/mention-bot/how-to-unsubscribe
-  * userBlacklist, userBlacklistForPR in `CPython .mention-bot
-    <https://github.com/python/cpython/blob/master/.mention-bot>`_
-  * Adding you GitHub login to userBlacklistForPR stops the mention bot from
-    mentioning anyone on your PRs.
-
-* IRC notifications: http://n.tkte.ch/ --
-  see: https://discuss.python.org/t/replacement-for-irc-github-service/805
-
-
 Mailing lists
 =============
 
