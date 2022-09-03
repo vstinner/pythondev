@@ -15,9 +15,10 @@ Source Code
   * 2015-2016: https://www.python.org/dev/peps/pep-0512/
   * https://www.python.org/dev/peps/pep-0512/
 
-* 2009-2015: Mercurial
+* 2011-2015: Mercurial
 
-  * 2009: https://www.python.org/dev/peps/pep-0385/
+  * `PEP 385 <https://www.python.org/dev/peps/pep-0385/>`_:
+    "2011-03-05: final conversion (tentative)"
   * https://hg.python.org/cpython/
   * Mapping of Subversion revision to Mercurial commit:
     ``Misc/svnmap.txt`` file in the Python code base.
@@ -27,7 +28,7 @@ Source Code
     http://svn.python.org/view?view=revision&revision=68121
     but sadly this service is down (tested in September 2020)
 
-* 2005-2009: Subversion
+* 2005-2011: Subversion
 
   * 2005-10-27: `[Python-Dev] Conversion to Subversion is complete
     <https://mail.python.org/pipermail/python-dev/2005-October/057690.html>`_
