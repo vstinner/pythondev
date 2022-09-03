@@ -44,13 +44,13 @@ Source Code
 Python Bug Tracker
 ==================
 
-* GitHub (current)
+* 2022-current: GitHub
 
   * 2018-2022: Migration completed in April 2022
   * https://www.python.org/dev/peps/pep-0588/
   * https://www.python.org/dev/peps/pep-0581/
 
-* 2007-2022: Roundup (old)
+* 2007-2022: Roundup
 
   * http://bugs.python.org/ Bug tracker (modified instance of Roundup)
   * https://pypi.python.org/pypi/roundup
