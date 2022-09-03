@@ -27,17 +27,18 @@ Source Code
     http://svn.python.org/view?view=revision&revision=68121
     but sadly this service is down (tested in September 2020)
 
-* 2005-2016: Subversion
+* 2005-2009: Subversion
 
   * 2005-10-27: `[Python-Dev] Conversion to Subversion is complete
     <https://mail.python.org/pipermail/python-dev/2005-October/057690.html>`_
   * Subversion: https://svn.python.org/projects/python/
 
-* 1989-2005: CVS
+* 1990-2005: CVS
 
   * Python migrated to Subversion to 2005, but I don't when CVS started to be
     used. 1989 is the year when Guido created Python.
   * Initially hosted on ``cvs.python.org``, it migrated to Sourceforge
+  * The first CVS commit was made at Aug 9, 1990.
 
 Python Bug Tracker
 ==================
