@@ -52,6 +52,8 @@ Source Code
     used. 1989 is the year when Guido created Python.
   * Initially hosted on ``cvs.python.org``, it migrated to Sourceforge
   * The first CVS commit was made at Aug 9, 1990.
+    (converted as a `Git commit
+    <https://github.com/python/cpython/commit/7f777ed95a19224294949e1b4ce56bbffcb1fe9f>`_)
 
 Python Bug Tracker
 ==================
