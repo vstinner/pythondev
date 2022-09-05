@@ -1,3 +1,5 @@
+https://mail.python.org/pipermail/python-committers/2017-March/004307.html
+
 .. _workflow:
 
 +++++++++++++++++++++++++++
@@ -10,15 +12,24 @@ Python <python>`.
 Source Code
 ===========
 
-* 2015-current: Git
+* 2017-current: Git
 
-  * 2015-2016: https://www.python.org/dev/peps/pep-0512/
-  * https://www.python.org/dev/peps/pep-0512/
+  * `PEP 512 <https://www.python.org/dev/peps/pep-0512/>`_:
+    Migrating from hg.python.org to GitHub
+  * `We are now live on GitHub!
+    <https://mail.python.org/pipermail/python-committers/2017-February/004220.html>`_
+    (Feb 2017)
+  * `4 weeks with the new workflow: what needs changing?
+    <https://mail.python.org/pipermail/python-committers/2017-March/004307.html>`_
+  * `Pull request #1
+    <https://github.com/python/cpython/pull/1>`_ (Feb 2017)
 
-* 2011-2015: Mercurial
+* 2011-2017: Mercurial
 
-  * `PEP 385 <https://www.python.org/dev/peps/pep-0385/>`_:
-    "2011-03-05: final conversion (tentative)"
+  * `PEP 385 <https://www.python.org/dev/peps/pep-0385/>`_: Migrating from
+    Subversion to Mercurial. "2011-03-05: final conversion (tentative)"
+  * `PEP 374 <https://peps.python.org/pep-0374/>`_: Choosing a distributed VCS
+    for the Python project
   * https://hg.python.org/cpython/
   * Mapping of Subversion revision to Mercurial commit:
     ``Misc/svnmap.txt`` file in the Python code base.
@@ -28,8 +39,9 @@ Source Code
     http://svn.python.org/view?view=revision&revision=68121
     but sadly this service is down (tested in September 2020)
 
-* 2005-2011: Subversion
+* 2005-2011: Subversion (SVN)
 
+  * `PEP 347 <https://peps.python.org/pep-0347/>`_
   * 2005-10-27: `[Python-Dev] Conversion to Subversion is complete
     <https://mail.python.org/pipermail/python-dev/2005-October/057690.html>`_
   * Subversion: https://svn.python.org/projects/python/
@@ -46,15 +58,20 @@ Python Bug Tracker
 
 * 2022-current: GitHub
 
-  * 2018-2022: Migration completed in April 2022
-  * https://www.python.org/dev/peps/pep-0588/
-  * https://www.python.org/dev/peps/pep-0581/
+  * 2018-2022
+  * Migration completed in April 2022
+  * `PEP 588 <https://www.python.org/dev/peps/pep-0588/>`_:
+    GitHub Issues Migration Plan
+  * `PEP 581 <https://www.python.org/dev/peps/pep-0581/>`_:
+    Using GitHub Issues for CPython
 
 * 2007-2022: Roundup
 
-  * http://bugs.python.org/ Bug tracker (modified instance of Roundup)
-  * https://pypi.python.org/pypi/roundup
+  * https://wiki.python.org/moin/CallForTrackers
+  * http://bugs.python.org/
   * CPython instance: https://github.com/psf/bpo-tracker-cpython
+  * https://pypi.python.org/pypi/roundup
+  * Modified instance of Roundup
   * Report Tracker Problem: https://github.com/python/psf-infra-meta/issues
   * Migration from SourceForge to Roundup in 2007
   * `Status of new issue tracker <https://mail.python.org/archives/list/python-dev@python.org/thread/6P4HUPKUU45FGG64LHSWCQBKPZRC2ND4/>`_ (29 Oct 2006) by Brett Cannon
@@ -85,7 +102,7 @@ Python Bug Tracker
   * May 2000: "We move all development (CVS at the time, and bug tracking) to
     SourceForge. This roughly coincided with PythonLabs leaving CNRI, so
     clearly we couldn’t continue running infra off of their systems."
-    (`source <https://mail.python.org/archives/list/python-dev@python.org/message/7B4KAXNWJUYC4SYL53CSQ35LLXPL3X5Y/>`__)
+    (`email <https://mail.python.org/archives/list/python-dev@python.org/message/7B4KAXNWJUYC4SYL53CSQ35LLXPL3X5Y/>`__)
   * The `first commit mentioning SF patch
     <https://github.com/python/cpython/commit/ef82cd72341158ec791406215da198e8a5508357>`_
     was made at June 20, 2000
