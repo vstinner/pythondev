@@ -55,8 +55,8 @@ Source Code
     (converted as a `Git commit
     <https://github.com/python/cpython/commit/7f777ed95a19224294949e1b4ce56bbffcb1fe9f>`_)
 
-Python Bug Tracker
-==================
+Python Forge and Bug Tracker
+============================
 
 * 2022-current: GitHub
 
@@ -67,7 +67,7 @@ Python Bug Tracker
   * `PEP 581 <https://www.python.org/dev/peps/pep-0581/>`_:
     Using GitHub Issues for CPython
 
-* 2007-2022: Roundup
+* 2007-2022: Roundup with Rietveld
 
   * https://wiki.python.org/moin/CallForTrackers
   * http://bugs.python.org/
@@ -110,19 +110,46 @@ Python Bug Tracker
     was made at June 20, 2000
   * Redirection URLs like: ``http://python.org/sf/1615275``
 
-Code Review
-===========
+Rietveld (2008-2017)
+====================
 
-* GitHub (current)
-* OLD: `Rietveld <https://github.com/rietveld-codereview/rietveld>`_
+`Rietveld <https://github.com/rietveld-codereview/rietveld>`_ was used for code
+reviews:
 
-  * Based on patch files
-  * bugs.python.org had a tool to create a review from a Mercurial
-    repository
-  * Support multiple "versions" of a patch
-  * People who comment cannot unsubscribe: new comments are sent by emails
-  * User database disconnected from bugs.python.org database
-  * The server was not reliable and failed often
+* Based on patch files
+* bugs.python.org had a tool to create a review from a Mercurial
+  repository
+* Support multiple "versions" of a patch
+* People who comment cannot unsubscribe: new comments are sent by emails
+* User database disconnected from bugs.python.org database
+* The server was not reliable and failed often
+* In 2008/2009, Rietveld was an external service where to upload patches
+  using an ``upload.py`` script
+* Example: https://codereview.appspot.com/14105
+* `Python-ideas: Yield-from patches on Rietveld
+  <https://mail.python.org/pipermail/python-ideas/2009-March/003209.html>`_
+  (March 2009):
+  "I have uploaded the patches for my yield-from implementation to Rietveld if
+  anyone wants to take a look at them: http://codereview.appspot.com/20101/show"
+* https://mail.python.org/archives/list/python-dev@python.org/message/Q6LHYBYDLBJ5HKR35KH6L7I6D5HXOLA5/
+
+History (2009-2010):
+
+* `Tracker-discuss: Adding a "Rietveld this" button?
+  <https://mail.python.org/pipermail/tracker-discuss/2009-March/001875.html>`_
+  (march 2009) about roundup/rietveld integration
+* `python-dev: Define a place for code review in Python workflow
+  <https://mail.python.org/archives/list/python-dev@python.org/thread/VONLJONZYVKRCFQZEQMJR5TRK4PBMAPW/>`_
+  (Jul 2010, same idea proposed again),
+* `Python-Dev: View tracker patches with ViewVC?
+  <https://mail.python.org/archives/list/python-dev@python.org/message/O4B7YB5OTCXUTOVG3UCP7SGVAPF3U23B/>`_
+  (Jul 2010, early discussions about the actual implementation),
+* `python-checkins, tracker: Import rietveld
+  <https://mail.python.org/pipermail/python-checkins/2010-September/097989.html>`_
+  (30 Sep 2010): Rietveld integration added, with a few more commits in October.
+* `Python-Dev: Rietveld integration into Roundup
+  <https://mail.python.org/archives/list/python-dev@python.org/message/JTPR4IP3UU2MHOBJ4LCAYPR73ZPFJSXR/>`_
+  (October 2010) by Martin von Loewis
 
 Workflow in 2010-2018 (before GitHub, buildbots testing code once merged)
 =========================================================================
