@@ -25,7 +25,7 @@ Well supported platforms
 Well supported platforms on Python 3.7 and 2.7:
 
 * Linux
-* Windows Vista and newer for Python 3.7, Windows XP and newer for Python 2.7
+* Windows 8 and newer for Python 3.9
 * FreeBSD 10 and newer
 * macOS Snow Leopard (macOS 10.6, 2008) and newer
 
@@ -57,6 +57,7 @@ Windows
   requires Windows Vista or newer". See `change1
   <https://hg.python.org/cpython/rev/57e2549cc9a6>`_ and `change2
   <https://hg.python.org/cpython/rev/f64d0b99d405>`_.
+* Python 3.7 supports Windows Vista and newer
 * Python 2.7 supports Windows XP and newer
 * PEP 11 on Windows:
 
