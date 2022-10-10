@@ -49,6 +49,7 @@ Windows
 * `Windows Supported Versions in Python
   <https://docs.python.org/dev/using/windows.html#supported-versions>`_
   (in the Python development ``master`` branch)
+* Windows 7 support `dropped in Python 3.9 <https://mail.python.org/archives/list/buildbot-status@python.org/thread/6LJV2QMVM6QROGIVQ2QUV54HLB5CDO3D/>`_
 * Windows Vista support dropped in Python 3.7
 * Windows XP support dropped in Python 3.5
 * Windows 2000 support dropped in Python 3.4
