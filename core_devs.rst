@@ -47,6 +47,20 @@ Statistics
 Statistics on *new* CPython core developer per year using `devguide
 <https://devguide.python.org/developers/>`_ as data:
 
+* 1989: 1
+* 1992: 2
+* 1994: 1
+* 1996: 2
+* 1997: 1
+* 1998: 3
+* 1999: 2
+* 2000: 17
+* 2001: 10
+* 2002: 8
+* 2003: 7
+* 2004: 7
+* 2005: 4
+* 2006: 7
 * 2007: 10
 * 2008: 13
 * 2009: 7
@@ -61,6 +75,8 @@ Statistics on *new* CPython core developer per year using `devguide
 * 2018: 6
 * 2019: 7
 * 2020: 5
+* 2021: 3
+* 2022: 8
 
 Links:
 
