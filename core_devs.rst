@@ -47,16 +47,16 @@ Statistics
 Statistics on *new* CPython core developer per year using `devguide
 <https://devguide.python.org/developers/>`_ as data:
 
-* 2007: 15
-* 2008: 19
-* 2009: 11
-* 2010: 20
-* 2011: 12
-* 2012: 9
-* 2013: 4
-* 2014: 10
+* 2007: 10
+* 2008: 13
+* 2009: 7
+* 2010: 16
+* 2011: 11
+* 2012: 7
+* 2013: 3
+* 2014: 6
 * 2015: 2
-* 2016: 5
+* 2016: 4
 * 2017: 4
 * 2018: 6
 * 2019: 7
