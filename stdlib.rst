@@ -29,6 +29,14 @@ Removed modules
 Python 3.11
 -----------
 
+Python 3.11 added 1 module:
+
+* ``tomllib``
+
+Python 3.11 added 1 sub-module to existing packages:
+
+* ``wsgiref.types``
+
 Python 3.11 removed 1 module:
 
 * ``binhex``: deprecated in Python 3.9
@@ -39,23 +47,34 @@ asked to add them back <https://github.com/python/steering-council/issues/86>`_
 Python 3.10
 -----------
 
-Python 3.10 removed 2 modules:
+Python 3.10 removed 3 modules:
 
 * ``formatter``: deprecated in Python 3.4
 * ``parser``: deprecated in Python 3.9, removal related to PEP 617
   (PEG parser)
+* ``symbol``
 
 Python 3.9
 ----------
 
+Python 3.9 added 2 modules:
+
+* ``graphlib``
+* ``zoneinfo``
+
 Python 3.9 removed 2 modules:
 
-* ``dummy_threading``, ``_dummy_thread``: deprecated in Python 3.7;
+* ``dummy_threading``: deprecated in Python 3.7;
   Python 3.7 requires threads to build: `bpo-31370
   <https://bugs.python.org/issue31370>`_.
+* ``_dummy_thread``: same.
 
 Python 3.8
 ----------
+
+Python 3.8 added 1 sub-module to existing packages:
+
+* ``importlib.metadata``
 
 Python 3.8 removed 1 module:
 
@@ -64,22 +83,96 @@ Python 3.8 removed 1 module:
 Python 3.7
 ----------
 
-Python 3.7 removed 1 module:
+Python 3.7 added 2 modules:
+
+* ``contextvars``
+* ``dataclasses``
+
+Python 3.7 added 1 sub-module to existing packages:
+
+* ``importlib.resources``
+
+Python 3.7 removed 2 modules:
 
 * ``fpectl``: it was never enabled by default, never worked correctly on
   x86-64, and it changed the Python ABI in ways that caused unexpected
   breakage of C extensions
   (`bpo-29137 <https://bugs.python.org/issue29137>`_).
+* ``macurl2path``
 
 Python 3.6
 ----------
 
+Python 3.6 added 1 module:
+
+* ``secrets``
+
 Python 3.6 removed 6 modules:
 
-* ``CDIO``, ``CDROM``, ``DLFCN``, ``IN``, ``STROPTS``, ``TYPES``:
-  undocumented, they had been available in the platform specific
-  ``Lib/plat-*/`` directories, but were chronically out of date,
-  inconsistently available across platforms, and unmaintained.
+* ``CDIO``
+* ``CDROM``
+* ``DLFCN``
+* ``IN``
+* ``STROPTS``
+* ``TYPES``
+
+These removed modules were undocumented. They had been available in the
+platform specific ``Lib/plat-*/`` directories, but were chronically out of
+date, inconsistently available across platforms, and unmaintained.
+
+Python 3.5
+----------
+
+Python 3.5 added 2 modules:
+
+* ``typing``
+* ``zipapp``
+
+Python 3.4
+----------
+
+Python 3.4 added 7 modules:
+
+* ``asyncio``
+* ``ensurepip``
+* ``enum``
+* ``pathlib``
+* ``selectors``
+* ``statistics``
+* ``tracemalloc``
+
+Python 3.3
+----------
+
+Python 3.3 added 4 modules:
+
+* ``faulthandler``
+* ``ipaddress``
+* ``lzma``
+* ``venv``
+
+Python 3.3 added 1 sub-module to existing packages:
+
+* ``unittest.mock``
+
+Python 3.2
+----------
+
+Python 3.2 added 2 modules:
+
+* ``argparse``
+* ``concurrent.futures``
+
+Python 3.1
+----------
+
+Python 3.1 added 1 module:
+
+* ``importlib``
+
+Python 3.1 added 1 sub-module to existing packages:
+
+* ``tkinter.ttk``
 
 Python 3.0
 ==========
