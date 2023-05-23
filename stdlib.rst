@@ -26,6 +26,17 @@ added to Python 3.10. For Python 2.6 to 3.9, the 3rd party `stdlib-list
 Removed modules
 ===============
 
+Python 3.12
+-----------
+
+Python 3.12 removed 5 module:
+
+* ``asynchat``
+* ``asyncore``
+* ``distutils``
+* ``imp``
+* ``smtpd``
+
 Python 3.11
 -----------
 
