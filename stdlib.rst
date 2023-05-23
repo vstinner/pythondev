@@ -10,10 +10,16 @@ sys.stdlib_module_names
 added to Python 3.10. For Python 2.6 to 3.9, the 3rd party `stdlib-list
 <https://pypi.org/project/stdlib-list/>`_ module can be used.
 
-``len(sys.stdlib_module_names)``:
+* Python 3.12: 300 modules
 
-* Python 3.11: 304 modules (add ``_tokenize`` and ``_typing``,
-  remove ``binhex``)
+  * Add (3): ``_sha2``, ``_pylong``, ``_pydatetime``
+  * Remove (8): ``_bootsubprocess``, ``_sha256``, ``_sha512``, ``asynchat``, ``asyncore``, ``distutils``, ``imp``, ``smtpd``
+
+* Python 3.11: 305 modules
+
+  * Add (3): ``tomllib``, ``_tokenize`` and ``_typing``
+  * Remove (1): ``binhex``
+
 * Python 3.10: 303 modules
 
 
