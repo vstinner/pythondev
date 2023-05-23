@@ -5,11 +5,6 @@ Python standard library
 sys.stdlib_module_names
 =======================
 
-`sys.stdlib_module_names
-<https://docs.python.org/dev/library/sys.html#sys.stdlib_module_names>`_ was
-added to Python 3.10. For Python 2.6 to 3.9, the 3rd party `stdlib-list
-<https://pypi.org/project/stdlib-list/>`_ module can be used.
-
 * Python 3.12: 300 modules
 
   * Add (3): ``_sha2``, ``_pylong``, ``_pydatetime``
@@ -21,6 +16,11 @@ added to Python 3.10. For Python 2.6 to 3.9, the 3rd party `stdlib-list
   * Remove (1): ``binhex``
 
 * Python 3.10: 303 modules
+
+`sys.stdlib_module_names
+<https://docs.python.org/dev/library/sys.html#sys.stdlib_module_names>`_ was
+added to Python 3.10. For Python 2.6 to 3.9, the 3rd party `stdlib-list
+<https://pypi.org/project/stdlib-list/>`_ module can be used.
 
 
 Removed modules
