@@ -7,7 +7,7 @@ Python Development Workflow
 +++++++++++++++++++++++++++
 
 See also :ref:`CPython infrastructure <infra>` and :ref:`History of
-Python <python>`.
+Python <history>`.
 
 Source Code
 ===========

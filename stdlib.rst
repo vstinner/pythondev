@@ -2,6 +2,9 @@
 Python standard library
 +++++++++++++++++++++++
 
+See also :ref:`Supported platforms and architectures <platforms>`
+and :ref:`History of Python <history>`.
+
 sys.stdlib_module_names
 =======================
 
@@ -27,37 +30,79 @@ added to Python 3.10. For Python 2.6 to 3.9, the 3rd party `stdlib-list
 <https://pypi.org/project/stdlib-list/>`_ module can be used.
 
 
-Removed modules
-===============
+Talks
+=====
+
+* 2023: `Language Summit 2023: What is the stdlib for?
+  <https://us.pycon.org/2023/events/language-summit/>`_
+  by Brett Cannon
+* 2021: `The 2021 Python Language Summit: What Is the stdlib?
+  <https://pyfound.blogspot.com/2021/05/the-2021-python-language-summit-what-is.html>`_
+  by Brett Cannon
+* 2019: `Batteries Included, But They're Leaking
+  <https://pyfound.blogspot.com/2019/05/amber-brown-batteries-included-but.html>`_
+  by Amber Brown
+
+Maintain the stdlib outside Python?
+===================================
+
+* 2019: `If Python started moving more code out of the stdlib and into PyPI
+  packages, what technical mechanisms could packaging use to ease that
+  transition?
+  <https://discuss.python.org/t/if-python-started-moving-more-code-out-of-the-stdlib-and-into-pypi-packages-what-technical-mechanisms-could-packaging-use-to-ease-that-transition/1738>`_
+  by Nathaniel J. Smith
+* `PEP 360 – Externally Maintained Packages
+  <https://peps.python.org/pep-0360/>`_
+
+Stdlib history
+==============
 
 Python 3.13
 -----------
 
 Python 3.13 removed 5 module:
 
-* ``cgi``
-* ``cgitb``
-* ``lib2to3``
-* ``sndhdr``
-* ``telnetlib``
+* ``cgi``: `PEP 594`_
+* ``cgitb``: `PEP 594`_
+* ``lib2to3``:
+  `deprecated in Python 3.11 <https://github.com/python/cpython/issues/84540>`_,
+  `issue #104780 <https://github.com/python/cpython/issues/104780>`_,
+  `PEP 617`_
+* ``sndhdr``: `PEP 594`_
+* ``telnetlib``: `PEP 594`_
 
 Python 3.12
 -----------
 
 Python 3.12 removed 5 module:
 
-* ``asynchat``
-* ``asyncore``
-* ``distutils``
-* ``imp``
-* ``smtpd``
+* ``asynchat``: deprecated in Python 3.6, `PEP 594`_
+* ``asyncore``: deprecated in Python 3.6, `PEP 594`_
+* ``distutils``:
+  deprecated in Python 3.10,
+  `PEP 632 - Deprecate distutils module <https://peps.python.org/pep-0632/>`_
+* ``imp``:
+  deprecated in Python 3.5,
+  `issue #98040 <https://github.com/python/cpython/issues/98040>`_,
+  `PR #98573 <https://github.com/python/cpython/pull/98573>`_,
+  replaced with ``importlib``
+* ``smtpd``: deprecated in Python 3.6, `PEP 594`_
+
+PEP 594
+^^^^^^^
+
+`PEP 594 – Removing dead batteries from the standard library
+<https://peps.python.org/pep-0594/>`_ scheduled the removal of many stdlib
+modules in Python 3.12 and 3.13.
 
 Python 3.11
 -----------
 
 Python 3.11 added 1 module:
 
-* ``tomllib``
+* ``tomllib``:
+  `PEP 680 – tomllib: Support for Parsing TOML in the Standard Library
+  <https://peps.python.org/pep-0680/>`_
 
 Python 3.11 added 1 sub-module to existing packages:
 
@@ -65,20 +110,28 @@ Python 3.11 added 1 sub-module to existing packages:
 
 Python 3.11 removed 1 module:
 
-* ``binhex``: deprecated in Python 3.9
+* ``binhex``:
+  `deprecated in Python 3.9 <https://github.com/python/cpython/issues/83534>`_,
+  `issue #89248 <https://github.com/python/cpython/issues/89248>`_.
 
-Note: ``asyncore``, ``asynchat``, ``smtplib`` were removed but then `the SC
-asked to add them back <https://github.com/python/steering-council/issues/86>`_
+Note: ``asyncore``, ``asynchat``, ``smtplib`` were removed in Python 3.11,
+but then `the SC asked to add them back
+<https://github.com/python/steering-council/issues/86>`_
 
 Python 3.10
 -----------
 
 Python 3.10 removed 3 modules:
 
-* ``formatter``: deprecated in Python 3.4
-* ``parser``: deprecated in Python 3.9, removal related to PEP 617
+* ``formatter``:
+  `deprecated in Python 3.4 <https://github.com/python/cpython/issues/62916>`_,
+  `issue #86465 <https://github.com/python/cpython/issues/86465>`_,
+  `python-dev thread <https://mail.python.org/archives/list/python-dev@python.org/thread/ZEDIBBYCWI34GVOXDEUYXQY3LYXOFHA2/>`_
+* ``parser``: deprecated in Python 3.9, `PEP 617`_
   (PEG parser)
-* ``symbol``
+* ``symbol``: deprecated in Python 3.9, `PEP 617`_
+
+.. _PEP 617: https://peps.python.org/pep-0617/
 
 Python 3.9
 ----------
@@ -104,47 +157,60 @@ Python 3.8 added 1 sub-module to existing packages:
 
 Python 3.8 removed 1 module:
 
-  * ``macpath``: deprecated in Python 3.7, Mac OS 9 is not longer used.
+* ``macpath``:
+  `deprecated in Python 3.7 <https://github.com/python/cpython/issues/54059>`_,
+  `issue #79652 <https://github.com/python/cpython/issues/79652>`_,
+  Mac OS 9 is no longer used.
 
 Python 3.7
 ----------
 
 Python 3.7 added 2 modules:
 
-* ``contextvars``
-* ``dataclasses``
+* ``contextvars``:
+  `PEP 567 – Context Variables <https://peps.python.org/pep-0567/>`_
+* ``dataclasses``:
+  `PEP 557 – Data Classes <https://peps.python.org/pep-0557/>`_
 
 Python 3.7 added 1 sub-module to existing packages:
 
-* ``importlib.resources``
+* ``importlib.resources``:
+  `issue #76429 <https://github.com/python/cpython/issues/76429>`_
 
 Python 3.7 removed 2 modules:
 
-* ``fpectl``: it was never enabled by default, never worked correctly on
-  x86-64, and it changed the Python ABI in ways that caused unexpected
-  breakage of C extensions
-  (`bpo-29137 <https://bugs.python.org/issue29137>`_).
-* ``macurl2path``
+* ``fpectl``:
+  `issue #73323 <https://github.com/python/cpython/issues/73323>`_,
+  it was never enabled by default, never worked correctly on x86-64, and it
+  changed the Python ABI in ways that caused unexpected breakage of C
+  extensions.
+* ``macurl2path``:
+  `issue #72512 <https://github.com/python/cpython/issues/72512>`_
 
 Python 3.6
 ----------
 
 Python 3.6 added 1 module:
 
-* ``secrets``
+* ``secrets``:
+  `PEP 506 – Adding A Secrets Module To The Standard Library
+  <https://peps.python.org/pep-0506/>`_
 
 Python 3.6 removed 6 modules:
 
-* ``CDIO``
-* ``CDROM``
-* ``DLFCN``
-* ``IN``
-* ``STROPTS``
-* ``TYPES``
+* ``CDIO``: `issue #72214`_
+* ``CDROM``: `issue #72214`_
+* ``DLFCN``: `issue #72214`_
+* ``IN``: `issue #72214`_
+* ``STROPTS``: `issue #72214`_
+* ``TYPES``: `issue #72214`_
 
-These removed modules were undocumented. They had been available in the
-platform specific ``Lib/plat-*/`` directories, but were chronically out of
-date, inconsistently available across platforms, and unmaintained.
+`issue #72214`_: These removed modules were undocumented. They had been
+available in the platform specific ``Lib/plat-*/`` directories, but were
+chronically out of date, inconsistently available across platforms, and
+unmaintained.
+
+.. _issue #72214: https://github.com/python/cpython/issues/72214
 
 Python 3.5
 ----------
@@ -152,30 +218,53 @@ Python 3.5
 Python 3.5 added 2 modules:
 
 * ``typing``
-* ``zipapp``
+  `PEP 484 – Type Hints
+  <https://peps.python.org/pep-0484/>`_
+  and
+  `PEP 483 – The Theory of Type Hints
+  <https://peps.python.org/pep-0483/>`_
+* ``zipapp``:
+  `PEP 441 – Improving Python ZIP Application Support
+  <https://peps.python.org/pep-0441/>`_
 
 Python 3.4
 ----------
 
 Python 3.4 added 7 modules:
 
-* ``asyncio``
+* ``asyncio``:
+  `PEP 3156 – Asynchronous IO Support Rebooted: the “asyncio” Module
+  <https://peps.python.org/pep-3156/>`_
 * ``ensurepip``
-* ``enum``
-* ``pathlib``
-* ``selectors``
-* ``statistics``
-* ``tracemalloc``
+* ``enum``:
+  `PEP 435 – Adding an Enum type to the Python standard library
+  <https://peps.python.org/pep-0435/>`_
+* ``pathlib``:
+  `PEP 428 – The pathlib module – object-oriented filesystem paths
+  <https://peps.python.org/pep-0428/>`_
+* ``selectors``: PEP 3156
+* ``statistics``:
+  `PEP 450 – Adding A Statistics Module To The Standard Library
+  <https://peps.python.org/pep-0450/>`_
+* ``tracemalloc``:
+  `PEP 454 – Add a new tracemalloc module to trace Python memory allocations
+  <https://peps.python.org/pep-0454/>`_
 
 Python 3.3
 ----------
 
 Python 3.3 added 4 modules:
 
-* ``faulthandler``
-* ``ipaddress``
-* ``lzma``
-* ``venv``
+* ``faulthandler``:
+  `issue #55602 <https://github.com/python/cpython/issues/55602>`_
+* ``ipaddress``:
+  `PEP 3144 – IP Address Manipulation Library for the Python Standard Library
+  <https://peps.python.org/pep-3144/>`_
+* ``lzma``:
+  `issue #50964 <https://github.com/python/cpython/issues/50964>`_
+* ``venv``:
+  `PEP 405 – Python Virtual Environments
+  <https://peps.python.org/pep-0405/>`_
 
 Python 3.3 added 1 sub-module to existing packages:
 
@@ -186,8 +275,12 @@ Python 3.2
 
 Python 3.2 added 2 modules:
 
-* ``argparse``
-* ``concurrent.futures``
+* ``argparse``:
+  `PEP 389 – argparse - New Command Line Parsing Module
+  <https://peps.python.org/pep-0389/>`_
+* ``concurrent.futures``:
+  `PEP 3148 – futures - execute computations asynchronously
+  <https://peps.python.org/pep-3148/>`_
 
 Python 3.1
 ----------
@@ -201,7 +294,7 @@ Python 3.1 added 1 sub-module to existing packages:
 * ``tkinter.ttk``
 
 Python 3.0
-==========
+----------
 
 Python 3.0 removed 74 stdlib modules, related to `PEP 3108
 <https://www.python.org/dev/peps/pep-3108/#modules-to-remove>`_.
