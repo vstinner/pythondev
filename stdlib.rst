@@ -5,6 +5,10 @@ Python standard library
 sys.stdlib_module_names
 =======================
 
+* Python 3.13: 295 modules
+
+  * Remove (5): ``cgi``, ``cgitb``, ``lib2to3``, ``sndhdr``, ``telnetlib``
+
 * Python 3.12: 300 modules
 
   * Add (3): ``_sha2``, ``_pylong``, ``_pydatetime``
@@ -25,6 +29,17 @@ added to Python 3.10. For Python 2.6 to 3.9, the 3rd party `stdlib-list
 
 Removed modules
 ===============
+
+Python 3.13
+-----------
+
+Python 3.13 removed 5 module:
+
+* ``cgi``
+* ``cgitb``
+* ``lib2to3``
+* ``sndhdr``
+* ``telnetlib``
 
 Python 3.12
 -----------
