@@ -46,6 +46,28 @@ Talks
 Maintain the stdlib outside Python?
 ===================================
 
+* 2021: `cpython_hack <https://github.com/dabeaz/cpython_hack>`_:
+  David Beazley's experiment to make the Python stdlib as small as possible.
+  The stdlib is made of 7 Python modules and 3 C extensions.
+
+  stdlib Python modules:
+
+  * ``genericpath``
+  * ``io``
+  * ``os``
+  * ``posixpath``
+  * ``site``
+  * ``stat``
+  * ``types``
+
+  stdlib C extensions:
+
+  * ``_stat``
+  * ``posix``
+  * ``readline``
+
+  There is an extra ``Lib/__phello__.foo.py`` module, but it's only used for tests.
+
 * 2019: `If Python started moving more code out of the stdlib and into PyPI
   packages, what technical mechanisms could packaging use to ease that
   transition?
