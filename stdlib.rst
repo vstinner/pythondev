@@ -8,9 +8,12 @@ and :ref:`History of Python <history>`.
 sys.stdlib_module_names
 =======================
 
-* Python 3.13: 295 modules
+* Python 3.13: 278 modules
 
-  * Remove (5): ``cgi``, ``cgitb``, ``lib2to3``, ``sndhdr``, ``telnetlib``
+  * Remove (22): ``_crypt``, ``_msi``, ``aifc``, ``audioop``, ``cgi``,
+    ``cgitb``, ``chunk``, ``crypt``, ``imghdr``, ``lib2to3``, ``mailcap``,
+    ``msilib``, ``nis``, ``nntplib``, ``ossaudiodev``, ``pipes``, ``sndhdr``,
+    ``spwd``, ``sunau``, ``telnetlib``, ``uu``, ``xdrlib``
 
 * Python 3.12: 300 modules
 
@@ -82,16 +85,31 @@ Stdlib history
 Python 3.13
 -----------
 
-Python 3.13 removed 5 module:
+Python 3.13 removed 20 module:
 
-* ``cgi``: `PEP 594`_
-* ``cgitb``: `PEP 594`_
 * ``lib2to3``:
   `deprecated in Python 3.11 <https://github.com/python/cpython/issues/84540>`_,
   `issue #104780 <https://github.com/python/cpython/issues/104780>`_,
   `PEP 617`_
+* ``aifc``: `PEP 594`_
+* ``audioop``: `PEP 594`_
+* ``cgi``: `PEP 594`_
+* ``cgitb``: `PEP 594`_
+* ``chunk``: `PEP 594`_
+* ``crypt``: `PEP 594`_
+* ``imghdr``: `PEP 594`_
+* ``mailcap``: `PEP 594`_
+* ``msilib``: `PEP 594`_
+* ``nis``: `PEP 594`_
+* ``nntplib``: `PEP 594`_
+* ``ossaudiodev``: `PEP 594`_
+* ``pipes``: `PEP 594`_
 * ``sndhdr``: `PEP 594`_
+* ``spwd``: `PEP 594`_
+* ``sunau``: `PEP 594`_
 * ``telnetlib``: `PEP 594`_
+* ``uu``: `PEP 594`_
+* ``xdrlib``: `PEP 594`_
 
 Python 3.12
 -----------
