@@ -155,6 +155,7 @@ Python startup
       call ``PyModule_ExecDef(mod)`` which calls ``imp_module_exec(mod)``:
       the ``Py_mod_exec`` slot of ``imp_module.m_slots``.
 
+  * Store the ``_imp`` extension in ``sys.modules``
   * Call ``_frozen_importlib._install(sys, _imp)``
 
 
