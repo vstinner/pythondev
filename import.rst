@@ -10,8 +10,9 @@ Implementation
 ==============
 
 In short, the built-in ``__import__`` function (``builtins.__import__``) calls
-``PyImport_ImportModuleLevelObject()`` which calls
-``importlib._find_and_load()`` if the module is not cached in ``sys.modules``.
+the C function ``PyImport_ImportModuleLevelObject()`` which calls
+``importlib._bootstrap._find_and_load()`` if the module is not cached in
+``sys.modules``.
 
 The implementation is splitted in multiple files in C and Python code. Main
 files:
@@ -22,6 +23,16 @@ files:
 
 The importlib package was added to Python 3.1. In Python 3.3, the import
 machinery was rewritten based on the importlib package.
+
+importlib concepts
+------------------
+
+* Module finder (*finder*) with a ``find_spec()`` method.
+  ``sys.meta_path`` is a list of importlib finders.
+* Module loader (*loader*) with ``create_module()`` and ``exec_module()`` methods.
+  Example: ``importlib.machinery.SourceFileLoader``.
+* Module specification (*spec*): ``importlib.machinery.ModuleSpec`` which has a
+  loader.
 
 IMPORT_NAME bytecode
 --------------------
@@ -65,21 +76,69 @@ calls ``PyImport_ImportModuleLevelObject(name, globals, locals, fromlist, level)
 PyImport_ImportModuleLevelObject(name, globals, locals, fromlist, level)
 ------------------------------------------------------------------------
 
-In short, call ``importlib._find_and_load(name)`` if the module is not cached
-in ``sys.modules``.
+In short, call ``importlib._bootstrap._find_and_load(name)`` if the module is
+not cached in ``sys.modules``.
 
 Function implemented in ``Python/import.c``. Simplified explanation (look at
 the implementation for details):
 
 * Get the module from ``sys.modules``. If the module is already cached: return
   it.
-* Call ``importlib._find_and_load(name)``.
+* Call ``importlib._bootstrap._find_and_load(name)``.
 * If ``fromlist`` is a non-empty list (if it's true),
   call ``importlib._handle_fromlist(module, fromlist, import_func)``
   where ``import_func`` is ``builtins.__import__``.
 
+importlib _find_and_load()
+--------------------------
+
+In short:
+
+* Call the ``find_spec()`` method of each ``sys.meta_path`` finder. Use the
+  first matching *spec* (not ``None``).
+* ``module = loader.create_module(spec)``.
+* ``sys.modules[name] = module``
+* ``loader.exec_module(module)``
+
+``importlib._bootstrap._find_and_load(name, import_func)`` pseudo-code:
+
+* Call ``spec = _find_spec(name, path)`` where *path* is ``None``
+  or ``parent_module.__path__``.
+* Call ``module = module_from_spec(spec)``
+* Cache the module in ``sys.modules``
+* Call ``spec.loader.exec_module(module)``, except for namespace packages which
+  have no loader
+
+``importlib._bootstrap._find_spec(name, path, target=None)`` pseudo-code:
+
+  * For each finder of ``sys.meta_path``,
+    call ``finder.find_spec(name, path, target)``.
+  * If a ``find_spec()`` method result is not ``None``, return *spec*.
+
+``importlib._bootstrap.module_from_spec(spec)`` pseudo-code:
+
+  * Call ``spec.loader.create_module(spec)``
+  * Call ``_init_module_attrs(spec, module)`` which sets module attributes:
+
+    * ``__cached__``
+    * ``__file__``
+    * ``__loader__``
+    * ``__name__``
+    * ``__package__``
+    * ``__path__``
+    * ``__spec__``
+
+importlib.import_module(name, package=None)
+-------------------------------------------
+
+Implemented in ``Lib/importlib/__init__.py``, call
+``importlib._bootstrap._gcd_import(name[level:], package, level)`` which calls
+``importlib._bootstrap._find_and_load()``. Similar to ``builtins.__import__()``
+function.
+
+
 Python startup
---------------
+==============
 
 * ``_PyBuiltin_Init()`` creates the ``builtins`` module.
   The ``builtins`` module dictionary is stored in ``interp->builtins``.
@@ -98,8 +157,9 @@ Python startup
 
   * Call ``_frozen_importlib._install(sys, _imp)``
 
+
 Frozen modules
---------------
+==============
 
 * ``Modules/config.c`` implements ``_PyImport_Inittab``:
   file generated from ``Modules/config.c.in`` by ``Modules/makesetup``.
@@ -107,3 +167,18 @@ Frozen modules
 * ``PyImport_Inittab`` is initialized to ``_PyImport_Inittab``
 * ``PyImport_ExtendInittab()`` copies ``PyImport_Inittab`` to ``inittab_copy``
 * ``_PyRuntime.imports.inittab``
+
+
+Links
+=====
+
+* `Python importlib documentation
+  <https://docs.python.org/dev/library/importlib.html>`_
+* `PEP 451 – A ModuleSpec Type for the Import System
+  <https://peps.python.org/pep-0451/>`_ (2013, Python 3.4) by Eric Snow
+* `Unravelling the import statement
+  <https://snarky.ca/unravelling-the-import-statement/>`_
+  (January 2021) by Brett Cannon
+* `If I were designing Python's import from scratch
+  <https://snarky.ca/if-i-were-designing-imort-from-scratch/>`_
+  (December 2015) by Brett Cannon
