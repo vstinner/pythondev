@@ -17,9 +17,16 @@ the C function ``PyImport_ImportModuleLevelObject()`` which calls
 The implementation is splitted in multiple files in C and Python code. Main
 files:
 
-* ``Lib/importlib/_bootstrap.py``
-* ``Lib/importlib/_bootstrap_external.py``
+* ``Lib/importlib/_bootstrap.py``: frozen as ``_frozen_importlib``
+* ``Lib/importlib/_bootstrap_external.py``: frozen as ``_frozen_importlib_external``
 * ``Python/import.c``
+
+The API is splitted in multiple parts:
+
+* ``importlib.machinery``: internals
+* ``importlib.util``: public helper functions
+* private ``_imp`` extension
+* C API like ``PyImport_ImportModuleLevelObject()``
 
 The importlib package was added to Python 3.1. In Python 3.3, the import
 machinery was rewritten based on the importlib package.
@@ -29,10 +36,15 @@ importlib concepts
 
 * Module finder (*finder*) with a ``find_spec()`` method.
   ``sys.meta_path`` is a list of importlib finders.
+* Path hooks used by PathFinder: ``sys.path_hooks`` list.
+  Usually: ``[zipimport.zipimporter, importlib._bootstrap_external.FileFinder]``.
+  To be exact, the second one is a function which creates a FileFinder instance
+  if a path a directory.
 * Module loader (*loader*) with ``create_module()`` and ``exec_module()`` methods.
   Example: ``importlib.machinery.SourceFileLoader``.
 * Module specification (*spec*): ``importlib.machinery.ModuleSpec`` which has a
   loader.
+* ``sys.path_importer_cache`` used by ``PathFinder``
 
 IMPORT_NAME bytecode
 --------------------
@@ -136,6 +148,29 @@ Implemented in ``Lib/importlib/__init__.py``, call
 ``importlib._bootstrap._find_and_load()``. Similar to ``builtins.__import__()``
 function.
 
+Load a namespace package
+------------------------
+
+A namespace package has no ``__init__.py`` file.
+
+Implemented in ``Lib/importlib/_bootstrap_external.py`` with ``PathFinder``.
+``sys.meta_path[2]`` is an ``_frozen_importlib_external.PathFinder`` instance
+
+Call ``PathFinder.find_spec(name, path=None, target=None)``:
+
+* Call ``PathFinder._get_spec(name, sys.path, target=None)``:
+
+  * For each ``sys.path`` entry, get
+    ``PathFinder._path_importer_cache(entry)``: ``FileFinder`` instance.
+    Call ``FileFinder.find_spec(name, target)`` method.
+  * If there is a match, store ``spec.submodule_search_locations``
+  * If there was at least one match, combine all ``spec.submodule_search_locations``
+    as a *namespace_path* and create a ``ModuleSpec`` with it which has no
+    loader (``None``).
+
+``PathFinder._path_importer_cache(entry)`` uses ``sys.path_importer_cache``.
+
+
 
 Python startup
 ==============
@@ -157,6 +192,21 @@ Python startup
 
   * Store the ``_imp`` extension in ``sys.modules``
   * Call ``_frozen_importlib._install(sys, _imp)``
+
+    * Set up the spec for existing builtin/frozen modules
+    * Add ``BuiltinImporter`` and ``FrozenImporter`` to ``sys.meta_path``
+
+* Call ``_PyImport_InitExternal()``:
+
+  * Call ``_frozen_importlib._install_external_importers()``:
+
+    * Import ``_frozen_importlib_external``
+    * Call ``_frozen_importlib_external._install(_frozen_importlib)``
+
+      * Add FileFinder path hook to ``sys.path_hook``
+      * Add FileFinder to ``sys.meta_path``
+
+  * Import ``zipimport.zipimporter`` and prepends it to ``sys.path_hooks``
 
 
 Frozen modules
