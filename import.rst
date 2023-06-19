@@ -123,22 +123,22 @@ In short:
 
 ``importlib._bootstrap._find_spec(name, path, target=None)`` pseudo-code:
 
-  * For each finder of ``sys.meta_path``,
-    call ``finder.find_spec(name, path, target)``.
-  * If a ``find_spec()`` method result is not ``None``, return *spec*.
+* For each finder of ``sys.meta_path``,
+  call ``finder.find_spec(name, path, target)``.
+* If a ``find_spec()`` method result is not ``None``, return *spec*.
 
 ``importlib._bootstrap.module_from_spec(spec)`` pseudo-code:
 
-  * Call ``spec.loader.create_module(spec)``
-  * Call ``_init_module_attrs(spec, module)`` which sets module attributes:
+* Call ``spec.loader.create_module(spec)``
+* Call ``_init_module_attrs(spec, module)`` which sets module attributes:
 
-    * ``__cached__``
-    * ``__file__``
-    * ``__loader__``
-    * ``__name__``
-    * ``__package__``
-    * ``__path__``
-    * ``__spec__``
+  * ``__cached__``
+  * ``__file__``
+  * ``__loader__``
+  * ``__name__``
+  * ``__package__``
+  * ``__path__``
+  * ``__spec__``
 
 importlib.import_module(name, package=None)
 -------------------------------------------
