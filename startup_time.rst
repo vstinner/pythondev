@@ -99,6 +99,8 @@ Links:
   <https://github.com/asottile/importtime-waterfall>`_:
   Generate waterfalls from ``-X importtime`` tracing.
 
+See also :ref:`Python Import <import>`.
+
 
 .pth files
 ==========

@@ -54,6 +54,7 @@ Development:
    garbage_collector.rst
    stdlib.rst
    wasm.rst
+   import.rst
 
 Performance:
 

@@ -1,9 +1,11 @@
+.. _stdlib:
+
 +++++++++++++++++++++++
 Python standard library
 +++++++++++++++++++++++
 
-See also :ref:`Supported platforms and architectures <platforms>`
-and :ref:`History of Python <history>`.
+See also :ref:`Supported platforms and architectures <platforms>`,
+:ref:`History of Python <history>`, and :ref:`Python Import <import>`.
 
 sys.stdlib_module_names
 =======================
