@@ -18,13 +18,15 @@ When creating a new directory, see also:
   comment
   <https://github.com/python/cpython/pull/10624#issuecomment-441090519>`_).
 * "make tags" and "make TAGS" in Makefile.pre.in
-* The Windows installer copies Lib/test/ and subdirectories:
-  see ``<InstallFiles Include="$(PySourcePath)Lib\test\**\*" ...>``
-  in ``Tools/msi/test/test.wixproj``.
 
-New subdirectories created in ``Lib/`` and ``Lib/test/`` must be added to
-``LIBSUBDIRS`` of ``Makefile.pre.in`` (`example
+New subdirectories created in ``Lib/`` must be added to ``LIBSUBDIRS``
+of ``Makefile.pre.in`` (`example
 <https://github.com/python/cpython/commit/2528a6c3d0660c03ae43d796628462ccf8e58190>`__).
+
+New subdirectories created in ``Lib/test/`` must be added to ``TESTSUBDIRS`` of
+``Makefile.pre.in``. The Windows installer copies ``Lib/test/`` and subdirectories:
+see ``<InstallFiles Include="$(PySourcePath)Lib\test\**\*" ...>``
+in ``Tools/msi/test/test.wixproj``.
 
 
 Add a new subdirectory
