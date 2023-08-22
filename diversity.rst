@@ -40,6 +40,11 @@ https://discuss.python.org/t/discussion-about-recent-coc-events/5778/15
 Python Code of Conduct Bans
 ===========================
 
+* March 2023: `Steven D'Aprano was suspended for 3 months
+  <https://discuss.python.org/t/suspending-a-core-developer-for-conduct-issues/25278>`_.
+  Since he didn't contact the Steering Council, he remains suspended until
+  the SC hears back from him.
+
 * August 2021: `A ban from Core Developer spaces.
   <https://mail.python.org/archives/list/python-dev@python.org/thread/5QHGDMU4CJ6KGS5G4CHSXTZF5AZDIVLB/>`_
   (For the whole SC, Thomas Wouters): Marco Sulla was banned for 1 year.
