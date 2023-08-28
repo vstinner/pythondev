@@ -28,6 +28,21 @@ New subdirectories created in ``Lib/test/`` must be added to ``TESTSUBDIRS`` of
 see ``<InstallFiles Include="$(PySourcePath)Lib\test\**\*" ...>``
 in ``Tools/msi/test/test.wixproj``.
 
+To build a new ``_testclinic_limited`` extension
+(``Modules/_testclinic_limited.c``) on Windows:
+
+* In ``PCbuild/``, copy ``_asyncio.vcxproj`` to ``_testclinic_limited.vcxproj``,
+  replace ``RootNamespace`` with ``_testclinic_limited``, replace
+  ``_asyncio.c`` with ``_testclinic_limited.c``.
+* Open Visual Studio, open ``PCbuild\pcbuild.sln``, add the existing
+  ``PCbuild\_testclinic_limited.vcxproj`` project to the solution.
+* Add a dependency from ``python`` project to the ``_testclinic_limited``
+  project.
+* Save and exit Visual Studio.
+* Add ``;_testclinic_limited`` to ``<TestModules Include="...">``
+  in ``PCbuild\pcbuild.proj``.
+
+
 
 Add a new subdirectory
 ======================
