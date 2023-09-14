@@ -71,6 +71,17 @@ Cross-build CPython to WASM:
 * By default, ``configure --with-suffix`` (``EXE`` Makefile variable) is set to
   ``.js`` for Emscripten and ``.wasm`` for WASI.
 
+In short, on Fedora::
+
+    podman run --rm -ti -v $(pwd):/python-wasm/cpython:Z -w /python-wasm/cpython quay.io/tiran/cpythonbuild:emsdk3
+    # in the container:
+    ./Tools/wasm/wasm_build.py wasi build
+
+    cd builddir/wasi/
+    make pythoninfo
+    make buildbottest TESTOPTS=""
+
+
 Python WASM browser REPL
 ========================
 
