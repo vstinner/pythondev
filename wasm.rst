@@ -71,7 +71,9 @@ Cross-build CPython to WASM:
 * By default, ``configure --with-suffix`` (``EXE`` Makefile variable) is set to
   ``.js`` for Emscripten and ``.wasm`` for WASI.
 
-In short, on Fedora::
+In short, on Fedora, commands to type in the Python source code directory::
+
+    git clean -fdx  # warning: it removes ALL untracked files!
 
     podman run --rm -ti -v $(pwd):/python-wasm/cpython:Z -w /python-wasm/cpython quay.io/tiran/cpythonbuild:emsdk3
     # in the container:
