@@ -177,6 +177,18 @@ Decrement the type reference counter in the dealloc function. Something like::
         Py_DECREF(tp);
     }
 
+* GC types:
+
+  * Add Py_TPFLAGS_HAVE_GC flag.
+  * Add traverse() function.
+  * Add clear() function.
+  * Constructor must use PyObject_GC_Malloc().
+  * The object must be tracked somewhere: PyObject_GC_Track().
+  * The deallocator must call PyObject_GC_UnTrack().
+  * If tp_new is set to NULL explicitly: use Py_TPFLAGS_DISALLOW_INSTANTIATION.
+  * Consider using Py_TPFLAGS_IMMUTABLETYPE flag.
+  * XXX should something be done for pickle/copy protocol?
+
 Add a module state to a module
 ==============================
 
