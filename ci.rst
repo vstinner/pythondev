@@ -63,6 +63,12 @@ Buildbots
 
 CPython buildbots:
 
+* Recent failed builds:
+
+  * `Main branch <https://buildbot.python.org/all/#/grid?branch=main&result=2>`_
+  * `3.12 branch <https://buildbot.python.org/all/#/grid?branch=3.12&result=2>`_
+  * `3.11 branch <https://buildbot.python.org/all/#/grid?branch=3.11&result=2>`_
+
 * `Builders <http://buildbot.python.org/all/#/builders>`_
 * `buildmaster-config (GitHub)
   <https://github.com/python/buildmaster-config/>`_: Buildbot configuration

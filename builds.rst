@@ -7,6 +7,41 @@ Python builds
 See also :ref:`Analysis of CPython binary assembly <assembly>` and :ref:`C
 compilers <c-compilers>`.
 
+Build depenencies
+=================
+
+Install Python dependencies on Fedora::
+
+    sudo dnf install make gcc openssl-devel \
+        readline-devel zlib-devel bzip2-devel xz-devel
+
+Minimum configure Python for Fedora::
+
+    ./configure --prefix /usr --with-platlibdir=lib64 --libdir=/usr/lib64 --enable-shared
+
+Full configure Python for Fedora (check ``CONFIG_ARGS`` in
+``/usr/lib64/python3.11/config-3.11-x86_64-linux-gnu/Makefile``)::
+
+    --build=x86_64-redhat-linux-gnu --host=x86_64-redhat-linux-gnu \
+    --disable-dependency-tracking --prefix=/usr --exec-prefix=/usr \
+    --bindir=/usr/bin --sbindir=/usr/sbin --sysconfdir=/etc \
+    --datadir=/usr/share --includedir=/usr/include --libdir=/usr/lib64 \
+    --libexecdir=/usr/libexec --localstatedir=/var --runstatedir=/run \
+    --sharedstatedir=/var/lib --mandir=/usr/share/man \
+    --infodir=/usr/share/info --with-platlibdir=lib64 --enable-ipv6 \
+    --enable-shared --with-computed-gotos=yes \
+    --with-dbmliborder=gdbm:ndbm:bdb --with-system-expat --with-system-ffi \
+    --with-system-libmpdec --enable-loadable-sqlite-extensions \
+    --with-dtrace --with-lto --with-ssl-default-suites=openssl \
+    --without-static-libpython --with-wheel-pkg-dir=/usr/share/python-wheels \
+    --with-valgrind --without-ensurepip --enable-optimizations \
+    build_alias=x86_64-redhat-linux-gnu \
+    host_alias=x86_64-redhat-linux-gnu \
+    PKG_CONFIG_PATH=':/usr/lib64/pkgconfig:/usr/share/pkgconfig' \
+    CC=gcc CFLAGS='-O2  -fexceptions -g -grecord-gcc-switches -pipe -Wall -Werror=format-security -Wp,-U_FORTIFY_SOURCE,-D_FORTIFY_SOURCE=3 -Wp,-D_GLIBCXX_ASSERTIONS  -fstack-protector-strong   -m64  -mtune=generic -fasynchronous-unwind-tables -fstack-clash-protection -fcf-protection    -D_GNU_SOURCE -fPIC -fwrapv' \
+    LDFLAGS='-Wl,-z,relro -Wl,--as-needed  -Wl,-z,now    -Wl,--build-id=sha1   -g'
+
+
 .. _release-build:
 
 Release build
