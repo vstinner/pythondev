@@ -218,3 +218,32 @@ Vectorcall
   * ``PyObject_VectorcallDict()``
   * ``_PyObject_FastCall()``
   * ``PyObject_VectorcallMethod()``
+
+
+Build Python in 32-bit on Fedora
+================================
+
+Install the libc in 32-bit::
+
+    sudo dnf install glibc-devel.i686
+
+Edit ``Modules/Setup.local`` to disable extensions which need 3rd libraries
+(not available in 32-bit)::
+
+    *disabled*
+    _bz2
+    _ctypes
+    _curses
+    _curses_panel
+    _elementtree
+    _lzma
+    _uuid
+    binascii
+    pyexpat
+    readline
+    zlib
+
+Build Python::
+
+    ./configure CFLAGS="-m32" LDFLAGS="-m32"
+    make
