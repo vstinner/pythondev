@@ -78,8 +78,8 @@ In short, on Fedora, commands to type in the Python source code directory::
 
 In the emsdk3 container::
 
-    # python3 -u  ./Tools/wasm/wasm_build.py wasi build 2>&1|tee log
-    ./Tools/wasm/wasm_build.py wasi build
+    # python3 -u ./Tools/wasm/wasm_build.py wasi build -v 2>&1|tee log
+    ./Tools/wasm/wasm_build.py wasi build # -v
     cd builddir/wasi/
     make pythoninfo
     make buildbottest TESTOPTS=""
