@@ -247,3 +247,30 @@ Build Python::
 
     ./configure CFLAGS="-m32" LDFLAGS="-m32"
     make
+
+
+C global variables checker
+==========================
+
+``make check-c-globals`` runs ``Tools/c-analyzer/check-c-globals.py --format summary --traceback``.
+
+New global variables can be ignored by modifying
+``Tools/c-analyzer/cpython/ignored.tsv``.
+
+
+Frozen modules
+==============
+
+* ``Python/frozen.c``
+* ``Tools/build/freeze_modules.py``
+* ``Makefile.pre.in``:
+
+  * ``make regen-frozen``
+  * ``FROZEN_FILES_IN``
+  * ``FROZEN_FILES_OUT``
+
+Old deepfreeze. No longer used in Python 3.13:
+
+* ``PYTHON_FOR_FREEZE``
+* ``DEEPFREEZE_C``
+* ``DEEPFREEZE_DEPS``
