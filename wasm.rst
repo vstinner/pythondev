@@ -84,6 +84,35 @@ In the emsdk3 container::
     make pythoninfo
     make buildbottest TESTOPTS=""
 
+Build 2
+-------
+
+Documentation: https://devguide.python.org/getting-started/setup-building/#wasi
+
+Create a container from "devcontainer" cpython-dev (container based on Fedora)::
+
+    podman build .devcontainer --tag cpython-dev
+
+In a CPython checkout, start by removing all local files not tracked by Git::
+
+    git clean -fdx
+
+In the clean CPython checkout, run the container::
+
+    podman run -it --rm -v $PWD:/workspace:O -w/workspace cpython-dev
+
+Now inside the container, build Python for WASI::
+
+    python3 Tools/wasm/wasi.py build -- --config-cache --with-pydebug
+
+Run Python::
+
+    cross-build/wasm32-wasi/python.sh
+
+Run the test suite::
+
+    cross-build/wasm32-wasi/python.sh -m test
+
 
 Python WASM browser REPL
 ========================
