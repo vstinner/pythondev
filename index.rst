@@ -55,6 +55,7 @@ Development:
    stdlib.rst
    wasm.rst
    import.rst
+   limited_capi.rst
 
 Performance:
 

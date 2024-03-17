@@ -274,3 +274,18 @@ Old deepfreeze. No longer used in Python 3.13:
 * ``PYTHON_FOR_FREEZE``
 * ``DEEPFREEZE_C``
 * ``DEEPFREEZE_DEPS``
+
+
+Build Python in an Ubuntu container
+===================================
+
+Create an Ubuntu 22.04 container::
+
+    podman run --rm --name ubuntu-dev --hostname ubuntu-dev --interactive --tty ubuntu:22.04
+
+In the container::
+
+    apt update && apt install --yes git make clang libssl-dev readline-dev
+    git clone https://github.com/python/cpython --depth=1
+    cd cpython
+    ./configure --with-pydebug
