@@ -194,3 +194,7 @@ Misc
 * `CPython WebAssembly nightly tests & unofficial builds
   <https://github.com/tiran/cpython-wasm-test>`_
   by Christian Heimes
+* https://quay.io/repository/tiran/cpythonbuild?tab=tags&tag=emsdk3
+* https://github.com/tiran/cpython_builddep/
+* https://github.com/tiran/cpython_builddep/blob/main/wasm/Dockerfile.emsdk3
+* ``.github/workflows/reusable-wasi.yml``
