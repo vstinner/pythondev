@@ -4,7 +4,7 @@ Python Limited C API
 
 Use the limited C API::
 
-    ``#define Py_LIMITED_API 0x030c0000``
+    #define Py_LIMITED_API 0x030c0000
 
 Replace
 =======
