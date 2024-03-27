@@ -25,12 +25,12 @@ Regular C API                              Limited C API
 Port stdlib extensions to the limited C API
 ===========================================
 
-* _csv: need PyType_GetModuleByDef()
-* _curses_panel, dbm, _gdbm: AC doesn't support @defining_class
-* _json: need _PyUnicodeWriter
-* _operator: need _PyArg_NoKwnames()
+* _csv: need ``PyType_GetModuleByDef()``
+* _curses_panel, dbm, _gdbm: AC doesn't support ``@defining_class``
+* _json: need ``_PyUnicodeWriter``
+* _operator: need ``_PyArg_NoKwnames()``
 * _testbuffer: static types
-* md5, sha1: need PyMutex
-* syslog: need PyInterpreterState_Main()
-* overlapped: need _PyBytes_Resize()
-* winreg: need Py_HashPointer()
+* md5, sha1: need ``PyMutex``
+* syslog: need ``PyInterpreterState_Main()``
+* overlapped: need ``_PyBytes_Resize()``
+* winreg: need ``PyObject_GenericHash()``
