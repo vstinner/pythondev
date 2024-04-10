@@ -271,6 +271,7 @@ overflow. Example of tests using it:
 * test_json
 * test_pickle
 * test_traceback
+* test_tomllib: `issue gh-108851 <https://github.com/python/cpython/issues/108851>`_
 
 ``_Py_CheckRecursiveCall()`` is a portable but not reliable test: basic counter
 using ``sys.getrecursionlimit()``.
@@ -278,6 +279,14 @@ using ``sys.getrecursionlimit()``.
 MSVC allows to implement ``PyOS_CheckStack()`` (``USE_STACKCHECK`` macro is
 defined) using ``alloca()`` and catching ``STATUS_STACK_OVERFLOW`` error.
 If uses ``_resetstkoflw()`` to reset the stack overflow flag.
+
+See also ``Py_C_RECURSION_LIMIT `` constant.
+
+WASI explicitly sets the stack memory in ``configure.ac``::
+
+    dnl increase initial memory and stack size, move stack first
+    dnl https://github.com/WebAssembly/wasi-libc/issues/233
+    AS_VAR_APPEND([LDFLAGS_NODIST], [" -z stack-size=524288 -Wl,--stack-first -Wl,--initial-memory=10485760"])
 
 Tests
 -----
