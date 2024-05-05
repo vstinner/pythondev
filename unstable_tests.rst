@@ -284,9 +284,11 @@ See also ``Py_C_RECURSION_LIMIT `` constant.
 
 WASI explicitly sets the stack memory in ``configure.ac``::
 
-    dnl increase initial memory and stack size, move stack first
+    dnl gh-117645: Set the memory size to 20 MiB, the stack size to 8 MiB,
+    dnl and move the stack first.
     dnl https://github.com/WebAssembly/wasi-libc/issues/233
-    AS_VAR_APPEND([LDFLAGS_NODIST], [" -z stack-size=524288 -Wl,--stack-first -Wl,--initial-memory=10485760"])
+    AS_VAR_APPEND([LDFLAGS_NODIST], [" -z stack-size=8388608 -Wl,--stack-first -Wl,--initial-memory=20971520"])
+
 
 Tests
 -----
