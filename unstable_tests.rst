@@ -280,7 +280,7 @@ MSVC allows to implement ``PyOS_CheckStack()`` (``USE_STACKCHECK`` macro is
 defined) using ``alloca()`` and catching ``STATUS_STACK_OVERFLOW`` error.
 If uses ``_resetstkoflw()`` to reset the stack overflow flag.
 
-See also ``Py_C_RECURSION_LIMIT `` constant.
+See also ``Py_C_RECURSION_LIMIT`` constant.
 
 WASI explicitly sets the stack memory in ``configure.ac``::
 
