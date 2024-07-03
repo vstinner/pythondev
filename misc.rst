@@ -289,3 +289,9 @@ In the container::
     git clone https://github.com/python/cpython --depth=1
     cd cpython
     ./configure --with-pydebug
+
+
+make check-c-globals
+====================
+
+If the test fails, edit ``Tools/c-analyzer/cpython/ignored.tsv``.
