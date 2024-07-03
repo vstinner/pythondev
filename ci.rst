@@ -65,6 +65,7 @@ CPython buildbots:
 
 * Builders:
 
+  * `Stable Builders: Main branch <https://buildbot.python.org/all/#/builders?tags=%2B3.x&tags=%2Bstable>`_
   * `Unstable Builders: Main branch <https://buildbot.python.org/all/#/builders?tags=%2B3.x&tags=%2Bunstable>`_
 
 * Recent failed builds:
