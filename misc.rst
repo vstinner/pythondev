@@ -295,3 +295,13 @@ make check-c-globals
 ====================
 
 If the test fails, edit ``Tools/c-analyzer/cpython/ignored.tsv``.
+
+LINK : fatal error LNK1104: cannot open file 'python313.lib'
+============================================================
+
+When testing a Python debug build on Windows, the library is called
+python313_d.lib, not python313.lib.
+
+Workaround::
+
+    copy PCbuild\amd64\python313_d.lib python313.lib
