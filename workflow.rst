@@ -110,6 +110,23 @@ Python Forge and Bug Tracker
     was made at June 20, 2000
   * Redirection URLs like: ``http://python.org/sf/1615275``
 
+Discourse and Mailing Lists
+===========================
+
+* The Discourse instance (discuss.python.org) was created in September 2018
+* Last python-dev thread: `Retiring this mailing list ?
+  <https://mail.python.org/archives/list/python-dev@python.org/thread/PDRLCB6CNLQAFVGPTLXL5QV6SVQDPCCV/>`_
+  at 25th Nov 2023
+* `Switching to Discourse
+  <https://mail.python.org/archives/list/python-dev@python.org/thread/VHFLDK43DSSLHACT67X4QA3UZU73WYYJ/>`_
+  (July 2022)
+* `python-committers is dead, long live discuss.python.org
+  <https://mail.python.org/archives/list/python-committers@python.org/thread/PJFD62CN3VUA7AY657YP5NVZU64SSRGB/>`_ (Sept 2018)
+* `python-dev mailing list archives
+  <https://mail.python.org/archives/list/python-dev@python.org/>`_
+* The python-dev list was created in April 1999
+
+
 Rietveld (2008-2017)
 ====================
 
