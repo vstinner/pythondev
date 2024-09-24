@@ -305,3 +305,11 @@ python313_d.lib, not python313.lib.
 Workaround::
 
     copy PCbuild\amd64\python313_d.lib python313.lib
+
+
+Free Threading
+==============
+
+* https://docs.python.org/dev/howto/free-threading-extensions.html
+* https://py-free-threading.github.io/
+* https://hugovk.github.io/free-threaded-wheels/
