@@ -91,7 +91,9 @@ Documentation: https://devguide.python.org/getting-started/setup-building/#wasi
 
 Create a container from "devcontainer" cpython-dev (container based on Fedora)::
 
-    podman build .devcontainer --tag cpython-dev
+    git clone https://github.com/python/cpython-devcontainers
+    cd cpython-devcontainers
+    podman build devcontainer --tag cpython-dev
 
 In a CPython checkout, start by removing all local files not tracked by Git::
 
