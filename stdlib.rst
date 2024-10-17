@@ -23,7 +23,7 @@ sys.stdlib_module_names
     * ``_interpchannels``,
     * ``_interpqueues``,
     * ``_interpreters``,
-    * ``_ios_support``,
+    * ``_ios_support`` (:pep:`730`),
     * ``_opcode_metadata``,
     * ``_pyrepl`` (:pep:`762`),
     * ``_suggestions``,
