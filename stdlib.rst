@@ -10,21 +10,49 @@ See also :ref:`Supported platforms and architectures <platforms>`,
 sys.stdlib_module_names
 =======================
 
-* Python 3.13: 278 modules
+* Python 3.14: 290 modules
+
+  * Add (1): ``annotationlib``
+
+* Python 3.13: 289 modules
+
+  * Add (10):
+
+    * ``_android_support``,
+    * ``_colorize``,
+    * ``_interpchannels``,
+    * ``_interpqueues``,
+    * ``_interpreters``,
+    * ``_ios_support``,
+    * ``_opcode_metadata``,
+    * ``_pyrepl`` (:pep:`762`),
+    * ``_suggestions``,
+    * ``_sysconfig``.
 
   * Remove (22): ``_crypt``, ``_msi``, ``aifc``, ``audioop``, ``cgi``,
     ``cgitb``, ``chunk``, ``crypt``, ``imghdr``, ``lib2to3``, ``mailcap``,
     ``msilib``, ``nis``, ``nntplib``, ``ossaudiodev``, ``pipes``, ``sndhdr``,
-    ``spwd``, ``sunau``, ``telnetlib``, ``uu``, ``xdrlib``
+    ``spwd``, ``sunau``, ``telnetlib``, ``uu``, ``xdrlib``.
 
-* Python 3.12: 300 modules
+* Python 3.12: 301 modules
 
-  * Add (3): ``_sha2``, ``_pylong``, ``_pydatetime``
+  * Add (4):
+
+    * ``_sha2``,
+    * ``_pylong``,
+    * ``_pydatetime``,
+    * ``_wmi``.
+
   * Remove (8): ``_bootsubprocess``, ``_sha256``, ``_sha512``, ``asynchat``, ``asyncore``, ``distutils``, ``imp``, ``smtpd``
 
 * Python 3.11: 305 modules
 
-  * Add (3): ``tomllib``, ``_tokenize`` and ``_typing``
+  * Add (3):
+
+    * ``tomllib``,
+    * ``_tokenize``,
+    * ``_typing``.
+
   * Remove (1): ``binhex``
 
 * Python 3.10: 303 modules
