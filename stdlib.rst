@@ -29,10 +29,12 @@ sys.stdlib_module_names
     * ``_suggestions``,
     * ``_sysconfig``.
 
-  * Remove (22): ``_crypt``, ``_msi``, ``aifc``, ``audioop``, ``cgi``,
-    ``cgitb``, ``chunk``, ``crypt``, ``imghdr``, ``lib2to3``, ``mailcap``,
+  * Remove (21), :pep:`594`: ``_crypt``, ``_msi``, ``aifc``, ``audioop``, ``cgi``,
+    ``cgitb``, ``chunk``, ``crypt``, ``imghdr``, ``mailcap``,
     ``msilib``, ``nis``, ``nntplib``, ``ossaudiodev``, ``pipes``, ``sndhdr``,
     ``spwd``, ``sunau``, ``telnetlib``, ``uu``, ``xdrlib``.
+
+  * Remove (1): ``lib2to3``.
 
 * Python 3.12: 301 modules
 
