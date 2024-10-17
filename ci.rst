@@ -65,16 +65,14 @@ CPython buildbots:
 
 * Builders:
 
-  * `Stable Builders: Main branch <https://buildbot.python.org/all/#/builders?tags=%2B3.x&tags=%2Bstable>`_
-  * `Unstable Builders: Main branch <https://buildbot.python.org/all/#/builders?tags=%2B3.x&tags=%2Bunstable>`_
+  * `Stable Builders: Main branch <https://buildbot.python.org/#/builders?tags=%2B3.x&tags=%2Bstable>`_
+  * `Unstable Builders: Main branch <https://buildbot.python.org/#/builders?tags=%2B3.x&tags=%2Bunstable>`_
 
 * Recent failed builds:
 
-  * `Main branch <https://buildbot.python.org/all/#/grid?branch=main&result=2>`_
-  * `3.12 branch <https://buildbot.python.org/all/#/grid?branch=3.12&result=2>`_
-  * `3.11 branch <https://buildbot.python.org/all/#/grid?branch=3.11&result=2>`_
+  * Go the `Grid <https://buildbot.python.org/#/grid>`_, select "main" branch
+    and "FAILURE" results.
 
-* `Builders <http://buildbot.python.org/all/#/builders>`_
 * `buildmaster-config (GitHub)
   <https://github.com/python/buildmaster-config/>`_: Buildbot configuration
 * `Fork of BuildBot running on buildbot.python.org
