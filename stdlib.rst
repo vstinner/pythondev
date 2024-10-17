@@ -49,11 +49,11 @@ sys.stdlib_module_names
 
   * Add (3):
 
-    * ``tomllib``,
+    * ``tomllib`` (:pep:`680`),
     * ``_tokenize``,
     * ``_typing``.
 
-  * Remove (1): ``binhex``
+  * Remove (1): ``binhex``.
 
 * Python 3.10: 303 modules
 
