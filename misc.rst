@@ -318,3 +318,10 @@ Dashboard
 =========
 
 * https://github.com/orgs/python/dashboard
+
+Alpine Linux
+============
+
+Install dependencies::
+
+    apk add gcc make musl-dev git
