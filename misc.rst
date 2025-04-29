@@ -296,6 +296,9 @@ make check-c-globals
 
 If the test fails, edit ``Tools/c-analyzer/cpython/ignored.tsv``.
 
+See also ``MAX_SIZES`` in ``Tools/c-analyzer/cpython/_parser.py``.
+
+
 LINK : fatal error LNK1104: cannot open file 'python313.lib'
 ============================================================
 
