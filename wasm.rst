@@ -93,7 +93,7 @@ Create a container from "devcontainer" cpython-dev (container based on Fedora)::
 
     git clone https://github.com/python/cpython-devcontainers
     cd cpython-devcontainers
-    podman build devcontainer --tag cpython-dev
+    podman build devcontainer --tag wasi-cpython-dev
 
 In a CPython checkout, start by removing all local files not tracked by Git::
 
@@ -101,7 +101,7 @@ In a CPython checkout, start by removing all local files not tracked by Git::
 
 In the clean CPython checkout, run the container::
 
-    podman run -it --rm -v $PWD:/workspace:O -w/workspace cpython-dev
+    podman run -it --rm -v $PWD:/workspace:O -w/workspace wasi-cpython-dev
 
 Now inside the container, build Python for WASI::
 
@@ -109,11 +109,11 @@ Now inside the container, build Python for WASI::
 
 Run Python::
 
-    cross-build/wasm32-wasi/python.sh
+    cross-build/wasm32-wasip1/python.sh
 
 Run the test suite::
 
-    cross-build/wasm32-wasi/python.sh -m test
+    cross-build/wasm32-wasip1/python.sh -m test
 
 
 Python WASM browser REPL
