@@ -328,3 +328,40 @@ Alpine Linux
 Install dependencies::
 
     apk add gcc make musl-dev git
+
+Emscripten
+==========
+
+Documentation: https://devguide.python.org/getting-started/setup-building/#emscripten
+
+Install Emscripten::
+
+    cd ~/dev/
+    git clone https://github.com/emscripten-core/emsdk
+    ./emsdk/emsdk install 4.0.12
+    ./emsdk/emsdk activate 4.0.12
+
+Build Python (commands based on ``.github/workflows/reusable-emscripten.yml``)::
+
+    cd ~/python/main
+
+    # Configure build Python
+    python3 Platforms/emscripten configure-build-python -- --config-cache --with-pydebug
+    # Make build Python
+    python3 Platforms/emscripten make-build-python
+
+    # Make dependencies
+    python3 Platforms/emscripten make-dependencies
+    # Configure host Python
+    source ~/dev/emsdk/emsdk_env.sh
+    python3 Platforms/emscripten configure-host --host-runner node -- --config-cache
+    # Make host Python
+    python3 Platforms/emscripten make-host
+
+Run Python with a script::
+
+    python3 Platforms/emscripten run script.py
+
+Run the test suite::
+
+    python3 Platforms/emscripten run --test
