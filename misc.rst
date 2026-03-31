@@ -28,13 +28,13 @@ Builtin scalar types:
 Builtin container types:
 
 * Sequence: tuple, list
-* Mapping: dict
+* Mapping: dict, frozendict
 * Set: frozenset, set
 
 Singletons:
 
 * None, Ellipsis (``...``), False (``bool(0)``), True (``bool(1)``)
-* Small integers: [-5; 256]
+* Small integers: [-5; 1024], or [-5; 256] on Python 3.14 and older
 * Empty bytes and Unicode strings: ``b''`` and ``''``
 * Latin-1 single letter, examples: ``'\0'``, ``'a'``, ``'\xe9'``
 * Empty tuple
