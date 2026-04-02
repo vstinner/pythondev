@@ -365,3 +365,89 @@ Run Python with a script::
 Run the test suite::
 
     python3 Platforms/emscripten run --test
+
+Free Threading internals
+========================
+
+* PEPs:
+
+  * PEP 683 "Immortal Objects, Using a Fixed Refcount"
+  * PEP 703 "Making the Global Interpreter Lock Optional in CPython" design document
+  * PEP 779 "Criteria for supported status for free-threaded Python"
+
+* Quiescent-State Based Reclamation (QSBR)
+
+  * https://github.com/python/cpython/blob/main/InternalDocs/qsbr.md
+  * ``_PyObject_GC_SET_SHARED(obj)`` sets ``_PyGC_BITS_SHARED`` bit of
+    ``obj->ob_gc_bits`` (``uint8_t``)
+  * setobject.c ``ensure_shared_on_read()`` comment::
+
+        // The first time we access a set from a non-owning thread we mark it
+        // as shared. This ensures that a concurrent resize operation will
+        // delay freeing the old entries using QSBR, which is necessary
+        // to safely allow concurrent reads without locking...
+
+* ``list`` uses QSBR with ``_PyListArray`` type
+
+  * ``_PyListArray``::
+
+        typedef struct {
+            Py_ssize_t allocated;
+            PyObject *ob_item[];
+        } _PyListArray;
+
+  * ``_Py_CONTAINER_OF()`` gets ``_PyListArray`` from ``PyListObject.ob_item``
+
+* ``set`` uses QSBR: ``set_table_resize()`` delays ``PyMem_Free(oldtable)``
+  using ``_PyMem_FreeDelayed()``.
+
+* Deferred ref counting
+
+  * ``PyUnstable_Object_EnableDeferredRefcount(obj)`` sets ``_PyGC_BITS_DEFERRED`` bit of ``obj->ob_gc_bits``
+  * Only types with ``Py_TPFLAGS_HAVE_GC`` flag.
+
+* PyMutex: use a single byte
+
+  * ``Include/cpython/pylock.h`` defines ``PyMutex``
+  * Parking lot
+  * WebKit WTF Lock
+
+    * https://webkit.org/blog/6161/locking-in-webkit/
+    * https://github.com/WebKit/WebKit/blob/main/Source/WTF/wtf/Lock.h
+
+* Critical section
+
+  * Py_BEGIN_CRITICAL_SECTION()/Py_END_CRITICAL_SECTION()
+  * Py_BEGIN_CRITICAL_SECTION2()/Py_END_CRITICAL_SECTION2()
+  * Use ``PyThreadState.critical_section`` tagged pointer
+  * ``_Py_CRITICAL_SECTION_INACTIVE``
+  * ``_Py_CRITICAL_SECTION_TWO_MUTEXES``
+  * ``_Py_CRITICAL_SECTION_MASK``
+  * Use ``PyObject.ob_mutex`` (PyMutex)
+
+* Atomic operations: ``Include/cpython/pyatomic.h`` (GCC/Clang, MSVC, std)
+
+  * gcc: use GCC built-in functions such as ``__atomic_load_n()``
+  * msc: use MSVC intrinsics such as ``_InterlockedCompareExchange()``
+  * std: use C11 or C++11 atomics such as ``atomic_load()``
+
+* Ref counting
+
+  * PyObject has two members::
+
+        uint32_t ob_ref_local;      // local reference count
+        Py_ssize_t ob_ref_shared;   // shared (atomic) reference count
+
+  * ``PyObject.ob_tid`` sets using ``_Py_ThreadId()``
+  * ``_Py_UNOWNED_TID`` special value for ``ob_tid``
+  * ``_Py_IsOwnedByCurrentThread()``
+  * ``PyUnstable_Object_IsUniquelyReferenced()``
+  * ``PyUnstable_Object_IsUniqueReferencedTemporary()``
+  * ``Py_SET_REFCNT()``
+
+* Immortal objects: PEP 683.
+
+  * Py_INCREF/Py_DECREF do nothing if ``_Py_IsImmortal(obj)`` is true.
+  * ``PyUnstable_SetImmortal()``
+  * Small integers
+  * Singletons such as ``()``, True/False, None, empty string.
