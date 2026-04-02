@@ -401,6 +401,15 @@ Free Threading internals
 * ``set`` uses QSBR: ``set_table_resize()`` delays ``PyMem_Free(oldtable)``
   using ``_PyMem_FreeDelayed()``.
 
+* ``dict`` uses QSBR for lock-less lookup
+
+  * ``PyDict_GetItemRef()`` calls ``_Py_dict_lookup_threadsafe()``
+  * ``PyDict_SetItem()`` calls ``insertdict()``
+  * ``PyDict_SetItem()`` calls ``insertion_resize()`` if the ``dict`` needs to
+    grow. Use ``_PyMem_FreeDelayed()`` on old keys and values if the dict
+    is shared.
+  * use QSBR (``_PyObject_GC_SET_SHARED()``)
+
 * Deferred ref counting
 
   * ``PyUnstable_Object_EnableDeferredRefcount(obj)`` sets ``_PyGC_BITS_DEFERRED`` bit of ``obj->ob_gc_bits``
@@ -444,6 +453,7 @@ Free Threading internals
   * ``PyUnstable_Object_IsUniquelyReferenced()``
   * ``PyUnstable_Object_IsUniqueReferencedTemporary()``
   * ``Py_SET_REFCNT()``
+  * ``_Py_TryXGetRef()``
 
 * Immortal objects: PEP 683.
 
