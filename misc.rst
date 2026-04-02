@@ -413,7 +413,10 @@ Free Threading internals
 * Deferred ref counting
 
   * ``PyUnstable_Object_EnableDeferredRefcount(obj)`` sets ``_PyGC_BITS_DEFERRED`` bit of ``obj->ob_gc_bits``
+  * ``_PyObject_HasDeferredRefcount()``
   * Only types with ``Py_TPFLAGS_HAVE_GC`` flag.
+  * Biased reference counting (BRC) inter-thread queue: ``Python/brc.c``
+  * ``PyInterpreterState.brc`` state
 
 * PyMutex: use a single byte
 
@@ -461,3 +464,53 @@ Free Threading internals
   * ``PyUnstable_SetImmortal()``
   * Small integers
   * Singletons such as ``()``, True/False, None, empty string.
+
+* Stop the world
+
+  * _PyEval_StopTheWorldAll(), _PyEval_StartTheWorldAll()
+  * _PyEval_StopTheWorld(), _PyEval_StartTheWorld()
+  * Examples of operations which have to stop/start the world:
+
+    * ``PyRefTracer_SetTracer()``
+    * set ``__bases__`` or ``__abstractmethods__`` of a type
+    * set ``__class__`` of an object
+    * ``faulthandler.dump_traceback()``
+    * ``gc.get_referents()``
+    * ``PyOS_BeforeFork()``
+    * ``_Py_ClearUnusedTLBC()``
+    * ``_PyFunction_ClearVersion()``
+
+* mimalloc black magic
+
+  * ``_PyThreadStateImpl.mimalloc`` state
+  * ``mi_heap_visit_blocks()``: visit all blocks in a heap
+  * ``_mi_abandoned_pool_visit_blocks()``: visit blocks in the per-interpreter
+    abandoned pool
+  * ``Objects/mimalloc/``: C code
+  * ``Include/internal/mimalloc/`` header files
+
+* Thread-local bytecode (TLBC)
+* Reenable the GIL if a C extension is not compatible with Free Threading
+
+  * _PyEval_IsGILEnabled()
+  * _PyEval_EnableGILTransient()
+  * _PyEval_EnableGILPermanent()
+  * _PyEval_DisableGIL()
+
+* Garbage collector
+
+  * Python/gc_free_threading.c
+
+* ``_PyStackRef``
+
+  * ``PyStackRef_FromPyObjectSteal()``
+  * ``PyStackRef_IsNull()``
+  * ``PyStackRef_DUP()``
+  * Mostly limited to ``Python/ceval.c``
+  * ``_PyCStackRef`` API::
+
+        _PyCStackRef mro_ref;
+        _PyThreadState_PushCStackRef(tstate, &mro_ref);
+        mro_ref.ref = PyStackRef_FromPyObjectNew(mro);
+        ...
+        _PyThreadState_PopCStackRef(tstate, &mro_ref);
