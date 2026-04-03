@@ -374,6 +374,7 @@ Free Threading internals
   * PEP 683 "Immortal Objects, Using a Fixed Refcount"
   * PEP 703 "Making the Global Interpreter Lock Optional in CPython" design document
   * PEP 779 "Criteria for supported status for free-threaded Python"
+  * PEP 803: “abi3t”: Stable ABI for Free-Threaded Builds
 
 * Quiescent-State Based Reclamation (QSBR)
 
@@ -535,7 +536,7 @@ Free Threading internals
 * Limited C API
 
   * WIP in Python 3.15
-  * PEP 803
+  * PEP 803: “abi3t”: Stable ABI for Free-Threaded Builds
   * Opaque PyObject
   * Early work to abstract access to PyObject: Py_REFCNT(), Py_SET_REFCNT(),
     Py_TYPE(), Py_SET_TYPE().
