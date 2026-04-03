@@ -514,3 +514,36 @@ Free Threading internals
         mro_ref.ref = PyStackRef_FromPyObjectNew(mro);
         ...
         _PyThreadState_PopCStackRef(tstate, &mro_ref);
+
+* Python Thread state
+
+  * ``_PyThreadState_GET()``
+  * ``_Py_thread_local PyThreadState *_Py_tss_tstate``
+  * ``_Py_thread_local``: ``thread_local``, ``_Thread_local`` (C11),
+    ``__declspec(thread)``, ``__thread`` (GCC).
+  * ``_PyThreadState_GET()`` implemented as reading the ``_Py_thread_local``
+    variable in the common case.
+  * Function call for stdlib extension modules built with
+    ``Py_BUILD_CORE_MODULE``
+
+* Python C API
+
+  * Extension module: ``{Py_mod_gil, Py_MOD_GIL_NOT_USED}`` slot
+  * Critical section
+  * https://py-free-threading.github.io/porting-extensions/
+
+* Limited C API
+
+  * WIP in Python 3.15
+  * PEP 803
+  * Opaque PyObject
+  * Early work to abstract access to PyObject: Py_REFCNT(), Py_SET_REFCNT(),
+    Py_TYPE(), Py_SET_TYPE().
+  * ``abi3t`` ABI tag
+
+* Gilectomy
+
+  * Challenge of ref counting: "buffered reference count"
+  * Issues with obmalloc
+  * GC challenge
+  * ``_PyThreadState_GET()``: need for Thread Local Storage (TLS)
