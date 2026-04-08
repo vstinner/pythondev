@@ -548,3 +548,13 @@ Free Threading internals
   * Issues with obmalloc
   * GC challenge
   * ``_PyThreadState_GET()``: need for Thread Local Storage (TLS)
+
+PyPy project status (December 2025)
+===================================
+
+Matti Picus `wrote in the numpy bug tracker
+<https://github.com/numpy/numpy/issues/30416>`__:
+
+    PyPy is no longer under active development, and has not released a
+    Python3.12 version.
+
