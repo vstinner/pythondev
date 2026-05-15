@@ -84,16 +84,16 @@ In the emsdk3 container::
     make pythoninfo
     make buildbottest TESTOPTS=""
 
-Build 2
--------
+Build 2 (WASI)
+--------------
 
 Documentation: https://devguide.python.org/getting-started/setup-building/#wasi
 
-Create a container from "devcontainer" cpython-dev (container based on Fedora)::
+Create a container from "wasicontainer" cpython-dev (container based on Fedora)::
 
     git clone https://github.com/python/cpython-devcontainers
     cd cpython-devcontainers
-    podman build devcontainer --tag wasi-cpython-dev
+    podman build wasicontainer --tag wasi-cpython-dev
 
 In a CPython checkout, start by removing all local files not tracked by Git::
 
@@ -105,7 +105,7 @@ In the clean CPython checkout, run the container::
 
 Now inside the container, build Python for WASI::
 
-    python3 Tools/wasm/wasi.py build -- --config-cache --with-pydebug
+    python3 Platforms/WASI build -- --config-cache --with-pydebug
 
 Run Python::
 

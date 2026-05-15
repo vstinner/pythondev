@@ -223,30 +223,17 @@ Vectorcall
 Build Python in 32-bit on Fedora
 ================================
 
-Install the libc in 32-bit::
+Install Python dependencies in 32-bit::
 
-    sudo dnf install glibc-devel.i686
-
-Edit ``Modules/Setup.local`` to disable extensions which need 3rd libraries
-(not available in 32-bit)::
-
-    *disabled*
-    _bz2
-    _ctypes
-    _curses
-    _curses_panel
-    _elementtree
-    _lzma
-    _uuid
-    binascii
-    pyexpat
-    readline
-    zlib
+    sudo dnf install glibc-devel.i686 libatomic.i686 bzip2-devel.i686 libffi-devel.i686 libuuid-devel.i686 ncurses-devel.i686 openssl-devel.i686 readline-devel.i686 xz-devel.i686 zlib-ng-compat-devel.i686
 
 Build Python::
 
     ./configure CFLAGS="-m32" LDFLAGS="-m32"
+    sed -i -e 's!#define PY_HAVE_PERF_TRAMPOLINE 1!#undef PY_HAVE_PERF_TRAMPOLINE!g' pyconfig.h
     make
+
+I have to disable ``PY_HAVE_PERF_TRAMPOLINE`` to workaround a build issue.
 
 
 C global variables checker
@@ -379,6 +366,7 @@ Free Threading internals
 * Quiescent-State Based Reclamation (QSBR)
 
   * https://github.com/python/cpython/blob/main/InternalDocs/qsbr.md
+  * https://github.com/python/cpython/commit/113de8545ffe74a4a1dddb9351fa1cbd3562b621
   * ``_PyObject_GC_SET_SHARED(obj)`` sets ``_PyGC_BITS_SHARED`` bit of
     ``obj->ob_gc_bits`` (``uint8_t``)
   * setobject.c ``ensure_shared_on_read()`` comment::
