@@ -41,10 +41,20 @@ Source Code
 
 * 2005-2011: Subversion (SVN)
 
+  * Subversion repository in 2026: https://svn.python.org/projects/python/
   * `PEP 347 <https://peps.python.org/pep-0347/>`_
   * 2005-10-27: `[Python-Dev] Conversion to Subversion is complete
     <https://mail.python.org/pipermail/python-dev/2005-October/057690.html>`_
   * Subversion: https://svn.python.org/projects/python/
+  * Changes were first made in old branches, and then forward-ported
+  * The Subversion property ``svnmerge-integrated`` tracked all forward-ported
+    changes. It's a single line made of Subversion commits, really hard to edit
+    in case of conflict.  Example from ``branches/release26-maint``: the
+    ``svnmerge-integrated`` property looks like:
+    ``/python/branches/release27-maint:1-82510,82529,82548-82562,(...),82492``
+    where `(...)` is a very long list.
+    There was also a similar ``svnmerge-blocked`` for "blocked" merges, it
+    has a similar format to ``svnmerge-integrated`` property (list of commits).
 
 * 1990-2005: CVS
 
