@@ -356,6 +356,11 @@ Run the test suite::
 Free Threading internals
 ========================
 
+* Articles:
+
+  * https://vstinner.github.io/free-threading-reference-counting.html
+  * https://vstinner.github.io/free-threading-deferred-reference-counting.html
+
 * PEPs:
 
   * PEP 683 "Immortal Objects, Using a Fixed Refcount"
@@ -399,11 +404,8 @@ Free Threading internals
     is shared.
   * use QSBR (``_PyObject_GC_SET_SHARED()``)
 
-* Deferred ref counting
+* Biased reference counting
 
-  * ``PyUnstable_Object_EnableDeferredRefcount(obj)`` sets ``_PyGC_BITS_DEFERRED`` bit of ``obj->ob_gc_bits``
-  * ``_PyObject_HasDeferredRefcount()``
-  * Only types with ``Py_TPFLAGS_HAVE_GC`` flag.
   * Biased reference counting (BRC) inter-thread queue: ``Python/brc.c``
   * ``PyInterpreterState.brc`` state
 
@@ -434,25 +436,10 @@ Free Threading internals
 
 * Ref counting
 
-  * PyObject has two members::
-
-        uint32_t ob_ref_local;      // local reference count
-        Py_ssize_t ob_ref_shared;   // shared (atomic) reference count
-
-  * ``PyObject.ob_tid`` sets using ``_Py_ThreadId()``
-  * ``_Py_UNOWNED_TID`` special value for ``ob_tid``
-  * ``_Py_IsOwnedByCurrentThread()``
   * ``PyUnstable_Object_IsUniquelyReferenced()``
   * ``PyUnstable_Object_IsUniqueReferencedTemporary()``
   * ``Py_SET_REFCNT()``
   * ``_Py_TryXGetRef()``
-
-* Immortal objects: PEP 683.
-
-  * Py_INCREF/Py_DECREF do nothing if ``_Py_IsImmortal(obj)`` is true.
-  * ``PyUnstable_SetImmortal()``
-  * Small integers
-  * Singletons such as ``()``, True/False, None, empty string.
 
 * Stop the world
 
@@ -489,20 +476,15 @@ Free Threading internals
 * Garbage collector
 
   * Python/gc_free_threading.c
+  * GC bits
 
-* ``_PyStackRef``
-
-  * ``PyStackRef_FromPyObjectSteal()``
-  * ``PyStackRef_IsNull()``
-  * ``PyStackRef_DUP()``
-  * Mostly limited to ``Python/ceval.c``
-  * ``_PyCStackRef`` API::
-
-        _PyCStackRef mro_ref;
-        _PyThreadState_PushCStackRef(tstate, &mro_ref);
-        mro_ref.ref = PyStackRef_FromPyObjectNew(mro);
-        ...
-        _PyThreadState_PopCStackRef(tstate, &mro_ref);
+    * _PyGC_BITS_TRACKED
+    * _PyGC_BITS_FINALIZED
+    * _PyGC_BITS_UNREACHABLE
+    * _PyGC_BITS_FROZEN
+    * _PyGC_BITS_SHARED
+    * _PyGC_BITS_ALIVE
+    * _PyGC_BITS_DEFERRED
 
 * Python Thread state
 
@@ -514,6 +496,39 @@ Free Threading internals
     variable in the common case.
   * Function call for stdlib extension modules built with
     ``Py_BUILD_CORE_MODULE``
+  * Free lists.
+
+    * _Py_freelists_GET() gets from tstate with Free Threading
+    * _Py_freelists_GET() gets from interp otherwise
+
+* PyInterpreterState
+
+  * atexit: add ll_callbacks_lock
+  * GC: add freeze_active
+  * _import_state: add lazy_mutex
+  * codecs_state: add search_path_mutex
+  * _py_func_state: add mutex
+  * type_cache_entry: add sequence
+  * _Py_interp_cached_objects: add interned_mutex and descriptor_mutex
+  * add mimalloc
+  * add brc
+  * add unique_ids
+  * add weakref_locks
+  * add tlbc_indices
+  * (Py_STATS) add pystats_mutex
+
+* _PyThreadStateImpl
+
+  * add c_stack_refs;
+  * add gc;
+  * add mimalloc;
+  * add freelists;
+  * add brc;
+  * add refcounts;
+  * add tlbc_index;
+  * add suppress_co_const_immortalization;
+  * add (Py_STATS) pystats_struct
+  * add __padding
 
 * Python C API
 
@@ -532,7 +547,6 @@ Free Threading internals
 
 * Gilectomy
 
-  * Challenge of ref counting: "buffered reference count"
   * Issues with obmalloc
   * GC challenge
   * ``_PyThreadState_GET()``: need for Thread Local Storage (TLS)
