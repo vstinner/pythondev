@@ -409,6 +409,17 @@ Free Threading internals
   * Biased reference counting (BRC) inter-thread queue: ``Python/brc.c``
   * ``PyInterpreterState.brc`` state
 
+* PyThreadState
+
+  * PyThreadState.state
+
+    * _Py_THREAD_DETACHED
+    * _Py_THREAD_ATTACHED
+    * _Py_THREAD_SUSPENDED
+    * _Py_THREAD_SHUTTING_DOWN
+
+  * _PyThreadStateImpl.refcount
+
 * PyMutex: use a single byte
 
   * ``Include/cpython/pylock.h`` defines ``PyMutex``
@@ -560,3 +571,13 @@ Matti Picus `wrote in the numpy bug tracker
     PyPy is no longer under active development, and has not released a
     Python3.12 version.
 
+Rebuild configure
+=================
+
+On FreeBSD, install dependencies::
+
+    sudo pkg install autoconf automake autoconf-archive libtool pkgconf
+
+Run::
+
+    autoreconf -ivf -Werror
