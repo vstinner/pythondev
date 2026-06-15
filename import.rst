@@ -219,6 +219,20 @@ Frozen modules
 * ``PyImport_ExtendInittab()`` copies ``PyImport_Inittab`` to ``inittab_copy``
 * ``_PyRuntime.imports.inittab``
 
+Frozen modules:
+
+* ``PYTHON_FROZEN_MODULES`` env var
+* ``-X frozen_modules=on|off`` command line option
+* ``PyConfig.use_frozen_modules``
+* ``PyInterpreterState.imports.override_frozen_modules``
+* importlib ``FrozenImporter``
+* ``_imp.find_frozen()``
+* ``Python/frozen.c`` defines ``_PyImport_FrozenBootstrap`` and
+  ``_PyImport_FrozenStdlib`` arrays
+* Makefile:
+
+  * ``FROZEN_FILES_IN``
+  * ``FROZEN_FILES_OUT``
 
 Links
 =====
