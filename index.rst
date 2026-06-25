@@ -53,7 +53,8 @@ Development:
    assembly.rst
    garbage_collector.rst
    stdlib.rst
-   wasm.rst
+   emscripten.rst
+   wasi.rst
    import.rst
    limited_capi.rst
 
