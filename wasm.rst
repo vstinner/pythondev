@@ -103,7 +103,7 @@ In the clean CPython checkout, run the container::
 
     podman run -it --rm -v $PWD:/workspace:O -w/workspace wasi-cpython-dev
 
-Now inside the container, build Python for WASI::
+Now inside the container, build Python for WASI (in debug mode)::
 
     python3 Platforms/WASI build -- --config-cache --with-pydebug
 

@@ -360,6 +360,7 @@ Free Threading internals
 
   * https://vstinner.github.io/free-threading-reference-counting.html
   * https://vstinner.github.io/free-threading-deferred-reference-counting.html
+  * https://vstinner.github.io/free-threading-pymutex.html
 
 * PEPs:
 
@@ -404,11 +405,6 @@ Free Threading internals
     is shared.
   * use QSBR (``_PyObject_GC_SET_SHARED()``)
 
-* Biased reference counting
-
-  * Biased reference counting (BRC) inter-thread queue: ``Python/brc.c``
-  * ``PyInterpreterState.brc`` state
-
 * PyThreadState
 
   * PyThreadState.state
@@ -420,42 +416,11 @@ Free Threading internals
 
   * _PyThreadStateImpl.refcount
 
-* PyMutex: use a single byte
-
-  * ``Include/cpython/pylock.h`` defines ``PyMutex``
-  * Parking lot
-  * WebKit WTF Lock
-
-    * https://webkit.org/blog/6161/locking-in-webkit/
-    * https://github.com/WebKit/WebKit/blob/main/Source/WTF/wtf/Lock.h
-
-* Critical section
-
-  * Py_BEGIN_CRITICAL_SECTION()/Py_END_CRITICAL_SECTION()
-  * Py_BEGIN_CRITICAL_SECTION2()/Py_END_CRITICAL_SECTION2()
-  * Use ``PyThreadState.critical_section`` tagged pointer
-  * ``_Py_CRITICAL_SECTION_INACTIVE``
-  * ``_Py_CRITICAL_SECTION_TWO_MUTEXES``
-  * ``_Py_CRITICAL_SECTION_MASK``
-  * Use ``PyObject.ob_mutex`` (PyMutex)
-
-* Atomic operations: ``Include/cpython/pyatomic.h`` (GCC/Clang, MSVC, std)
-
-  * gcc: use GCC built-in functions such as ``__atomic_load_n()``
-  * msc: use MSVC intrinsics such as ``_InterlockedCompareExchange()``
-  * std: use C11 or C++11 atomics such as ``atomic_load()``
-
-* Ref counting
-
-  * ``PyUnstable_Object_IsUniquelyReferenced()``
-  * ``PyUnstable_Object_IsUniqueReferencedTemporary()``
-  * ``Py_SET_REFCNT()``
-  * ``_Py_TryXGetRef()``
-
 * Stop the world
 
   * _PyEval_StopTheWorldAll(), _PyEval_StartTheWorldAll()
   * _PyEval_StopTheWorld(), _PyEval_StartTheWorld()
+  * ceval: call _PyThreadState_Suspend() if _PY_EVAL_PLEASE_STOP_BIT bit is set
   * Examples of operations which have to stop/start the world:
 
     * ``PyRefTracer_SetTracer()``
