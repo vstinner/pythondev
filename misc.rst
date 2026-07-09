@@ -266,16 +266,19 @@ Old deepfreeze. No longer used in Python 3.13:
 Build Python in an Ubuntu container
 ===================================
 
-Create an Ubuntu 22.04 container::
+Create an Ubuntu 26.04 container::
 
-    podman run --rm --name ubuntu-dev --hostname ubuntu-dev --interactive --tty ubuntu:22.04
+    podman run --rm --interactive --tty ubuntu:26.04
 
 In the container::
 
-    apt update && apt install --yes git make clang libssl-dev readline-dev
-    git clone https://github.com/python/cpython --depth=1
+    apt update && apt install --yes git make pkg-config gcc libssl-dev libreadline-dev
+    apt install --yes tk-dev # for _tkinter
+    apt install --yes vim
+    cd && git clone https://github.com/python/cpython --depth=1
     cd cpython
-    ./configure --with-pydebug
+    ./configure --cache-file=../python-config.cache --with-pydebug
+    make -j14
 
 
 make check-c-globals
@@ -476,6 +479,9 @@ Free Threading internals
 
     * _Py_freelists_GET() gets from tstate with Free Threading
     * _Py_freelists_GET() gets from interp otherwise
+
+* _io.BytesIO: add ``buf_shared`` flag.
+  https://github.com/python/cpython/pull/151651/changes
 
 * PyInterpreterState
 
