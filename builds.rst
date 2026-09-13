@@ -12,8 +12,11 @@ Build depenencies
 
 Install Python dependencies on Fedora::
 
-    sudo dnf install make gcc openssl-devel \
-        readline-devel zlib-devel bzip2-devel xz-devel
+    sudo dnf install make gcc g++ openssl-devel readline-devel \
+        zlib-devel bzip2-devel xz-devel expat-devel libffi-devel
+    # g++ is needed by test_cppext
+
+See: https://devguide.python.org/getting-started/setup-building/#build-dependencies
 
 Minimum configure Python for Fedora::
 
