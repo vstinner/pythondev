@@ -34,6 +34,12 @@ Now inside the container, build Python for WASI (in debug mode)::
 
     python3 Platforms/WASI build -- --config-cache --with-pydebug
 
+Or build in two commands to see what's going on::
+
+    python3 Platforms/WASI build-python -- --with-pydebug
+    # inherits build-python configure options
+    python3 Platforms/WASI build-host
+
 Run Python::
 
     cross-build/wasm32-wasip1/python.sh
