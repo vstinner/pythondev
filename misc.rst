@@ -225,11 +225,16 @@ Build Python in 32-bit on Fedora
 
 Install Python dependencies in 32-bit::
 
-    sudo dnf install glibc-devel.i686 libatomic.i686 bzip2-devel.i686 libffi-devel.i686 libuuid-devel.i686 ncurses-devel.i686 openssl-devel.i686 readline-devel.i686 xz-devel.i686 zlib-ng-compat-devel.i686
+    sudo dnf install glibc-devel.i686 libatomic.i686 bzip2-devel.i686 libffi-devel.i686 libuuid-devel.i686 ncurses-devel.i686 openssl-devel.i686 readline-devel.i686 xz-devel.i686 zlib-ng-compat-devel.i686 libzstd-devel.i686
+
+Create ``Modules/Setup.local`` file::
+
+    *disabled*
+    _decimal
 
 Build Python::
 
-    ./configure CFLAGS="-m32" LDFLAGS="-m32"
+    ./configure CFLAGS="-m32" LDFLAGS="-m32" --with-pydebug
     sed -i -e 's!#define PY_HAVE_PERF_TRAMPOLINE 1!#undef PY_HAVE_PERF_TRAMPOLINE!g' pyconfig.h
     make
 
