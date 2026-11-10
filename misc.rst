@@ -557,3 +557,8 @@ On FreeBSD, install dependencies::
 Run::
 
     autoreconf -ivf -Werror
+
+CIFuzz jobs on GitHub Action
+============================
+
+See: https://devguide.python.org/testing/oss-fuzz/
